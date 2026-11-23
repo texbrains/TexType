@@ -1,0 +1,47 @@
+# The checks every pull request and every push to main must pass, on Windows and macOS.
+# Owns: running the repository's own commands (package.json "check"); it defines no checks of its own.
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      # rust-toolchain.toml pins the version; this installs it.
+      - name: Rust toolchain
+        run: rustup toolchain install --profile minimal
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install UI packages
+        run: npm ci
+
+      # The app embeds the built UI (app/tauri.conf.json frontendDist), so it is built before cargo.
+      - name: Build UI
+        run: npm run build:ui
+
+      - name: Structure, Rust tests, build without legacy-import
+        run: npm run check
