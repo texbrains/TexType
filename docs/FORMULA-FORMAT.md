@@ -135,10 +135,14 @@ be checked against VisualTeX's Word tests before they are dropped for good.
 
 **PowerPoint and WPS Presentation** (OLE shapes and pictures). The record is stored in one shape tag,
 `TEXTYPE.FORMULA`, as VisualTeX does with `VisualTeXMetadata`. VisualTeX's PowerPoint add-in also runs in WPS Presentation with a single tag. LaTeXSnipper
-splits its data into 200-character chunks; its code does not say why. Test T7 checks the longest tag value both
-PowerPoint and WPS keep; if there is a limit, the record is split there.
+splits its data into 200-character chunks of uppercase hexadecimal; its code does not say why. Test T7 checks the
+longest tag value PowerPoint and WPS keep, and whether they keep upper and lower case in it. If there is a length
+limit, the record is split there; if case is lost, the record is written in an encoding that does not depend on case.
+VisualTeX's tags working today does not settle the case question: VisualTeX also writes the record into the shape's
+alternative text and reads that when the tag cannot be decoded.
 
 **Word pictures** (Windows and Mac). The record is stored in the picture's title and alternative text, as VisualTeX does.
+Screen readers then read encoded data instead of the formula (open question 6).
 
 ## 6. What is not in the format
 
@@ -172,7 +176,12 @@ Served by `core/convert` (Word equations, MathType) and `ui/kernel` (LaTeX to Ma
 
 Exceptions:
 
-- **Editing a MathType object** keeps the original equation data and changes only what the edit changed.
+- **Editing a MathType object** keeps the original equation data and changes only what the edit changed. If the
+  edit touches something that cannot be written back without loss, the original object is left as it is and the user
+  is told.
 - **Converting back.** If the record's `origin` matches the target format and its fingerprint still matches, the
   original is restored instead of being regenerated (as VisualTeX does with `nativeOmmlFingerprint`).
-- **Old formulas** of the two earlier products are read by `legacy-import/`, which is removed later.
+- **Word native equations carry no LaTeX.** Their LaTeX is derived from the equation's structure each time it is
+  read. Macro names, comments and the way the formula was typed are not recovered.
+- **Old formulas** of the two earlier products are read by `legacy-import/`, which is removed later. The user starts
+  this conversion with one button; it is not the silent migration that rule 4 in section 4 forbids.

@@ -21,6 +21,7 @@ before it is relied on. A proposal becomes a decision only when it moves to the 
 | 2026-11-23 | The product is called TexType. |
 | 2026-11-23 | MathType's typesetting engine is not used at all, also not a copy installed on the user's PC. Only its fonts are used; the typesetting of MathType pictures is our own, lightweight. |
 | 2026-11-23 | No web version. |
+| 2026-11-23 | MathType objects cannot be inserted on the Mac. TexType inserts MathType objects on Windows only. |
 | 2026-11-23 | One conversion interface for all formula formats. TexType's own OLE formula gets a complete, mature data format (`FORMULA-FORMAT.md`). |
 
 ## Proposed, waiting for the owner's yes
@@ -59,9 +60,10 @@ Features of the earlier products that have no part in the tree yet.
 
 1. Does the full VisualTeX application (documents, input method) continue beside this product, and does it share the settings file?
 2. The vendor name and the identifiers in `product.toml` (the name TexType is decided; the other values are placeholders derived from it).
-3. The licence of this repository while it is open, and who must agree before it is closed (every past contributor of code brought in). `core/mathcraft` still carries the partner's licence line (GPL-3.0-only) and licence file as it came; there is no top-level licence file yet. The TeX engine's fonts (from VisualTeX `apps/shared/tex-layout/data`) include GPL fonts (txfonts and newtx math, in the Times profile) and two sets marked "to confirm before distribution" (RSFS, stmaryrd); these matter for a closed release. The MathCraft model files are byte-identical to Pix2Text's public models on Hugging Face (formula recognition = `breezedeus/pix2text-mfr`, MIT; formula detection = `breezedeus/pix2text-mfd-1.5`, MIT on Hugging Face, but the file's own metadata says it is an Ultralytics YOLO11m model under AGPL-3.0); text detection and recognition are PP-OCRv5 (Apache-2.0). Formula-only recognition needs only the recognition model.
+3. Who must agree before the repository is closed (every past contributor of code brought in). The repository's licence file is AGPL-3.0 (chosen when the GitHub repository texbrains/TexType was created). `core/mathcraft` still carries the partner's licence line (GPL-3.0-only) and licence file as it came. The TeX engine's fonts (from VisualTeX `apps/shared/tex-layout/data`) include GPL fonts (txfonts and newtx math, in the Times profile) and two sets marked "to confirm before distribution" (RSFS, stmaryrd); these matter for a closed release. The MathCraft model files are byte-identical to Pix2Text's public models on Hugging Face (formula recognition = `breezedeus/pix2text-mfr`, MIT; formula detection = `breezedeus/pix2text-mfd-1.5`, MIT on Hugging Face, but the file's own metadata says it is an Ultralytics YOLO11m model under AGPL-3.0); text detection and recognition are PP-OCRv5 (Apache-2.0). Formula-only recognition needs only the recognition model.
 4. Which of the left-out features above belong in the first release, if any?
 5. Structures the MathType engine does not cover yet: draw them with the TeX engine for now (preview differs from MathType's), or do not allow inserting them as MathType until covered?
+6. Word picture formulas keep the record in the picture's title and alternative text, as VisualTeX does, so screen readers read encoded data. Keep that, or put readable text (the LaTeX) in the alternative text and the record in the title only (its length limit is part of test T7)?
 
 ## To test before relying on it
 
@@ -73,5 +75,5 @@ Features of the earlier products that have no part in the tree yet.
 | T4 | Real MathType 6.9 and 7.x installs: each reads and edits our equations; we read theirs. | C5 |
 | T5 | A per-user install of MathType's fonts against Office's own older font of the same name, inside Word. | A6, P9 |
 | T6 | Editing a MathType equation that carries MathType-only details (nudged positions, per-character fonts) without losing them. | C4 |
-| T7 | The longest shape-tag value PowerPoint and WPS Presentation keep (VisualTeX uses one tag, LaTeXSnipper 200-character chunks). | `FORMULA-FORMAT.md` §5 |
+| T7 | The longest shape-tag value PowerPoint and WPS Presentation keep, and whether they keep upper and lower case in it; the longest title and alternative text Word keeps on a picture. (VisualTeX uses one tag and also writes the alternative text; LaTeXSnipper writes uppercase hexadecimal in 200-character chunks.) | `FORMULA-FORMAT.md` §5 |
 | T8 | Word placement of OLE formulas computed from baseline and ink bounds, against VisualTeX's stored placement values and its Word tests. | `FORMULA-FORMAT.md` §3 |

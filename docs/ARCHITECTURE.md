@@ -106,7 +106,7 @@ These rules keep a change in one place. `node tools/check-structure.mjs` checks 
 | S5 | One definition. Settings, messages and the formula record are defined once in the core. | review |
 | S6 | One name. The product's technical identifiers are in `product.toml` only. The earlier products' names appear only in `docs/` and `legacy-import/`. | ✔ |
 | S7 | The old-format reader is removable. It is outside `core/`, depends only on core crates, and only `app/src/legacy.rs` uses it, behind the optional feature `legacy-import`. The app builds without it (`cargo build -p app --no-default-features`, part of `npm run check`). Removing it = deleting `legacy-import/`, `app/src/legacy.rs`, and its dependency and feature lines in `app/Cargo.toml`. | ✔ |
-| S8 | No compatibility layers. A stored record with an unsupported schema version is refused with a clear message; formats are not migrated silently. | review |
+| S8 | No compatibility layers. A stored record with an unsupported schema version is refused with a clear message; formats are not migrated silently. The one-click conversion of old formulas (B2) is started by the user and is not a migration in this sense. | review |
 | S9 | No file grows without limit: 1,000 lines per source file. A file that reaches the limit is split by responsibility. | ✔ |
 | S10 | No Python in the product. | ✔ |
 | S11 | Nothing is added for symmetry. A new part needs a feature that requires it. | review |
@@ -151,6 +151,11 @@ A narrower scope wins over a wider one.
 - Fonts: MathType's fonts come through one switch in `app/src/install.rs` (bundled, or downloaded from the vendor).
 - Numbering and document settings in MathType documents are MathType's own: fields (MTPlaceRef, MTEqn, MTChap,
   MTSec), bookmarks, the character style MTEquationSection and the document property MTEqnNumsOnRight.
+- Insertion (Windows): the object is packed into a Word or PowerPoint package and inserted from there, so no
+  MathType program is needed. Both products do this today: VisualTeX `MathTypeWordOpenXml.cs` (Word) and a staged
+  presentation in `PowerPointFormulaService.MathType.cs` (PowerPoint); LaTeXSnipper `MathTypeWordPackage.cs` and
+  `MathTypePowerPointPackage.cs`.
+- MathType objects are inserted on Windows only. They cannot be inserted on the Mac.
 
 ## Commands
 
