@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = [
+    "core/formula-format",
+    "core/convert",
+    "core/settings",
+    "core/protocol",
+    "core/mathcraft",
+    "legacy-import",
+    "app",
+]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.85"
+publish = false
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "s"
+strip = true

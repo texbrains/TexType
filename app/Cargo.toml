@@ -1,0 +1,28 @@
+[package]
+name = "app"
+description = "The main application and the background service the add-ins talk to."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+protocol = { path = "../core/protocol" }
+mathcraft = { path = "../core/mathcraft" }
+# Reads formulas of the two earlier products (one-click conversion). Temporary: build without it with
+# cargo build -p app --no-default-features; to remove it, delete legacy-import/, this line and the feature.
+legacy-import = { path = "../legacy-import", optional = true }
+anyhow = "1"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "webp", "gif", "tiff"] }
+
+# Windows and macOS get the windows (Tauri). Other systems build the command line only, which keeps the
+# modules testable on any machine.
+[target.'cfg(any(windows, target_os = "macos"))'.dependencies]
+tauri = { version = "2", features = ["custom-protocol"] }
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[features]
+default = ["legacy-import"]
+legacy-import = ["dep:legacy-import"]

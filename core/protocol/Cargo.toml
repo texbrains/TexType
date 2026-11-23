@@ -1,0 +1,13 @@
+[package]
+name = "protocol"
+description = "Messages between the app and the add-ins, and the product's identifiers."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+build = "build.rs"
+
+[dependencies]
+
+[build-dependencies]
+toml = "0.8"

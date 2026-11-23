@@ -1,0 +1,13 @@
+{
+  "name": "@app/app-ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@app/editor": "*",
+    "@app/kernel": "*"
+  },
+  "scripts": {
+    "build": "vite build"
+  }
+}

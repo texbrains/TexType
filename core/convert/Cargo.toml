@@ -1,0 +1,10 @@
+[package]
+name = "convert"
+description = "The one conversion interface: every formula format to and from a TexType formula record."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+formula-format = { path = "../formula-format" }
