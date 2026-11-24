@@ -11,3 +11,9 @@
 //! - no second copy: add-ins keep no settings of their own and ask through the protocol
 //!
 //! Where the first version of this code comes from: docs/SOURCES.md.
+
+mod file;
+mod user;
+
+pub use file::{read, write, Error, SCHEMA_VERSION};
+pub use user::{StyleDefaults, UserSettings};

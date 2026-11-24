@@ -145,7 +145,7 @@ const EARLIER = [new RegExp('visual' + 'tex', 'i'), new RegExp('latex' + 'snippe
 const EARLIER_ALLOWED = ['docs/', 'legacy-import/', 'core/mathcraft/'];
 // ---- Rule 5: the product's technical identifiers are written in product.toml only.
 // The technical identifiers only; the product name itself may appear in prose and comments.
-const productValues = [...read(join(root, 'product.toml')).matchAll(/^(identifier|ole_progid|pipe_name)\s*=\s*"([^"]+)"/gm)]
+const productValues = [...read(join(root, 'product.toml')).matchAll(/^(?!name\b|vendor\b)(\w+)\s*=\s*"([^"]+)"/gm)]
   .map((match) => match[2])
   .filter((value) => value.length >= 6);
 for (const file of allFiles) {
@@ -157,7 +157,9 @@ for (const file of allFiles) {
       if (pattern.test(text)) fail('names', `${path} names an earlier product: only docs/ and legacy-import/ may`);
     }
   }
-  if (path !== 'product.toml' && path !== 'README.md' && path !== 'app/tauri.conf.json' && !path.startsWith('docs/')) {
+  // testing/corpus and testing/fixtures hold stored formulas and documents, which carry the identifiers by nature.
+  const IDENTIFIERS_ALLOWED = ['docs/', 'testing/corpus/', 'testing/fixtures/'];
+  if (path !== 'product.toml' && path !== 'README.md' && path !== 'app/tauri.conf.json' && !IDENTIFIERS_ALLOWED.some((prefix) => path.startsWith(prefix))) {
     for (const value of productValues) {
       if (text.includes(value)) fail('names', `${path} spells out "${value}": read it from core/protocol (product.toml)`);
     }

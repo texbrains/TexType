@@ -75,8 +75,9 @@ entry, Mac LaunchAgent, as VisualTeX does); an add-in that finds it not running 
 | The picture of a MathType equation | Our own lightweight engine that follows MathType's rules, with MathType's fonts; checked against genuine MathType pictures | `core/convert` |
 
 - The same engine draws the editor and the inserted picture, so what the user edits is what lands in the document.
-- MathJax converts LaTeX to MathML, which feeds `core/convert`. It draws only as a fallback: when our engine refuses
-  a command, that one formula's picture is drawn by MathJax.
+- MathJax converts LaTeX to MathML, which feeds `core/convert`. It draws nothing. A command our engine does not know
+  is shown as its text, as in VisualTeX.
+- For the add-ins, the app runs the engine in a hidden web view (the render page), as VisualTeX does.
 - A MathType equation opened in our editor is shown in our own look while it is edited; in the document its picture
   is drawn by MathType's rules.
 

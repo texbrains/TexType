@@ -19,9 +19,12 @@ pub mod product {
     include!(concat!(env!("OUT_DIR"), "/product.rs"));
 }
 
-/// Version of the app <-> add-in protocol. A peer with another major version
-/// is refused with a clear message instead of being half understood.
-pub const PROTOCOL_VERSION: u32 = 1;
+mod messages;
+
+pub use messages::{
+    decode_request, encode_response, welcome, ErrorCode, Hello, Host, Request, RequestBody,
+    Response, ResponseBody, PROTOCOL_VERSION,
+};
 
 #[cfg(test)]
 mod tests {

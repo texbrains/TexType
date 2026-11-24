@@ -1,2 +1,6 @@
 # One line ending for Windows and macOS: LF in the repository and in every checkout.
 * text=auto eol=lf
+
+# Stored test records that are deliberately not plain UTF-8 text.
+testing/corpus/formula-format/invalid/bom.json binary
+testing/corpus/formula-format/invalid/not-utf8.json binary

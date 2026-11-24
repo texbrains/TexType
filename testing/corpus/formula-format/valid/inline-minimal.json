@@ -1,0 +1,53 @@
+{
+  "format": "textype.formula",
+  "version": [
+    1,
+    0
+  ],
+  "id": "0b9d4c8e-1a2f-4e3d-8c7b-6a5f4e3d2c1b",
+  "source": {
+    "latex": "E=mc^2",
+    "display": false
+  },
+  "numbering": {
+    "mode": "none",
+    "tag": null
+  },
+  "style": {
+    "fontProfile": "ntx",
+    "faces": {
+      "letters": "profile",
+      "greek": "profile",
+      "digits": "Times New Roman"
+    },
+    "mathStyle": "default",
+    "cjkFont": "SimSun",
+    "sizePt": 12,
+    "color": "#000000"
+  },
+  "layout": {
+    "engine": "textype-tex",
+    "engineVersion": "1.0.0",
+    "widthPt": 48.21,
+    "heightPt": 13.46,
+    "baselinePt": 9.84,
+    "inkTopPt": 0.4,
+    "inkBottomPt": 13.1
+  },
+  "mathml": "<math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></math>",
+  "preview": {
+    "sha256": "9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b9b",
+    "emfBytes": 18234,
+    "pngBytes": 40211
+  },
+  "created": {
+    "app": "1.0.0",
+    "platform": "windows",
+    "at": "2026-11-23T08:30:00Z"
+  },
+  "modified": {
+    "app": "1.0.0",
+    "platform": "macos",
+    "at": "2026-11-23T08:31:12.250Z"
+  }
+}
