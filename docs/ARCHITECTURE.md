@@ -143,19 +143,23 @@ A narrower scope wins over a wider one.
 
 ## MathType
 
-- Equation data: written and read by `core/convert`, exactly in MathType's format, for MathType 6 and 7.
+- Equation data: written and read by `core/convert`, exactly in MathType's format, for MathType 6 and 7. The code is
+  ported from VisualTeX's C# codec.
 - Picture: always drawn by our own lightweight engine in `core/convert`, by MathType's rules; the picture names
   MathType's fonts as MathType does. MathType itself is never used to draw, also not when it is installed.
 - Structures the engine does not cover yet: drawn by our TeX engine in its Times setting for now, or not insertable as
   MathType until covered. Open question 5 in `DECISIONS.md`; the first option does not meet requirement C2.
-- Fonts: MathType's fonts come through one switch in `app/src/install.rs` (bundled, or downloaded from the vendor).
+- Fonts: MathType's fonts are bundled in the installer and installed by `app/src/install.rs`, on Windows and macOS.
 - Numbering and document settings in MathType documents are MathType's own: fields (MTPlaceRef, MTEqn, MTChap,
   MTSec), bookmarks, the character style MTEquationSection and the document property MTEqnNumsOnRight.
 - Insertion (Windows): the object is packed into a Word or PowerPoint package and inserted from there, so no
   MathType program is needed. Both products do this today: VisualTeX `MathTypeWordOpenXml.cs` (Word) and a staged
   presentation in `PowerPointFormulaService.MathType.cs` (PowerPoint); LaTeXSnipper `MathTypeWordPackage.cs` and
   `MathTypePowerPointPackage.cs`.
-- MathType objects are inserted on Windows only. They cannot be inserted on the Mac.
+- Double-click: a MathType equation opens in TexType's editor, as in VisualTeX. A setting in `core/settings` lets
+  MathType open it instead while MathType is installed; without MathType, TexType's editor always opens.
+- MathType objects are inserted on Windows only. They cannot be inserted on the Mac. On the Mac, MathType equations
+  in a document are only displayed, with the bundled fonts; they are not read, edited or converted there.
 
 ## Commands
 

@@ -28,6 +28,3 @@ tools/       structure check and build tooling
 node tools/check-structure.mjs   # separation rules
 cargo test --workspace           # Rust tests
 ```
-
-State: skeleton. The OCR engine is in place and verified; every other part has its responsibility written down
-and is empty.
