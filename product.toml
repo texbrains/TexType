@@ -1,9 +1,14 @@
 # The product's name and technical identifiers. Code reads them through
-# core/protocol (generated constants). The technical identifiers (identifier,
-# ole_progid, pipe_name) may not be written anywhere else; the name may appear
-# in text. The name is decided; the other values follow from it and can still change.
+# core/protocol and, for the formula format, core/formula-format (generated constants). The technical identifiers (every value but
+# name and vendor) may not be written anywhere else in the product; the name may
+# appear in text. The name is decided; the other values follow from it and can still change.
 name = "TexType"
 vendor = "TexType"
 identifier = "com.textype.app"
 ole_progid = "TexType.Formula.1"
 pipe_name = "textype"
+# The formula format (docs/FORMULA-FORMAT.md): the record's format name and the OLE object's streams.
+formula_format = "textype.formula"
+ole_stream_record = "TexType.Formula"
+ole_stream_emf = "TexType.Preview.emf"
+ole_stream_png = "TexType.Preview.png"

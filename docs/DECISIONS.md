@@ -1,7 +1,7 @@
 # Decisions
 
-Three lists: what the owner decided, what is proposed and still needs the owner's yes, and what must be tested
-before it is relied on. A proposal becomes a decision only when it moves to the first list with a date.
+What the owner decided, what is proposed and still needs the owner's yes, and what must be tested before it is
+relied on. A proposal becomes a decision only when the owner says yes; it then keeps its number and gets a date.
 
 ## Decided by the owner
 
@@ -28,13 +28,14 @@ before it is relied on. A proposal becomes a decision only when it moves to the 
 | 2026-11-24 | On the Mac, MathType equations in a document are only displayed (with the bundled fonts). They are not read, edited or converted there. |
 | 2026-11-24 | Double-clicking a MathType equation works as in VisualTeX: TexType's editor opens. A setting lets MathType open it instead while MathType is installed; without MathType, TexType's editor always opens. |
 | 2026-11-24 | MathType 6 is tested as well as MathType 7 (test T4). |
+| 2026-11-24 | The app draws pictures for the add-ins by running the TeX engine in a hidden web view, as VisualTeX does. |
 
-## Proposed, waiting for the owner's yes
+## Earlier proposals, decided by the owner on 2026-11-24
 
-| No. | Proposal | Alternative | Why proposed |
+| No. | Decision | Alternative not taken | Why |
 |---|---|---|---|
 | P1 | Rust for the core and the app. | Go. | Existing Rust code (OCR engine, OMML converters), Tauri. |
-| P2 | Editing and typesetting are VisualTeX's kernel and its own layout engine. MathJax converts LaTeX to MathML and draws only as a fallback for commands our engine refuses. | LaTeXSnipper's way: stock MathLive for editing, MathJax for drawing. | One engine draws both the editor and the inserted picture; it is checked against real LaTeX; it already handles font choices and spacing settings. |
+| P2 | Editing and typesetting are VisualTeX's kernel and its own TeX layout engine, which draws the editor and every picture in our own look. MathJax converts LaTeX to MathML and draws nothing. A command the engine does not know is shown as its text, as in VisualTeX. | LaTeXSnipper's way: stock MathLive for editing, MathJax for drawing. | One engine draws both the editor and the inserted picture; it is checked against real LaTeX; it already handles font choices and spacing settings. |
 | P3 | The Windows add-in is built on VisualTeX's add-in: the same shape (Word, PowerPoint, Shared), Office called through the typed object model. | LaTeXSnipper's shape: adapter interfaces and late-bound calls. | It is the mature one, it already runs in WPS, and its speed work is in how it calls Word. What changes is its size: conversions leave C#, and files are split by area. |
 | P4 | Numbering and references stay in the add-ins, as today. | Shared numbering rules in the core. | The hard part is how Word lays the number out, which is add-in work anyway. |
 | P5 | Word and PowerPoint for Mac stay add-in files in VBA. | Office.js add-in with a local host, as LaTeXSnipper has. | Full object model, proven numbering speed; VisualTeX retired Office.js once. |
@@ -44,6 +45,10 @@ before it is relied on. A proposal becomes a decision only when it moves to the 
 | P10 | One path between add-ins and app: a named pipe on Windows. | Local HTTPS server with a certificate, as both projects have today; or an extra in-process library for speed. | No certificate and no fixed port on Windows, nothing to repair; a second path is added only if a measurement asks for it. The Mac keeps VisualTeX's channels (AppleScriptTask, loopback HTTP for WPS). |
 | P11 | Source files are limited to 1,000 lines. | Another number, or no limit. | Requirement D2: large files are where patches pile up. |
 | P12 | The first release targets Windows (Word, PowerPoint, WPS Writer, WPS Presentation); macOS follows. | Both at once. | Largest code and test effort is on Windows. |
+
+## Proposed, waiting for the owner's yes
+
+None.
 
 ## Left out until the owner asks for them
 

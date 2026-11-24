@@ -57,9 +57,9 @@ ideas. Nothing is taken only so that both are represented.
 | What | Where it was | Why |
 |---|---|---|
 | Python recognition runtime | VisualTeX (222–230 MB), LaTeXSnipper desktop and Mac host | Requirement A7; replaced by `core/mathcraft` |
-| Local HTTPS server and certificate on Windows | VisualTeX (port 43127), LaTeXSnipper's Mac host | Proposal P10 (the Mac keeps loopback HTTP for WPS) |
-| MathJax as a drawing engine; stock MathLive as the editor | LaTeXSnipper | Proposal P2 |
-| Adapter interfaces and late-bound Office calls | LaTeXSnipper's Windows add-in | Proposal P3 |
-| Office.js add-in for Mac | LaTeXSnipper, Lite | Proposal P5 |
+| Local HTTPS server and certificate on Windows | VisualTeX (port 43127), LaTeXSnipper's Mac host | Decision P10 (the Mac keeps loopback HTTP for WPS) |
+| MathJax as a drawing engine; stock MathLive as the editor | LaTeXSnipper | Decision P2 |
+| Adapter interfaces and late-bound Office calls | LaTeXSnipper's Windows add-in | Decision P3 |
+| Office.js add-in for Mac | LaTeXSnipper, Lite | Decision P5 |
 | Converters written in C# | VisualTeX (`WordOmml*.cs`, `MathMlToLatexConverter.cs`, MTEF codec) | The core does this once for both platforms |
 | The earlier formula formats | both projects | Requirement B1; readable only through `legacy-import/` |

@@ -1010,6 +1010,12 @@ dependencies = [
 [[package]]
 name = "formula-format"
 version = "0.0.0"
+dependencies = [
+ "cfb",
+ "serde",
+ "serde_json",
+ "toml 0.8.2",
+]
 
 [[package]]
 name = "futures-channel"
@@ -2916,6 +2922,9 @@ dependencies = [
 name = "protocol"
 version = "0.0.0"
 dependencies = [
+ "serde",
+ "serde_json",
+ "settings",
  "toml 0.8.2",
 ]
 
@@ -3474,6 +3483,11 @@ dependencies = [
 [[package]]
 name = "settings"
 version = "0.0.0"
+dependencies = [
+ "formula-format",
+ "serde",
+ "serde_json",
+]
 
 [[package]]
 name = "sha2"

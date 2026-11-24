@@ -3,7 +3,7 @@
 **Owns**
 
 - the math fonts the product draws with
-- the MathType font step: one switch between bundled and downloaded from the vendor
+- the bundled MathType fonts (the 18 Design Science fonts), installed by `app/src/install.rs`
 
 **Limits**
 

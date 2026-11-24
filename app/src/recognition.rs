@@ -32,7 +32,11 @@ pub fn list_models(root: &Path) -> Vec<String> {
     MODEL_IDS
         .iter()
         .map(|id| {
-            let state = if modelhub::is_installed(root, id) { "installed" } else { "missing" };
+            let state = if modelhub::is_installed(root, id) {
+                "installed"
+            } else {
+                "missing"
+            };
             format!("{id}: {state}")
         })
         .collect()
@@ -78,19 +82,27 @@ fn models_dir(args: &[String]) -> Result<PathBuf> {
 
 /// The recognition commands of the command line. Returns false for any other command.
 pub fn command(args: &[String]) -> Result<bool> {
-    match (args.first().map(String::as_str), args.get(1).map(String::as_str)) {
+    match (
+        args.first().map(String::as_str),
+        args.get(1).map(String::as_str),
+    ) {
         (Some("models"), Some("list")) => {
             for line in list_models(&models_dir(args)?) {
                 println!("{line}");
             }
         }
         (Some("models"), Some("download")) => {
-            let id = args.get(2).ok_or_else(|| anyhow!("models download <model-id>"))?;
+            let id = args
+                .get(2)
+                .ok_or_else(|| anyhow!("models download <model-id>"))?;
             download_model(&models_dir(args)?, id)?;
         }
         (Some("ocr"), Some(image)) => {
             let mode = flag(args, "--mode").unwrap_or_else(|| "formula".into());
-            println!("{}", recognize_file(&models_dir(args)?, image.as_ref(), &mode)?);
+            println!(
+                "{}",
+                recognize_file(&models_dir(args)?, image.as_ref(), &mode)?
+            );
         }
         _ => return Ok(false),
     }

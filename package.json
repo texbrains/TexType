@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "check:structure": "node tools/check-structure.mjs",
-    "check": "node tools/check-structure.mjs && cargo test --workspace && cargo build -p app --no-default-features",
+    "check": "node tools/check-structure.mjs && cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace && cargo build -p app --no-default-features",
     "build:ui": "npm run build -w @app/app-ui",
     "build:app": "npm run build:ui && cargo build -p app"
   },

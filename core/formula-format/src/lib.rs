@@ -12,3 +12,21 @@
 //! - an unsupported or damaged record is refused with a precise error, never repaired or migrated
 //!
 //! Where the first version of this code comes from: docs/SOURCES.md.
+
+mod error;
+mod record;
+mod storage;
+mod stored;
+
+/// The format's identifiers, generated from product.toml.
+pub mod identifiers {
+    include!(concat!(env!("OUT_DIR"), "/identifiers.rs"));
+}
+
+pub use error::Error;
+pub use record::{
+    Faces, Layout, Line, Numbering, NumberingMode, Origin, Platform, Preview, Record, Source,
+    Stamp, Style, Symbol, SymbolClass,
+};
+pub use storage::{read_object, ObjectContents};
+pub use stored::{read, write, CURRENT_VERSION, MAX_PREVIEW_BYTES, MAX_RECORD_BYTES};

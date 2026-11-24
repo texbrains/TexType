@@ -1,0 +1,1 @@
+{"id":1,"body":{"type":"error","code":"protocol-mismatch","message":"the add-in speaks protocol 2 and the app speaks 1; install the same release of both"}}

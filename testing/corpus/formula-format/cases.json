@@ -1,0 +1,134 @@
+[
+  {
+    "file": "valid/full.json",
+    "expect": "ok"
+  },
+  {
+    "file": "valid/inline-minimal.json",
+    "expect": "ok"
+  },
+  {
+    "file": "valid/manual-number.json",
+    "expect": "ok"
+  },
+  {
+    "file": "valid/newer-minor-unknown-fields.json",
+    "expect": "ok"
+  },
+  {
+    "file": "invalid/wrong-format.json",
+    "expect": "wrong-format"
+  },
+  {
+    "file": "invalid/no-format.json",
+    "expect": "wrong-format"
+  },
+  {
+    "file": "invalid/newer-major.json",
+    "expect": "newer-version"
+  },
+  {
+    "file": "invalid/version-zero.json",
+    "expect": "unsupported-version"
+  },
+  {
+    "file": "invalid/version-as-text.json",
+    "expect": "invalid:version"
+  },
+  {
+    "file": "invalid/missing-latex.json",
+    "expect": "schema"
+  },
+  {
+    "file": "invalid/bad-platform.json",
+    "expect": "schema"
+  },
+  {
+    "file": "invalid/bad-symbol-class.json",
+    "expect": "schema"
+  },
+  {
+    "file": "invalid/bad-id.json",
+    "expect": "invalid:id"
+  },
+  {
+    "file": "invalid/empty-latex.json",
+    "expect": "invalid:source.latex"
+  },
+  {
+    "file": "invalid/one-line.json",
+    "expect": "invalid:source.lines"
+  },
+  {
+    "file": "invalid/repeated-line-ids.json",
+    "expect": "invalid:source.lines"
+  },
+  {
+    "file": "invalid/manual-without-tag.json",
+    "expect": "invalid:numbering.tag"
+  },
+  {
+    "file": "invalid/auto-with-tag.json",
+    "expect": "invalid:numbering.tag"
+  },
+  {
+    "file": "invalid/empty-font-profile.json",
+    "expect": "invalid:style.fontProfile"
+  },
+  {
+    "file": "invalid/zero-size.json",
+    "expect": "invalid:style.sizePt"
+  },
+  {
+    "file": "invalid/bad-color.json",
+    "expect": "invalid:style.color"
+  },
+  {
+    "file": "invalid/symbol-without-backslash.json",
+    "expect": "invalid:symbols.command"
+  },
+  {
+    "file": "invalid/negative-width.json",
+    "expect": "invalid:layout"
+  },
+  {
+    "file": "invalid/bad-engine-version.json",
+    "expect": "invalid:layout.engineVersion"
+  },
+  {
+    "file": "invalid/not-mathml.json",
+    "expect": "invalid:mathml"
+  },
+  {
+    "file": "invalid/bad-fingerprint.json",
+    "expect": "invalid:origin.fingerprint"
+  },
+  {
+    "file": "invalid/bad-preview-hash.json",
+    "expect": "invalid:preview.sha256"
+  },
+  {
+    "file": "invalid/emf-over-limit.json",
+    "expect": "invalid:preview.emfBytes"
+  },
+  {
+    "file": "invalid/local-time.json",
+    "expect": "invalid:modified.at"
+  },
+  {
+    "file": "invalid/bad-app-version.json",
+    "expect": "invalid:created.app"
+  },
+  {
+    "file": "invalid/not-json.json",
+    "expect": "not-json"
+  },
+  {
+    "file": "invalid/bom.json",
+    "expect": "bom"
+  },
+  {
+    "file": "invalid/not-utf8.json",
+    "expect": "not-utf8"
+  }
+]
