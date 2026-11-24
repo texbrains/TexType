@@ -23,6 +23,11 @@ before it is relied on. A proposal becomes a decision only when it moves to the 
 | 2026-11-23 | No web version. |
 | 2026-11-23 | MathType objects cannot be inserted on the Mac. TexType inserts MathType objects on Windows only. |
 | 2026-11-23 | One conversion interface for all formula formats. TexType's own OLE formula gets a complete, mature data format (`FORMULA-FORMAT.md`). |
+| 2026-11-24 | MathType's fonts (the 18 Design Science fonts, not the optional Tiger fonts) are bundled in the installer. There is no online download. |
+| 2026-11-24 | MathType's equation data and the engine that draws MathType pictures are both Rust, in `core/convert`. The equation data code is ported from VisualTeX's C# codec. |
+| 2026-11-24 | On the Mac, MathType equations in a document are only displayed (with the bundled fonts). They are not read, edited or converted there. |
+| 2026-11-24 | Double-clicking a MathType equation works as in VisualTeX: TexType's editor opens. A setting lets MathType open it instead while MathType is installed; without MathType, TexType's editor always opens. |
+| 2026-11-24 | MathType 6 is tested as well as MathType 7 (test T4). |
 
 ## Proposed, waiting for the owner's yes
 
@@ -36,7 +41,6 @@ before it is relied on. A proposal becomes a decision only when it moves to the 
 | P6 | Word's native equations stay pure Word (no hidden variables or controls); the LaTeX is re-derived when read. | Store exact LaTeX in document variables and content controls, as LaTeXSnipper does. | Survives copying between documents and editing by others; nothing of ours is left in the document. |
 | P7 | Our own OLE object and picture formulas carry the full formula record (`FORMULA-FORMAT.md`). | — | Exact source and style where the format allows it. |
 | P8 | MathType pictures: genuine records that name MathType's fonts, always. | Draw our own outlines for symbols from MathType-only fonts. | Requirement C2. |
-| P9 | MathType's fonts are bundled, behind one switch that can change to "download from the vendor". | Download only. | Requirement A6. Needs written permission or a lawyer's sign-off before a closed or commercial release. |
 | P10 | One path between add-ins and app: a named pipe on Windows. | Local HTTPS server with a certificate, as both projects have today; or an extra in-process library for speed. | No certificate and no fixed port on Windows, nothing to repair; a second path is added only if a measurement asks for it. The Mac keeps VisualTeX's channels (AppleScriptTask, loopback HTTP for WPS). |
 | P11 | Source files are limited to 1,000 lines. | Another number, or no limit. | Requirement D2: large files are where patches pile up. |
 | P12 | The first release targets Windows (Word, PowerPoint, WPS Writer, WPS Presentation); macOS follows. | Both at once. | Largest code and test effort is on Windows. |
@@ -72,8 +76,8 @@ Features of the earlier products that have no part in the tree yet.
 | T1 | OCR accuracy of MathCraft against the model VisualTeX ships today, on VisualTeX's formula-OCR metrics. | A9 |
 | T2 | The OLE object as an in-process library versus a separate server program, in Word and WPS at both bitnesses. | `hosts/windows/OleObject` |
 | T3 | The MathType engine trial: simplest structures first, count how many genuine MathType pictures come out identical. | C2, P8 |
-| T4 | Real MathType 6.9 and 7.x installs: each reads and edits our equations; we read theirs. | C5 |
-| T5 | A per-user install of MathType's fonts against Office's own older font of the same name, inside Word. | A6, P9 |
+| T4 | Real MathType 6.9 and 7.x installs: each reads and edits our equations; we read theirs. Needs a machine with both versions installed. | C5 |
+| T5 | A per-user install of the bundled MathType fonts against Office's own older font of the same name, inside Word. | A6 |
 | T6 | Editing a MathType equation that carries MathType-only details (nudged positions, per-character fonts) without losing them. | C4 |
 | T7 | The longest shape-tag value PowerPoint and WPS Presentation keep, and whether they keep upper and lower case in it; the longest title and alternative text Word keeps on a picture. (VisualTeX uses one tag and also writes the alternative text; LaTeXSnipper writes uppercase hexadecimal in 200-character chunks.) | `FORMULA-FORMAT.md` §5 |
 | T8 | Word placement of OLE formulas computed from baseline and ink bounds, against VisualTeX's stored placement values and its Word tests. | `FORMULA-FORMAT.md` §3 |

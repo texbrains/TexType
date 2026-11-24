@@ -59,7 +59,7 @@ the background service the add-ins talk to.
 | A4, A5 | `app/` is one program: the main window and the service behind the add-ins. `core/settings` is the only settings store; add-ins keep none. |
 | A6 | Everything a formula needs runs inside the app or the add-in. No Windows service, no separate runtime, no manual font step (`app/src/install.rs` owns the font step). |
 | A7 | No Python, no Java, no MathType programs. Recognition models are downloaded on first use. |
-| A8 | Third-party material is limited to permissively licensed libraries, the partner's own engine, and (pending permission) MathType's fonts behind one switch. Not yet met: some fonts of the TeX engine's Times profile are GPL, and two other font sets are marked "to confirm before distribution" (open question 3 in `DECISIONS.md`). |
+| A8 | Third-party material is limited to permissively licensed libraries, the partner's own engine, and MathType's fonts (bundled). Not yet met: some fonts of the TeX engine's Times profile are GPL, and two other font sets are marked "to confirm before distribution" (open question 3 in `DECISIONS.md`). |
 | A9 | `core/mathcraft` is the partner's engine, unchanged. Its results are checked against the reference results of the original engine (`core/mathcraft/tests/parity.rs`). |
 | B1–B3 | `legacy-import/` (outside `core/`) is the only place that knows the old formats. Only `app/src/legacy.rs` uses it, behind an optional feature; the app is built without it on every check, so deleting it leaves everything else compiling. |
 | C1, C3, C4 | `core/convert` reads and writes MathType's equation data and keeps what it does not interpret. `hosts/windows/Word` handles MathType's own fields, bookmarks, character style and document property. |
