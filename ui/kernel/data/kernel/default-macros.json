@@ -1,0 +1,872 @@
+{
+ "varparallel": {
+  "def": "\\mathrel{⫽}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "parallelslant": {
+  "def": "\\mathrel{⫽}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "sslash": {
+  "def": "\\mathbin{⫽}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dots": {
+  "def": "\\ldots",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dotsc": {
+  "def": "\\ldots",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dotso": {
+  "def": "\\ldots",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dotsb": {
+  "def": "\\cdots",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dotsm": {
+  "def": "\\cdots",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dotsi": {
+  "def": "\\cdots",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qed": {
+  "def": "\\square",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qedsymbol": {
+  "def": "\\square",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "diagdown": {
+  "def": "\\backslash",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "thinspace": {
+  "def": "\\,",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "negthinspace": {
+  "def": "\\!",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "medspace": {
+  "def": "\\:",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "negmedspace": {
+  "def": "\\mkern-4mu",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "thickspace": {
+  "def": "\\;",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "negthickspace": {
+  "def": "\\mkern-5mu",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "pod": {
+  "def": "\\quad(#1)",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "substack": {
+  "def": "\\begin{array}{c}#1\\end{array}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "prescript": {
+  "def": "{}^{#1}_{#2}#3",
+  "args": 3,
+  "expand": false,
+  "captureSelection": false
+ },
+ "sideset": {
+  "def": "{}#1#3#2",
+  "args": 3,
+  "expand": false,
+  "captureSelection": false
+ },
+ "varE": {
+  "def": "\\mathcal{E}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "ordersymbol": {
+  "def": "\\mathcal{O}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "divisionsymbol": {
+  "def": "\\div",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "quantity": {
+  "def": "\\left\\{#1\\right\\}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "pqty": {
+  "def": "\\left(#1\\right)",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "bqty": {
+  "def": "\\left[#1\\right]",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "Bqty": {
+  "def": "\\left\\{#1\\right\\}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vqty": {
+  "def": "\\left\\lvert #1\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "pmqty": {
+  "def": "\\begin{pmatrix}#1\\end{pmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "Pmqty": {
+  "def": "\\left\\lgroup\\begin{matrix}#1\\end{matrix}\\right\\rgroup",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "bmqty": {
+  "def": "\\begin{bmatrix}#1\\end{bmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vmqty": {
+  "def": "\\begin{vmatrix}#1\\end{vmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "matrixquantity": {
+  "def": "\\begin{matrix}#1\\end{matrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "mqty": {
+  "def": "\\begin{matrix}#1\\end{matrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "matrixdeterminant": {
+  "def": "\\begin{vmatrix}#1\\end{vmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "mdet": {
+  "def": "\\begin{vmatrix}#1\\end{vmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "spmqty": {
+  "def": "\\left(\\begin{smallmatrix}#1\\end{smallmatrix}\\right)",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "sPmqty": {
+  "def": "\\left\\lgroup\\begin{smallmatrix}#1\\end{smallmatrix}\\right\\rgroup",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "sbmqty": {
+  "def": "\\left[\\begin{smallmatrix}#1\\end{smallmatrix}\\right]",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "svmqty": {
+  "def": "\\left\\lvert\\begin{smallmatrix}#1\\end{smallmatrix}\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "smallmatrixquantity": {
+  "def": "\\begin{smallmatrix}#1\\end{smallmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "smqty": {
+  "def": "\\begin{smallmatrix}#1\\end{smallmatrix}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "smallmatrixdeterminant": {
+  "def": "\\left\\lvert\\begin{smallmatrix}#1\\end{smallmatrix}\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "smdet": {
+  "def": "\\left\\lvert\\begin{smallmatrix}#1\\end{smallmatrix}\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "absolutevalue": {
+  "def": "\\left\\lvert #1\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "order": {
+  "def": "\\mathcal{O}\\left(#1\\right)",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "evaluated": {
+  "def": "\\left.#1\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "eval": {
+  "def": "\\left.#1\\right\\rvert",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "poissonbracket": {
+  "def": "\\left\\{#1,#2\\right\\}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "commutator": {
+  "def": "\\left[#1,#2\\right]",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "anticommutator": {
+  "def": "\\left\\{#1,#2\\right\\}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acommutator": {
+  "def": "\\left\\{#1,#2\\right\\}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "anticomm": {
+  "def": "\\left\\{#1,#2\\right\\}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vectorbold": {
+  "def": "\\mathbf{#1}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vectorarrow": {
+  "def": "\\vec{\\mathbf{#1}}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vectorunit": {
+  "def": "\\mathbf{\\hat{#1}}",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dotproduct": {
+  "def": "\\boldsymbol{\\cdot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vdot": {
+  "def": "\\boldsymbol{\\cdot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "crossproduct": {
+  "def": "\\boldsymbol{\\times}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "cross": {
+  "def": "\\boldsymbol{\\times}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "cp": {
+  "def": "\\boldsymbol{\\times}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vnabla": {
+  "def": "\\boldsymbol{\\nabla}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "gradient": {
+  "def": "\\boldsymbol{\\nabla}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "grad": {
+  "def": "\\boldsymbol{\\nabla}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "divergence": {
+  "def": "\\boldsymbol{\\nabla}\\boldsymbol{\\cdot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "curl": {
+  "def": "\\boldsymbol{\\nabla}\\boldsymbol{\\times}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "laplacian": {
+  "def": "\\nabla^{2}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "trace": {
+  "def": "\\operatorname{tr}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "Trace": {
+  "def": "\\operatorname{Tr}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "rank": {
+  "def": "\\operatorname{rank}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "erf": {
+  "def": "\\operatorname{erf}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "Residue": {
+  "def": "\\operatorname{Res}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "tr": {
+  "def": "\\operatorname{tr}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "Tr": {
+  "def": "\\operatorname{Tr}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "Res": {
+  "def": "\\operatorname{Res}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "principalvalue": {
+  "def": "\\mathcal{P}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "pv": {
+  "def": "\\mathcal{P}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "PV": {
+  "def": "\\mathrm{P.V.}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "imaginary": {
+  "def": "\\Im",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "arccot": {
+  "def": "\\operatorname{arccot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "arccosecant": {
+  "def": "\\operatorname{arccsc}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "arcsecant": {
+  "def": "\\operatorname{arcsec}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "arccotangent": {
+  "def": "\\operatorname{arccot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "asin": {
+  "def": "\\operatorname{asin}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "asine": {
+  "def": "\\operatorname{asin}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acos": {
+  "def": "\\operatorname{acos}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acosine": {
+  "def": "\\operatorname{acos}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "atan": {
+  "def": "\\operatorname{atan}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "atangent": {
+  "def": "\\operatorname{atan}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acsc": {
+  "def": "\\operatorname{acsc}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acosecant": {
+  "def": "\\operatorname{acsc}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "asec": {
+  "def": "\\operatorname{asec}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "asecant": {
+  "def": "\\operatorname{asec}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acot": {
+  "def": "\\operatorname{acot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "acotangent": {
+  "def": "\\operatorname{acot}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "csch": {
+  "def": "\\operatorname{csch}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "hypcosecant": {
+  "def": "\\operatorname{csch}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "sech": {
+  "def": "\\operatorname{sech}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "hypsecant": {
+  "def": "\\operatorname{sech}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qqtext": {
+  "def": "\\quad\\text{#1}\\quad",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qq": {
+  "def": "\\quad\\text{#1}\\quad",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qcomma": {
+  "def": ",\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qc": {
+  "def": ",\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qif": {
+  "def": "\\quad\\text{if}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qthen": {
+  "def": "\\quad\\text{then}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qelse": {
+  "def": "\\quad\\text{else}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qotherwise": {
+  "def": "\\quad\\text{otherwise}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qunless": {
+  "def": "\\quad\\text{unless}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qgiven": {
+  "def": "\\quad\\text{given}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qusing": {
+  "def": "\\quad\\text{using}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qassume": {
+  "def": "\\quad\\text{assume}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qsince": {
+  "def": "\\quad\\text{since}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qlet": {
+  "def": "\\quad\\text{let}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qfor": {
+  "def": "\\quad\\text{for}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qall": {
+  "def": "\\quad\\text{all}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qeven": {
+  "def": "\\quad\\text{even}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qodd": {
+  "def": "\\quad\\text{odd}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qinteger": {
+  "def": "\\quad\\text{integer}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qand": {
+  "def": "\\quad\\text{and}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qor": {
+  "def": "\\quad\\text{or}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qas": {
+  "def": "\\quad\\text{as}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qin": {
+  "def": "\\quad\\text{in}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "qcc": {
+  "def": "\\quad\\text{c.c.}\\quad",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "differential": {
+  "def": "\\mathrm{d}",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "derivative": {
+  "def": "\\frac{\\mathrm{d}#1}{\\mathrm{d}#2}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "partialderivative": {
+  "def": "\\frac{\\partial #1}{\\partial #2}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "pderivative": {
+  "def": "\\frac{\\partial #1}{\\partial #2}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "variation": {
+  "def": "\\delta",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "var": {
+  "def": "\\delta",
+  "args": 0,
+  "expand": false,
+  "captureSelection": false
+ },
+ "functionalderivative": {
+  "def": "\\frac{\\delta #1}{\\delta #2}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "fderivative": {
+  "def": "\\frac{\\delta #1}{\\delta #2}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "fdv": {
+  "def": "\\frac{\\delta #1}{\\delta #2}",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "innerproduct": {
+  "def": "\\left\\langle #1\\middle\\vert #2\\right\\rangle",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "ip": {
+  "def": "\\left\\langle #1\\middle\\vert #2\\right\\rangle",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "outerproduct": {
+  "def": "\\left\\lvert #1\\right\\rangle\\!\\left\\langle #2\\right\\rvert",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "dyad": {
+  "def": "\\left\\lvert #1\\right\\rangle\\!\\left\\langle #2\\right\\rvert",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "op": {
+  "def": "\\left\\lvert #1\\right\\rangle\\!\\left\\langle #2\\right\\rvert",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "expectationvalue": {
+  "def": "\\left\\langle #2\\middle\\vert #1\\middle\\vert #2\\right\\rangle",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ },
+ "ev": {
+  "def": "\\left\\langle #1\\right\\rangle",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "vev": {
+  "def": "\\left\\langle 0\\middle\\vert #1\\middle\\vert 0\\right\\rangle",
+  "args": 1,
+  "expand": false,
+  "captureSelection": false
+ },
+ "matrixelement": {
+  "def": "\\left\\langle #1\\middle\\vert #2\\middle\\vert #3\\right\\rangle",
+  "args": 3,
+  "expand": false,
+  "captureSelection": false
+ },
+ "matrixel": {
+  "def": "\\left\\langle #1\\middle\\vert #2\\middle\\vert #3\\right\\rangle",
+  "args": 3,
+  "expand": false,
+  "captureSelection": false
+ },
+ "flatfrac": {
+  "def": "\\left.#1\\middle/#2\\right.",
+  "args": 2,
+  "expand": false,
+  "captureSelection": false
+ }
+}

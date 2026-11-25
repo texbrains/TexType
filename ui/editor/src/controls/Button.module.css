@@ -1,0 +1,79 @@
+@layer components {
+  .icon,
+  .framed,
+  .secondary,
+  .primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    gap: 4px;
+    padding: 0;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    background: transparent;
+  }
+
+  .icon {
+    width: var(--icon-button-size);
+    height: var(--icon-button-size);
+    border-radius: var(--radius-control);
+  }
+
+  .framed {
+    width: var(--control-height);
+    height: var(--control-height);
+    border-color: var(--border);
+    border-radius: var(--radius-control);
+    background: var(--surface);
+  }
+
+  .secondary,
+  .primary {
+    height: var(--control-height);
+    padding: 0 9px;
+    border-radius: var(--radius-button);
+    font-size: var(--text-size-small);
+    font-weight: 600;
+  }
+
+  .secondary {
+    border-color: var(--border);
+    background: var(--surface);
+  }
+
+  .primary {
+    border-color: var(--accent);
+    color: var(--on-accent);
+    background: var(--accent);
+    font-weight: 700;
+  }
+
+  .icon:hover,
+  .framed:hover,
+  .secondary:hover {
+    border-color: transparent;
+    color: var(--text);
+    background: var(--surface-hover);
+  }
+
+  .primary:hover {
+    border-color: var(--accent-hover);
+    background: var(--accent-hover);
+  }
+
+  .icon[data-active] {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .icon:disabled,
+  .framed:disabled,
+  .secondary:disabled,
+  .primary:disabled {
+    cursor: default;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}

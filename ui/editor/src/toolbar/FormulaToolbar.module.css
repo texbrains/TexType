@@ -1,0 +1,53 @@
+@layer components {
+  /* the side panel: category tabs above, the active category's templates below */
+  .toolbar {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    min-width: 0;
+    border-left: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3px;
+    padding: 6px 7px 7px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    padding: 0 5px;
+    border: 0;
+    border-radius: var(--radius-tab);
+    color: var(--text-muted);
+    background: color-mix(in srgb, var(--surface) 88%, var(--local-tint) 12%);
+    font-size: var(--text-size-small);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .tab:hover {
+    color: var(--text);
+    background: color-mix(in srgb, var(--surface-hover) 72%, var(--local-tint) 28%);
+  }
+
+  .tab[aria-pressed="true"] {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--surface) 56%, var(--local-tint) 44%);
+    box-shadow: inset 2px 0 0 var(--accent);
+    font-weight: 600;
+  }
+
+  .templates {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: start;
+    padding: 4px 6px 8px;
+    overflow: hidden auto;
+  }
+}

@@ -1,0 +1,446 @@
+{"file":"basic/001-display.json","mathml":"<mi>x</mi>"}
+{"file":"basic/001-text.json","mathml":"<mi>x</mi>"}
+{"file":"basic/002-display.json","mathml":"<msup><mi>x</mi><mn>2</mn></msup>"}
+{"file":"basic/002-text.json","mathml":"<msup><mi>x</mi><mn>2</mn></msup>"}
+{"file":"basic/003-display.json","mathml":"<msub><mi>x</mi><mi>i</mi></msub>"}
+{"file":"basic/003-text.json","mathml":"<msub><mi>x</mi><mi>i</mi></msub>"}
+{"file":"basic/004-display.json","mathml":"<msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup>"}
+{"file":"basic/004-text.json","mathml":"<msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup>"}
+{"file":"basic/005-display.json","mathml":"<mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow>"}
+{"file":"basic/005-text.json","mathml":"<mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow>"}
+{"file":"basic/006-display.json","mathml":"<mrow><mi>a</mi><mo>+</mo><mi>b</mi><mo>=</mo><mi>c</mi></mrow>"}
+{"file":"basic/006-text.json","mathml":"<mrow><mi>a</mi><mo>+</mo><mi>b</mi><mo>=</mo><mi>c</mi></mrow>"}
+{"file":"basic/007-display.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"basic/007-text.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"basic/008-display.json","mathml":"<mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>a</mi><mi>b</mi></mfrac></mrow>"}
+{"file":"basic/008-text.json","mathml":"<mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mfrac><mi>a</mi><mi>b</mi></mfrac></mrow>"}
+{"file":"basic/009-display.json","mathml":"<msqrt><mi>x</mi></msqrt>"}
+{"file":"basic/009-text.json","mathml":"<msqrt><mi>x</mi></msqrt>"}
+{"file":"basic/010-display.json","mathml":"<msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt>"}
+{"file":"basic/010-text.json","mathml":"<msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msqrt>"}
+{"file":"basic/011-display.json","mathml":"<mroot><mi>x</mi><mn>3</mn></mroot>"}
+{"file":"basic/011-text.json","mathml":"<mroot><mi>x</mi><mn>3</mn></mroot>"}
+{"file":"basic/012-display.json","mathml":"<mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>i</mi></mrow>"}
+{"file":"basic/012-text.json","mathml":"<mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>i</mi></mrow>"}
+{"file":"basic/013-display.json","mathml":"<mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"basic/013-text.json","mathml":"<mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"basic/014-display.json","mathml":"<mrow><mo>(</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>)</mo></mrow>"}
+{"file":"basic/014-text.json","mathml":"<mrow><mo>(</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>)</mo></mrow>"}
+{"file":"basic/015-display.json","mathml":"<mover accent=\"true\"><mi>x</mi><mo>&#x005e;</mo></mover>"}
+{"file":"basic/015-text.json","mathml":"<mover accent=\"true\"><mi>x</mi><mo>&#x005e;</mo></mover>"}
+{"file":"basic/016-display.json","mathml":"<mover accent=\"true\"><mi>x</mi><mo>&#x00af;</mo></mover>"}
+{"file":"basic/016-text.json","mathml":"<mover accent=\"true\"><mi>x</mi><mo>&#x00af;</mo></mover>"}
+{"file":"basic/017-display.json","mathml":""}
+{"file":"basic/017-text.json","mathml":""}
+{"file":"basic/018-display.json","mathml":""}
+{"file":"basic/018-text.json","mathml":""}
+{"file":"basic/019-display.json","mathml":"<mrow><mi>a</mi><mspace width=\"0.16666666666666666em\"/><mi>b</mi><mspace width=\"0.2222222222222222em\"/><mi>c</mi><mspace width=\"0.2777777777777778em\"/><mi>d</mi><mspace width=\"1em\"/><mi>e</mi><mspace width=\"2em\"/><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"basic/019-text.json","mathml":"<mrow><mi>a</mi><mspace width=\"0.16666666666666666em\"/><mi>b</mi><mspace width=\"0.2222222222222222em\"/><mi>c</mi><mspace width=\"0.2777777777777778em\"/><mi>d</mi><mspace width=\"1em\"/><mi>e</mi><mspace width=\"2em\"/><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"basic/020-display.json","mathml":"<mrow><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mo>=</mo><mo>sin</mo><mi>x</mi><mo>+</mo><mo>cos</mo><mi>x</mi></mrow>"}
+{"file":"basic/020-text.json","mathml":"<mrow><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mo>=</mo><mo>sin</mo><mi>x</mi><mo>+</mo><mo>cos</mo><mi>x</mi></mrow>"}
+{"file":"basic/021-display.json","mathml":"<mrow><mi>&#x03b1;</mi><mo>+</mo><mi>β</mi><mo>=</mo><mi>γ</mi></mrow>"}
+{"file":"basic/021-text.json","mathml":"<mrow><mi>&#x03b1;</mi><mo>+</mo><mi>β</mi><mo>=</mo><mi>γ</mi></mrow>"}
+{"file":"basic/022-display.json","mathml":"<mi>ℝ</mi>"}
+{"file":"basic/022-text.json","mathml":"<mi>ℝ</mi>"}
+{"file":"basic/023-display.json","mathml":"<mrow><mo>{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo>}</mo></mrow>"}
+{"file":"basic/023-text.json","mathml":"<mrow><mo>{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo>}</mo></mrow>"}
+{"file":"basic/024-display.json","mathml":"<mrow><munder><mo>lim</mo><mrow><mi>x</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mo>sin</mo><mi>x</mi></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow>"}
+{"file":"basic/024-text.json","mathml":"<mrow><munder><mo>lim</mo><mrow><mi>x</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mo>sin</mo><mi>x</mi></mrow><mi>x</mi></mfrac><mo>=</mo><mn>1</mn></mrow>"}
+{"file":"basic/025-display.json","mathml":"<mrow><msup><mi>e</mi><mrow><mi>i</mi><mo>&#8290;</mo><mi>&#x03c0;</mi></mrow></msup><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow>"}
+{"file":"basic/025-text.json","mathml":"<mrow><msup><mi>e</mi><mrow><mi>i</mi><mo>&#8290;</mo><mi>&#x03c0;</mi></mrow></msup><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow>"}
+{"file":"basic/026-display.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"basic/026-text.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"basic/027-display.json","mathml":"<mrow><mo>[</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>]</mo></mrow>"}
+{"file":"basic/027-text.json","mathml":"<mrow><mo>[</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>]</mo></mrow>"}
+{"file":"esint/001-display.json","mathml":"<mrow><msub><mo>∯</mo><mi>S</mi></msub><mi mathvariant=\"bold\">F</mi><mo>⋅</mo><mi>d</mi><mo>&#8290;</mo><mi mathvariant=\"bold\">S</mi></mrow>"}
+{"file":"esint/001-text.json","mathml":"<mrow><msub><mo>∯</mo><mi>S</mi></msub><mi mathvariant=\"bold\">F</mi><mo>⋅</mo><mi>d</mi><mo>&#8290;</mo><mi mathvariant=\"bold\">S</mi></mrow>"}
+{"file":"esint/002-display.json","mathml":"<mrow><msubsup><mo>⨏</mo><mi>a</mi><mi>b</mi></msubsup><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"esint/002-text.json","mathml":"<mrow><msubsup><mo>⨏</mo><mi>a</mi><mi>b</mi></msubsup><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"esint/003-display.json","mathml":"<mrow><msub><mo>∳</mo><mi>C</mi></msub><mi>f</mi><mo>&#x2061;</mo><mo>+</mo><msub><merror></merror><mi>C</mi></msub><mi>g</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"esint/003-text.json","mathml":"<mrow><msub><mo>∳</mo><mi>C</mi></msub><mi>f</mi><mo>&#x2061;</mo><mo>+</mo><msub><merror></merror><mi>C</mi></msub><mi>g</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"esint/004-display.json","mathml":"<mrow><mo>∲</mo><mo>∳</mo><merror></merror><merror></merror></mrow>"}
+{"file":"esint/004-text.json","mathml":"<mrow><mo>∲</mo><mo>∳</mo><merror></merror><merror></merror></mrow>"}
+{"file":"esint/005-display.json","mathml":"<mrow><msup><mi>x</mi><msub><mo>∯</mo><mi>S</mi></msub></msup><mo>+</mo><merror></merror><mo>+</mo><merror></merror><mo>+</mo><merror></merror></mrow>"}
+{"file":"esint/005-text.json","mathml":"<mrow><msup><mi>x</mi><msub><mo>∯</mo><mi>S</mi></msub></msup><mo>+</mo><merror></merror><mo>+</mo><merror></merror><mo>+</mo><merror></merror></mrow>"}
+{"file":"esint/006-display.json","mathml":"<msub><merror></merror><mi>V</mi></msub>"}
+{"file":"esint/006-text.json","mathml":"<msub><merror></merror><mi>V</mi></msub>"}
+{"file":"extra/001-display.json","mathml":""}
+{"file":"extra/001-text.json","mathml":""}
+{"file":"extra/002-display.json","mathml":"<mrow><mi>a</mi><mi>b</mi></mrow>"}
+{"file":"extra/002-text.json","mathml":"<mrow><mi>a</mi><mi>b</mi></mrow>"}
+{"file":"extra/003-display.json","mathml":"<mi>x</mi>"}
+{"file":"extra/003-text.json","mathml":"<mi>x</mi>"}
+{"file":"extra/004-display.json","mathml":"<mrow><mo>+</mo><mn>1</mn></mrow>"}
+{"file":"extra/004-text.json","mathml":"<mrow><mo>+</mo><mn>1</mn></mrow>"}
+{"file":"extra/005-display.json","mathml":"<mrow><mi>a</mi><mi>b</mi></mrow>"}
+{"file":"extra/005-text.json","mathml":"<mrow><mi>a</mi><mi>b</mi></mrow>"}
+{"file":"extra2/001-display.json","mathml":"<mrow><msub><mo>∮</mo><mi>C</mi></msub><mi>f</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>z</mi></mrow>"}
+{"file":"extra2/001-text.json","mathml":"<mrow><msub><mo>∮</mo><mi>C</mi></msub><mi>f</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>z</mi></mrow>"}
+{"file":"extra2/002-display.json","mathml":"<mrow><msub><merror></merror><mi>V</mi></msub><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra2/002-text.json","mathml":"<mrow><msub><merror></merror><mi>V</mi></msub><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra2/003-display.json","mathml":"<mrow><menclose notation=\"updiagonalstrike\"><mi>x</mi></menclose><mo>+</mo><menclose notation=\"downdiagonalstrike\"><mi>y</mi></menclose><mo>+</mo><menclose notation=\"updiagonalstrike downdiagonalstrike\"><mi>z</mi></menclose></mrow>"}
+{"file":"extra2/003-text.json","mathml":"<mrow><menclose notation=\"updiagonalstrike\"><mi>x</mi></menclose><mo>+</mo><menclose notation=\"downdiagonalstrike\"><mi>y</mi></menclose><mo>+</mo><menclose notation=\"updiagonalstrike downdiagonalstrike\"><mi>z</mi></menclose></mrow>"}
+{"file":"extra2/004-display.json","mathml":""}
+{"file":"extra2/004-text.json","mathml":""}
+{"file":"extra2/005-display.json","mathml":"<mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow>"}
+{"file":"extra2/005-text.json","mathml":"<mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow>"}
+{"file":"extra3/001-display.json","mathml":"<menclose notation=\"box\" mathbackground=\"[object Object]\"><mtext >a</mtext></menclose>"}
+{"file":"extra3/001-text.json","mathml":"<menclose notation=\"box\" mathbackground=\"[object Object]\"><mtext >a</mtext></menclose>"}
+{"file":"extra3/002-display.json","mathml":"<mrow><mi>x</mi><mo>+</mo><mtext >ab</mtext><mo>+</mo><mi>y</mi></mrow>"}
+{"file":"extra3/002-text.json","mathml":"<mrow><mi>x</mi><mo>+</mo><mtext >ab</mtext><mo>+</mo><mi>y</mi></mrow>"}
+{"file":"extra3/003-display.json","mathml":"<menclose notation=\"box\"><msup><mi>x</mi><mn>2</mn></msup></menclose>"}
+{"file":"extra3/003-text.json","mathml":"<menclose notation=\"box\"><msup><mi>x</mi><mn>2</mn></msup></menclose>"}
+{"file":"extra4/001-display.json","mathml":"<menclose notation=\"updiagonalstrike\"><mfrac><mi>a</mi><mi>b</mi></mfrac></menclose>"}
+{"file":"extra4/001-text.json","mathml":"<menclose notation=\"updiagonalstrike\"><mfrac><mi>a</mi><mi>b</mi></mfrac></menclose>"}
+{"file":"extra4/002-display.json","mathml":"<mrow><msup><mi>x</mi><menclose notation=\"updiagonalstrike\"><mn>2</mn></menclose></msup><mo>+</mo><msub><mi>y</mi><menclose notation=\"downdiagonalstrike\"><mrow><mi>i</mi><mo>&#8290;</mo><mi>j</mi></mrow></menclose></msub></mrow>"}
+{"file":"extra4/002-text.json","mathml":"<mrow><msup><mi>x</mi><menclose notation=\"updiagonalstrike\"><mn>2</mn></menclose></msup><mo>+</mo><msub><mi>y</mi><menclose notation=\"downdiagonalstrike\"><mrow><mi>i</mi><mo>&#8290;</mo><mi>j</mi></mrow></menclose></msub></mrow>"}
+{"file":"extra4/003-display.json","mathml":"<menclose notation=\"updiagonalstrike\"><mrow><mi>a</mi><mo>&#8290;</mo><mi>b</mi><mo>&#8290;</mo><mi>c</mi><mo>&#8290;</mo><mi>d</mi><mo>&#8290;</mo><mi>e</mi><mo>&#8290;</mo><mi>f</mi><mo>&#x2061;</mo><mi>g</mi><mo>&#x2061;</mo><mi>h</mi><mo>&#8290;</mo><mi>i</mi><mo>&#8290;</mo><mi>j</mi></mrow></menclose>"}
+{"file":"extra4/003-text.json","mathml":"<menclose notation=\"updiagonalstrike\"><mrow><mi>a</mi><mo>&#8290;</mo><mi>b</mi><mo>&#8290;</mo><mi>c</mi><mo>&#8290;</mo><mi>d</mi><mo>&#8290;</mo><mi>e</mi><mo>&#8290;</mo><mi>f</mi><mo>&#x2061;</mo><mi>g</mi><mo>&#x2061;</mo><mi>h</mi><mo>&#8290;</mo><mi>i</mi><mo>&#8290;</mo><mi>j</mi></mrow></menclose>"}
+{"file":"extra4/004-display.json","mathml":"<menclose notation=\"downdiagonalstrike\"><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow></menclose>"}
+{"file":"extra4/004-text.json","mathml":"<menclose notation=\"downdiagonalstrike\"><mrow><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mi>f</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow></menclose>"}
+{"file":"extra4/005-display.json","mathml":"<menclose notation=\"updiagonalstrike downdiagonalstrike\"><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></msqrt></menclose>"}
+{"file":"extra4/005-text.json","mathml":"<menclose notation=\"updiagonalstrike downdiagonalstrike\"><msqrt><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></msqrt></menclose>"}
+{"file":"extra4/006-display.json","mathml":"<menclose notation=\"updiagonalstrike\"><mrow><mo>(</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>)</mo></mrow></menclose>"}
+{"file":"extra4/006-text.json","mathml":"<menclose notation=\"updiagonalstrike\"><mrow><mo>(</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>)</mo></mrow></menclose>"}
+{"file":"extra5/001-display.json","mathml":"<mrow><munder><mo>∬</mo><mi>D</mi></munder><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/001-text.json","mathml":"<mrow><munder><mo>∬</mo><mi>D</mi></munder><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/002-display.json","mathml":"<mrow><munder><mo>∭</mo><mi>V</mi></munder><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/002-text.json","mathml":"<mrow><munder><mo>∭</mo><mi>V</mi></munder><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/003-display.json","mathml":"<mrow><munderover><mo>⨌</mo><mi>a</mi><mi>b</mi></munderover><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/003-text.json","mathml":"<mrow><munderover><mo>⨌</mo><mi>a</mi><mi>b</mi></munderover><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/004-display.json","mathml":"<mrow><msub><merror></merror><mi>V</mi></msub><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/004-text.json","mathml":"<mrow><msub><merror></merror><mi>V</mi></msub><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/005-display.json","mathml":"<mrow><munderover><mo>∫</mo><mi>a</mi><mi>b</mi></munderover><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/005-text.json","mathml":"<mrow><munderover><mo>∫</mo><mi>a</mi><mi>b</mi></munderover><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/006-display.json","mathml":"<mrow><msub><mo>∬</mo><mi>D</mi></msub><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"extra5/006-text.json","mathml":"<mrow><msub><mo>∬</mo><mi>D</mi></msub><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/001-display.json","mathml":"<msup><mi>a</mi><mi>′</mi></msup>"}
+{"file":"wide/001-text.json","mathml":"<msup><mi>a</mi><mi>′</mi></msup>"}
+{"file":"wide/002-display.json","mathml":"<mrow><msup><mi>f</mi><mo>&#x2061;</mo><mi>′′</mi></msup><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/002-text.json","mathml":"<mrow><msup><mi>f</mi><mo>&#x2061;</mo><mi>′′</mi></msup><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/003-display.json","mathml":"<msup><mi>x</mi><msup><mn>2</mn><mn>3</mn></msup></msup>"}
+{"file":"wide/003-text.json","mathml":"<msup><mi>x</mi><msup><mn>2</mn><mn>3</mn></msup></msup>"}
+{"file":"wide/004-display.json","mathml":"<msub><mi>x</mi><msub><mi>i</mi><mi>j</mi></msub></msub>"}
+{"file":"wide/004-text.json","mathml":"<msub><mi>x</mi><msub><mi>i</mi><mi>j</mi></msub></msub>"}
+{"file":"wide/005-display.json","mathml":"<msubsup><mi>x</mi><mi>b</mi><mi>a</mi></msubsup>"}
+{"file":"wide/005-text.json","mathml":"<msubsup><mi>x</mi><mi>b</mi><mi>a</mi></msubsup>"}
+{"file":"wide/006-display.json","mathml":"<msub><msup><mi>x</mi><mi>a</mi></msup><mi>b</mi></msub>"}
+{"file":"wide/006-text.json","mathml":"<msub><msup><mi>x</mi><mi>a</mi></msup><mi>b</mi></msub>"}
+{"file":"wide/007-display.json","mathml":"<msup><mi>x</mi><mi>′</mi></msup>"}
+{"file":"wide/007-text.json","mathml":"<msup><mi>x</mi><mi>′</mi></msup>"}
+{"file":"wide/008-display.json","mathml":"<mrow><msup><mi>A</mi><mi>T</mi></msup><msub><mi>B</mi><mi>k</mi></msub><msub><mi>C</mi><mrow><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi></mrow></msub></mrow>"}
+{"file":"wide/008-text.json","mathml":"<mrow><msup><mi>A</mi><mi>T</mi></msup><msub><mi>B</mi><mi>k</mi></msub><msub><mi>C</mi><mrow><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi></mrow></msub></mrow>"}
+{"file":"wide/009-display.json","mathml":"<mfrac><mn>1</mn><mn>2</mn></mfrac>"}
+{"file":"wide/009-text.json","mathml":"<mfrac><mn>1</mn><mn>2</mn></mfrac>"}
+{"file":"wide/010-display.json","mathml":"<mfrac><mfrac><mi>a</mi><mi>b</mi></mfrac><mfrac><mi>c</mi><mi>d</mi></mfrac></mfrac>"}
+{"file":"wide/010-text.json","mathml":"<mfrac><mfrac><mi>a</mi><mi>b</mi></mfrac><mfrac><mi>c</mi><mi>d</mi></mfrac></mfrac>"}
+{"file":"wide/011-display.json","mathml":"<mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mrow><mi>c</mi><mo>+</mo><mi>d</mi></mrow></mfrac>"}
+{"file":"wide/011-text.json","mathml":"<mfrac><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mrow><mi>c</mi><mo>+</mo><mi>d</mi></mrow></mfrac>"}
+{"file":"wide/012-display.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"wide/012-text.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"wide/013-display.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"wide/013-text.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"wide/014-display.json","mathml":"<mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mi>x</mi></mrow></mfrac></mrow></mfrac>"}
+{"file":"wide/014-text.json","mathml":"<mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mi>x</mi></mrow></mfrac></mrow></mfrac>"}
+{"file":"wide/015-display.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/015-text.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/016-display.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mtr><mtr><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/016-text.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mtr><mtr><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/017-display.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/017-text.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/018-display.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/018-text.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/019-display.json","mathml":"<mtable><mtr><mi>a</mi></mtr><mtr><mi>b</mi></mtr></mtable>"}
+{"file":"wide/019-text.json","mathml":"<mtable><mtr><mi>a</mi></mtr><mtr><mi>b</mi></mtr></mtable>"}
+{"file":"wide/020-display.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/020-text.json","mathml":"<mrow><mo>(</mo><mtable><mtr><mi>n</mi></mtr><mtr><mi>k</mi></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/021-display.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"wide/021-text.json","mathml":"<mfrac><mi>a</mi><mi>b</mi></mfrac>"}
+{"file":"wide/022-display.json","mathml":"<mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac>"}
+{"file":"wide/022-text.json","mathml":"<mfrac><mn>1</mn><msqrt><mn>2</mn></msqrt></mfrac>"}
+{"file":"wide/023-display.json","mathml":"<msqrt><mfrac><mi>a</mi><mi>b</mi></mfrac></msqrt>"}
+{"file":"wide/023-text.json","mathml":"<msqrt><mfrac><mi>a</mi><mi>b</mi></mfrac></msqrt>"}
+{"file":"wide/024-display.json","mathml":"<mroot><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mi>n</mi></mroot>"}
+{"file":"wide/024-text.json","mathml":"<mroot><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mi>n</mi></mroot>"}
+{"file":"wide/025-display.json","mathml":"<msqrt><msqrt><mi>x</mi></msqrt></msqrt>"}
+{"file":"wide/025-text.json","mathml":"<msqrt><msqrt><mi>x</mi></msqrt></msqrt>"}
+{"file":"wide/026-display.json","mathml":"<msqrt><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>+</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></msqrt>"}
+{"file":"wide/026-text.json","mathml":"<msqrt><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>+</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></msqrt>"}
+{"file":"wide/027-display.json","mathml":"<mrow><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>&#x221e;</mi></msubsup><mfrac><msup><mi>x</mi><mi>k</mi></msup><mrow><mi>k</mi><mo>!</mo></mrow></mfrac></mrow>"}
+{"file":"wide/027-text.json","mathml":"<mrow><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>&#x221e;</mi></msubsup><mfrac><msup><mi>x</mi><mi>k</mi></msup><mrow><mi>k</mi><mo>!</mo></mrow></mfrac></mrow>"}
+{"file":"wide/028-display.json","mathml":"<mrow><msubsup><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/028-text.json","mathml":"<mrow><msubsup><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/029-display.json","mathml":"<mrow><msub><mo>∐</mo><mi>i</mi></msub><msub><mi>X</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/029-text.json","mathml":"<mrow><msub><mo>∐</mo><mi>i</mi></msub><msub><mi>X</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/030-display.json","mathml":"<mrow><msubsup><mo>⋃</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>A</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/030-text.json","mathml":"<mrow><msubsup><mo>⋃</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>A</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/031-display.json","mathml":"<mrow><msub><mo>⋂</mo><mi>i</mi></msub><msub><mi>B</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/031-text.json","mathml":"<mrow><msub><mo>⋂</mo><mi>i</mi></msub><msub><mi>B</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/032-display.json","mathml":"<mrow><msub><mo>⨁</mo><mi>k</mi></msub><msub><mi>V</mi><mi>k</mi></msub></mrow>"}
+{"file":"wide/032-text.json","mathml":"<mrow><msub><mo>⨁</mo><mi>k</mi></msub><msub><mi>V</mi><mi>k</mi></msub></mrow>"}
+{"file":"wide/033-display.json","mathml":"<mrow><msub><mo>⨂</mo><mi>k</mi></msub><msub><mi>W</mi><mi>k</mi></msub></mrow>"}
+{"file":"wide/033-text.json","mathml":"<mrow><msub><mo>⨂</mo><mi>k</mi></msub><msub><mi>W</mi><mi>k</mi></msub></mrow>"}
+{"file":"wide/034-display.json","mathml":"<mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"wide/034-text.json","mathml":"<mrow><msubsup><mo>∫</mo><mi>a</mi><mi>b</mi></msubsup><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"wide/035-display.json","mathml":"<mrow><msub><mo>∬</mo><mi>D</mi></msub><mi>f</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>A</mi></mrow>"}
+{"file":"wide/035-text.json","mathml":"<mrow><msub><mo>∬</mo><mi>D</mi></msub><mi>f</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>A</mi></mrow>"}
+{"file":"wide/036-display.json","mathml":"<mrow><msub><mo>∭</mo><mi>V</mi></msub><mi>g</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>V</mi></mrow>"}
+{"file":"wide/036-text.json","mathml":"<mrow><msub><mo>∭</mo><mi>V</mi></msub><mi>g</mi><mo>&#x2061;</mo><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>V</mi></mrow>"}
+{"file":"wide/037-display.json","mathml":"<mrow><msub><mo>∮</mo><mi>C</mi></msub><mi mathvariant=\"bold\">F</mi><mo>⋅</mo><mi>d</mi><mo>&#8290;</mo><mi mathvariant=\"bold\">r</mi></mrow>"}
+{"file":"wide/037-text.json","mathml":"<mrow><msub><mo>∮</mo><mi>C</mi></msub><mi mathvariant=\"bold\">F</mi><mo>⋅</mo><mi>d</mi><mo>&#8290;</mo><mi mathvariant=\"bold\">r</mi></mrow>"}
+{"file":"wide/038-display.json","mathml":"<mrow><munderover><mo>∫</mo><mn>0</mn><mn>1</mn></munderover><mi>x</mi><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"wide/038-text.json","mathml":"<mrow><munderover><mo>∫</mo><mn>0</mn><mn>1</mn></munderover><mi>x</mi><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"wide/039-display.json","mathml":"<mrow><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>x</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/039-text.json","mathml":"<mrow><msub><mo>∑</mo><mi>i</mi></msub><msub><mi>x</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/040-display.json","mathml":"<mrow><munder><mo>lim</mo><mrow><mi>n</mi><mo>→</mo><mi>&#x221e;</mi></mrow></munder><msub><mi>a</mi><mi>n</mi></msub></mrow>"}
+{"file":"wide/040-text.json","mathml":"<mrow><munder><mo>lim</mo><mrow><mi>n</mi><mo>→</mo><mi>&#x221e;</mi></mrow></munder><msub><mi>a</mi><mi>n</mi></msub></mrow>"}
+{"file":"wide/041-display.json","mathml":"<mrow><msub><mrow><mi>x</mi><mo>→</mo><mi>a</mi></mrow></msub><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/041-text.json","mathml":"<mrow><msub><mrow><mi>x</mi><mo>→</mo><mi>a</mi></mrow></msub><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/042-display.json","mathml":"<mrow><munder><mo>max</mo><mi>i</mi></munder><msub><mi>x</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/042-text.json","mathml":"<mrow><munder><mo>max</mo><mi>i</mi></munder><msub><mi>x</mi><mi>i</mi></msub></mrow>"}
+{"file":"wide/043-display.json","mathml":"<mrow><mo>min</mo><mo>{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo>}</mo></mrow>"}
+{"file":"wide/043-text.json","mathml":"<mrow><mo>min</mo><mo>{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo>}</mo></mrow>"}
+{"file":"wide/044-display.json","mathml":"<mrow><msub><mo>sup</mo><mrow><mi>x</mi><mo>∈</mo><mi>S</mi></mrow></msub><mi>x</mi></mrow>"}
+{"file":"wide/044-text.json","mathml":"<mrow><msub><mo>sup</mo><mrow><mi>x</mi><mo>∈</mo><mi>S</mi></mrow></msub><mi>x</mi></mrow>"}
+{"file":"wide/045-display.json","mathml":"<mrow><mo>det</mo><mi>A</mi></mrow>"}
+{"file":"wide/045-text.json","mathml":"<mrow><mo>det</mo><mi>A</mi></mrow>"}
+{"file":"wide/046-display.json","mathml":"<mrow><msub><mo>log</mo><mn>2</mn></msub><mi>n</mi></mrow>"}
+{"file":"wide/046-text.json","mathml":"<mrow><msub><mo>log</mo><mn>2</mn></msub><mi>n</mi></mrow>"}
+{"file":"wide/047-display.json","mathml":"<mrow><msup><mo>sin</mo><mn>2</mn></msup><mi>θ</mi><mo>+</mo><msup><mo>cos</mo><mn>2</mn></msup><mi>θ</mi><mo>=</mo><mn>1</mn></mrow>"}
+{"file":"wide/047-text.json","mathml":"<mrow><msup><mo>sin</mo><mn>2</mn></msup><mi>θ</mi><mo>+</mo><msup><mo>cos</mo><mn>2</mn></msup><mi>θ</mi><mo>=</mo><mn>1</mn></mrow>"}
+{"file":"wide/048-display.json","mathml":"<mrow><mi>rank</mi><mo>&#8290;</mo><mi>A</mi></mrow>"}
+{"file":"wide/048-text.json","mathml":"<mrow><mi>rank</mi><mo>&#8290;</mo><mi>A</mi></mrow>"}
+{"file":"wide/049-display.json","mathml":"<mrow><munder><mi>x</mi></munder><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/049-text.json","mathml":"<mrow><munder><mi>x</mi></munder><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/050-display.json","mathml":"<mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow>"}
+{"file":"wide/050-text.json","mathml":"<mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow>"}
+{"file":"wide/051-display.json","mathml":"<mrow><mo>[</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>]</mo></mrow>"}
+{"file":"wide/051-text.json","mathml":"<mrow><mo>[</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>]</mo></mrow>"}
+{"file":"wide/052-display.json","mathml":"<mrow><mo>{</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>}</mo></mrow>"}
+{"file":"wide/052-text.json","mathml":"<mrow><mo>{</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>}</mo></mrow>"}
+{"file":"wide/053-display.json","mathml":"<mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow>"}
+{"file":"wide/053-text.json","mathml":"<mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow>"}
+{"file":"wide/054-display.json","mathml":"<mrow><mo>\\|</mo><mi>v</mi><mo>\\|</mo></mrow>"}
+{"file":"wide/054-text.json","mathml":"<mrow><mo>\\|</mo><mi>v</mi><mo>\\|</mo></mrow>"}
+{"file":"wide/055-display.json","mathml":"<mrow><mo>⟨</mo><mrow><mi>u</mi><mo separator=\"true\">,</mo><mi>v</mi></mrow><mo>⟩</mo></mrow>"}
+{"file":"wide/055-text.json","mathml":"<mrow><mo>⟨</mo><mrow><mi>u</mi><mo separator=\"true\">,</mo><mi>v</mi></mrow><mo>⟩</mo></mrow>"}
+{"file":"wide/056-display.json","mathml":"<mrow><mo>⌊</mo><mi>x</mi><mo>⌋</mo></mrow>"}
+{"file":"wide/056-text.json","mathml":"<mrow><mo>⌊</mo><mi>x</mi><mo>⌋</mo></mrow>"}
+{"file":"wide/057-display.json","mathml":"<mrow><mo>⌈</mo><mi>x</mi><mo>⌉</mo></mrow>"}
+{"file":"wide/057-text.json","mathml":"<mrow><mo>⌈</mo><mi>x</mi><mo>⌉</mo></mrow>"}
+{"file":"wide/058-display.json","mathml":"<mrow><mo>(</mo><mfrac><mfrac><mi>a</mi><mi>b</mi></mfrac><mi>c</mi></mfrac><mo>)</mo></mrow>"}
+{"file":"wide/058-text.json","mathml":"<mrow><mo>(</mo><mfrac><mfrac><mi>a</mi><mi>b</mi></mfrac><mi>c</mi></mfrac><mo>)</mo></mrow>"}
+{"file":"wide/059-display.json","mathml":"<msub><mrow><mfrac><mrow><mi>d</mi><mo>&#8290;</mo><mi>f</mi><mo>&#x2061;</mo></mrow><mrow><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow></mfrac><mo>|</mo></mrow><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow></msub>"}
+{"file":"wide/059-text.json","mathml":"<msub><mrow><mfrac><mrow><mi>d</mi><mo>&#8290;</mo><mi>f</mi><mo>&#x2061;</mo></mrow><mrow><mi>d</mi><mo>&#8290;</mo><mi>x</mi></mrow></mfrac><mo>|</mo></mrow><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow></msub>"}
+{"file":"wide/060-display.json","mathml":"<mrow><mo>(</mo><mrow><mi>a</mi><mo>|</mo><mi>b</mi></mrow><mo>)</mo></mrow>"}
+{"file":"wide/060-text.json","mathml":"<mrow><mo>(</mo><mrow><mi>a</mi><mo>|</mo><mi>b</mi></mrow><mo>)</mo></mrow>"}
+{"file":"wide/061-display.json","mathml":"<mrow><mo>{</mo><mrow><mi>x</mi><mspace width=\"0.16666666666666666em\"/><mo>|</mo><mspace width=\"0.16666666666666666em\"/><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><mo>}</mo></mrow>"}
+{"file":"wide/061-text.json","mathml":"<mrow><mo>{</mo><mrow><mi>x</mi><mspace width=\"0.16666666666666666em\"/><mo>|</mo><mspace width=\"0.16666666666666666em\"/><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><mo>}</mo></mrow>"}
+{"file":"wide/062-display.json","mathml":"<mrow><mo>(</mo><mo>(</mo><mo>(</mo><mo>(</mo></mrow>"}
+{"file":"wide/062-text.json","mathml":"<mrow><mo>(</mo><mo>(</mo><mo>(</mo><mo>(</mo></mrow>"}
+{"file":"wide/063-display.json","mathml":"<mrow><mo>[</mo><mi>x</mi><mo>]</mo><mo>{</mo><mi>y</mi><mo>}</mo></mrow>"}
+{"file":"wide/063-text.json","mathml":"<mrow><mo>[</mo><mi>x</mi><mo>]</mo><mo>{</mo><mi>y</mi><mo>}</mo></mrow>"}
+{"file":"wide/064-display.json","mathml":"<mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow>"}
+{"file":"wide/064-text.json","mathml":"<mrow><mo>|</mo><mi>x</mi><mo>|</mo></mrow>"}
+{"file":"wide/065-display.json","mathml":"<mrow><mover accent=\"true\"><mi>a</mi><mo>&#x005e;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x02c7;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x007e;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x00b4;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x0060;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x02d9;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x00a8;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x02d8;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x00af;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x20d7;</mo></mover></mrow>"}
+{"file":"wide/065-text.json","mathml":"<mrow><mover accent=\"true\"><mi>a</mi><mo>&#x005e;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x02c7;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x007e;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x00b4;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x0060;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x02d9;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x00a8;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x02d8;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x00af;</mo></mover><mover accent=\"true\"><mi>a</mi><mo>&#x20d7;</mo></mover></mrow>"}
+{"file":"wide/066-display.json","mathml":"<mover accent=\"true\"><mrow><mi>x</mi><mo>&#8290;</mo><mi>y</mi><mo>&#8290;</mo><mi>z</mi></mrow><mo>undefined</mo></mover>"}
+{"file":"wide/066-text.json","mathml":"<mover accent=\"true\"><mrow><mi>x</mi><mo>&#8290;</mo><mi>y</mi><mo>&#8290;</mo><mi>z</mi></mrow><mo>undefined</mo></mover>"}
+{"file":"wide/067-display.json","mathml":"<mover accent=\"true\"><mrow><mi>a</mi><mo>&#8290;</mo><mi>b</mi><mo>&#8290;</mo><mi>c</mi></mrow><mo>undefined</mo></mover>"}
+{"file":"wide/067-text.json","mathml":"<mover accent=\"true\"><mrow><mi>a</mi><mo>&#8290;</mo><mi>b</mi><mo>&#8290;</mo><mi>c</mi></mrow><mo>undefined</mo></mover>"}
+{"file":"wide/068-display.json","mathml":"<mrow><mover accent=\"true\"><mi>ı</mi><mo>&#x005e;</mo></mover><mo>+</mo><mover accent=\"true\"><mi>ȷ</mi><mo>&#x005e;</mo></mover></mrow>"}
+{"file":"wide/068-text.json","mathml":"<mrow><mover accent=\"true\"><mi>ı</mi><mo>&#x005e;</mo></mover><mo>+</mo><mover accent=\"true\"><mi>ȷ</mi><mo>&#x005e;</mo></mover></mrow>"}
+{"file":"wide/069-display.json","mathml":""}
+{"file":"wide/069-text.json","mathml":""}
+{"file":"wide/070-display.json","mathml":""}
+{"file":"wide/070-text.json","mathml":""}
+{"file":"wide/071-display.json","mathml":"<mover >→</mover>"}
+{"file":"wide/071-text.json","mathml":"<mover >→</mover>"}
+{"file":"wide/072-display.json","mathml":"<mover >←</mover>"}
+{"file":"wide/072-text.json","mathml":"<mover >←</mover>"}
+{"file":"wide/073-display.json","mathml":"<msup><mover >⏞</mover><mi>n</mi></msup>"}
+{"file":"wide/073-text.json","mathml":"<msup><mover >⏞</mover><mi>n</mi></msup>"}
+{"file":"wide/074-display.json","mathml":"<msub><munder >⏟</munder><mi>m</mi></msub>"}
+{"file":"wide/074-text.json","mathml":"<msub><munder >⏟</munder><mi>m</mi></msub>"}
+{"file":"wide/075-display.json","mathml":"<mover ><mo>=</mo><mo>!</mo></mover>"}
+{"file":"wide/075-text.json","mathml":"<mover ><mo>=</mo><mo>!</mo></mover>"}
+{"file":"wide/076-display.json","mathml":"<munder ><mo>lim</mo><mi>x</mi></munder>"}
+{"file":"wide/076-text.json","mathml":"<munder ><mo>lim</mo><mi>x</mi></munder>"}
+{"file":"wide/077-display.json","mathml":"<munderover ><mo>=</mo><mrow><mi>d</mi><mo>&#8290;</mo><mi>e</mi><mo>&#8290;</mo><mi>f</mi><mo>&#x2061;</mo></mrow></munderover>"}
+{"file":"wide/077-text.json","mathml":"<munderover ><mo>=</mo><mrow><mi>d</mi><mo>&#8290;</mo><mi>e</mi><mo>&#8290;</mo><mi>f</mi><mo>&#x2061;</mo></mrow></munderover>"}
+{"file":"wide/078-display.json","mathml":"<munderover >→<mi>f</mi><mo>&#x2061;</mo></munderover>"}
+{"file":"wide/078-text.json","mathml":"<munderover >→<mi>f</mi><mo>&#x2061;</mo></munderover>"}
+{"file":"wide/079-display.json","mathml":"<munderover >←<mi>g</mi><mo>&#x2061;</mo><mi>f</mi><mo>&#x2061;</mo></munderover>"}
+{"file":"wide/079-text.json","mathml":"<munderover >←<mi>g</mi><mo>&#x2061;</mo><mi>f</mi><mo>&#x2061;</mo></munderover>"}
+{"file":"wide/080-display.json","mathml":"<mo>&ne;</mo>"}
+{"file":"wide/080-text.json","mathml":"<mo>&ne;</mo>"}
+{"file":"wide/081-display.json","mathml":"<mrow><mi>x</mi><mo>∈</mo><mi>A</mi><mo>⊂</mo><mi>B</mi><mo>⊆</mo><mi>C</mi></mrow>"}
+{"file":"wide/081-text.json","mathml":"<mrow><mi>x</mi><mo>∈</mo><mi>A</mi><mo>⊂</mo><mi>B</mi><mo>⊆</mo><mi>C</mi></mrow>"}
+{"file":"wide/082-display.json","mathml":"<mrow><mi>a</mi><mo>≤</mo><mi>b</mi><mo>≥</mo><mi>c</mi><mo>≪</mo><mi>d</mi><mo>≫</mo><mi>e</mi></mrow>"}
+{"file":"wide/082-text.json","mathml":"<mrow><mi>a</mi><mo>≤</mo><mi>b</mi><mo>≥</mo><mi>c</mi><mo>≪</mo><mi>d</mi><mo>≫</mo><mi>e</mi></mrow>"}
+{"file":"wide/083-display.json","mathml":"<mrow><mi>a</mi><mo>≡</mo><mi>b</mi></mrow>"}
+{"file":"wide/083-text.json","mathml":"<mrow><mi>a</mi><mo>≡</mo><mi>b</mi></mrow>"}
+{"file":"wide/084-display.json","mathml":"<mrow><mi>a</mi><mi>b</mi></mrow>"}
+{"file":"wide/084-text.json","mathml":"<mrow><mi>a</mi><mi>b</mi></mrow>"}
+{"file":"wide/085-display.json","mathml":"<mi>a</mi>"}
+{"file":"wide/085-text.json","mathml":"<mi>a</mi>"}
+{"file":"wide/086-display.json","mathml":"<mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mi>…</mi><mo separator=\"true\">,</mo><mi>n</mi></mrow>"}
+{"file":"wide/086-text.json","mathml":"<mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mi>…</mi><mo separator=\"true\">,</mo><mi>n</mi></mrow>"}
+{"file":"wide/087-display.json","mathml":"<mrow><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><mi>⋯</mi><mo>+</mo><msub><mi>a</mi><mi>n</mi></msub></mrow>"}
+{"file":"wide/087-text.json","mathml":"<mrow><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><mi>⋯</mi><mo>+</mo><msub><mi>a</mi><mi>n</mi></msub></mrow>"}
+{"file":"wide/088-display.json","mathml":"<mrow><mi>⋮</mi><mo>&#8290;</mo><mi>⋱</mi></mrow>"}
+{"file":"wide/088-text.json","mathml":"<mrow><mi>⋮</mi><mo>&#8290;</mo><mi>⋱</mi></mrow>"}
+{"file":"wide/089-display.json","mathml":""}
+{"file":"wide/089-text.json","mathml":""}
+{"file":"wide/090-display.json","mathml":"<mrow><mi>&#x03b1;</mi><mo>&#8290;</mo><mi>β</mi><mo>&#8290;</mo><mi>γ</mi><mo>&#8290;</mo><mi>δ</mi><mo>&#8290;</mo><mi>ϵ</mi><mo>&#8290;</mo><mi>ε</mi><mo>&#8290;</mo><mi>ζ</mi><mo>&#8290;</mo><mi>η</mi><mo>&#8290;</mo><mi>θ</mi><mo>&#8290;</mo><mi>ϑ</mi></mrow>"}
+{"file":"wide/090-text.json","mathml":"<mrow><mi>&#x03b1;</mi><mo>&#8290;</mo><mi>β</mi><mo>&#8290;</mo><mi>γ</mi><mo>&#8290;</mo><mi>δ</mi><mo>&#8290;</mo><mi>ϵ</mi><mo>&#8290;</mo><mi>ε</mi><mo>&#8290;</mo><mi>ζ</mi><mo>&#8290;</mo><mi>η</mi><mo>&#8290;</mo><mi>θ</mi><mo>&#8290;</mo><mi>ϑ</mi></mrow>"}
+{"file":"wide/091-display.json","mathml":"<mrow><mi>ι</mi><mo>&#8290;</mo><mi>κ</mi><mo>&#8290;</mo><mi>λ</mi><mo>&#8290;</mo><mi>μ</mi><mo>&#8290;</mo><mi>ν</mi><mo>&#8290;</mo><mi>ξ</mi><mo>&#8290;</mo><mi>&#x03c0;</mi><mo>&#8290;</mo><mi>ϖ</mi><mo>&#8290;</mo><mi>ρ</mi><mo>&#8290;</mo><mi>ϱ</mi><mo>&#8290;</mo><mi>σ</mi><mo>&#8290;</mo><mi>ς</mi><mo>&#8290;</mo><mi>τ</mi><mo>&#8290;</mo><mi>υ</mi><mo>&#8290;</mo><mi>ϕ</mi><mo>&#8290;</mo><mi>φ</mi><mo>&#8290;</mo><mi>χ</mi><mo>&#8290;</mo><mi>ψ</mi><mo>&#8290;</mo><mi>ω</mi></mrow>"}
+{"file":"wide/091-text.json","mathml":"<mrow><mi>ι</mi><mo>&#8290;</mo><mi>κ</mi><mo>&#8290;</mo><mi>λ</mi><mo>&#8290;</mo><mi>μ</mi><mo>&#8290;</mo><mi>ν</mi><mo>&#8290;</mo><mi>ξ</mi><mo>&#8290;</mo><mi>&#x03c0;</mi><mo>&#8290;</mo><mi>ϖ</mi><mo>&#8290;</mo><mi>ρ</mi><mo>&#8290;</mo><mi>ϱ</mi><mo>&#8290;</mo><mi>σ</mi><mo>&#8290;</mo><mi>ς</mi><mo>&#8290;</mo><mi>τ</mi><mo>&#8290;</mo><mi>υ</mi><mo>&#8290;</mo><mi>ϕ</mi><mo>&#8290;</mo><mi>φ</mi><mo>&#8290;</mo><mi>χ</mi><mo>&#8290;</mo><mi>ψ</mi><mo>&#8290;</mo><mi>ω</mi></mrow>"}
+{"file":"wide/092-display.json","mathml":"<mrow><mi>Γ</mi><mo>&#8290;</mo><mi>Δ</mi><mo>&#8290;</mo><mi>Θ</mi><mo>&#8290;</mo><mi>Λ</mi><mo>&#8290;</mo><mi>Ξ</mi><mo>&#8290;</mo><mi>Π</mi><mo>&#8290;</mo><mi>Σ</mi><mo>&#8290;</mo><mi>Υ</mi><mo>&#8290;</mo><mi>Φ</mi><mo>&#8290;</mo><mi>Ψ</mi><mo>&#8290;</mo><mi>Ω</mi></mrow>"}
+{"file":"wide/092-text.json","mathml":"<mrow><mi>Γ</mi><mo>&#8290;</mo><mi>Δ</mi><mo>&#8290;</mo><mi>Θ</mi><mo>&#8290;</mo><mi>Λ</mi><mo>&#8290;</mo><mi>Ξ</mi><mo>&#8290;</mo><mi>Π</mi><mo>&#8290;</mo><mi>Σ</mi><mo>&#8290;</mo><mi>Υ</mi><mo>&#8290;</mo><mi>Φ</mi><mo>&#8290;</mo><mi>Ψ</mi><mo>&#8290;</mo><mi>Ω</mi></mrow>"}
+{"file":"wide/093-display.json","mathml":"<mrow><mi>&#x221e;</mi><mo>&#8290;</mo><mi>∂</mi><mo>&#8290;</mo><mi>∇</mi><mo>&#8290;</mo><mi>&#x2200;</mi><mo>&#8290;</mo><mi>&#x2203;</mi><mo>¬</mo><mi>∅</mi><mo>&#8290;</mo><mi>∅</mi></mrow>"}
+{"file":"wide/093-text.json","mathml":"<mrow><mi>&#x221e;</mi><mo>&#8290;</mo><mi>∂</mi><mo>&#8290;</mo><mi>∇</mi><mo>&#8290;</mo><mi>&#x2200;</mi><mo>&#8290;</mo><mi>&#x2203;</mi><mo>¬</mo><mi>∅</mi><mo>&#8290;</mo><mi>∅</mi></mrow>"}
+{"file":"wide/094-display.json","mathml":"<mrow><mi>ℕ</mi><mi>ℤ</mi><mi>ℚ</mi><mi>ℂ</mi></mrow>"}
+{"file":"wide/094-text.json","mathml":"<mrow><mi>ℕ</mi><mi>ℤ</mi><mi>ℚ</mi><mi>ℂ</mi></mrow>"}
+{"file":"wide/095-display.json","mathml":"<mi mathvariant=\"script\">LF</mi>"}
+{"file":"wide/095-text.json","mathml":"<mi mathvariant=\"script\">LF</mi>"}
+{"file":"wide/096-display.json","mathml":"<mrow><mi>𝔤</mi><mi>𝔰</mi><mi>𝔲</mi></mrow>"}
+{"file":"wide/096-text.json","mathml":"<mrow><mi>𝔤</mi><mi>𝔰</mi><mi>𝔲</mi></mrow>"}
+{"file":"wide/097-display.json","mathml":"<mi>ℋ</mi>"}
+{"file":"wide/097-text.json","mathml":"<mi>ℋ</mi>"}
+{"file":"wide/098-display.json","mathml":"<mrow><mi mathvariant=\"bold\">v</mi><mn mathvariant=\"bold\">0</mn></mrow>"}
+{"file":"wide/098-text.json","mathml":"<mrow><mi mathvariant=\"bold\">v</mi><mn mathvariant=\"bold\">0</mn></mrow>"}
+{"file":"wide/099-display.json","mathml":"<mrow><mi mathvariant=\"bold-italic\">&#x03b1;</mi><mo>&#8290;</mo><mi mathvariant=\"bold-italic\">x</mi></mrow>"}
+{"file":"wide/099-text.json","mathml":"<mrow><mi mathvariant=\"bold-italic\">&#x03b1;</mi><mo>&#8290;</mo><mi mathvariant=\"bold-italic\">x</mi></mrow>"}
+{"file":"wide/100-display.json","mathml":"<mrow><mi>𝖳</mi><mi>𝚡</mi><mo>&#8290;</mo><mi mathvariant=\"italic\">diff</mi><mo>&#8290;</mo><mi mathvariant=\"normal\">d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"wide/100-text.json","mathml":"<mrow><mi>𝖳</mi><mi>𝚡</mi><mo>&#8290;</mo><mi mathvariant=\"italic\">diff</mi><mo>&#8290;</mo><mi mathvariant=\"normal\">d</mi><mo>&#8290;</mo><mi>x</mi></mrow>"}
+{"file":"wide/101-display.json","mathml":"<mrow><mtext >if </mtext><mo>&#8290;</mo><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow>"}
+{"file":"wide/101-text.json","mathml":"<mrow><mtext >if </mtext><mo>&#8290;</mo><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow>"}
+{"file":"wide/102-display.json","mathml":"<mrow><mi>x</mi><mspace width=\"1em\"/><mtext >and</mtext><mspace width=\"1em\"/><mi>y</mi></mrow>"}
+{"file":"wide/102-text.json","mathml":"<mrow><mi>x</mi><mspace width=\"1em\"/><mtext >and</mtext><mspace width=\"1em\"/><mi>y</mi></mrow>"}
+{"file":"wide/103-display.json","mathml":"<mrow><mtext >area</mtext><mo>=</mo><mi>&#x03c0;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow>"}
+{"file":"wide/103-text.json","mathml":"<mrow><mtext >area</mtext><mo>=</mo><mi>&#x03c0;</mi><msup><mi>r</mi><mn>2</mn></msup></mrow>"}
+{"file":"wide/104-display.json","mathml":"<mi>y</mi>"}
+{"file":"wide/104-text.json","mathml":"<mi>y</mi>"}
+{"file":"wide/105-display.json","mathml":"<mi>x</mi>"}
+{"file":"wide/105-text.json","mathml":"<mi>x</mi>"}
+{"file":"wide/106-display.json","mathml":""}
+{"file":"wide/106-text.json","mathml":""}
+{"file":"wide/107-display.json","mathml":"<mrow><munder><mrow><mi>z</mi><mo>=</mo><mn>0</mn></mrow></munder><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/107-text.json","mathml":"<mrow><munder><mrow><mi>z</mi><mo>=</mo><mn>0</mn></mrow></munder><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/108-display.json","mathml":""}
+{"file":"wide/108-text.json","mathml":""}
+{"file":"wide/109-display.json","mathml":"<mrow><mi>a</mi><mo>⋅</mo><mi>b</mi><mo>&#215;</mo><mi>c</mi><mo>÷</mo><mi>d</mi><mo>&#177;</mo><mi>e</mi><mo>∓</mo><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/109-text.json","mathml":"<mrow><mi>a</mi><mo>⋅</mo><mi>b</mi><mo>&#215;</mo><mi>c</mi><mo>÷</mo><mi>d</mi><mo>&#177;</mo><mi>e</mi><mo>∓</mo><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/110-display.json","mathml":"<mrow><mi>a</mi><mo>∪</mo><mi>b</mi><mo>∩</mo><mi>c</mi><mo>∖</mo><mi>d</mi></mrow>"}
+{"file":"wide/110-text.json","mathml":"<mrow><mi>a</mi><mo>∪</mo><mi>b</mi><mo>∩</mo><mi>c</mi><mo>∖</mo><mi>d</mi></mrow>"}
+{"file":"wide/111-display.json","mathml":"<mrow><mo>→</mo><mo>←</mo><mo>⇒</mo><mo>⇐</mo><mo>⇔</mo><mo>↦</mo><mo>→</mo></mrow>"}
+{"file":"wide/111-text.json","mathml":"<mrow><mo>→</mo><mo>←</mo><mo>⇒</mo><mo>⇐</mo><mo>⇔</mo><mo>↦</mo><mo>→</mo></mrow>"}
+{"file":"wide/112-display.json","mathml":"<mrow><mo>↑</mo><mo>↓</mo><mo>↕</mo></mrow>"}
+{"file":"wide/112-text.json","mathml":"<mrow><mo>↑</mo><mo>↓</mo><mo>↕</mo></mrow>"}
+{"file":"wide/113-display.json","mathml":"<mrow><mo>⟨</mo><mi>a</mi><mo>⟩</mo></mrow>"}
+{"file":"wide/113-text.json","mathml":"<mrow><mo>⟨</mo><mi>a</mi><mo>⟩</mo></mrow>"}
+{"file":"wide/114-display.json","mathml":"<mrow><mi>∥</mi><mo>&#8290;</mo><mi>x</mi><mo>&#8290;</mo><mi>∥</mi></mrow>"}
+{"file":"wide/114-text.json","mathml":"<mrow><mi>∥</mi><mo>&#8290;</mo><mi>x</mi><mo>&#8290;</mo><mi>∥</mi></mrow>"}
+{"file":"wide/115-display.json","mathml":"<mrow><mi>∣</mi><mo>&#8290;</mo><mi>x</mi><mo>&#8290;</mo><mi>∣</mi></mrow>"}
+{"file":"wide/115-text.json","mathml":"<mrow><mi>∣</mi><mo>&#8290;</mo><mi>x</mi><mo>&#8290;</mo><mi>∣</mi></mrow>"}
+{"file":"wide/116-display.json","mathml":"<mrow><mo>{</mo><mi>x</mi><mo>}</mo></mrow>"}
+{"file":"wide/116-text.json","mathml":"<mrow><mo>{</mo><mi>x</mi><mo>}</mo></mrow>"}
+{"file":"wide/117-display.json","mathml":"<mrow><mi>f</mi><mo>&#x2061;</mo><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow>"}
+{"file":"wide/117-text.json","mathml":"<mrow><mi>f</mi><mo>&#x2061;</mo><mo>:</mo><mi>A</mi><mo>→</mo><mi>B</mi></mrow>"}
+{"file":"wide/118-display.json","mathml":"<mrow><mo>{</mo><mtable columnalign=\"left left left left left left left left left left \"><mtr><mtd><mn>1</mn></mtd><mtd><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mtext >otherwise</mtext></mtd></mtr></mtable></mrow>"}
+{"file":"wide/118-text.json","mathml":"<mrow><mo>{</mo><mtable columnalign=\"left left left left left left left left left left \"><mtr><mtd><mn>1</mn></mtd><mtd><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mtext >otherwise</mtext></mtd></mtr></mtable></mrow>"}
+{"file":"wide/119-display.json","mathml":"<mtable columnalign=\"right left \"><mtr><mtd><mi>a</mi></mtd><mtd><mrow><mo>=</mo><mi>b</mi><mo>+</mo><mi>c</mi></mrow></mtd></mtr><mtr><mtd><mi>d</mi></mtd><mtd><mrow><mo>=</mo><mi>e</mi></mrow></mtd></mtr></mtable>"}
+{"file":"wide/119-text.json","mathml":"<mtable columnalign=\"right left \"><mtr><mtd><mi>a</mi></mtd><mtd><mrow><mo>=</mo><mi>b</mi><mo>+</mo><mi>c</mi></mrow></mtd></mtr><mtr><mtd><mi>d</mi></mtd><mtd><mrow><mo>=</mo><mi>e</mi></mrow></mtd></mtr></mtable>"}
+{"file":"wide/120-display.json","mathml":"<mrow><mo>(</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/120-text.json","mathml":"<mrow><mo>(</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable><mo>)</mo></mrow>"}
+{"file":"wide/121-display.json","mathml":"<mrow><mo>[</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>]</mo></mrow>"}
+{"file":"wide/121-text.json","mathml":"<mrow><mo>[</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>]</mo></mrow>"}
+{"file":"wide/122-display.json","mathml":"<mrow><mo>|</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>|</mo></mrow>"}
+{"file":"wide/122-text.json","mathml":"<mrow><mo>|</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>|</mo></mrow>"}
+{"file":"wide/123-display.json","mathml":"<mrow><mo>∥</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>∥</mo></mrow>"}
+{"file":"wide/123-text.json","mathml":"<mrow><mo>∥</mo><mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable><mo>∥</mo></mrow>"}
+{"file":"wide/124-display.json","mathml":"<mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd></mtr><mtr><mtd><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd><mi>f</mi><mo>&#x2061;</mo></mtd></mtr><mtr><mtd><mi>g</mi><mo>&#x2061;</mo></mtd><mtd><mi>h</mi></mtd><mtd><mi>i</mi></mtd></mtr></mtable>"}
+{"file":"wide/124-text.json","mathml":"<mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd></mtr><mtr><mtd><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd><mi>f</mi><mo>&#x2061;</mo></mtd></mtr><mtr><mtd><mi>g</mi><mo>&#x2061;</mo></mtd><mtd><mi>h</mi></mtd><mtd><mi>i</mi></mtd></mtr></mtable>"}
+{"file":"wide/125-display.json","mathml":"<mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable>"}
+{"file":"wide/125-text.json","mathml":"<mtable columnalign=\"center center center center center center center center center center \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable>"}
+{"file":"wide/126-display.json","mathml":"<mtable columnalign=\"left center right \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd></mtr><mtr><mtd><mrow><mi>d</mi><mo>&#8290;</mo><mi>d</mi></mrow></mtd><mtd><mrow><mi>e</mi><mo>&#8290;</mo><mi>e</mi></mrow></mtd><mtd><mrow><mi>f</mi><mo>&#x2061;</mo><mi>f</mi><mo>&#x2061;</mo></mrow></mtd></mtr></mtable>"}
+{"file":"wide/126-text.json","mathml":"<mtable columnalign=\"left center right \"><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd></mtr><mtr><mtd><mrow><mi>d</mi><mo>&#8290;</mo><mi>d</mi></mrow></mtd><mtd><mrow><mi>e</mi><mo>&#8290;</mo><mi>e</mi></mrow></mtd><mtd><mrow><mi>f</mi><mo>&#x2061;</mo><mi>f</mi><mo>&#x2061;</mo></mrow></mtd></mtr></mtable>"}
+{"file":"wide/127-display.json","mathml":"<mtable columnalign=\"center center \"><mtr><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>3</mn></mtd><mtd><mn>4</mn></mtd></mtr></mtable>"}
+{"file":"wide/127-text.json","mathml":"<mtable columnalign=\"center center \"><mtr><mtd><mn>1</mn></mtd><mtd><mn>2</mn></mtd></mtr><mtr><mtd><mn>3</mn></mtd><mtd><mn>4</mn></mtd></mtr></mtable>"}
+{"file":"wide/128-display.json","mathml":"<mrow><mo>∑</mo><mi>P</mi><mo>&#8290;</mo><mrow><mo>(</mo><mrow><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/128-text.json","mathml":"<mrow><mo>∑</mo><mi>P</mi><mo>&#8290;</mo><mrow><mo>(</mo><mrow><mi>i</mi><mo separator=\"true\">,</mo><mi>j</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/129-display.json","mathml":""}
+{"file":"wide/129-text.json","mathml":""}
+{"file":"wide/130-display.json","mathml":"<mrow  displaystyle=\"true\"><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>i</mi></mrow></mrow>"}
+{"file":"wide/130-text.json","mathml":"<mrow  displaystyle=\"true\"><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>i</mi></mrow></mrow>"}
+{"file":"wide/131-display.json","mathml":"<mrow  displaystyle=\"false\"><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>i</mi></mrow></mrow>"}
+{"file":"wide/131-text.json","mathml":"<mrow  displaystyle=\"false\"><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mi>i</mi></mrow></mrow>"}
+{"file":"wide/132-display.json","mathml":""}
+{"file":"wide/132-text.json","mathml":""}
+{"file":"wide/133-display.json","mathml":""}
+{"file":"wide/133-text.json","mathml":""}
+{"file":"wide/134-display.json","mathml":"<menclose notation=\"box\"><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow></menclose>"}
+{"file":"wide/134-text.json","mathml":"<menclose notation=\"box\"><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow></menclose>"}
+{"file":"wide/135-display.json","mathml":"<msup><mi>x</mi><mfrac><mn>1</mn><mn>2</mn></mfrac></msup>"}
+{"file":"wide/135-text.json","mathml":"<msup><mi>x</mi><mfrac><mn>1</mn><mn>2</mn></mfrac></msup>"}
+{"file":"wide/136-display.json","mathml":"<msup><mi>e</mi><mrow><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow></msup>"}
+{"file":"wide/136-text.json","mathml":"<msup><mi>e</mi><mrow><mo>−</mo><mfrac><msup><mi>x</mi><mn>2</mn></msup><mn>2</mn></mfrac></mrow></msup>"}
+{"file":"wide/137-display.json","mathml":"<mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>u</mi></mrow><mrow><mi>∂</mi><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac>"}
+{"file":"wide/137-text.json","mathml":"<mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>u</mi></mrow><mrow><mi>∂</mi><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac>"}
+{"file":"wide/138-display.json","mathml":"<mrow><msubsup><mo>∫</mo><mn>0</mn><mi>&#x221e;</mi></msubsup><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></msup><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi><mo>=</mo><mfrac><msqrt><mi>&#x03c0;</mi></msqrt><mn>2</mn></mfrac></mrow>"}
+{"file":"wide/138-text.json","mathml":"<mrow><msubsup><mo>∫</mo><mn>0</mn><mi>&#x221e;</mi></msubsup><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></msup><mspace width=\"0.16666666666666666em\"/><mi>d</mi><mo>&#8290;</mo><mi>x</mi><mo>=</mo><mfrac><msqrt><mi>&#x03c0;</mi></msqrt><mn>2</mn></mfrac></mrow>"}
+{"file":"wide/139-display.json","mathml":"<mrow><mi>ζ</mi><mo>&#8290;</mo><mrow><mo>(</mo><mi>s</mi><mo>)</mo></mrow><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi>&#x221e;</mi></msubsup><mfrac><mn>1</mn><msup><mi>n</mi><mi>s</mi></msup></mfrac></mrow>"}
+{"file":"wide/139-text.json","mathml":"<mrow><mi>ζ</mi><mo>&#8290;</mo><mrow><mo>(</mo><mi>s</mi><mo>)</mo></mrow><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi>&#x221e;</mi></msubsup><mfrac><mn>1</mn><msup><mi>n</mi><mi>s</mi></msup></mfrac></mrow>"}
+{"file":"wide/140-display.json","mathml":"<msup><mrow><mo>(</mo><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mrow><mo>)</mo></mrow><mn>2</mn></msup>"}
+{"file":"wide/140-text.json","mathml":"<msup><mrow><mo>(</mo><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>a</mi><mi>i</mi></msub></mrow><mo>)</mo></mrow><mn>2</mn></msup>"}
+{"file":"wide/141-display.json","mathml":"<mrow><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign=\"left left left left left left left left left left \"><mtr><mtd><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>−</mo><mi>x</mi></mrow></mtd><mtd><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow></mtd></mtr></mtable></mrow></mrow>"}
+{"file":"wide/141-text.json","mathml":"<mrow><mi>f</mi><mo>&#x2061;</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnalign=\"left left left left left left left left left left \"><mtr><mtd><msup><mi>x</mi><mn>2</mn></msup></mtd><mtd><mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo>−</mo><mi>x</mi></mrow></mtd><mtd><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow></mtd></mtr></mtable></mrow></mrow>"}
+{"file":"wide/142-display.json","mathml":"<msup><mi mathvariant=\"normal\">e</mi><mrow><mi mathvariant=\"normal\">i</mi><mo>&#8290;</mo><mi>&#x03c0;</mi></mrow></msup>"}
+{"file":"wide/142-text.json","mathml":"<msup><mi mathvariant=\"normal\">e</mi><mrow><mi mathvariant=\"normal\">i</mi><mo>&#8290;</mo><mi>&#x03c0;</mi></mrow></msup>"}
+{"file":"wide/143-display.json","mathml":""}
+{"file":"wide/143-text.json","mathml":""}
+{"file":"wide/144-display.json","mathml":"<mover accent=\"true\"><mover accent=\"true\"><mi>x</mi><mo>&#x005e;</mo></mover><mo>&#x005e;</mo></mover>"}
+{"file":"wide/144-text.json","mathml":"<mover accent=\"true\"><mover accent=\"true\"><mi>x</mi><mo>&#x005e;</mo></mover><mo>&#x005e;</mo></mover>"}
+{"file":"wide/145-display.json","mathml":"<msub><mover accent=\"true\"><mi>v</mi><mo>&#x20d7;</mo></mover><mn>1</mn></msub>"}
+{"file":"wide/145-text.json","mathml":"<msub><mover accent=\"true\"><mi>v</mi><mo>&#x20d7;</mo></mover><mn>1</mn></msub>"}
+{"file":"wide/146-display.json","mathml":"<msup><mover accent=\"true\"><mi>x</mi><mo>&#x02d9;</mo></mover><mn>2</mn></msup>"}
+{"file":"wide/146-text.json","mathml":"<msup><mover accent=\"true\"><mi>x</mi><mo>&#x02d9;</mo></mover><mn>2</mn></msup>"}
+{"file":"wide/147-display.json","mathml":"<msub><mover accent=\"true\"><mi>x</mi><mo>&#x007e;</mo></mover><mi>n</mi></msub>"}
+{"file":"wide/147-text.json","mathml":"<msub><mover accent=\"true\"><mi>x</mi><mo>&#x007e;</mo></mover><mi>n</mi></msub>"}
+{"file":"wide/148-display.json","mathml":"<msub><mi>a</mi><mo>max</mo></msub>"}
+{"file":"wide/148-text.json","mathml":"<msub><mi>a</mi><mo>max</mo></msub>"}
+{"file":"wide/149-display.json","mathml":"<msubsup><mi>x</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup>"}
+{"file":"wide/149-text.json","mathml":"<msubsup><mi>x</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup>"}
+{"file":"wide/150-display.json","mathml":"<msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup>"}
+{"file":"wide/150-text.json","mathml":"<msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup>"}
+{"file":"wide/151-display.json","mathml":"<mrow><mi>%</mi><mo>&#8290;</mo><mi>$</mi><mo>&#8290;</mo><mi>&amp;</mi><mo>&#8290;</mo><mi>#</mi></mrow>"}
+{"file":"wide/151-text.json","mathml":"<mrow><mi>%</mi><mo>&#8290;</mo><mi>$</mi><mo>&#8290;</mo><mi>&amp;</mi><mo>&#8290;</mo><mi>#</mi></mrow>"}
+{"file":"wide/152-display.json","mathml":"<mrow><mi>∇</mi><mo>&#215;</mo><mi mathvariant=\"bold\">E</mi><mo>=</mo><mo>−</mo><mfrac><mrow><mi>∂</mi><mo>&#8290;</mo><mi mathvariant=\"bold\">B</mi></mrow><mrow><mi>∂</mi><mo>&#8290;</mo><mi>t</mi></mrow></mfrac></mrow>"}
+{"file":"wide/152-text.json","mathml":"<mrow><mi>∇</mi><mo>&#215;</mo><mi mathvariant=\"bold\">E</mi><mo>=</mo><mo>−</mo><mfrac><mrow><mi>∂</mi><mo>&#8290;</mo><mi mathvariant=\"bold\">B</mi></mrow><mrow><mi>∂</mi><mo>&#8290;</mo><mi>t</mi></mrow></mfrac></mrow>"}
+{"file":"wide/153-display.json","mathml":"<mrow><mo>Pr</mo><mrow><mo>(</mo><mrow><mi>X</mi><mo>=</mo><mi>x</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/153-text.json","mathml":"<mrow><mo>Pr</mo><mrow><mo>(</mo><mrow><mi>X</mi><mo>=</mo><mi>x</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/154-display.json","mathml":"<mrow><mo>gcd</mo><mrow><mo>(</mo><mrow><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/154-text.json","mathml":"<mrow><mo>gcd</mo><mrow><mo>(</mo><mrow><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/155-display.json","mathml":"<mrow><mo>ker</mo><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/155-text.json","mathml":"<mrow><mo>ker</mo><mi>f</mi><mo>&#x2061;</mo></mrow>"}
+{"file":"wide/156-display.json","mathml":"<mrow><mo>hom</mo><mrow><mo>(</mo><mrow><mi>A</mi><mo separator=\"true\">,</mo><mi>B</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/156-text.json","mathml":"<mrow><mo>hom</mo><mrow><mo>(</mo><mrow><mi>A</mi><mo separator=\"true\">,</mo><mi>B</mi></mrow><mo>)</mo></mrow></mrow>"}
+{"file":"wide/157-display.json","mathml":"<mrow><mo>arcsin</mo><mi>x</mi></mrow>"}
+{"file":"wide/157-text.json","mathml":"<mrow><mo>arcsin</mo><mi>x</mi></mrow>"}
+{"file":"wide/158-display.json","mathml":"<mrow><mo>cosh</mo><mi>x</mi></mrow>"}
+{"file":"wide/158-text.json","mathml":"<mrow><mo>cosh</mo><mi>x</mi></mrow>"}
+{"file":"wide/159-display.json","mathml":"<mrow><mo>exp</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/159-text.json","mathml":"<mrow><mo>exp</mo><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow>"}
+{"file":"wide/160-display.json","mathml":"<mrow><mo>ln</mo><mi>∣</mi><mo>&#8290;</mo><mi>x</mi><mo>&#8290;</mo><mi>∣</mi></mrow>"}
+{"file":"wide/160-text.json","mathml":"<mrow><mo>ln</mo><mi>∣</mi><mo>&#8290;</mo><mi>x</mi><mo>&#8290;</mo><mi>∣</mi></mrow>"}
+{"file":"wide/161-display.json","mathml":"<mrow><mi>a</mi><mspace width=\"-0.16666666666666666em\"/><mi>b</mi></mrow>"}
+{"file":"wide/161-text.json","mathml":"<mrow><mi>a</mi><mspace width=\"-0.16666666666666666em\"/><mi>b</mi></mrow>"}
+{"file":"wide/162-display.json","mathml":"<mrow><mi>a</mi>&nbsp;<mi>b</mi></mrow>"}
+{"file":"wide/162-text.json","mathml":"<mrow><mi>a</mi>&nbsp;<mi>b</mi></mrow>"}
+{"file":"wide/163-display.json","mathml":"<mrow><mi>a</mi><mspace width=\"0em\"/><mi>b</mi></mrow>"}
+{"file":"wide/163-text.json","mathml":"<mrow><mi>a</mi><mspace width=\"0em\"/><mi>b</mi></mrow>"}
+{"file":"wide/164-display.json","mathml":"<mrow><mi>a</mi><mspace width=\"0em\"/><mi>b</mi></mrow>"}
+{"file":"wide/164-text.json","mathml":"<mrow><mi>a</mi><mspace width=\"0em\"/><mi>b</mi></mrow>"}
+{"file":"wide/165-display.json","mathml":"<mrow><mi>a</mi><mspace width=\"0em\"/><mi>b</mi></mrow>"}
+{"file":"wide/165-text.json","mathml":"<mrow><mi>a</mi><mspace width=\"0em\"/><mi>b</mi></mrow>"}

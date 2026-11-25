@@ -7,6 +7,9 @@ vendor = "TexType"
 identifier = "com.textype.app"
 ole_progid = "TexType.Formula.1"
 pipe_name = "textype"
+# The Word and WPS Writer add-in (a COM add-in): its class name and class identifier.
+word_addin_progid = "TexType.WordAddIn"
+word_addin_clsid = "3BCA64E4-A161-4DBB-8020-FA0E1A6DE1BC"
 # The formula format (docs/FORMULA-FORMAT.md): the record's format name and the OLE object's streams.
 formula_format = "textype.formula"
 ole_stream_record = "TexType.Formula"

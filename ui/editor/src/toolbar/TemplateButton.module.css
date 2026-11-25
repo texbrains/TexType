@@ -1,0 +1,42 @@
+@layer components {
+  /* one template or symbol; its face is tinted with the active category's colour (--local-tint from the panel) */
+  .button,
+  .wide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    height: 50px;
+    padding: 2px;
+    border: 0;
+    color: var(--text-muted);
+    font-size: 23.92px;
+    background: linear-gradient(
+      color-mix(in srgb, var(--surface) 82%, var(--local-tint) 18%),
+      color-mix(in srgb, var(--bg-elevated) 76%, var(--local-tint) 24%)
+    );
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--bg-elevated) 58%, transparent),
+      inset 0 -1px 0 color-mix(in srgb, var(--border) 44%, transparent);
+    overflow: hidden;
+  }
+
+  /* a template whose picture needs two cells */
+  .wide {
+    grid-column: span 2;
+  }
+
+  .button:hover,
+  .button:focus-visible,
+  .wide:hover,
+  .wide:focus-visible {
+    color: var(--text);
+    background: linear-gradient(
+      color-mix(in srgb, var(--accent-soft) 62%, var(--local-tint) 38%),
+      color-mix(in srgb, var(--accent-soft) 70%, var(--local-tint) 30%)
+    );
+    outline: 1px solid color-mix(in srgb, var(--accent-border) 54%, var(--local-tint) 46%);
+    outline-offset: 0;
+  }
+}

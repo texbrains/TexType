@@ -5,6 +5,8 @@
 //! - every request and response exchanged between the app and an add-in, defined
 //!   once here
 //! - the protocol version and the rule for refusing a mismatched peer
+//! - how a message travels on the Windows named pipe `\\.\pipe\<pipe_name>-<Windows session id>` (one pipe per
+//!   logged-on user): a 4-byte little-endian length, then the UTF-8 JSON (`frame`, `MAX_MESSAGE_BYTES`)
 //!
 //! In and out: JSON messages
 //!
@@ -21,9 +23,24 @@ pub mod product {
 
 mod messages;
 
+/// The largest message either side accepts.
+pub const MAX_MESSAGE_BYTES: usize = 16 * 1024 * 1024;
+
+/// One message as it travels on the pipe: its length (4 bytes, little-endian), then its bytes.
+pub fn frame(message: &[u8]) -> Vec<u8> {
+    assert!(
+        message.len() <= MAX_MESSAGE_BYTES,
+        "a message is at most {MAX_MESSAGE_BYTES} bytes"
+    );
+    let mut framed = Vec::with_capacity(4 + message.len());
+    framed.extend((message.len() as u32).to_le_bytes());
+    framed.extend(message);
+    framed
+}
+
 pub use messages::{
-    decode_request, encode_response, welcome, ErrorCode, Hello, Host, Request, RequestBody,
-    Response, ResponseBody, PROTOCOL_VERSION,
+    decode_request, encode_response, welcome, EditEquation, ErrorCode, Hello, Host, Request,
+    RequestBody, Response, ResponseBody, PROTOCOL_VERSION,
 };
 
 #[cfg(test)]

@@ -1,0 +1,14 @@
+@layer components {
+  /* a row whose formula cannot be drawn: the reason, in the danger colour */
+  .fallback {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid color-mix(in srgb, var(--danger) 30%, transparent);
+    border-radius: var(--radius-control);
+    color: var(--danger);
+    background: color-mix(in srgb, var(--danger) 8%, transparent);
+    font-size: 12px;
+  }
+}

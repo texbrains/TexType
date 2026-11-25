@@ -1,0 +1,112 @@
+/* The command candidates (TexType): one row per candidate, its number and command on a band at the left and a
+   drawing of what it inserts at the right. The colours are the page's tokens (the editor's styles/tokens.css); the
+   fallbacks are the light theme. The kernel sets the list's height (--kernel-suggestion-max-height) and position. */
+#mathlive-suggestion-popover {
+  position: fixed;
+  z-index: 1200;
+  display: none;
+  min-width: 250px;
+  max-width: min(380px, calc(100vw - 24px));
+  border: 1px solid var(--border-strong, #b9c1cb);
+  border-radius: 10px;
+  color: var(--text, #1d232b);
+  background: var(--surface, #ffffff);
+  box-shadow: var(--shadow-menu, 0 7px 20px rgba(24, 31, 40, 0.13), 0 1px 3px rgba(24, 31, 40, 0.08));
+  font: 13px / 1.45 var(--font-ui, system-ui, sans-serif);
+}
+
+#mathlive-suggestion-popover.is-visible {
+  display: flex;
+}
+
+/* the tip pointing at the caret, below or above the list */
+#mathlive-suggestion-popover.top-tip::after,
+#mathlive-suggestion-popover.bottom-tip::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 15px);
+  border: 15px solid transparent;
+}
+
+#mathlive-suggestion-popover.top-tip::after {
+  top: -30px;
+  border-bottom-color: var(--surface, #ffffff);
+}
+
+#mathlive-suggestion-popover.bottom-tip::after {
+  bottom: -30px;
+  border-top-color: var(--surface, #ffffff);
+}
+
+#mathlive-suggestion-popover ul {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  row-gap: 1px;
+  max-height: var(--kernel-suggestion-max-height, 320px);
+  margin: 0;
+  padding: 0;
+  border-radius: inherit;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+#mathlive-suggestion-popover li {
+  display: grid;
+  grid-template-columns: 28px 168px minmax(120px, 1fr);
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    var(--candidate-band, #e2edf5) 0 196px,
+    var(--candidate-picture, #ffffff) 196px
+  );
+  cursor: pointer;
+}
+
+#mathlive-suggestion-popover li:hover {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--candidate-band, #e2edf5) 55%, var(--candidate-band-current, #c9dfef)) 0 196px,
+    var(--candidate-picture, #ffffff) 196px
+  );
+}
+
+#mathlive-suggestion-popover li.ML__popover__current {
+  background: linear-gradient(
+    to right,
+    var(--candidate-band-current, #c9dfef) 0 196px,
+    var(--candidate-picture-current, #eef4f8) 196px
+  );
+}
+
+.ML__popover__index {
+  justify-self: center;
+  color: var(--accent, #1f638e);
+  font-weight: 600;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ML__popover__latex {
+  padding-right: 10px;
+  overflow: hidden;
+  font: 12px / 1.45 'IBM Plex Mono', 'Source Code Pro', Consolas, 'Roboto Mono', Menlo, 'DejaVu Sans Mono', monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ML__popover__command {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 4px 10px;
+  font-size: 1.3rem;
+}
+
+/* in place of a drawing for a command that draws nothing by itself */
+.ML__popover__none {
+  color: var(--text-faint, #687483);
+  font-size: 12px;
+}

@@ -7,14 +7,8 @@
     "frontendDist": "../ui/app-ui/dist"
   },
   "app": {
-    "windows": [
-      {
-        "label": "main",
-        "title": "TexType",
-        "width": 900,
-        "height": 600
-      }
-    ],
+    "withGlobalTauri": true,
+    "windows": [],
     "security": {
       "csp": null
     }

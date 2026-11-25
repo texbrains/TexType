@@ -1,0 +1,12 @@
+<Project>
+  <!-- The product.toml values a project lists in ProductKeys become constants of TexType.Product
+       (tools/product-csharp.mjs), generated into the project's obj folder and compiled from there. -->
+  <Target Name="GenerateProductConstants" BeforeTargets="CoreCompile" Condition="'$(ProductKeys)' != ''"
+          Inputs="$(RepoRoot)product.toml;$(RepoRoot)Cargo.toml;$(RepoRoot)tools\product-csharp.mjs"
+          Outputs="$(IntermediateOutputPath)Product.g.cs">
+    <Exec Command="node &quot;$(RepoRoot)tools\product-csharp.mjs&quot; &quot;$(IntermediateOutputPath)Product.g.cs&quot; $(ProductKeys)" />
+    <ItemGroup>
+      <Compile Include="$(IntermediateOutputPath)Product.g.cs" />
+    </ItemGroup>
+  </Target>
+</Project>

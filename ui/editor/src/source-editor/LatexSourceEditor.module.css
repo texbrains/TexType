@@ -1,0 +1,78 @@
+@layer components {
+  /* the LaTeX source pane: the code (CodeMirror, styled by its theme in the component) and, while the draft
+     differs from the formula, a row with its state and a reset button */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+  }
+
+  .panel[data-error] {
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--danger) 24%, transparent);
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    height: 34px;
+    padding: 0 8px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+
+  .error {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 22px;
+    margin-right: auto;
+    padding: 2px 8px;
+    border: 1px solid color-mix(in srgb, var(--danger) 36%, var(--border));
+    border-radius: 999px;
+    color: var(--danger);
+    background: color-mix(in srgb, var(--danger) 8%, transparent);
+    font-size: var(--text-size-small);
+    font-weight: 650;
+    line-height: 1.2;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 28px;
+    padding: 0 8px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-field);
+    color: var(--text-muted);
+    background: transparent;
+    font-size: var(--text-size-small);
+    font-weight: 600;
+  }
+
+  .reset:hover {
+    border-color: var(--border);
+    color: var(--text);
+    background: var(--surface);
+  }
+
+  .code {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+}

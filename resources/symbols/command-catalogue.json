@@ -1,0 +1,8052 @@
+[
+ {
+  "exact": true,
+  "id": "dddot-accent",
+  "command": "\\dddot",
+  "category": "structure",
+  "latex": "\\dddot{\\placeholder{}}",
+  "preview": "\\dddot{x}",
+  "name": "三点重音",
+  "nameEn": "Triple dot accent",
+  "words": [
+   "Triple dot accent",
+   "triple dot",
+   "三点",
+   "重音"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "ddddot-accent",
+  "command": "\\ddddot",
+  "category": "structure",
+  "latex": "\\ddddot{\\placeholder{}}",
+  "preview": "\\ddddot{x}",
+  "name": "四点重音",
+  "nameEn": "Quadruple dot accent",
+  "words": [
+   "Quadruple dot accent",
+   "quadruple dot",
+   "四点",
+   "重音"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "bar-accent",
+  "command": "\\bar",
+  "category": "structure",
+  "latex": "\\bar{\\placeholder{}}",
+  "preview": "\\bar{x}",
+  "name": "短横重音",
+  "nameEn": "Bar accent",
+  "words": [
+   "Bar accent",
+   "bar accent",
+   "横线",
+   "重音"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "frac",
+  "command": "\\frac",
+  "category": "structure",
+  "latex": "\\frac{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\frac{a}{b}",
+  "name": "分式",
+  "nameEn": "Fraction",
+  "words": [
+   "Fraction",
+   "divide",
+   "fraction",
+   "分数",
+   "除法"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "sqrt",
+  "command": "\\sqrt",
+  "category": "structure",
+  "latex": "\\sqrt{\\placeholder{}}",
+  "preview": "\\sqrt{x}",
+  "name": "平方根",
+  "nameEn": "Square root",
+  "words": [
+   "Square root",
+   "root",
+   "square root",
+   "根号",
+   "开方"
+  ],
+  "priority": 98
+ },
+ {
+  "exact": true,
+  "id": "nthroot",
+  "command": "\\sqrt",
+  "category": "structure",
+  "latex": "\\sqrt[\\placeholder{}]{\\placeholder{}}",
+  "preview": "\\sqrt[n]{x}",
+  "name": "n 次根",
+  "nameEn": "Nth root",
+  "words": [
+   "Nth root",
+   "nth root",
+   "根式"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "power",
+  "command": "^",
+  "category": "structure",
+  "latex": "^{\\placeholder{}}",
+  "preview": "x^{n}",
+  "name": "上标",
+  "nameEn": "Superscript",
+  "words": [
+   "Superscript",
+   "power",
+   "superscript",
+   "次方",
+   "指数"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "subscript",
+  "command": "_",
+  "category": "structure",
+  "latex": "_{\\placeholder{}}",
+  "preview": "x_{i}",
+  "name": "下标",
+  "nameEn": "Subscript",
+  "words": [
+   "Subscript",
+   "index",
+   "subscript",
+   "角标"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "parentheses",
+  "command": "\\left",
+  "category": "structure",
+  "latex": "\\left(\\placeholder{}\\right)",
+  "preview": "\\left(x\\right)",
+  "name": "自适应圆括号",
+  "nameEn": "Parentheses",
+  "words": [
+   "Parentheses",
+   "bracket",
+   "parentheses",
+   "括号",
+   "圆括号"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "absolute",
+  "command": "\\left|",
+  "category": "structure",
+  "latex": "\\left|\\placeholder{}\\right|",
+  "preview": "\\left|x\\right|",
+  "name": "绝对值",
+  "nameEn": "Absolute value",
+  "words": [
+   "Absolute value",
+   "abs",
+   "absolute",
+   "模",
+   "绝对值"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "binom",
+  "command": "\\binom",
+  "category": "structure",
+  "latex": "\\binom{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\binom{n}{k}",
+  "name": "二项式",
+  "nameEn": "Binomial",
+  "words": [
+   "Binomial",
+   "choose",
+   "binomial",
+   "组合数"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "overset",
+  "command": "\\overset",
+  "category": "structure",
+  "latex": "\\overset{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\overset{a}{b}",
+  "name": "上方标注",
+  "nameEn": "Overset",
+  "words": [
+   "Overset",
+   "over set",
+   "upper annotation",
+   "上方标注",
+   "上置符号"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "underset",
+  "command": "\\underset",
+  "category": "structure",
+  "latex": "\\underset{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\underset{a}{b}",
+  "name": "下方标注",
+  "nameEn": "Underset",
+  "words": [
+   "Underset",
+   "under set",
+   "lower annotation",
+   "下方标注",
+   "下置符号"
+  ],
+  "priority": 69
+ },
+ {
+  "exact": true,
+  "id": "overunderset",
+  "command": "\\overunderset",
+  "category": "structure",
+  "latex": "\\overset{\\placeholder{}}{\\underset{\\placeholder{}}{\\placeholder{}}}",
+  "preview": "\\overset{a}{\\underset{c}{b}}",
+  "name": "上下标注",
+  "nameEn": "Over-underset",
+  "words": [
+   "Over-underset",
+   "over under set",
+   "upper lower annotation",
+   "上下标注",
+   "上下置符号"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "stackrel",
+  "command": "\\stackrel",
+  "category": "structure",
+  "latex": "\\stackrel{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\stackrel{a}{b}",
+  "name": "叠加关系",
+  "nameEn": "Stacked relation",
+  "words": [
+   "Stacked relation",
+   "stack relation",
+   "叠加关系",
+   "上方关系"
+  ],
+  "priority": 67
+ },
+ {
+  "exact": true,
+  "id": "stackbin",
+  "command": "\\stackbin",
+  "category": "structure",
+  "latex": "\\stackbin{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\stackbin{a}{b}",
+  "name": "叠加二元符号",
+  "nameEn": "Stacked binary",
+  "words": [
+   "Stacked binary",
+   "stack binary",
+   "叠加符号",
+   "二元符号"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "overarc",
+  "command": "\\overarc",
+  "category": "structure",
+  "latex": "\\overarc{\\placeholder{}}",
+  "preview": "\\overarc{AB}",
+  "name": "上弧线",
+  "nameEn": "Over arc",
+  "words": [
+   "Over arc",
+   "over arc",
+   "上弧线",
+   "圆弧"
+  ],
+  "priority": 65
+ },
+ {
+  "exact": true,
+  "id": "overline",
+  "command": "\\overline",
+  "category": "structure",
+  "latex": "\\overline{\\placeholder{}}",
+  "preview": "\\overline{AB}",
+  "name": "上划线",
+  "nameEn": "Overline",
+  "words": [
+   "Overline",
+   "over line",
+   "上划线",
+   "共轭"
+  ],
+  "priority": 65
+ },
+ {
+  "exact": true,
+  "id": "overbrace",
+  "command": "\\overbrace",
+  "category": "structure",
+  "latex": "\\overbrace{\\placeholder{}}",
+  "preview": "\\overbrace{a+b}",
+  "name": "上花括号",
+  "nameEn": "Overbrace",
+  "words": [
+   "Overbrace",
+   "over brace",
+   "上花括号",
+   "上括号"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "overgroup",
+  "command": "\\overgroup",
+  "category": "structure",
+  "latex": "\\overgroup{\\placeholder{}}",
+  "preview": "\\overgroup{AB}",
+  "name": "上分组弧",
+  "nameEn": "Overgroup",
+  "words": [
+   "Overgroup",
+   "over group",
+   "上分组",
+   "分组弧"
+  ],
+  "priority": 63
+ },
+ {
+  "exact": true,
+  "id": "overparen",
+  "command": "\\overparen",
+  "category": "structure",
+  "latex": "\\overparen{\\placeholder{}}",
+  "preview": "\\overparen{AB}",
+  "name": "上圆弧",
+  "nameEn": "Overparen",
+  "words": [
+   "Overparen",
+   "over paren",
+   "上圆弧",
+   "上圆括号"
+  ],
+  "priority": 63
+ },
+ {
+  "exact": true,
+  "id": "overleftarrow",
+  "command": "\\overleftarrow",
+  "category": "structure",
+  "latex": "\\overleftarrow{\\placeholder{}}",
+  "preview": "\\overleftarrow{AB}",
+  "name": "上左箭头",
+  "nameEn": "Over left arrow",
+  "words": [
+   "Over left arrow",
+   "over left arrow",
+   "上方左箭头"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "overrightarrow",
+  "command": "\\overrightarrow",
+  "category": "structure",
+  "latex": "\\overrightarrow{\\placeholder{}}",
+  "preview": "\\overrightarrow{AB}",
+  "name": "上右箭头",
+  "nameEn": "Over right arrow",
+  "words": [
+   "Over right arrow",
+   "over right arrow",
+   "上方右箭头",
+   "向量"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "overleftrightarrow",
+  "command": "\\overleftrightarrow",
+  "category": "structure",
+  "latex": "\\overleftrightarrow{\\placeholder{}}",
+  "preview": "\\overleftrightarrow{AB}",
+  "name": "上双向箭头",
+  "nameEn": "Over left-right arrow",
+  "words": [
+   "Over left-right arrow",
+   "over left right arrow",
+   "上方双向箭头"
+  ],
+  "priority": 61
+ },
+ {
+  "exact": true,
+  "id": "overleftharpoon",
+  "command": "\\overleftharpoon",
+  "category": "structure",
+  "latex": "\\overleftharpoon{\\placeholder{}}",
+  "preview": "\\overleftharpoon{AB}",
+  "name": "上左鱼叉箭头",
+  "nameEn": "Over left harpoon",
+  "words": [
+   "Over left harpoon",
+   "over left harpoon",
+   "上方左鱼叉箭头"
+  ],
+  "priority": 60
+ },
+ {
+  "exact": true,
+  "id": "overrightharpoon",
+  "command": "\\overrightharpoon",
+  "category": "structure",
+  "latex": "\\overrightharpoon{\\placeholder{}}",
+  "preview": "\\overrightharpoon{AB}",
+  "name": "上右鱼叉箭头",
+  "nameEn": "Over right harpoon",
+  "words": [
+   "Over right harpoon",
+   "over right harpoon",
+   "上方右鱼叉箭头"
+  ],
+  "priority": 60
+ },
+ {
+  "exact": true,
+  "id": "overlinesegment",
+  "command": "\\overlinesegment",
+  "category": "structure",
+  "latex": "\\overlinesegment{\\placeholder{}}",
+  "preview": "\\overlinesegment{AB}",
+  "name": "上线段",
+  "nameEn": "Over line segment",
+  "words": [
+   "Over line segment",
+   "over line segment",
+   "上线段",
+   "上方线段"
+  ],
+  "priority": 59
+ },
+ {
+  "exact": true,
+  "id": "underarc",
+  "command": "\\underarc",
+  "category": "structure",
+  "latex": "\\underarc{\\placeholder{}}",
+  "preview": "\\underarc{AB}",
+  "name": "下弧线",
+  "nameEn": "Under arc",
+  "words": [
+   "Under arc",
+   "under arc",
+   "下弧线",
+   "圆弧"
+  ],
+  "priority": 65
+ },
+ {
+  "exact": true,
+  "id": "underline",
+  "command": "\\underline",
+  "category": "structure",
+  "latex": "\\underline{\\placeholder{}}",
+  "preview": "\\underline{AB}",
+  "name": "下划线",
+  "nameEn": "Underline",
+  "words": [
+   "Underline",
+   "under line",
+   "下划线"
+  ],
+  "priority": 65
+ },
+ {
+  "exact": true,
+  "id": "underbrace",
+  "command": "\\underbrace",
+  "category": "structure",
+  "latex": "\\underbrace{\\placeholder{}}",
+  "preview": "\\underbrace{a+b}",
+  "name": "下花括号",
+  "nameEn": "Underbrace",
+  "words": [
+   "Underbrace",
+   "under brace",
+   "下花括号",
+   "下括号"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "undergroup",
+  "command": "\\undergroup",
+  "category": "structure",
+  "latex": "\\undergroup{\\placeholder{}}",
+  "preview": "\\undergroup{AB}",
+  "name": "下分组弧",
+  "nameEn": "Undergroup",
+  "words": [
+   "Undergroup",
+   "under group",
+   "下分组",
+   "分组弧"
+  ],
+  "priority": 63
+ },
+ {
+  "exact": true,
+  "id": "underparen",
+  "command": "\\underparen",
+  "category": "structure",
+  "latex": "\\underparen{\\placeholder{}}",
+  "preview": "\\underparen{AB}",
+  "name": "下圆弧",
+  "nameEn": "Underparen",
+  "words": [
+   "Underparen",
+   "under paren",
+   "下圆弧",
+   "下圆括号"
+  ],
+  "priority": 63
+ },
+ {
+  "exact": true,
+  "id": "underleftarrow",
+  "command": "\\underleftarrow",
+  "category": "structure",
+  "latex": "\\underleftarrow{\\placeholder{}}",
+  "preview": "\\underleftarrow{AB}",
+  "name": "下左箭头",
+  "nameEn": "Under left arrow",
+  "words": [
+   "Under left arrow",
+   "under left arrow",
+   "下方左箭头"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "underrightarrow",
+  "command": "\\underrightarrow",
+  "category": "structure",
+  "latex": "\\underrightarrow{\\placeholder{}}",
+  "preview": "\\underrightarrow{AB}",
+  "name": "下右箭头",
+  "nameEn": "Under right arrow",
+  "words": [
+   "Under right arrow",
+   "under right arrow",
+   "下方右箭头"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "underleftrightarrow",
+  "command": "\\underleftrightarrow",
+  "category": "structure",
+  "latex": "\\underleftrightarrow{\\placeholder{}}",
+  "preview": "\\underleftrightarrow{AB}",
+  "name": "下双向箭头",
+  "nameEn": "Under left-right arrow",
+  "words": [
+   "Under left-right arrow",
+   "under left right arrow",
+   "下方双向箭头"
+  ],
+  "priority": 61
+ },
+ {
+  "exact": true,
+  "id": "underlinesegment",
+  "command": "\\underlinesegment",
+  "category": "structure",
+  "latex": "\\underlinesegment{\\placeholder{}}",
+  "preview": "\\underlinesegment{AB}",
+  "name": "下线段",
+  "nameEn": "Under line segment",
+  "words": [
+   "Under line segment",
+   "under line segment",
+   "下线段",
+   "下方线段"
+  ],
+  "priority": 59
+ },
+ {
+  "exact": true,
+  "id": "int",
+  "command": "\\int",
+  "category": "calculus",
+  "latex": "\\int_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}\\placeholder{}",
+  "preview": "\\int_a^b f(x)\\,\\mathrm{d}x",
+  "name": "定积分",
+  "nameEn": "Integral",
+  "words": [
+   "Integral",
+   "integral",
+   "积分",
+   "定积分"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "iint",
+  "command": "\\iint",
+  "category": "calculus",
+  "latex": "\\iint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}A",
+  "preview": "\\iint_D f\\,\\mathrm{d}A",
+  "name": "二重积分",
+  "nameEn": "Double integral",
+  "words": [
+   "Double integral",
+   "double integral",
+   "二重积分"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "oint",
+  "command": "\\oint",
+  "category": "calculus",
+  "latex": "\\oint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}\\placeholder{}",
+  "preview": "\\oint_C \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{r}",
+  "name": "环路积分",
+  "nameEn": "Contour integral",
+  "words": [
+   "Contour integral",
+   "contour integral",
+   "闭合积分",
+   "环积分"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "sum",
+  "command": "\\sum",
+  "category": "calculus",
+  "latex": "\\sum_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\sum_{i=1}^{n} a_i",
+  "name": "求和",
+  "nameEn": "Summation",
+  "words": [
+   "Summation",
+   "summation",
+   "求和",
+   "西格玛"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "prod",
+  "command": "\\prod",
+  "category": "calculus",
+  "latex": "\\prod_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\prod_{i=1}^{n} a_i",
+  "name": "连乘",
+  "nameEn": "Product",
+  "words": [
+   "Product",
+   "product",
+   "乘积",
+   "连乘"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "lim",
+  "command": "\\lim",
+  "category": "calculus",
+  "latex": "\\lim_{\\placeholder{}\\to\\placeholder{}} \\placeholder{}",
+  "preview": "\\lim_{x\\to 0} f(x)",
+  "name": "极限",
+  "nameEn": "Limit",
+  "words": [
+   "Limit",
+   "limit",
+   "极限"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "partial",
+  "command": "\\partial",
+  "category": "calculus",
+  "latex": "\\partial",
+  "preview": "\\partial",
+  "name": "偏导符号",
+  "nameEn": "Partial derivative symbol",
+  "words": [
+   "Partial derivative symbol",
+   "partial",
+   "偏导",
+   "偏微分",
+   "偏导符号"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "nabla",
+  "command": "\\nabla",
+  "category": "calculus",
+  "latex": "\\nabla",
+  "preview": "\\nabla f",
+  "name": "Nabla 算子",
+  "nameEn": "Nabla",
+  "words": [
+   "Nabla",
+   "gradient",
+   "del",
+   "梯度",
+   "哈密顿算子"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "infty",
+  "command": "\\infty",
+  "category": "calculus",
+  "latex": "\\infty",
+  "preview": "\\infty",
+  "name": "无穷",
+  "nameEn": "Infinity",
+  "words": [
+   "Infinity",
+   "infinity",
+   "无穷大"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "matrix2",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}",
+  "name": "2×2 方括号矩阵",
+  "nameEn": "2×2 matrix",
+  "words": [
+   "2×2 matrix",
+   "matrix",
+   "bmatrix",
+   "矩阵",
+   "方阵"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "matrix3",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{} & \\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{} & \\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}a&b&c\\\\d&e&f\\\\g&h&i\\end{bmatrix}",
+  "name": "3×3 方括号矩阵",
+  "nameEn": "3×3 matrix",
+  "words": [
+   "3×3 matrix",
+   "matrix",
+   "bmatrix",
+   "矩阵",
+   "三阶矩阵"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "pmatrix2",
+  "command": "\\begin{pmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{pmatrix}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{pmatrix}",
+  "preview": "\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}",
+  "name": "圆括号矩阵",
+  "nameEn": "Parenthesized matrix",
+  "words": [
+   "Parenthesized matrix",
+   "pmatrix",
+   "矩阵",
+   "圆括号矩阵"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "determinant",
+  "command": "\\begin{vmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{vmatrix}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{vmatrix}",
+  "preview": "\\begin{vmatrix}a&b\\\\c&d\\end{vmatrix}",
+  "name": "行列式",
+  "nameEn": "Determinant",
+  "words": [
+   "Determinant",
+   "det",
+   "determinant",
+   "行列式"
+  ],
+  "priority": 87
+ },
+ {
+  "exact": true,
+  "id": "boldsymbol",
+  "command": "\\mathbf",
+  "category": "matrix",
+  "latex": "\\mathbf{\\placeholder{}}",
+  "preview": "\\mathbf{ABC}",
+  "name": "粗正体字母",
+  "nameEn": "Bold upright letters",
+  "words": [
+   "Bold upright letters",
+   "mathbf",
+   "bold upright",
+   "黑体",
+   "矩阵粗体",
+   "字体"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "blackboard-bold",
+  "command": "\\mathbb",
+  "category": "matrix",
+  "latex": "\\mathbb{\\placeholder{}}",
+  "preview": "\\mathbb{ABC}",
+  "name": "黑板粗体",
+  "nameEn": "Blackboard bold",
+  "words": [
+   "Blackboard bold",
+   "blackboard",
+   "mathbb",
+   "空心字",
+   "双线体",
+   "字体"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "math-italic",
+  "command": "\\mathit",
+  "category": "matrix",
+  "latex": "\\mathit{\\placeholder{}}",
+  "preview": "\\mathit{ABC}",
+  "name": "数学斜体",
+  "nameEn": "Math italic",
+  "words": [
+   "Math italic",
+   "italic",
+   "mathit",
+   "斜体",
+   "字体"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "math-roman",
+  "command": "\\mathrm",
+  "category": "matrix",
+  "latex": "\\mathrm{\\placeholder{}}",
+  "preview": "\\mathrm{ABC}",
+  "name": "数学正体",
+  "nameEn": "Math roman",
+  "words": [
+   "Math roman",
+   "roman",
+   "mathrm",
+   "正体",
+   "罗马体",
+   "字体"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "math-sans",
+  "command": "\\mathsf",
+  "category": "matrix",
+  "latex": "\\mathsf{\\placeholder{}}",
+  "preview": "\\mathsf{ABC}",
+  "name": "数学无衬线体",
+  "nameEn": "Math sans serif",
+  "words": [
+   "Math sans serif",
+   "sans",
+   "mathsf",
+   "无衬线",
+   "字体"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "math-typewriter",
+  "command": "\\mathtt",
+  "category": "matrix",
+  "latex": "\\mathtt{\\placeholder{}}",
+  "preview": "\\mathtt{ABC}",
+  "name": "数学等宽体",
+  "nameEn": "Math typewriter",
+  "words": [
+   "Math typewriter",
+   "typewriter",
+   "mathtt",
+   "等宽体",
+   "打字机体",
+   "字体"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "math-calligraphic",
+  "command": "\\mathcal",
+  "category": "matrix",
+  "latex": "\\mathcal{\\placeholder{}}",
+  "preview": "\\mathcal{ABC}",
+  "name": "大写数学花体",
+  "nameEn": "Uppercase calligraphic",
+  "words": [
+   "Uppercase calligraphic",
+   "calligraphic",
+   "mathcal",
+   "大写花体",
+   "书法体",
+   "字体"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "math-script",
+  "command": "\\mathscr",
+  "category": "matrix",
+  "latex": "\\mathscr{\\placeholder{}}",
+  "preview": "\\mathscr{gG}",
+  "name": "手写花体",
+  "nameEn": "Math script",
+  "words": [
+   "Math script",
+   "script",
+   "mathscr",
+   "小写花体",
+   "手写体",
+   "字体"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "math-fraktur",
+  "command": "\\mathfrak",
+  "category": "matrix",
+  "latex": "\\mathfrak{\\placeholder{}}",
+  "preview": "\\mathfrak{ABC}",
+  "name": "数学哥特体",
+  "nameEn": "Math Fraktur",
+  "words": [
+   "Math Fraktur",
+   "fraktur",
+   "mathfrak",
+   "哥特体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "bold-symbol",
+  "command": "\\boldsymbol",
+  "category": "matrix",
+  "latex": "\\boldsymbol{\\placeholder{}}",
+  "preview": "\\boldsymbol{\\alpha A}",
+  "name": "粗体符号",
+  "nameEn": "Bold symbol",
+  "words": [
+   "Bold symbol",
+   "bold symbol",
+   "boldsymbol",
+   "粗体希腊字母",
+   "字体"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "bm-bold-symbol",
+  "command": "\\bm",
+  "category": "matrix",
+  "latex": "\\bm{\\placeholder{}}",
+  "preview": "\\bm{\\alpha A}",
+  "name": "数学粗体",
+  "nameEn": "Bold math",
+  "words": [
+   "Bold math",
+   "bold",
+   "bm",
+   "bold math italic",
+   "粗体",
+   "粗斜体",
+   "粗体希腊字母",
+   "字体"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "math-bold-italic",
+  "command": "\\mathbfit",
+  "category": "matrix",
+  "latex": "\\mathbfit{\\placeholder{}}",
+  "preview": "\\mathbfit{ABC}",
+  "name": "数学粗斜体",
+  "nameEn": "Bold italic math",
+  "words": [
+   "Bold italic math",
+   "bold italic",
+   "mathbfit",
+   "粗斜体",
+   "字体"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "math-normal",
+  "command": "\\mathnormal",
+  "category": "matrix",
+  "latex": "\\mathnormal{\\placeholder{}}",
+  "preview": "\\mathnormal{ABC}",
+  "name": "默认数学字体",
+  "nameEn": "Normal math",
+  "words": [
+   "Normal math",
+   "normal math",
+   "mathnormal",
+   "默认字体",
+   "字体"
+  ],
+  "priority": 64
+ },
+ {
+  "exact": true,
+  "id": "math-operator",
+  "command": "\\mathop",
+  "category": "matrix",
+  "latex": "\\mathop{\\placeholder{}}",
+  "preview": "\\mathop{f(x)}",
+  "name": "自定义算子",
+  "nameEn": "Math operator",
+  "words": [
+   "Math operator",
+   "operator",
+   "mathop",
+   "算子",
+   "运算符"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "alpha",
+  "command": "\\alpha",
+  "category": "greek",
+  "latex": "\\alpha",
+  "preview": "\\alpha",
+  "name": "阿尔法",
+  "nameEn": "Alpha",
+  "words": [
+   "Alpha",
+   "alpha",
+   "希腊字母"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "beta",
+  "command": "\\beta",
+  "category": "greek",
+  "latex": "\\beta",
+  "preview": "\\beta",
+  "name": "贝塔",
+  "nameEn": "Beta",
+  "words": [
+   "Beta",
+   "beta",
+   "希腊字母"
+  ],
+  "priority": 98
+ },
+ {
+  "exact": true,
+  "id": "gamma",
+  "command": "\\gamma",
+  "category": "greek",
+  "latex": "\\gamma",
+  "preview": "\\gamma",
+  "name": "伽马",
+  "nameEn": "Gamma",
+  "words": [
+   "Gamma",
+   "gamma",
+   "希腊字母"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "delta",
+  "command": "\\delta",
+  "category": "greek",
+  "latex": "\\delta",
+  "preview": "\\delta",
+  "name": "德尔塔",
+  "nameEn": "Delta",
+  "words": [
+   "Delta",
+   "delta",
+   "希腊字母"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "theta",
+  "command": "\\theta",
+  "category": "greek",
+  "latex": "\\theta",
+  "preview": "\\theta",
+  "name": "西塔",
+  "nameEn": "Theta",
+  "words": [
+   "Theta",
+   "theta",
+   "角度",
+   "希腊字母"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "lambda",
+  "command": "\\lambda",
+  "category": "greek",
+  "latex": "\\lambda",
+  "preview": "\\lambda",
+  "name": "拉姆达",
+  "nameEn": "Lambda",
+  "words": [
+   "Lambda",
+   "lambda",
+   "波长",
+   "本征值"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "mu",
+  "command": "\\mu",
+  "category": "greek",
+  "latex": "\\mu",
+  "preview": "\\mu",
+  "name": "缪",
+  "nameEn": "Mu",
+  "words": [
+   "Mu",
+   "mu",
+   "希腊字母"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "pi",
+  "command": "\\pi",
+  "category": "greek",
+  "latex": "\\pi",
+  "preview": "\\pi",
+  "name": "圆周率",
+  "nameEn": "Pi",
+  "words": [
+   "Pi",
+   "pi",
+   "派",
+   "圆周率"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "sigma",
+  "command": "\\sigma",
+  "category": "greek",
+  "latex": "\\sigma",
+  "preview": "\\sigma",
+  "name": "西格玛",
+  "nameEn": "Sigma",
+  "words": [
+   "Sigma",
+   "sigma",
+   "标准差",
+   "希腊字母"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "omega",
+  "command": "\\omega",
+  "category": "greek",
+  "latex": "\\omega",
+  "preview": "\\omega",
+  "name": "欧米伽",
+  "nameEn": "Omega",
+  "words": [
+   "Omega",
+   "omega",
+   "角频率",
+   "希腊字母"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "equal",
+  "command": "=",
+  "category": "relation",
+  "latex": "=",
+  "preview": "=",
+  "name": "等于",
+  "nameEn": "Equals",
+  "words": [
+   "Equals",
+   "equal",
+   "等于"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "neq",
+  "command": "\\neq",
+  "category": "relation",
+  "latex": "\\neq",
+  "preview": "\\neq",
+  "name": "不等于",
+  "nameEn": "Not equal",
+  "words": [
+   "Not equal",
+   "not equal",
+   "不等于"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "approx",
+  "command": "\\approx",
+  "category": "relation",
+  "latex": "\\approx",
+  "preview": "\\approx",
+  "name": "约等于",
+  "nameEn": "Approximately",
+  "words": [
+   "Approximately",
+   "approximately",
+   "约等于",
+   "近似"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "leq",
+  "command": "\\leq",
+  "category": "relation",
+  "latex": "\\leq",
+  "preview": "\\leq",
+  "name": "小于等于",
+  "nameEn": "Less or equal",
+  "words": [
+   "Less or equal",
+   "less equal",
+   "小于等于"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "geq",
+  "command": "\\geq",
+  "category": "relation",
+  "latex": "\\geq",
+  "preview": "\\geq",
+  "name": "大于等于",
+  "nameEn": "Greater or equal",
+  "words": [
+   "Greater or equal",
+   "greater equal",
+   "大于等于"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "propto",
+  "command": "\\propto",
+  "category": "relation",
+  "latex": "\\propto",
+  "preview": "\\propto",
+  "name": "正比于",
+  "nameEn": "Proportional to",
+  "words": [
+   "Proportional to",
+   "proportional",
+   "正比"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "times",
+  "command": "\\times",
+  "category": "relation",
+  "latex": "\\times",
+  "preview": "\\times",
+  "name": "乘号",
+  "nameEn": "Multiplication",
+  "words": [
+   "Multiplication",
+   "times",
+   "multiply",
+   "multiplication",
+   "乘号",
+   "乘法"
+  ],
+  "priority": 98
+ },
+ {
+  "exact": true,
+  "id": "div",
+  "command": "\\div",
+  "category": "relation",
+  "latex": "\\div",
+  "preview": "\\div",
+  "name": "除号",
+  "nameEn": "Division",
+  "words": [
+   "Division",
+   "divide",
+   "division",
+   "除号",
+   "除法"
+  ],
+  "priority": 97
+ },
+ {
+  "exact": true,
+  "id": "plusminus",
+  "command": "\\pm",
+  "category": "relation",
+  "latex": "\\pm",
+  "preview": "\\pm",
+  "name": "正负号",
+  "nameEn": "Plus-minus",
+  "words": [
+   "Plus-minus",
+   "plus minus",
+   "pm",
+   "正负",
+   "加减"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "minusplus",
+  "command": "\\mp",
+  "category": "relation",
+  "latex": "\\mp",
+  "preview": "\\mp",
+  "name": "负正号",
+  "nameEn": "Minus-plus",
+  "words": [
+   "Minus-plus",
+   "minus plus",
+   "mp",
+   "负正",
+   "减加"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "circ",
+  "command": "\\circ",
+  "category": "relation",
+  "latex": "\\circ",
+  "preview": "\\circ",
+  "name": "小圆运算符",
+  "nameEn": "Circle operator",
+  "words": [
+   "Circle operator",
+   "circle operator",
+   "circ",
+   "圆",
+   "复合"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "bullet",
+  "command": "\\bullet",
+  "category": "relation",
+  "latex": "\\bullet",
+  "preview": "\\bullet",
+  "name": "实心点",
+  "nameEn": "Bullet operator",
+  "words": [
+   "Bullet operator",
+   "bullet",
+   "实心点",
+   "运算符"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "star",
+  "command": "\\star",
+  "category": "relation",
+  "latex": "\\star",
+  "preview": "\\star",
+  "name": "星号运算符",
+  "nameEn": "Star operator",
+  "words": [
+   "Star operator",
+   "star",
+   "星号",
+   "运算符"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "diamond",
+  "command": "\\diamond",
+  "category": "relation",
+  "latex": "\\diamond",
+  "preview": "\\diamond",
+  "name": "菱形运算符",
+  "nameEn": "Diamond operator",
+  "words": [
+   "Diamond operator",
+   "diamond",
+   "菱形",
+   "运算符"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "angle",
+  "command": "\\angle",
+  "category": "relation",
+  "latex": "\\angle",
+  "preview": "\\angle",
+  "name": "角",
+  "nameEn": "Angle",
+  "words": [
+   "Angle",
+   "angle",
+   "角",
+   "几何"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "measuredangle",
+  "command": "\\measuredangle",
+  "category": "relation",
+  "latex": "\\measuredangle",
+  "preview": "\\measuredangle",
+  "name": "带弧角",
+  "nameEn": "Measured angle",
+  "words": [
+   "Measured angle",
+   "measured angle",
+   "角",
+   "几何",
+   "角度"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "sphericalangle",
+  "command": "\\sphericalangle",
+  "category": "relation",
+  "latex": "\\sphericalangle",
+  "preview": "\\sphericalangle",
+  "name": "球面角",
+  "nameEn": "Spherical angle",
+  "words": [
+   "Spherical angle",
+   "spherical angle",
+   "球面角",
+   "几何"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "triangle",
+  "command": "\\triangle",
+  "category": "relation",
+  "latex": "\\triangle",
+  "preview": "\\triangle",
+  "name": "三角形",
+  "nameEn": "Triangle",
+  "words": [
+   "Triangle",
+   "triangle",
+   "三角形",
+   "几何"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "therefore",
+  "command": "\\therefore",
+  "category": "relation",
+  "latex": "\\therefore",
+  "preview": "\\therefore",
+  "name": "所以",
+  "nameEn": "Therefore",
+  "words": [
+   "Therefore",
+   "therefore",
+   "所以",
+   "因此",
+   "逻辑"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "because",
+  "command": "\\because",
+  "category": "relation",
+  "latex": "\\because",
+  "preview": "\\because",
+  "name": "因为",
+  "nameEn": "Because",
+  "words": [
+   "Because",
+   "because",
+   "因为",
+   "逻辑"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "in",
+  "command": "\\in",
+  "category": "set",
+  "latex": "\\in",
+  "preview": "\\in",
+  "name": "属于",
+  "nameEn": "Element of",
+  "words": [
+   "Element of",
+   "element",
+   "属于"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "notin",
+  "command": "\\notin",
+  "category": "set",
+  "latex": "\\notin",
+  "preview": "\\notin",
+  "name": "不属于",
+  "nameEn": "Not an element",
+  "words": [
+   "Not an element",
+   "not element",
+   "不属于"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "subset",
+  "command": "\\subset",
+  "category": "set",
+  "latex": "\\subset",
+  "preview": "\\subset",
+  "name": "真子集",
+  "nameEn": "Subset",
+  "words": [
+   "Subset",
+   "subset",
+   "子集"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "cup",
+  "command": "\\cup",
+  "category": "set",
+  "latex": "\\cup",
+  "preview": "\\cup",
+  "name": "并集",
+  "nameEn": "Union",
+  "words": [
+   "Union",
+   "union",
+   "并集"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "cap",
+  "command": "\\cap",
+  "category": "set",
+  "latex": "\\cap",
+  "preview": "\\cap",
+  "name": "交集",
+  "nameEn": "Intersection",
+  "words": [
+   "Intersection",
+   "intersection",
+   "交集"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "forall",
+  "command": "\\forall",
+  "category": "set",
+  "latex": "\\forall",
+  "preview": "\\forall",
+  "name": "任意",
+  "nameEn": "For all",
+  "words": [
+   "For all",
+   "for all",
+   "任意",
+   "所有"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "exists",
+  "command": "\\exists",
+  "category": "set",
+  "latex": "\\exists",
+  "preview": "\\exists",
+  "name": "存在",
+  "nameEn": "Exists",
+  "words": [
+   "Exists",
+   "exists",
+   "存在"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "ni",
+  "command": "\\ni",
+  "category": "set",
+  "latex": "\\ni",
+  "preview": "\\ni",
+  "name": "包含元素",
+  "nameEn": "Contains as member",
+  "words": [
+   "Contains as member",
+   "contains member",
+   "owns",
+   "包含元素",
+   "集合"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "varnothing",
+  "command": "\\varnothing",
+  "category": "set",
+  "latex": "\\varnothing",
+  "preview": "\\varnothing",
+  "name": "变体空集",
+  "nameEn": "Variant empty set",
+  "words": [
+   "Variant empty set",
+   "varnothing",
+   "空集",
+   "集合"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "subsetneq",
+  "command": "\\subsetneq",
+  "category": "set",
+  "latex": "\\subsetneq",
+  "preview": "\\subsetneq",
+  "name": "真子集且不等",
+  "nameEn": "Proper subset",
+  "words": [
+   "Proper subset",
+   "proper subset",
+   "真子集",
+   "集合"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "supsetneq",
+  "command": "\\supsetneq",
+  "category": "set",
+  "latex": "\\supsetneq",
+  "preview": "\\supsetneq",
+  "name": "真超集且不等",
+  "nameEn": "Proper superset",
+  "words": [
+   "Proper superset",
+   "proper superset",
+   "真超集",
+   "集合"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "top",
+  "command": "\\top",
+  "category": "set",
+  "latex": "\\top",
+  "preview": "\\top",
+  "name": "逻辑真",
+  "nameEn": "Logical true",
+  "words": [
+   "Logical true",
+   "top",
+   "true",
+   "逻辑真",
+   "真值"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "bot",
+  "command": "\\bot",
+  "category": "set",
+  "latex": "\\bot",
+  "preview": "\\bot",
+  "name": "逻辑假",
+  "nameEn": "Logical false",
+  "words": [
+   "Logical false",
+   "bottom",
+   "false",
+   "逻辑假",
+   "假值"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "to",
+  "command": "\\to",
+  "category": "arrow",
+  "latex": "\\to",
+  "preview": "\\to",
+  "name": "趋于",
+  "nameEn": "To",
+  "words": [
+   "To",
+   "to",
+   "right arrow",
+   "趋于",
+   "箭头"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "rightarrow",
+  "command": "\\rightarrow",
+  "category": "arrow",
+  "latex": "\\rightarrow",
+  "preview": "\\rightarrow",
+  "name": "右箭头",
+  "nameEn": "Right arrow",
+  "words": [
+   "Right arrow",
+   "right arrow",
+   "右箭头"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "leftarrow",
+  "command": "\\leftarrow",
+  "category": "arrow",
+  "latex": "\\leftarrow",
+  "preview": "\\leftarrow",
+  "name": "左箭头",
+  "nameEn": "Left arrow",
+  "words": [
+   "Left arrow",
+   "left arrow",
+   "左箭头"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "leftrightarrow",
+  "command": "\\leftrightarrow",
+  "category": "arrow",
+  "latex": "\\leftrightarrow",
+  "preview": "\\leftrightarrow",
+  "name": "双向箭头",
+  "nameEn": "Both ways",
+  "words": [
+   "Both ways",
+   "both arrow",
+   "双向箭头"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "Rightarrow",
+  "command": "\\Rightarrow",
+  "category": "arrow",
+  "latex": "\\Rightarrow",
+  "preview": "\\Rightarrow",
+  "name": "推出",
+  "nameEn": "Implies",
+  "words": [
+   "Implies",
+   "implies",
+   "推出",
+   "蕴含"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "hbar",
+  "command": "\\hbar",
+  "category": "physics",
+  "latex": "\\hbar",
+  "preview": "\\hbar",
+  "name": "约化普朗克常数",
+  "nameEn": "Reduced Planck constant",
+  "words": [
+   "Reduced Planck constant",
+   "hbar",
+   "planck",
+   "普朗克常数",
+   "量子"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "dd",
+  "command": "\\mathrm{d}",
+  "category": "physics",
+  "latex": "\\mathrm{d}\\placeholder{}",
+  "preview": "\\mathrm{d}x",
+  "name": "微分元",
+  "nameEn": "Differential",
+  "words": [
+   "Differential",
+   "differential",
+   "微分",
+   "微分元"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "bra",
+  "command": "\\langle",
+  "category": "physics",
+  "latex": "\\langle\\placeholder{}|",
+  "preview": "\\langle\\psi|",
+  "name": "左矢",
+  "nameEn": "Bra",
+  "words": [
+   "Bra",
+   "bra",
+   "狄拉克",
+   "量子态"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "ket",
+  "command": "\\rangle",
+  "category": "physics",
+  "latex": "|\\placeholder{}\\rangle",
+  "preview": "|\\psi\\rangle",
+  "name": "右矢",
+  "nameEn": "Ket",
+  "words": [
+   "Ket",
+   "ket",
+   "狄拉克",
+   "量子态"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "degree",
+  "command": "^\\circ",
+  "category": "physics",
+  "latex": "^{\\circ}",
+  "preview": "30^{\\circ}",
+  "name": "角度",
+  "nameEn": "Degree",
+  "words": [
+   "Degree",
+   "degree",
+   "度",
+   "角度"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "core-alias-varparallel",
+  "command": "\\varparallel",
+  "category": "relation",
+  "latex": "\\varparallel",
+  "preview": "a\\varparallel b",
+  "name": "斜平行关系",
+  "nameEn": "Slanted parallel relation",
+  "words": [
+   "Slanted parallel relation",
+   "varparallel",
+   "平行",
+   "斜平行",
+   "parallel",
+   "txfonts",
+   "pxfonts"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "core-alias-parallelslant",
+  "command": "\\parallelslant",
+  "category": "relation",
+  "latex": "\\parallelslant",
+  "preview": "a\\parallelslant b",
+  "name": "斜平行关系",
+  "nameEn": "Slanted parallel relation",
+  "words": [
+   "Slanted parallel relation",
+   "parallelslant",
+   "平行",
+   "斜平行",
+   "parallel",
+   "fourier"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "core-alias-sslash",
+  "command": "\\sslash",
+  "category": "common",
+  "latex": "\\sslash",
+  "preview": "a\\sslash b",
+  "name": "双斜线运算符",
+  "nameEn": "Double solidus operator",
+  "words": [
+   "Double solidus operator",
+   "sslash",
+   "双斜线",
+   "double solidus",
+   "unicode-math"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "core-alias-dots",
+  "command": "\\dots",
+  "category": "common",
+  "latex": "\\dots",
+  "preview": "\\ldots",
+  "name": "省略号",
+  "nameEn": "Contextual ellipsis",
+  "words": [
+   "Contextual ellipsis",
+   "dots",
+   "ellipsis",
+   "省略号",
+   "ellipsis",
+   "amsmath"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "core-alias-dotsc",
+  "command": "\\dotsc",
+  "category": "common",
+  "latex": "\\dotsc",
+  "preview": "\\ldots",
+  "name": "逗号省略号",
+  "nameEn": "Comma ellipsis",
+  "words": [
+   "Comma ellipsis",
+   "dotsc",
+   "省略号",
+   "comma ellipsis",
+   "amsmath"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "core-alias-dotso",
+  "command": "\\dotso",
+  "category": "common",
+  "latex": "\\dotso",
+  "preview": "\\ldots",
+  "name": "普通省略号",
+  "nameEn": "Other ellipsis",
+  "words": [
+   "Other ellipsis",
+   "dotso",
+   "省略号",
+   "ellipsis",
+   "amsmath"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "core-alias-dotsb",
+  "command": "\\dotsb",
+  "category": "common",
+  "latex": "\\dotsb",
+  "preview": "\\cdots",
+  "name": "二元运算省略号",
+  "nameEn": "Binary-operator ellipsis",
+  "words": [
+   "Binary-operator ellipsis",
+   "dotsb",
+   "省略号",
+   "binary ellipsis",
+   "amsmath"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "core-alias-dotsm",
+  "command": "\\dotsm",
+  "category": "common",
+  "latex": "\\dotsm",
+  "preview": "\\cdots",
+  "name": "乘法省略号",
+  "nameEn": "Multiplication ellipsis",
+  "words": [
+   "Multiplication ellipsis",
+   "dotsm",
+   "省略号",
+   "multiplication ellipsis",
+   "amsmath"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "core-alias-dotsi",
+  "command": "\\dotsi",
+  "category": "common",
+  "latex": "\\dotsi",
+  "preview": "\\cdots",
+  "name": "积分省略号",
+  "nameEn": "Integral ellipsis",
+  "words": [
+   "Integral ellipsis",
+   "dotsi",
+   "省略号",
+   "integral ellipsis",
+   "amsmath"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "core-alias-qed",
+  "command": "\\qed",
+  "category": "common",
+  "latex": "\\qed",
+  "preview": "\\square",
+  "name": "证毕符号",
+  "nameEn": "QED symbol",
+  "words": [
+   "QED symbol",
+   "qed",
+   "证毕",
+   "proof",
+   "amsthm"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "core-alias-qedsymbol",
+  "command": "\\qedsymbol",
+  "category": "common",
+  "latex": "\\qedsymbol",
+  "preview": "\\square",
+  "name": "证毕符号",
+  "nameEn": "QED symbol",
+  "words": [
+   "QED symbol",
+   "qedsymbol",
+   "证毕",
+   "proof",
+   "amsthm"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "core-alias-diagdown",
+  "command": "\\diagdown",
+  "category": "common",
+  "latex": "\\diagdown",
+  "preview": "\\backslash",
+  "name": "下降对角线",
+  "nameEn": "Diagonal down",
+  "words": [
+   "Diagonal down",
+   "diagdown",
+   "对角线",
+   "diagonal",
+   "amssymb"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "core-alias-thinspace",
+  "command": "\\thinspace",
+  "category": "common",
+  "latex": "\\thinspace",
+  "preview": "A\\,B",
+  "name": "细空格",
+  "nameEn": "Thin space",
+  "words": [
+   "Thin space",
+   "thinspace",
+   "空格",
+   "spacing",
+   "amsmath"
+  ],
+  "priority": 64
+ },
+ {
+  "exact": true,
+  "id": "core-alias-negthinspace",
+  "command": "\\negthinspace",
+  "category": "common",
+  "latex": "\\negthinspace",
+  "preview": "A\\!B",
+  "name": "负细空格",
+  "nameEn": "Negative thin space",
+  "words": [
+   "Negative thin space",
+   "negthinspace",
+   "空格",
+   "spacing",
+   "amsmath"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "core-alias-medspace",
+  "command": "\\medspace",
+  "category": "common",
+  "latex": "\\medspace",
+  "preview": "A\\:B",
+  "name": "中空格",
+  "nameEn": "Medium space",
+  "words": [
+   "Medium space",
+   "medspace",
+   "空格",
+   "spacing",
+   "amsmath"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "core-alias-negmedspace",
+  "command": "\\negmedspace",
+  "category": "common",
+  "latex": "\\negmedspace",
+  "preview": "A\\mkern-4mu B",
+  "name": "负中空格",
+  "nameEn": "Negative medium space",
+  "words": [
+   "Negative medium space",
+   "negmedspace",
+   "空格",
+   "spacing",
+   "amsmath"
+  ],
+  "priority": 60
+ },
+ {
+  "exact": true,
+  "id": "core-alias-thickspace",
+  "command": "\\thickspace",
+  "category": "common",
+  "latex": "\\thickspace",
+  "preview": "A\\;B",
+  "name": "宽空格",
+  "nameEn": "Thick space",
+  "words": [
+   "Thick space",
+   "thickspace",
+   "空格",
+   "spacing",
+   "amsmath"
+  ],
+  "priority": 62
+ },
+ {
+  "exact": true,
+  "id": "core-alias-negthickspace",
+  "command": "\\negthickspace",
+  "category": "common",
+  "latex": "\\negthickspace",
+  "preview": "A\\mkern-5mu B",
+  "name": "负宽空格",
+  "nameEn": "Negative thick space",
+  "words": [
+   "Negative thick space",
+   "negthickspace",
+   "空格",
+   "spacing",
+   "amsmath"
+  ],
+  "priority": 60
+ },
+ {
+  "exact": true,
+  "id": "core-shortparallel",
+  "command": "\\shortparallel",
+  "category": "relation",
+  "latex": "\\shortparallel",
+  "preview": "a\\shortparallel b",
+  "name": "短平行关系",
+  "nameEn": "Short parallel relation",
+  "words": [
+   "Short parallel relation",
+   "shortparallel",
+   "短平行",
+   "AMS",
+   "parallel"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "core-nshortparallel",
+  "command": "\\nshortparallel",
+  "category": "relation",
+  "latex": "\\nshortparallel",
+  "preview": "a\\nshortparallel b",
+  "name": "短不平行关系",
+  "nameEn": "Short not-parallel relation",
+  "words": [
+   "Short not-parallel relation",
+   "nshortparallel",
+   "短不平行",
+   "AMS",
+   "parallel"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "core-mathrel",
+  "command": "\\mathrel",
+  "category": "relation",
+  "latex": "\\mathrel{\\placeholder{}}",
+  "preview": "a\\mathrel{⫽}b",
+  "name": "关系类分组",
+  "nameEn": "Relation atom group",
+  "words": [
+   "Relation atom group",
+   "mathrel",
+   "关系",
+   "atom class",
+   "relation"
+  ],
+  "priority": 65
+ },
+ {
+  "exact": true,
+  "id": "core-mathbin",
+  "command": "\\mathbin",
+  "category": "structure",
+  "latex": "\\mathbin{\\placeholder{}}",
+  "preview": "a\\mathbin{+}b",
+  "name": "二元运算类分组",
+  "nameEn": "Binary atom group",
+  "words": [
+   "Binary atom group",
+   "mathbin",
+   "二元运算",
+   "atom class",
+   "binary"
+  ],
+  "priority": 64
+ },
+ {
+  "exact": true,
+  "id": "core-pod",
+  "command": "\\pod",
+  "category": "relation",
+  "latex": "\\pod{\\placeholder{}}",
+  "preview": "\\quad(n)",
+  "name": "同余括号",
+  "nameEn": "Modulo parenthesis",
+  "words": [
+   "Modulo parenthesis",
+   "pod",
+   "amsmath",
+   "同余",
+   "模"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "core-substack",
+  "command": "\\substack",
+  "category": "structure",
+  "latex": "\\substack{\\placeholder{}}",
+  "preview": "\\begin{array}{c}i<j\\\\i+j=n\\end{array}",
+  "name": "多行下标",
+  "nameEn": "Substack",
+  "words": [
+   "Substack",
+   "substack",
+   "amsmath",
+   "多行",
+   "下标"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "core-prescript",
+  "command": "\\prescript",
+  "category": "structure",
+  "latex": "\\prescript{\\placeholder{}}{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\prescript{14}{6}{C}",
+  "name": "左上下标",
+  "nameEn": "Prescript",
+  "words": [
+   "Prescript",
+   "prescript",
+   "mathtools",
+   "左上标",
+   "左下标"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "core-sideset",
+  "command": "\\sideset",
+  "category": "structure",
+  "latex": "\\sideset{_\\placeholder{}^\\placeholder{}}{_\\placeholder{}^\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\sideset{_a^b}{_c^d}{\\sum}",
+  "name": "算符左右标记",
+  "nameEn": "Side-set operator",
+  "words": [
+   "Side-set operator",
+   "sideset",
+   "amsmath",
+   "算符",
+   "上下标"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "sym-up",
+  "command": "\\symup",
+  "category": "matrix",
+  "latex": "\\symup{\\placeholder{}}",
+  "preview": "\\symup{ABC}",
+  "name": "Unicode 数学正体",
+  "nameEn": "Unicode math upright",
+  "words": [
+   "Unicode math upright",
+   "symup",
+   "正体",
+   "unicode math",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-it",
+  "command": "\\symit",
+  "category": "matrix",
+  "latex": "\\symit{\\placeholder{}}",
+  "preview": "\\symit{ABC}",
+  "name": "Unicode 数学斜体",
+  "nameEn": "Unicode math italic",
+  "words": [
+   "Unicode math italic",
+   "symit",
+   "斜体",
+   "unicode math",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bf",
+  "command": "\\symbf",
+  "category": "matrix",
+  "latex": "\\symbf{\\placeholder{}}",
+  "preview": "\\symbf{ABC}",
+  "name": "Unicode 数学粗体",
+  "nameEn": "Unicode math bold",
+  "words": [
+   "Unicode math bold",
+   "symbf",
+   "粗体",
+   "unicode math",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfup",
+  "command": "\\symbfup",
+  "category": "matrix",
+  "latex": "\\symbfup{\\placeholder{}}",
+  "preview": "\\symbfup{ABC}",
+  "name": "Unicode 粗正体",
+  "nameEn": "Unicode bold upright",
+  "words": [
+   "Unicode bold upright",
+   "symbfup",
+   "粗正体",
+   "unicode math",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfit",
+  "command": "\\symbfit",
+  "category": "matrix",
+  "latex": "\\symbfit{\\placeholder{}}",
+  "preview": "\\symbfit{ABC\\alpha}",
+  "name": "Unicode 数学粗斜体",
+  "nameEn": "Unicode bold italic",
+  "words": [
+   "Unicode bold italic",
+   "symbfit",
+   "simbfit",
+   "粗斜体",
+   "unicode math",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfit-typo",
+  "command": "\\simbfit",
+  "category": "matrix",
+  "latex": "\\symbfit{\\placeholder{}}",
+  "preview": "\\symbfit{ABC\\alpha}",
+  "name": "粗斜体输入别名",
+  "nameEn": "Bold italic input alias",
+  "words": [
+   "Bold italic input alias",
+   "simbfit",
+   "粗斜体",
+   "输入别名",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bb",
+  "command": "\\symbb",
+  "category": "matrix",
+  "latex": "\\symbb{\\placeholder{}}",
+  "preview": "\\symbb{ABC}",
+  "name": "Unicode 黑板粗体",
+  "nameEn": "Unicode double struck",
+  "words": [
+   "Unicode double struck",
+   "symbb",
+   "黑板粗体",
+   "双线体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-cal",
+  "command": "\\symcal",
+  "category": "matrix",
+  "latex": "\\symcal{\\placeholder{}}",
+  "preview": "\\symcal{ABC}",
+  "name": "Unicode 花体",
+  "nameEn": "Unicode calligraphic",
+  "words": [
+   "Unicode calligraphic",
+   "symcal",
+   "花体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfcal",
+  "command": "\\symbfcal",
+  "category": "matrix",
+  "latex": "\\symbfcal{\\placeholder{}}",
+  "preview": "\\symbfcal{ABC}",
+  "name": "Unicode 粗花体",
+  "nameEn": "Unicode bold calligraphic",
+  "words": [
+   "Unicode bold calligraphic",
+   "symbfcal",
+   "粗花体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-scr",
+  "command": "\\symscr",
+  "category": "matrix",
+  "latex": "\\symscr{\\placeholder{}}",
+  "preview": "\\symscr{gG}",
+  "name": "Unicode 手写体",
+  "nameEn": "Unicode script",
+  "words": [
+   "Unicode script",
+   "symscr",
+   "手写体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfscr",
+  "command": "\\symbfscr",
+  "category": "matrix",
+  "latex": "\\symbfscr{\\placeholder{}}",
+  "preview": "\\symbfscr{gG}",
+  "name": "Unicode 粗手写体",
+  "nameEn": "Unicode bold script",
+  "words": [
+   "Unicode bold script",
+   "symbfscr",
+   "粗手写体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-frak",
+  "command": "\\symfrak",
+  "category": "matrix",
+  "latex": "\\symfrak{\\placeholder{}}",
+  "preview": "\\symfrak{ABC}",
+  "name": "Unicode 哥特体",
+  "nameEn": "Unicode Fraktur",
+  "words": [
+   "Unicode Fraktur",
+   "symfrak",
+   "哥特体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bffrak",
+  "command": "\\symbffrak",
+  "category": "matrix",
+  "latex": "\\symbffrak{\\placeholder{}}",
+  "preview": "\\symbffrak{ABC}",
+  "name": "Unicode 粗哥特体",
+  "nameEn": "Unicode bold Fraktur",
+  "words": [
+   "Unicode bold Fraktur",
+   "symbffrak",
+   "粗哥特体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-sfup",
+  "command": "\\symsfup",
+  "category": "matrix",
+  "latex": "\\symsfup{\\placeholder{}}",
+  "preview": "\\symsfup{ABC}",
+  "name": "Unicode 无衬线正体",
+  "nameEn": "Unicode sans upright",
+  "words": [
+   "Unicode sans upright",
+   "symsfup",
+   "无衬线",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-sfit",
+  "command": "\\symsfit",
+  "category": "matrix",
+  "latex": "\\symsfit{\\placeholder{}}",
+  "preview": "\\symsfit{ABC}",
+  "name": "Unicode 无衬线斜体",
+  "nameEn": "Unicode sans italic",
+  "words": [
+   "Unicode sans italic",
+   "symsfit",
+   "无衬线斜体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfsfup",
+  "command": "\\symbfsfup",
+  "category": "matrix",
+  "latex": "\\symbfsfup{\\placeholder{}}",
+  "preview": "\\symbfsfup{ABC}",
+  "name": "Unicode 无衬线粗正体",
+  "nameEn": "Unicode sans bold upright",
+  "words": [
+   "Unicode sans bold upright",
+   "symbfsfup",
+   "无衬线粗体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-bfsfit",
+  "command": "\\symbfsfit",
+  "category": "matrix",
+  "latex": "\\symbfsfit{\\placeholder{}}",
+  "preview": "\\symbfsfit{ABC}",
+  "name": "Unicode 无衬线粗斜体",
+  "nameEn": "Unicode sans bold italic",
+  "words": [
+   "Unicode sans bold italic",
+   "symbfsfit",
+   "无衬线粗斜体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "sym-tt",
+  "command": "\\symtt",
+  "category": "matrix",
+  "latex": "\\symtt{\\placeholder{}}",
+  "preview": "\\symtt{ABC}",
+  "name": "Unicode 等宽体",
+  "nameEn": "Unicode typewriter",
+  "words": [
+   "Unicode typewriter",
+   "symtt",
+   "等宽体",
+   "unicode math"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-bf",
+  "command": "\\bf",
+  "category": "matrix",
+  "latex": "\\mathbf{\\placeholder{}}",
+  "preview": "\\mathbf{ABC}",
+  "name": "旧式粗正体",
+  "nameEn": "Legacy bold upright",
+  "words": [
+   "Legacy bold upright",
+   "bf",
+   "旧式",
+   "粗体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-bfseries",
+  "command": "\\bfseries",
+  "category": "matrix",
+  "latex": "\\mathbf{\\placeholder{}}",
+  "preview": "\\mathbf{ABC}",
+  "name": "粗体声明",
+  "nameEn": "Bold series",
+  "words": [
+   "Bold series",
+   "bfseries",
+   "粗体声明",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-it",
+  "command": "\\it",
+  "category": "matrix",
+  "latex": "\\mathit{\\placeholder{}}",
+  "preview": "\\mathit{ABC}",
+  "name": "旧式斜体",
+  "nameEn": "Legacy italic",
+  "words": [
+   "Legacy italic",
+   "it",
+   "旧式",
+   "斜体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-rm",
+  "command": "\\rm",
+  "category": "matrix",
+  "latex": "\\mathrm{\\placeholder{}}",
+  "preview": "\\mathrm{ABC}",
+  "name": "旧式正体",
+  "nameEn": "Legacy roman",
+  "words": [
+   "Legacy roman",
+   "rm",
+   "旧式",
+   "正体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-sf",
+  "command": "\\sf",
+  "category": "matrix",
+  "latex": "\\mathsf{\\placeholder{}}",
+  "preview": "\\mathsf{ABC}",
+  "name": "旧式无衬线体",
+  "nameEn": "Legacy sans",
+  "words": [
+   "Legacy sans",
+   "sf",
+   "旧式",
+   "无衬线",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-tt",
+  "command": "\\tt",
+  "category": "matrix",
+  "latex": "\\mathtt{\\placeholder{}}",
+  "preview": "\\mathtt{ABC}",
+  "name": "旧式等宽体",
+  "nameEn": "Legacy typewriter",
+  "words": [
+   "Legacy typewriter",
+   "tt",
+   "旧式",
+   "等宽体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-cal",
+  "command": "\\cal",
+  "category": "matrix",
+  "latex": "\\mathcal{\\placeholder{}}",
+  "preview": "\\mathcal{ABC}",
+  "name": "旧式花体",
+  "nameEn": "Legacy calligraphic",
+  "words": [
+   "Legacy calligraphic",
+   "cal",
+   "旧式",
+   "花体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-Bbb",
+  "command": "\\Bbb",
+  "category": "matrix",
+  "latex": "\\mathbb{\\placeholder{}}",
+  "preview": "\\mathbb{ABC}",
+  "name": "黑板粗体简称",
+  "nameEn": "Blackboard bold alias",
+  "words": [
+   "Blackboard bold alias",
+   "Bbb",
+   "简称",
+   "黑板粗体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-frak",
+  "command": "\\frak",
+  "category": "matrix",
+  "latex": "\\mathfrak{\\placeholder{}}",
+  "preview": "\\mathfrak{ABC}",
+  "name": "哥特体简称",
+  "nameEn": "Fraktur alias",
+  "words": [
+   "Fraktur alias",
+   "frak",
+   "简称",
+   "哥特体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-bold",
+  "command": "\\bold",
+  "category": "matrix",
+  "latex": "\\bm{\\placeholder{}}",
+  "preview": "\\bm{A\\alpha}",
+  "name": "数学粗体简称",
+  "nameEn": "Bold math alias",
+  "words": [
+   "Bold math alias",
+   "简称",
+   "粗斜体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "legacy-boldmath",
+  "command": "\\boldmath",
+  "category": "matrix",
+  "latex": "\\bm{\\placeholder{}}",
+  "preview": "\\bm{A\\alpha}",
+  "name": "粗数学声明",
+  "nameEn": "Bold math declaration",
+  "words": [
+   "Bold math declaration",
+   "boldmath",
+   "粗斜体",
+   "数学版本",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "poor-mans-bold",
+  "command": "\\pmb",
+  "category": "matrix",
+  "latex": "\\bm{\\placeholder{}}",
+  "preview": "\\bm{A\\alpha}",
+  "name": "模拟数学粗体",
+  "nameEn": "Poor man's bold",
+  "words": [
+   "Poor man's bold",
+   "pmb",
+   "粗斜体",
+   "粗体",
+   "字体"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "shortcut-abs",
+  "command": "\\abs",
+  "category": "structure",
+  "latex": "\\abs{\\placeholder{}}",
+  "preview": "\\abs{x}",
+  "name": "绝对值简称",
+  "nameEn": "Absolute value shorthand",
+  "words": [
+   "Absolute value shorthand",
+   "abs",
+   "physics",
+   "简称",
+   "绝对值"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "shortcut-norm",
+  "command": "\\norm",
+  "category": "matrix",
+  "latex": "\\norm{\\placeholder{}}",
+  "preview": "\\norm{\\mathbf{x}}",
+  "name": "范数简称",
+  "nameEn": "Norm shorthand",
+  "words": [
+   "Norm shorthand",
+   "norm",
+   "physics",
+   "简称",
+   "范数"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "shortcut-dd",
+  "command": "\\dd",
+  "category": "calculus",
+  "latex": "\\dd{\\placeholder{}}",
+  "preview": "\\dd{x}",
+  "name": "微分元简称",
+  "nameEn": "Differential shorthand",
+  "words": [
+   "Differential shorthand",
+   "dd",
+   "physics",
+   "简称",
+   "微分"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "shortcut-bra",
+  "command": "\\bra",
+  "category": "physics",
+  "latex": "\\bra{\\placeholder{}}",
+  "preview": "\\bra{\\psi}",
+  "name": "Bra 简称",
+  "nameEn": "Bra shorthand",
+  "words": [
+   "Bra shorthand",
+   "bra",
+   "physics",
+   "狄拉克"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "shortcut-ket",
+  "command": "\\ket",
+  "category": "physics",
+  "latex": "\\ket{\\placeholder{}}",
+  "preview": "\\ket{\\psi}",
+  "name": "Ket 简称",
+  "nameEn": "Ket shorthand",
+  "words": [
+   "Ket shorthand",
+   "ket",
+   "physics",
+   "狄拉克"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "shortcut-expval",
+  "command": "\\expval",
+  "category": "physics",
+  "latex": "\\expval{\\placeholder{}}",
+  "preview": "\\expval{A}",
+  "name": "期望值简称",
+  "nameEn": "Expectation shorthand",
+  "words": [
+   "Expectation shorthand",
+   "expval",
+   "physics",
+   "期望值"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "shortcut-vb",
+  "command": "\\vb",
+  "category": "physics",
+  "latex": "\\vb{\\placeholder{}}",
+  "preview": "\\vb{v}",
+  "name": "粗向量简称",
+  "nameEn": "Bold vector shorthand",
+  "words": [
+   "Bold vector shorthand",
+   "vb",
+   "physics",
+   "向量",
+   "简称"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "shortcut-va",
+  "command": "\\va",
+  "category": "physics",
+  "latex": "\\va{\\placeholder{}}",
+  "preview": "\\va{v}",
+  "name": "箭头粗向量简称",
+  "nameEn": "Arrow vector shorthand",
+  "words": [
+   "Arrow vector shorthand",
+   "va",
+   "physics",
+   "向量",
+   "简称"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "shortcut-vu",
+  "command": "\\vu",
+  "category": "physics",
+  "latex": "\\vu{\\placeholder{}}",
+  "preview": "\\vu{e}",
+  "name": "单位向量简称",
+  "nameEn": "Unit vector shorthand",
+  "words": [
+   "Unit vector shorthand",
+   "vu",
+   "physics",
+   "单位向量",
+   "简称"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "shortcut-comm",
+  "command": "\\comm",
+  "category": "physics",
+  "latex": "\\comm{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\comm{A}{B}",
+  "name": "对易子简称",
+  "nameEn": "Commutator shorthand",
+  "words": [
+   "Commutator shorthand",
+   "comm",
+   "physics",
+   "对易子"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "shortcut-acomm",
+  "command": "\\acomm",
+  "category": "physics",
+  "latex": "\\acomm{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\acomm{A}{B}",
+  "name": "反对易子简称",
+  "nameEn": "Anticommutator shorthand",
+  "words": [
+   "Anticommutator shorthand",
+   "acomm",
+   "physics",
+   "反对易子"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "shortcut-pb",
+  "command": "\\pb",
+  "category": "physics",
+  "latex": "\\pb{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\pb{f}{g}",
+  "name": "泊松括号简称",
+  "nameEn": "Poisson bracket shorthand",
+  "words": [
+   "Poisson bracket shorthand",
+   "pb",
+   "physics",
+   "泊松括号"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "shortcut-dv",
+  "command": "\\dv",
+  "category": "calculus",
+  "latex": "\\dv{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\dv{f}{x}",
+  "name": "导数简称",
+  "nameEn": "Derivative shorthand",
+  "words": [
+   "Derivative shorthand",
+   "dv",
+   "physics",
+   "导数"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "shortcut-pdv",
+  "command": "\\pdv",
+  "category": "calculus",
+  "latex": "\\pdv{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\pdv{f}{x}",
+  "name": "偏导简称",
+  "nameEn": "Partial derivative shorthand",
+  "words": [
+   "Partial derivative shorthand",
+   "pdv",
+   "physics",
+   "偏导"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "shortcut-braket",
+  "command": "\\braket",
+  "category": "physics",
+  "latex": "\\braket{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\braket{\\phi}{\\psi}",
+  "name": "内积简称",
+  "nameEn": "Bra-ket shorthand",
+  "words": [
+   "Bra-ket shorthand",
+   "braket",
+   "physics",
+   "内积"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "shortcut-ketbra",
+  "command": "\\ketbra",
+  "category": "physics",
+  "latex": "\\ketbra{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\ketbra{\\psi}{\\phi}",
+  "name": "外积简称",
+  "nameEn": "Ket-bra shorthand",
+  "words": [
+   "Ket-bra shorthand",
+   "ketbra",
+   "physics",
+   "外积"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "shortcut-mel",
+  "command": "\\mel",
+  "category": "physics",
+  "latex": "\\mel{\\placeholder{}}{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\mel{\\phi}{A}{\\psi}",
+  "name": "矩阵元简称",
+  "nameEn": "Matrix element shorthand",
+  "words": [
+   "Matrix element shorthand",
+   "mel",
+   "physics",
+   "矩阵元"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "left-upper-script",
+  "command": "{}^{}",
+  "category": "structure",
+  "latex": "{}^{\\placeholder{}}\\placeholder{}",
+  "preview": "{}^{a}X",
+  "name": "前置上标",
+  "nameEn": "Left superscript",
+  "words": [
+   "Left superscript",
+   "left superscript",
+   "prescript",
+   "前置上标",
+   "左上标"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "upper-script",
+  "command": "^{}",
+  "category": "structure",
+  "latex": "\\placeholder{}^{\\placeholder{}}",
+  "preview": "X^{b}",
+  "name": "添加上标",
+  "nameEn": "Add upper limit",
+  "words": [
+   "Add upper limit",
+   "upper limit",
+   "superscript",
+   "上限",
+   "上标"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "left-scripts",
+  "command": "{}_{}^{}",
+  "category": "structure",
+  "latex": "{}_{\\placeholder{}}^{\\placeholder{}}\\placeholder{}",
+  "preview": "{}_{a}^{b}X",
+  "name": "前置上下标",
+  "nameEn": "Left upper/lower scripts",
+  "words": [
+   "Left upper/lower scripts",
+   "left scripts",
+   "prescript",
+   "前置上下标",
+   "左上下标"
+  ],
+  "priority": 93
+ },
+ {
+  "exact": true,
+  "id": "scripts",
+  "command": "_{}^{}",
+  "category": "structure",
+  "latex": "\\placeholder{}_{\\placeholder{}}^{\\placeholder{}}",
+  "preview": "X_{a}^{b}",
+  "name": "添加上下标",
+  "nameEn": "Add upper/lower limits",
+  "words": [
+   "Add upper/lower limits",
+   "limits",
+   "scripts",
+   "上下限",
+   "上下标"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "left-lower-script",
+  "command": "{}_{}",
+  "category": "structure",
+  "latex": "{}_{\\placeholder{}}\\placeholder{}",
+  "preview": "{}_{a}X",
+  "name": "前置下标",
+  "nameEn": "Left subscript",
+  "words": [
+   "Left subscript",
+   "left subscript",
+   "prescript",
+   "前置下标",
+   "左下标"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "lower-script",
+  "command": "_{}",
+  "category": "structure",
+  "latex": "\\placeholder{}_{\\placeholder{}}",
+  "preview": "X_{a}",
+  "name": "添加下标",
+  "nameEn": "Add lower limit",
+  "words": [
+   "Add lower limit",
+   "lower limit",
+   "subscript",
+   "下限",
+   "下标"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "linear-fraction",
+  "command": "/",
+  "category": "structure",
+  "latex": "\\placeholder{}/\\placeholder{}",
+  "preview": "a/b",
+  "name": "线性分式",
+  "nameEn": "Linear fraction",
+  "words": [
+   "Linear fraction",
+   "slash fraction",
+   "linear fraction",
+   "斜线分式",
+   "线性分数"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "skewed-fraction",
+  "command": "\\nicefrac",
+  "category": "structure",
+  "latex": "\\nicefrac{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\nicefrac{a}{b}",
+  "name": "斜式分式",
+  "nameEn": "Skewed fraction",
+  "words": [
+   "Skewed fraction",
+   "nicefrac",
+   "skewed fraction",
+   "斜式分数",
+   "斜线分式"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "smallfrac",
+  "command": "\\tfrac",
+  "category": "structure",
+  "latex": "\\tfrac{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\tfrac{a}{b}",
+  "name": "行内分式",
+  "nameEn": "Text fraction",
+  "words": [
+   "Text fraction",
+   "tfrac",
+   "小分式"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "displayfrac",
+  "command": "\\dfrac",
+  "category": "structure",
+  "latex": "\\dfrac{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\dfrac{a}{b}",
+  "name": "大型分式",
+  "nameEn": "Display fraction",
+  "words": [
+   "Display fraction",
+   "dfrac",
+   "大分式"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "brackets",
+  "command": "\\left[",
+  "category": "structure",
+  "latex": "\\left[\\placeholder{}\\right]",
+  "preview": "\\left[x\\right]",
+  "name": "方括号",
+  "nameEn": "Brackets",
+  "words": [
+   "Brackets",
+   "square brackets",
+   "方括号"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "braces",
+  "command": "\\left\\{",
+  "category": "structure",
+  "latex": "\\left\\{\\placeholder{}\\right\\}",
+  "preview": "\\left\\{x\\right\\}",
+  "name": "花括号",
+  "nameEn": "Braces",
+  "words": [
+   "Braces",
+   "curly braces",
+   "大括号",
+   "花括号"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "anglebrackets",
+  "command": "\\langle",
+  "category": "structure",
+  "latex": "\\left\\langle\\placeholder{}\\right\\rangle",
+  "preview": "\\langle x\\rangle",
+  "name": "尖括号",
+  "nameEn": "Angle brackets",
+  "words": [
+   "Angle brackets",
+   "angle brackets",
+   "尖括号"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "floor",
+  "command": "\\lfloor",
+  "category": "structure",
+  "latex": "\\left\\lfloor\\placeholder{}\\right\\rfloor",
+  "preview": "\\lfloor x\\rfloor",
+  "name": "下取整",
+  "nameEn": "Floor",
+  "words": [
+   "Floor",
+   "floor",
+   "向下取整"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "ceil",
+  "command": "\\lceil",
+  "category": "structure",
+  "latex": "\\left\\lceil\\placeholder{}\\right\\rceil",
+  "preview": "\\lceil x\\rceil",
+  "name": "上取整",
+  "nameEn": "Ceiling",
+  "words": [
+   "Ceiling",
+   "ceil",
+   "ceiling",
+   "向上取整"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "hat",
+  "command": "\\hat",
+  "category": "structure",
+  "latex": "\\hat{\\placeholder{}}",
+  "preview": "\\hat{x}",
+  "name": "帽子重音",
+  "nameEn": "Hat accent",
+  "words": [
+   "Hat accent",
+   "hat",
+   "帽子",
+   "重音"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "widehat",
+  "command": "\\widehat",
+  "category": "structure",
+  "latex": "\\widehat{\\placeholder{}}",
+  "preview": "\\widehat{ABC}",
+  "name": "宽帽子重音",
+  "nameEn": "Wide hat",
+  "words": [
+   "Wide hat",
+   "wide hat",
+   "宽帽子",
+   "重音"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "vector",
+  "command": "\\vec",
+  "category": "structure",
+  "latex": "\\vec{\\placeholder{}}",
+  "preview": "\\vec{x}",
+  "name": "向量箭头",
+  "nameEn": "Vector accent",
+  "words": [
+   "Vector accent",
+   "vector",
+   "vec",
+   "矢量",
+   "向量",
+   "箭头重音"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "tilde",
+  "command": "\\tilde",
+  "category": "structure",
+  "latex": "\\tilde{\\placeholder{}}",
+  "preview": "\\tilde{x}",
+  "name": "波浪重音",
+  "nameEn": "Tilde accent",
+  "words": [
+   "Tilde accent",
+   "tilde",
+   "波浪号",
+   "重音"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "widetilde",
+  "command": "\\widetilde",
+  "category": "structure",
+  "latex": "\\widetilde{\\placeholder{}}",
+  "preview": "\\widetilde{ABC}",
+  "name": "宽波浪重音",
+  "nameEn": "Wide tilde",
+  "words": [
+   "Wide tilde",
+   "wide tilde",
+   "宽波浪号",
+   "重音"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "dotaccent",
+  "command": "\\dot",
+  "category": "structure",
+  "latex": "\\dot{\\placeholder{}}",
+  "preview": "\\dot{x}",
+  "name": "点重音",
+  "nameEn": "Dot accent",
+  "words": [
+   "Dot accent",
+   "dot",
+   "点重音"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "ddotaccent",
+  "command": "\\ddot",
+  "category": "structure",
+  "latex": "\\ddot{\\placeholder{}}",
+  "preview": "\\ddot{x}",
+  "name": "双点重音",
+  "nameEn": "Double-dot accent",
+  "words": [
+   "Double-dot accent",
+   "double dot",
+   "ddot",
+   "双点重音"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "checkaccent",
+  "command": "\\check",
+  "category": "structure",
+  "latex": "\\check{\\placeholder{}}",
+  "preview": "\\check{x}",
+  "name": "倒帽重音",
+  "nameEn": "Check accent",
+  "words": [
+   "Check accent",
+   "check accent",
+   "倒帽",
+   "重音"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "breveaccent",
+  "command": "\\breve",
+  "category": "structure",
+  "latex": "\\breve{\\placeholder{}}",
+  "preview": "\\breve{x}",
+  "name": "短音重音",
+  "nameEn": "Breve accent",
+  "words": [
+   "Breve accent",
+   "breve",
+   "短音",
+   "重音"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "acuteaccent",
+  "command": "\\acute",
+  "category": "structure",
+  "latex": "\\acute{\\placeholder{}}",
+  "preview": "\\acute{x}",
+  "name": "尖音重音",
+  "nameEn": "Acute accent",
+  "words": [
+   "Acute accent",
+   "acute",
+   "尖音",
+   "重音"
+  ],
+  "priority": 71
+ },
+ {
+  "exact": true,
+  "id": "graveaccent",
+  "command": "\\grave",
+  "category": "structure",
+  "latex": "\\grave{\\placeholder{}}",
+  "preview": "\\grave{x}",
+  "name": "重音符",
+  "nameEn": "Grave accent",
+  "words": [
+   "Grave accent",
+   "grave",
+   "重音符"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "ringaccent",
+  "command": "\\mathring",
+  "category": "structure",
+  "latex": "\\mathring{\\placeholder{}}",
+  "preview": "\\mathring{x}",
+  "name": "圆圈重音",
+  "nameEn": "Ring accent",
+  "words": [
+   "Ring accent",
+   "ring accent",
+   "圆圈",
+   "重音"
+  ],
+  "priority": 69
+ },
+ {
+  "exact": true,
+  "id": "cedilla-accent",
+  "command": "\\c",
+  "category": "structure",
+  "latex": "\\c{\\placeholder{}}",
+  "preview": "\\c{c}",
+  "name": "下加软音符",
+  "nameEn": "Cedilla accent",
+  "words": [
+   "Cedilla accent",
+   "cedilla",
+   "软音符",
+   "重音"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "overbrace-annotation",
+  "command": "\\overbrace",
+  "category": "structure",
+  "latex": "\\overbrace{\\placeholder{}}^{\\placeholder{}}",
+  "preview": "\\overbrace{a+\\cdots+a}^{n}",
+  "name": "上花括号注释",
+  "nameEn": "Annotated overbrace",
+  "words": [
+   "Annotated overbrace",
+   "overbrace",
+   "上括注"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "underbrace-annotation",
+  "command": "\\underbrace",
+  "category": "structure",
+  "latex": "\\underbrace{\\placeholder{}}_{\\placeholder{}}",
+  "preview": "\\underbrace{a+\\cdots+a}_{n}",
+  "name": "下花括号注释",
+  "nameEn": "Annotated underbrace",
+  "words": [
+   "Annotated underbrace",
+   "underbrace",
+   "下括注"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "cases",
+  "command": "\\begin{cases}",
+  "category": "structure",
+  "latex": "\\begin{cases}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{cases}",
+  "preview": "f(x)=\\begin{cases}x&x>0\\\\0&x\\leq0\\end{cases}",
+  "name": "分段函数",
+  "nameEn": "Cases",
+  "words": [
+   "Cases",
+   "cases",
+   "piecewise",
+   "分段函数"
+  ],
+  "priority": 85
+ },
+ {
+  "exact": true,
+  "id": "boxed",
+  "command": "\\boxed",
+  "category": "structure",
+  "latex": "\\boxed{\\placeholder{}}",
+  "preview": "\\boxed{x}",
+  "name": "方框公式",
+  "nameEn": "Boxed",
+  "words": [
+   "Boxed",
+   "boxed",
+   "box",
+   "方框"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "quad-space",
+  "command": "\\quad",
+  "category": "common",
+  "latex": "\\quad",
+  "preview": "A\\quad B",
+  "name": "一字宽空格",
+  "nameEn": "Quad space",
+  "words": [
+   "Quad space",
+   "quad",
+   "空格",
+   "spacing"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "qquad-space",
+  "command": "\\qquad",
+  "category": "common",
+  "latex": "\\qquad",
+  "preview": "A\\qquad B",
+  "name": "双字宽空格",
+  "nameEn": "Double quad space",
+  "words": [
+   "Double quad space",
+   "qquad",
+   "空格",
+   "spacing"
+  ],
+  "priority": 64
+ },
+ {
+  "exact": true,
+  "id": "int-bare",
+  "command": "\\int",
+  "category": "calculus",
+  "latex": "\\int",
+  "preview": "\\int",
+  "name": "裸积分符号",
+  "nameEn": "Bare integral",
+  "words": [
+   "Bare integral",
+   "bare integral",
+   "integral symbol",
+   "裸积分",
+   "积分符号"
+  ],
+  "priority": 100
+ },
+ {
+  "exact": true,
+  "id": "iint-bare",
+  "command": "\\iint",
+  "category": "calculus",
+  "latex": "\\iint",
+  "preview": "\\iint",
+  "name": "裸二重积分符号",
+  "nameEn": "Bare double integral",
+  "words": [
+   "Bare double integral",
+   "bare double integral",
+   "裸二重积分",
+   "积分符号"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "iiint-bare",
+  "command": "\\iiint",
+  "category": "calculus",
+  "latex": "\\iiint",
+  "preview": "\\iiint",
+  "name": "裸三重积分符号",
+  "nameEn": "Bare triple integral",
+  "words": [
+   "Bare triple integral",
+   "bare triple integral",
+   "裸三重积分",
+   "积分符号"
+  ],
+  "priority": 95
+ },
+ {
+  "exact": true,
+  "id": "oint-bare",
+  "command": "\\oint",
+  "category": "calculus",
+  "latex": "\\oint",
+  "preview": "\\oint",
+  "name": "裸环路积分符号",
+  "nameEn": "Bare contour integral",
+  "words": [
+   "Bare contour integral",
+   "bare contour integral",
+   "裸环路积分",
+   "积分符号"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "oiint-bare",
+  "command": "\\oiint",
+  "category": "calculus",
+  "latex": "\\oiint",
+  "preview": "\\oiint",
+  "name": "裸闭合二重积分",
+  "nameEn": "Bare closed double integral",
+  "words": [
+   "Bare closed double integral",
+   "bare closed surface integral",
+   "oiint",
+   "裸闭合曲面积分",
+   "积分符号"
+  ],
+  "priority": 93
+ },
+ {
+  "exact": true,
+  "id": "oiiint-bare",
+  "command": "\\oiiint",
+  "category": "calculus",
+  "latex": "\\oiiint",
+  "preview": "\\oiiint",
+  "name": "裸闭合三重积分",
+  "nameEn": "Bare closed triple integral",
+  "words": [
+   "Bare closed triple integral",
+   "bare closed volume integral",
+   "oiiint",
+   "裸闭合体积分",
+   "积分符号"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "intplain-no-d",
+  "command": "\\int",
+  "category": "calculus",
+  "latex": "\\int \\placeholder{}",
+  "preview": "\\int f(x)",
+  "name": "不定积分（无微分元）",
+  "nameEn": "Indefinite integral without differential",
+  "words": [
+   "Indefinite integral without differential",
+   "integral no differential",
+   "积分",
+   "无微分元"
+  ],
+  "priority": 99
+ },
+ {
+  "exact": true,
+  "id": "int-bounds-no-d",
+  "command": "\\int",
+  "category": "calculus",
+  "latex": "\\int_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\int_a^b f(x)",
+  "name": "定积分（无微分元）",
+  "nameEn": "Bounded integral without differential",
+  "words": [
+   "Bounded integral without differential",
+   "bounded integral no differential",
+   "定积分",
+   "无微分元"
+  ],
+  "priority": 98
+ },
+ {
+  "exact": true,
+  "id": "iint-no-d",
+  "command": "\\iint",
+  "category": "calculus",
+  "latex": "\\iint_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\iint_D f",
+  "name": "二重积分（无微分元）",
+  "nameEn": "Double integral without differential",
+  "words": [
+   "Double integral without differential",
+   "double integral no differential",
+   "二重积分",
+   "无微分元"
+  ],
+  "priority": 95
+ },
+ {
+  "exact": true,
+  "id": "iint-bounds-no-d",
+  "command": "\\iint",
+  "category": "calculus",
+  "latex": "\\iint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\iint_D^S f",
+  "name": "带上下限二重积分（无微分元）",
+  "nameEn": "Bounded double integral without differential",
+  "words": [
+   "Bounded double integral without differential",
+   "bounded double integral no differential",
+   "二重积分",
+   "上下限",
+   "无微分元"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "iiint-no-d",
+  "command": "\\iiint",
+  "category": "calculus",
+  "latex": "\\iiint_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\iiint_V f",
+  "name": "三重积分（无微分元）",
+  "nameEn": "Triple integral without differential",
+  "words": [
+   "Triple integral without differential",
+   "triple integral no differential",
+   "三重积分",
+   "无微分元"
+  ],
+  "priority": 93
+ },
+ {
+  "exact": true,
+  "id": "iiint-bounds-no-d",
+  "command": "\\iiint",
+  "category": "calculus",
+  "latex": "\\iiint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\iiint_V^W f",
+  "name": "带上下限三重积分（无微分元）",
+  "nameEn": "Bounded triple integral without differential",
+  "words": [
+   "Bounded triple integral without differential",
+   "bounded triple integral no differential",
+   "三重积分",
+   "上下限",
+   "无微分元"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "oint-no-d",
+  "command": "\\oint",
+  "category": "calculus",
+  "latex": "\\oint_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\oint_C f",
+  "name": "环路积分（无微分元）",
+  "nameEn": "Contour integral without differential",
+  "words": [
+   "Contour integral without differential",
+   "contour integral no differential",
+   "环路积分",
+   "无微分元"
+  ],
+  "priority": 91
+ },
+ {
+  "exact": true,
+  "id": "oint-bounds-no-d",
+  "command": "\\oint",
+  "category": "calculus",
+  "latex": "\\oint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\oint_C^D f",
+  "name": "带上下限环路积分（无微分元）",
+  "nameEn": "Bounded contour integral without differential",
+  "words": [
+   "Bounded contour integral without differential",
+   "bounded contour integral no differential",
+   "环路积分",
+   "上下限",
+   "无微分元"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "oiint-no-d",
+  "command": "\\oiint",
+  "category": "calculus",
+  "latex": "\\oiint_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\oiint_S f",
+  "name": "闭合曲面积分（无微分元）",
+  "nameEn": "Closed surface integral without differential",
+  "words": [
+   "Closed surface integral without differential",
+   "closed surface integral no differential",
+   "闭合曲面积分",
+   "无微分元"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "oiiint-no-d",
+  "command": "\\oiiint",
+  "category": "calculus",
+  "latex": "\\oiiint_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\oiiint_V f",
+  "name": "闭合体积分（无微分元）",
+  "nameEn": "Closed volume integral without differential",
+  "words": [
+   "Closed volume integral without differential",
+   "closed volume integral no differential",
+   "闭合体积分",
+   "无微分元"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "intplain",
+  "command": "\\int",
+  "category": "calculus",
+  "latex": "\\int \\placeholder{}\\,\\mathrm{d}\\placeholder{}",
+  "preview": "\\int f(x)\\,\\mathrm{d}x",
+  "name": "不定积分",
+  "nameEn": "Indefinite integral",
+  "words": [
+   "Indefinite integral",
+   "indefinite integral",
+   "integral",
+   "不定积分",
+   "积分"
+  ],
+  "priority": 99
+ },
+ {
+  "exact": true,
+  "id": "iint-bounds",
+  "command": "\\iint",
+  "category": "calculus",
+  "latex": "\\iint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}A",
+  "preview": "\\iint_D^S f\\,\\mathrm{d}A",
+  "name": "带上下限二重积分",
+  "nameEn": "Bounded double integral",
+  "words": [
+   "Bounded double integral",
+   "bounded double integral",
+   "二重积分",
+   "上下限"
+  ],
+  "priority": 91
+ },
+ {
+  "exact": true,
+  "id": "iiint-bounds",
+  "command": "\\iiint",
+  "category": "calculus",
+  "latex": "\\iiint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}V",
+  "preview": "\\iiint_V^W f\\,\\mathrm{d}V",
+  "name": "带上下限三重积分",
+  "nameEn": "Bounded triple integral",
+  "words": [
+   "Bounded triple integral",
+   "bounded triple integral",
+   "三重积分",
+   "上下限"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "oint-bounds",
+  "command": "\\oint",
+  "category": "calculus",
+  "latex": "\\oint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}\\placeholder{}",
+  "preview": "\\oint_C^D f\\,\\mathrm{d}s",
+  "name": "带上下限环路积分",
+  "nameEn": "Bounded contour integral",
+  "words": [
+   "Bounded contour integral",
+   "bounded contour integral",
+   "环路积分",
+   "上下限"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "sum-finite",
+  "command": "\\sum",
+  "category": "calculus",
+  "latex": "\\sum_{\\placeholder{}=\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\sum_{k=1}^{n}a_k",
+  "name": "有限求和",
+  "nameEn": "Finite sum",
+  "words": [
+   "Finite sum",
+   "finite sum",
+   "有限求和",
+   "上下限"
+  ],
+  "priority": 98
+ },
+ {
+  "exact": true,
+  "id": "prod-finite",
+  "command": "\\prod",
+  "category": "calculus",
+  "latex": "\\prod_{\\placeholder{}=\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\prod_{k=1}^{n}a_k",
+  "name": "有限连乘",
+  "nameEn": "Finite product",
+  "words": [
+   "Finite product",
+   "finite product",
+   "有限连乘",
+   "上下限"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "lineintegral",
+  "command": "\\int",
+  "category": "calculus",
+  "latex": "\\int_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}s",
+  "preview": "\\int_C f\\,\\mathrm{d}s",
+  "name": "曲线积分",
+  "nameEn": "Line integral",
+  "words": [
+   "Line integral",
+   "line integral",
+   "path integral",
+   "曲线积分",
+   "线积分"
+  ],
+  "priority": 96
+ },
+ {
+  "exact": true,
+  "id": "surfaceintegral",
+  "command": "\\iint",
+  "category": "calculus",
+  "latex": "\\iint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}S",
+  "preview": "\\iint_S f\\,\\mathrm{d}S",
+  "name": "曲面积分",
+  "nameEn": "Surface integral",
+  "words": [
+   "Surface integral",
+   "surface integral",
+   "double integral",
+   "曲面积分",
+   "面积分",
+   "二重积分"
+  ],
+  "priority": 95
+ },
+ {
+  "exact": true,
+  "id": "iiint",
+  "command": "\\iiint",
+  "category": "calculus",
+  "latex": "\\iiint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}V",
+  "preview": "\\iiint_V f\\,\\mathrm{d}V",
+  "name": "三重积分",
+  "nameEn": "Triple integral",
+  "words": [
+   "Triple integral",
+   "triple integral",
+   "三重积分"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "volumeintegral",
+  "command": "\\iiint",
+  "category": "calculus",
+  "latex": "\\iiint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}V",
+  "preview": "\\iiint_V f\\,\\mathrm{d}V",
+  "name": "体积分",
+  "nameEn": "Volume integral",
+  "words": [
+   "Volume integral",
+   "volume integral",
+   "体积分"
+  ],
+  "priority": 93
+ },
+ {
+  "exact": true,
+  "id": "closed-surface-integral",
+  "command": "\\oiint",
+  "category": "calculus",
+  "latex": "\\oiint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}S",
+  "preview": "\\oiint_S \\mathbf{F}\\cdot\\mathrm{d}\\mathbf{S}",
+  "name": "闭合曲面积分",
+  "nameEn": "Closed surface integral",
+  "words": [
+   "Closed surface integral",
+   "closed surface integral",
+   "oiint",
+   "闭合曲面积分",
+   "闭合面积分"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "closed-volume-integral",
+  "command": "\\oiiint",
+  "category": "calculus",
+  "latex": "\\oiiint_{\\placeholder{}} \\placeholder{}\\,\\mathrm{d}V",
+  "preview": "\\oiiint_V f\\,\\mathrm{d}V",
+  "name": "闭合体积分",
+  "nameEn": "Closed volume integral",
+  "words": [
+   "Closed volume integral",
+   "closed volume integral",
+   "oiiint",
+   "闭合体积分"
+  ],
+  "priority": 87
+ },
+ {
+  "exact": true,
+  "id": "derivative",
+  "command": "\\frac{d}{dx}",
+  "category": "calculus",
+  "latex": "\\frac{\\mathrm{d}\\placeholder{}}{\\mathrm{d}\\placeholder{}}",
+  "preview": "\\frac{\\mathrm{d}f}{\\mathrm{d}x}",
+  "name": "导数",
+  "nameEn": "Derivative",
+  "words": [
+   "Derivative",
+   "derivative",
+   "导数",
+   "微分"
+  ],
+  "priority": 91
+ },
+ {
+  "exact": true,
+  "id": "partialderivative-frac",
+  "command": "\\frac{\\partial}{\\partial x}",
+  "category": "calculus",
+  "latex": "\\frac{\\partial\\placeholder{}}{\\partial\\placeholder{}}",
+  "preview": "\\frac{\\partial f}{\\partial x}",
+  "name": "偏导数",
+  "nameEn": "Partial derivative",
+  "words": [
+   "Partial derivative",
+   "partial derivative",
+   "偏导数",
+   "偏导"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "secondderivative",
+  "command": "\\frac{d^2}{dx^2}",
+  "category": "calculus",
+  "latex": "\\frac{\\mathrm{d}^{2}\\placeholder{}}{\\mathrm{d}\\placeholder{}^{2}}",
+  "preview": "\\frac{\\mathrm{d}^{2}f}{\\mathrm{d}x^{2}}",
+  "name": "二阶导数",
+  "nameEn": "Second derivative",
+  "words": [
+   "Second derivative",
+   "second derivative",
+   "二阶导数"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "partialsecond",
+  "command": "\\partial^2",
+  "category": "calculus",
+  "latex": "\\frac{\\partial^{2}\\placeholder{}}{\\partial\\placeholder{}^{2}}",
+  "preview": "\\frac{\\partial^{2}f}{\\partial x^{2}}",
+  "name": "二阶偏导",
+  "nameEn": "Second partial",
+  "words": [
+   "Second partial",
+   "second partial",
+   "二阶偏导"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "mixedpartial",
+  "command": "\\partial^2",
+  "category": "calculus",
+  "latex": "\\frac{\\partial^{2}\\placeholder{}}{\\partial\\placeholder{}\\partial\\placeholder{}}",
+  "preview": "\\frac{\\partial^{2}f}{\\partial x\\partial y}",
+  "name": "混合偏导",
+  "nameEn": "Mixed partial",
+  "words": [
+   "Mixed partial",
+   "mixed partial",
+   "混合偏导"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "evalbar",
+  "command": "\\left.",
+  "category": "calculus",
+  "latex": "\\left.\\placeholder{}\\right|_{\\placeholder{}}^{\\placeholder{}}",
+  "preview": "\\left.F(x)\\right|_a^b",
+  "name": "代入上下限",
+  "nameEn": "Evaluation",
+  "words": [
+   "Evaluation",
+   "evaluate",
+   "代入",
+   "上下限"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "series",
+  "command": "\\sum",
+  "category": "calculus",
+  "latex": "\\sum_{\\placeholder{}=0}^{\\infty} \\placeholder{}",
+  "preview": "\\sum_{n=0}^{\\infty}a_n",
+  "name": "无穷级数",
+  "nameEn": "Infinite series",
+  "words": [
+   "Infinite series",
+   "series",
+   "summation",
+   "级数",
+   "无穷求和"
+  ],
+  "priority": 97
+ },
+ {
+  "exact": true,
+  "id": "sum-lower",
+  "command": "\\sum",
+  "category": "calculus",
+  "latex": "\\sum_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\sum_{i}a_i",
+  "name": "只有下限的求和",
+  "nameEn": "Sum with lower limit",
+  "words": [
+   "Sum with lower limit",
+   "sum lower limit",
+   "summation subscript",
+   "求和",
+   "下限",
+   "下标"
+  ],
+  "priority": 95
+ },
+ {
+  "exact": true,
+  "id": "sum-upper",
+  "command": "\\sum",
+  "category": "calculus",
+  "latex": "\\sum^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\sum^{n}a_i",
+  "name": "只有上限的求和",
+  "nameEn": "Sum with upper limit",
+  "words": [
+   "Sum with upper limit",
+   "sum upper limit",
+   "summation superscript",
+   "求和",
+   "上限",
+   "上标"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "productseries",
+  "command": "\\prod",
+  "category": "calculus",
+  "latex": "\\prod_{\\placeholder{}=1}^{\\infty} \\placeholder{}",
+  "preview": "\\prod_{n=1}^{\\infty}a_n",
+  "name": "无穷乘积",
+  "nameEn": "Infinite product",
+  "words": [
+   "Infinite product",
+   "infinite product",
+   "product",
+   "无穷乘积",
+   "连乘"
+  ],
+  "priority": 94
+ },
+ {
+  "exact": true,
+  "id": "prod-lower",
+  "command": "\\prod",
+  "category": "calculus",
+  "latex": "\\prod_{\\placeholder{}} \\placeholder{}",
+  "preview": "\\prod_{i}a_i",
+  "name": "只有下限的连乘",
+  "nameEn": "Product with lower limit",
+  "words": [
+   "Product with lower limit",
+   "product lower limit",
+   "连乘",
+   "下限",
+   "下标"
+  ],
+  "priority": 91
+ },
+ {
+  "exact": true,
+  "id": "prod-upper",
+  "command": "\\prod",
+  "category": "calculus",
+  "latex": "\\prod^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\prod^{n}a_i",
+  "name": "只有上限的连乘",
+  "nameEn": "Product with upper limit",
+  "words": [
+   "Product with upper limit",
+   "product upper limit",
+   "连乘",
+   "上限",
+   "上标"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "coproduct",
+  "command": "\\coprod",
+  "category": "calculus",
+  "latex": "\\coprod_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\coprod_{i=1}^{n} A_i",
+  "name": "余积",
+  "nameEn": "Coproduct",
+  "words": [
+   "Coproduct",
+   "coproduct",
+   "余积"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "lim-infty",
+  "command": "\\lim",
+  "category": "calculus",
+  "latex": "\\lim_{\\placeholder{}\\to\\infty} \\placeholder{}",
+  "preview": "\\lim_{x\\to\\infty}f(x)",
+  "name": "无穷远极限",
+  "nameEn": "Limit at infinity",
+  "words": [
+   "Limit at infinity",
+   "limit infinity",
+   "无穷远极限"
+  ],
+  "priority": 95
+ },
+ {
+  "exact": true,
+  "id": "lim-left",
+  "command": "\\lim",
+  "category": "calculus",
+  "latex": "\\lim_{\\placeholder{}\\to\\placeholder{}^{-}} \\placeholder{}",
+  "preview": "\\lim_{x\\to a^-}f(x)",
+  "name": "左极限",
+  "nameEn": "Left-hand limit",
+  "words": [
+   "Left-hand limit",
+   "left limit",
+   "左极限"
+  ],
+  "priority": 93
+ },
+ {
+  "exact": true,
+  "id": "lim-right",
+  "command": "\\lim",
+  "category": "calculus",
+  "latex": "\\lim_{\\placeholder{}\\to\\placeholder{}^{+}} \\placeholder{}",
+  "preview": "\\lim_{x\\to a^+}f(x)",
+  "name": "右极限",
+  "nameEn": "Right-hand limit",
+  "words": [
+   "Right-hand limit",
+   "right limit",
+   "右极限"
+  ],
+  "priority": 93
+ },
+ {
+  "exact": true,
+  "id": "log",
+  "command": "\\log",
+  "category": "calculus",
+  "latex": "\\log_{\\placeholder{}}\\left(\\placeholder{}\\right)",
+  "preview": "\\log_a x",
+  "name": "对数",
+  "nameEn": "Logarithm",
+  "words": [
+   "Logarithm",
+   "logarithm",
+   "对数"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "ln",
+  "command": "\\ln",
+  "category": "calculus",
+  "latex": "\\ln\\left(\\placeholder{}\\right)",
+  "preview": "\\ln x",
+  "name": "自然对数",
+  "nameEn": "Natural log",
+  "words": [
+   "Natural log",
+   "natural log",
+   "自然对数"
+  ],
+  "priority": 87
+ },
+ {
+  "exact": true,
+  "id": "exp",
+  "command": "\\exp",
+  "category": "calculus",
+  "latex": "\\exp\\left(\\placeholder{}\\right)",
+  "preview": "\\exp(x)",
+  "name": "指数函数",
+  "nameEn": "Exponential",
+  "words": [
+   "Exponential",
+   "exponential",
+   "指数函数"
+  ],
+  "priority": 85
+ },
+ {
+  "exact": true,
+  "id": "sin",
+  "command": "\\sin",
+  "category": "calculus",
+  "latex": "\\sin\\left(\\placeholder{}\\right)",
+  "preview": "\\sin x",
+  "name": "正弦",
+  "nameEn": "Sine",
+  "words": [
+   "Sine",
+   "sine",
+   "正弦"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "cos",
+  "command": "\\cos",
+  "category": "calculus",
+  "latex": "\\cos\\left(\\placeholder{}\\right)",
+  "preview": "\\cos x",
+  "name": "余弦",
+  "nameEn": "Cosine",
+  "words": [
+   "Cosine",
+   "cosine",
+   "余弦"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "tan",
+  "command": "\\tan",
+  "category": "calculus",
+  "latex": "\\tan\\left(\\placeholder{}\\right)",
+  "preview": "\\tan x",
+  "name": "正切",
+  "nameEn": "Tangent",
+  "words": [
+   "Tangent",
+   "tangent",
+   "正切"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "arcsin",
+  "command": "\\arcsin",
+  "category": "calculus",
+  "latex": "\\arcsin\\left(\\placeholder{}\\right)",
+  "preview": "\\arcsin x",
+  "name": "反正弦",
+  "nameEn": "Arcsine",
+  "words": [
+   "Arcsine",
+   "arcsine",
+   "反正弦"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "arccos",
+  "command": "\\arccos",
+  "category": "calculus",
+  "latex": "\\arccos\\left(\\placeholder{}\\right)",
+  "preview": "\\arccos x",
+  "name": "反余弦",
+  "nameEn": "Arccosine",
+  "words": [
+   "Arccosine",
+   "arccosine",
+   "反余弦"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "arctan",
+  "command": "\\arctan",
+  "category": "calculus",
+  "latex": "\\arctan\\left(\\placeholder{}\\right)",
+  "preview": "\\arctan x",
+  "name": "反正切",
+  "nameEn": "Arctangent",
+  "words": [
+   "Arctangent",
+   "arctangent",
+   "反正切"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "min",
+  "command": "\\min",
+  "category": "calculus",
+  "latex": "\\min_{\\placeholder{}}\\placeholder{}",
+  "preview": "\\min_x f(x)",
+  "name": "最小值",
+  "nameEn": "Minimum",
+  "words": [
+   "Minimum",
+   "minimum",
+   "最小值"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "max",
+  "command": "\\max",
+  "category": "calculus",
+  "latex": "\\max_{\\placeholder{}}\\placeholder{}",
+  "preview": "\\max_x f(x)",
+  "name": "最大值",
+  "nameEn": "Maximum",
+  "words": [
+   "Maximum",
+   "maximum",
+   "最大值"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "matrixplain2",
+  "command": "\\begin{matrix}",
+  "category": "matrix",
+  "latex": "\\begin{matrix}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{matrix}",
+  "preview": "\\begin{matrix}a&b\\\\c&d\\end{matrix}",
+  "name": "无括号矩阵",
+  "nameEn": "Plain matrix",
+  "words": [
+   "Plain matrix",
+   "matrix",
+   "无括号矩阵"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "Bmatrix2",
+  "command": "\\begin{Bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{Bmatrix}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{Bmatrix}",
+  "preview": "\\begin{Bmatrix}a&b\\\\c&d\\end{Bmatrix}",
+  "name": "花括号矩阵",
+  "nameEn": "Brace matrix",
+  "words": [
+   "Brace matrix",
+   "Bmatrix",
+   "花括号矩阵"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "Vmatrix2",
+  "command": "\\begin{Vmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{Vmatrix}\\placeholder{} & \\placeholder{} \\\\ \\placeholder{} & \\placeholder{}\\end{Vmatrix}",
+  "preview": "\\begin{Vmatrix}a&b\\\\c&d\\end{Vmatrix}",
+  "name": "双竖线矩阵",
+  "nameEn": "Double-bar matrix",
+  "words": [
+   "Double-bar matrix",
+   "Vmatrix",
+   "范数矩阵"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "rowvector",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{} & \\placeholder{} & \\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}a&b&c\\end{bmatrix}",
+  "name": "行向量",
+  "nameEn": "Row vector",
+  "words": [
+   "Row vector",
+   "row vector",
+   "行向量"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "colvector",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{} \\\\ \\placeholder{} \\\\ \\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}a\\\\b\\\\c\\end{bmatrix}",
+  "name": "列向量",
+  "nameEn": "Column vector",
+  "words": [
+   "Column vector",
+   "column vector",
+   "列向量"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "det",
+  "command": "\\det",
+  "category": "matrix",
+  "latex": "\\det\\left(\\placeholder{}\\right)",
+  "preview": "\\det(A)",
+  "name": "行列式算子",
+  "nameEn": "Determinant operator",
+  "words": [
+   "Determinant operator",
+   "det",
+   "行列式算子"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "trace",
+  "command": "\\operatorname{tr}",
+  "category": "matrix",
+  "latex": "\\operatorname{tr}\\left(\\placeholder{}\\right)",
+  "preview": "\\operatorname{tr}(A)",
+  "name": "迹",
+  "nameEn": "Trace",
+  "words": [
+   "Trace",
+   "trace",
+   "tr",
+   "矩阵的迹"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "rank",
+  "command": "\\operatorname{rank}",
+  "category": "matrix",
+  "latex": "\\operatorname{rank}\\left(\\placeholder{}\\right)",
+  "preview": "\\operatorname{rank}(A)",
+  "name": "秩",
+  "nameEn": "Rank",
+  "words": [
+   "Rank",
+   "rank",
+   "矩阵的秩"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "norm",
+  "command": "\\lVert",
+  "category": "matrix",
+  "latex": "\\left\\lVert\\placeholder{}\\right\\rVert",
+  "preview": "\\lVert\\mathbf{x}\\rVert",
+  "name": "范数",
+  "nameEn": "Norm",
+  "words": [
+   "Norm",
+   "norm",
+   "范数"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "double-vertical-bar",
+  "command": "\\|",
+  "category": "structure",
+  "latex": "\\|",
+  "preview": "\\Vert",
+  "name": "双竖线",
+  "nameEn": "Double vertical bar",
+  "words": [
+   "Double vertical bar",
+   "double bar",
+   "双竖线",
+   "范数竖线"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "vert-double",
+  "command": "\\Vert",
+  "category": "structure",
+  "latex": "\\Vert",
+  "preview": "\\Vert",
+  "name": "双竖线",
+  "nameEn": "Double vertical bar",
+  "words": [
+   "Double vertical bar",
+   "double bar",
+   "norm delimiter",
+   "双竖线",
+   "范数界定符"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "left-vert-double",
+  "command": "\\lVert",
+  "category": "structure",
+  "latex": "\\lVert",
+  "preview": "\\lVert",
+  "name": "左双竖线",
+  "nameEn": "Left double vertical bar",
+  "words": [
+   "Left double vertical bar",
+   "left double bar",
+   "左双竖线"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "right-vert-double",
+  "command": "\\rVert",
+  "category": "structure",
+  "latex": "\\rVert",
+  "preview": "\\rVert",
+  "name": "右双竖线",
+  "nameEn": "Right double vertical bar",
+  "words": [
+   "Right double vertical bar",
+   "right double bar",
+   "右双竖线"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "unitvector",
+  "command": "\\hat",
+  "category": "matrix",
+  "latex": "\\hat{\\mathbf{\\placeholder{}}}",
+  "preview": "\\hat{\\mathbf{e}}",
+  "name": "单位矢量",
+  "nameEn": "Unit vector",
+  "words": [
+   "Unit vector",
+   "unit vector",
+   "单位矢量"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "expectation",
+  "command": "\\langle",
+  "category": "physics",
+  "latex": "\\left\\langle\\placeholder{}\\right\\rangle",
+  "preview": "\\langle A\\rangle",
+  "name": "期望值",
+  "nameEn": "Expectation value",
+  "words": [
+   "Expectation value",
+   "expectation",
+   "期望值"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "braket",
+  "command": "\\langle",
+  "category": "physics",
+  "latex": "\\braket{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\braket{\\phi}{\\psi}",
+  "name": "内积",
+  "nameEn": "Bra-ket",
+  "words": [
+   "Bra-ket",
+   "braket",
+   "inner product",
+   "内积",
+   "狄拉克"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "commutator",
+  "command": "[",
+  "category": "physics",
+  "latex": "\\left[\\placeholder{},\\placeholder{}\\right]",
+  "preview": "[A,B]",
+  "name": "对易子",
+  "nameEn": "Commutator",
+  "words": [
+   "Commutator",
+   "commutator",
+   "对易子"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "anticommutator",
+  "command": "\\{",
+  "category": "physics",
+  "latex": "\\left\\{\\placeholder{},\\placeholder{}\\right\\}",
+  "preview": "\\{A,B\\}",
+  "name": "反对易子",
+  "nameEn": "Anticommutator",
+  "words": [
+   "Anticommutator",
+   "anticommutator",
+   "反对易子"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "timederivative",
+  "command": "\\dot",
+  "category": "physics",
+  "latex": "\\dot{\\placeholder{}}",
+  "preview": "\\dot{x}",
+  "name": "时间一阶导",
+  "nameEn": "Time derivative",
+  "words": [
+   "Time derivative",
+   "dot derivative",
+   "时间导数"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "timesecond",
+  "command": "\\ddot",
+  "category": "physics",
+  "latex": "\\ddot{\\placeholder{}}",
+  "preview": "\\ddot{x}",
+  "name": "时间二阶导",
+  "nameEn": "Second time derivative",
+  "words": [
+   "Second time derivative",
+   "double dot",
+   "二阶时间导数"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "outerproduct",
+  "command": "|\\psi\\rangle\\langle\\phi|",
+  "category": "physics",
+  "latex": "\\ketbra{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\ketbra{\\psi}{\\phi}",
+  "name": "外积",
+  "nameEn": "Outer product",
+  "words": [
+   "Outer product",
+   "outer product",
+   "ket bra",
+   "外积",
+   "狄拉克"
+  ],
+  "priority": 91
+ },
+ {
+  "exact": true,
+  "id": "matrixelement",
+  "command": "\\langle\\phi|\\hat A|\\psi\\rangle",
+  "category": "physics",
+  "latex": "\\mel{\\placeholder{}}{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\mel{\\phi}{\\hat A}{\\psi}",
+  "name": "矩阵元",
+  "nameEn": "Matrix element",
+  "words": [
+   "Matrix element",
+   "matrix element",
+   "矩阵元",
+   "量子力学"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "expectation-operator",
+  "command": "\\langle\\psi|\\hat A|\\psi\\rangle",
+  "category": "physics",
+  "latex": "\\mel{\\placeholder{}}{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\mel{\\psi}{\\hat A}{\\psi}",
+  "name": "算符期望值",
+  "nameEn": "Operator expectation",
+  "words": [
+   "Operator expectation",
+   "operator expectation",
+   "期望值",
+   "算符"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "time-ordering",
+  "command": "\\mathcal{T}",
+  "category": "physics",
+  "latex": "\\mathcal{T}\\left\\{\\placeholder{}\\right\\}",
+  "preview": "\\mathcal{T}\\{A(t)B(t')\\}",
+  "name": "时间序算符",
+  "nameEn": "Time ordering",
+  "words": [
+   "Time ordering",
+   "time ordering",
+   "时间序",
+   "量子场论"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "transpose",
+  "command": "^{\\mathsf{T}}",
+  "category": "matrix",
+  "latex": "^{\\mathsf{T}}",
+  "preview": "^{\\mathsf{T}}",
+  "name": "转置",
+  "nameEn": "Transpose",
+  "words": [
+   "Transpose",
+   "transpose",
+   "转置"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "inverse",
+  "command": "^{-1}",
+  "category": "matrix",
+  "latex": "^{-1}",
+  "preview": "^{-1}",
+  "name": "逆矩阵",
+  "nameEn": "Inverse",
+  "words": [
+   "Inverse",
+   "inverse",
+   "逆矩阵"
+  ],
+  "priority": 85
+ },
+ {
+  "exact": true,
+  "id": "dotproduct",
+  "command": "\\cdot",
+  "category": "matrix",
+  "latex": "\\cdot",
+  "preview": "\\cdot",
+  "name": "点积",
+  "nameEn": "Dot product",
+  "words": [
+   "Dot product",
+   "dot product",
+   "点积",
+   "内积"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "crossproduct",
+  "command": "\\times",
+  "category": "matrix",
+  "latex": "\\times",
+  "preview": "\\times",
+  "name": "叉积",
+  "nameEn": "Cross product",
+  "words": [
+   "Cross product",
+   "cross product",
+   "叉积",
+   "外积"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "epsilon",
+  "command": "\\epsilon",
+  "category": "greek",
+  "latex": "\\epsilon",
+  "preview": "\\epsilon",
+  "name": "艾普西隆",
+  "nameEn": "Epsilon",
+  "words": [
+   "Epsilon"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "varepsilon",
+  "command": "\\varepsilon",
+  "category": "greek",
+  "latex": "\\varepsilon",
+  "preview": "\\varepsilon",
+  "name": "变体艾普西隆",
+  "nameEn": "Variant epsilon",
+  "words": [
+   "Variant epsilon"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "zeta",
+  "command": "\\zeta",
+  "category": "greek",
+  "latex": "\\zeta",
+  "preview": "\\zeta",
+  "name": "泽塔",
+  "nameEn": "Zeta",
+  "words": [
+   "Zeta"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "eta",
+  "command": "\\eta",
+  "category": "greek",
+  "latex": "\\eta",
+  "preview": "\\eta",
+  "name": "伊塔",
+  "nameEn": "Eta",
+  "words": [
+   "Eta"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "vartheta",
+  "command": "\\vartheta",
+  "category": "greek",
+  "latex": "\\vartheta",
+  "preview": "\\vartheta",
+  "name": "变体西塔",
+  "nameEn": "Variant theta",
+  "words": [
+   "Variant theta"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "iota",
+  "command": "\\iota",
+  "category": "greek",
+  "latex": "\\iota",
+  "preview": "\\iota",
+  "name": "约塔",
+  "nameEn": "Iota",
+  "words": [
+   "Iota"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "kappa",
+  "command": "\\kappa",
+  "category": "greek",
+  "latex": "\\kappa",
+  "preview": "\\kappa",
+  "name": "卡帕",
+  "nameEn": "Kappa",
+  "words": [
+   "Kappa"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "nu",
+  "command": "\\nu",
+  "category": "greek",
+  "latex": "\\nu",
+  "preview": "\\nu",
+  "name": "纽",
+  "nameEn": "Nu",
+  "words": [
+   "Nu"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "xi",
+  "command": "\\xi",
+  "category": "greek",
+  "latex": "\\xi",
+  "preview": "\\xi",
+  "name": "克西",
+  "nameEn": "Xi",
+  "words": [
+   "Xi"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "rho",
+  "command": "\\rho",
+  "category": "greek",
+  "latex": "\\rho",
+  "preview": "\\rho",
+  "name": "柔",
+  "nameEn": "Rho",
+  "words": [
+   "Rho"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "varrho",
+  "command": "\\varrho",
+  "category": "greek",
+  "latex": "\\varrho",
+  "preview": "\\varrho",
+  "name": "变体柔",
+  "nameEn": "Variant rho",
+  "words": [
+   "Variant rho"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "tau",
+  "command": "\\tau",
+  "category": "greek",
+  "latex": "\\tau",
+  "preview": "\\tau",
+  "name": "陶",
+  "nameEn": "Tau",
+  "words": [
+   "Tau"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "upsilon",
+  "command": "\\upsilon",
+  "category": "greek",
+  "latex": "\\upsilon",
+  "preview": "\\upsilon",
+  "name": "宇普西隆",
+  "nameEn": "Upsilon",
+  "words": [
+   "Upsilon"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "phi",
+  "command": "\\phi",
+  "category": "greek",
+  "latex": "\\phi",
+  "preview": "\\phi",
+  "name": "斐",
+  "nameEn": "Phi",
+  "words": [
+   "Phi"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "varphi",
+  "command": "\\varphi",
+  "category": "greek",
+  "latex": "\\varphi",
+  "preview": "\\varphi",
+  "name": "变体斐",
+  "nameEn": "Variant phi",
+  "words": [
+   "Variant phi"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "chi",
+  "command": "\\chi",
+  "category": "greek",
+  "latex": "\\chi",
+  "preview": "\\chi",
+  "name": "希",
+  "nameEn": "Chi",
+  "words": [
+   "Chi"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "psi",
+  "command": "\\psi",
+  "category": "greek",
+  "latex": "\\psi",
+  "preview": "\\psi",
+  "name": "普赛",
+  "nameEn": "Psi",
+  "words": [
+   "Psi"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "Gamma",
+  "command": "\\Gamma",
+  "category": "greek",
+  "latex": "\\Gamma",
+  "preview": "\\Gamma",
+  "name": "大写伽马",
+  "nameEn": "Gamma",
+  "words": [
+   "Gamma"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "Delta",
+  "command": "\\Delta",
+  "category": "greek",
+  "latex": "\\Delta",
+  "preview": "\\Delta",
+  "name": "大写德尔塔",
+  "nameEn": "Delta",
+  "words": [
+   "Delta"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "Theta",
+  "command": "\\Theta",
+  "category": "greek",
+  "latex": "\\Theta",
+  "preview": "\\Theta",
+  "name": "大写西塔",
+  "nameEn": "Theta",
+  "words": [
+   "Theta"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "Lambda",
+  "command": "\\Lambda",
+  "category": "greek",
+  "latex": "\\Lambda",
+  "preview": "\\Lambda",
+  "name": "大写拉姆达",
+  "nameEn": "Lambda",
+  "words": [
+   "Lambda"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "Xi",
+  "command": "\\Xi",
+  "category": "greek",
+  "latex": "\\Xi",
+  "preview": "\\Xi",
+  "name": "大写克西",
+  "nameEn": "Xi",
+  "words": [
+   "Xi"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "Pi",
+  "command": "\\Pi",
+  "category": "greek",
+  "latex": "\\Pi",
+  "preview": "\\Pi",
+  "name": "大写派",
+  "nameEn": "Pi",
+  "words": [
+   "Pi"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "Sigma",
+  "command": "\\Sigma",
+  "category": "greek",
+  "latex": "\\Sigma",
+  "preview": "\\Sigma",
+  "name": "大写西格玛",
+  "nameEn": "Sigma",
+  "words": [
+   "Sigma"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "Phi",
+  "command": "\\Phi",
+  "category": "greek",
+  "latex": "\\Phi",
+  "preview": "\\Phi",
+  "name": "大写斐",
+  "nameEn": "Phi",
+  "words": [
+   "Phi"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "Psi",
+  "command": "\\Psi",
+  "category": "greek",
+  "latex": "\\Psi",
+  "preview": "\\Psi",
+  "name": "大写普赛",
+  "nameEn": "Psi",
+  "words": [
+   "Psi"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "Omega",
+  "command": "\\Omega",
+  "category": "greek",
+  "latex": "\\Omega",
+  "preview": "\\Omega",
+  "name": "大写欧米伽",
+  "nameEn": "Omega",
+  "words": [
+   "Omega"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "varpi",
+  "command": "\\varpi",
+  "category": "greek",
+  "latex": "\\varpi",
+  "preview": "\\varpi",
+  "name": "变体派",
+  "nameEn": "Variant pi",
+  "words": [
+   "Variant pi"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "varsigma",
+  "command": "\\varsigma",
+  "category": "greek",
+  "latex": "\\varsigma",
+  "preview": "\\varsigma",
+  "name": "末尾西格玛",
+  "nameEn": "Final sigma",
+  "words": [
+   "Final sigma"
+  ],
+  "priority": 71
+ },
+ {
+  "exact": true,
+  "id": "digamma",
+  "command": "\\digamma",
+  "category": "greek",
+  "latex": "\\digamma",
+  "preview": "\\digamma",
+  "name": "双伽马",
+  "nameEn": "Digamma",
+  "words": [
+   "Digamma"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "lt",
+  "command": "<",
+  "category": "relation",
+  "latex": "<",
+  "preview": "<",
+  "name": "小于",
+  "nameEn": "Less than",
+  "words": [
+   "Less than"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "gt",
+  "command": ">",
+  "category": "relation",
+  "latex": ">",
+  "preview": ">",
+  "name": "大于",
+  "nameEn": "Greater than",
+  "words": [
+   "Greater than"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "equiv",
+  "command": "\\equiv",
+  "category": "relation",
+  "latex": "\\equiv",
+  "preview": "\\equiv",
+  "name": "恒等于",
+  "nameEn": "Equivalent",
+  "words": [
+   "Equivalent"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "sim",
+  "command": "\\sim",
+  "category": "relation",
+  "latex": "\\sim",
+  "preview": "\\sim",
+  "name": "相似（∼）",
+  "nameEn": "Similar (∼)",
+  "words": [
+   "Similar (∼)"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "backsim",
+  "command": "\\backsim",
+  "category": "relation",
+  "latex": "\\backsim",
+  "preview": "\\backsim",
+  "name": "相似（∽）",
+  "nameEn": "Similar (∽)",
+  "words": [
+   "Similar (∽)",
+   "similar",
+   "reversed tilde",
+   "相似",
+   "相似于",
+   "三角形相似",
+   "∽"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "simeq",
+  "command": "\\simeq",
+  "category": "relation",
+  "latex": "\\simeq",
+  "preview": "\\simeq",
+  "name": "渐近相等",
+  "nameEn": "Asymptotically equal",
+  "words": [
+   "Asymptotically equal"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "cong",
+  "command": "\\cong",
+  "category": "relation",
+  "latex": "\\cong",
+  "preview": "\\cong",
+  "name": "全等（≅）",
+  "nameEn": "Congruent (≅)",
+  "words": [
+   "Congruent (≅)"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "backcong",
+  "command": "\\backcong",
+  "category": "relation",
+  "latex": "\\backcong",
+  "preview": "\\backcong",
+  "name": "全等（≌）",
+  "nameEn": "Congruent (≌)",
+  "words": [
+   "Congruent (≌)",
+   "congruent",
+   "all equal to",
+   "全等",
+   "全等于",
+   "三角形全等",
+   "≌"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "ll",
+  "command": "\\ll",
+  "category": "relation",
+  "latex": "\\ll",
+  "preview": "\\ll",
+  "name": "远小于",
+  "nameEn": "Much less",
+  "words": [
+   "Much less"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "gg",
+  "command": "\\gg",
+  "category": "relation",
+  "latex": "\\gg",
+  "preview": "\\gg",
+  "name": "远大于",
+  "nameEn": "Much greater",
+  "words": [
+   "Much greater"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "parallel",
+  "command": "\\parallel",
+  "category": "relation",
+  "latex": "\\parallel",
+  "preview": "\\parallel",
+  "name": "平行",
+  "nameEn": "Parallel",
+  "words": [
+   "Parallel"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "perp",
+  "command": "\\perp",
+  "category": "relation",
+  "latex": "\\perp",
+  "preview": "\\perp",
+  "name": "垂直",
+  "nameEn": "Perpendicular",
+  "words": [
+   "Perpendicular"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "mid",
+  "command": "\\mid",
+  "category": "relation",
+  "latex": "\\mid",
+  "preview": "\\mid",
+  "name": "整除",
+  "nameEn": "Divides",
+  "words": [
+   "Divides"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "nmid",
+  "command": "\\nmid",
+  "category": "relation",
+  "latex": "\\nmid",
+  "preview": "\\nmid",
+  "name": "不整除",
+  "nameEn": "Does not divide",
+  "words": [
+   "Does not divide"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "prec",
+  "command": "\\prec",
+  "category": "relation",
+  "latex": "\\prec",
+  "preview": "\\prec",
+  "name": "先于",
+  "nameEn": "Precedes",
+  "words": [
+   "Precedes"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "succ",
+  "command": "\\succ",
+  "category": "relation",
+  "latex": "\\succ",
+  "preview": "\\succ",
+  "name": "后于",
+  "nameEn": "Succeeds",
+  "words": [
+   "Succeeds"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "leqq",
+  "command": "\\leqq",
+  "category": "relation",
+  "latex": "\\leqq",
+  "preview": "\\leqq",
+  "name": "双线小于等于",
+  "nameEn": "Less than or equal (double)",
+  "words": [
+   "Less than or equal (double)"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "geqq",
+  "command": "\\geqq",
+  "category": "relation",
+  "latex": "\\geqq",
+  "preview": "\\geqq",
+  "name": "双线大于等于",
+  "nameEn": "Greater than or equal (double)",
+  "words": [
+   "Greater than or equal (double)"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "lneq",
+  "command": "\\lneq",
+  "category": "relation",
+  "latex": "\\lneq",
+  "preview": "\\lneq",
+  "name": "小于但不等于",
+  "nameEn": "Less than but not equal",
+  "words": [
+   "Less than but not equal"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "gneq",
+  "command": "\\gneq",
+  "category": "relation",
+  "latex": "\\gneq",
+  "preview": "\\gneq",
+  "name": "大于但不等于",
+  "nameEn": "Greater than but not equal",
+  "words": [
+   "Greater than but not equal"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "lesssim",
+  "command": "\\lesssim",
+  "category": "relation",
+  "latex": "\\lesssim",
+  "preview": "\\lesssim",
+  "name": "小于或近似",
+  "nameEn": "Less than or similar",
+  "words": [
+   "Less than or similar"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "gtrsim",
+  "command": "\\gtrsim",
+  "category": "relation",
+  "latex": "\\gtrsim",
+  "preview": "\\gtrsim",
+  "name": "大于或近似",
+  "nameEn": "Greater than or similar",
+  "words": [
+   "Greater than or similar"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "lessapprox",
+  "command": "\\lessapprox",
+  "category": "relation",
+  "latex": "\\lessapprox",
+  "preview": "\\lessapprox",
+  "name": "小于或约等于",
+  "nameEn": "Less than or approximately equal",
+  "words": [
+   "Less than or approximately equal"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "gtrapprox",
+  "command": "\\gtrapprox",
+  "category": "relation",
+  "latex": "\\gtrapprox",
+  "preview": "\\gtrapprox",
+  "name": "大于或约等于",
+  "nameEn": "Greater than or approximately equal",
+  "words": [
+   "Greater than or approximately equal"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "preceq",
+  "command": "\\preceq",
+  "category": "relation",
+  "latex": "\\preceq",
+  "preview": "\\preceq",
+  "name": "先于或等于",
+  "nameEn": "Precedes or equals",
+  "words": [
+   "Precedes or equals"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "succeq",
+  "command": "\\succeq",
+  "category": "relation",
+  "latex": "\\succeq",
+  "preview": "\\succeq",
+  "name": "后于或等于",
+  "nameEn": "Succeeds or equals",
+  "words": [
+   "Succeeds or equals"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "asymp",
+  "command": "\\asymp",
+  "category": "relation",
+  "latex": "\\asymp",
+  "preview": "\\asymp",
+  "name": "渐近等价",
+  "nameEn": "Asymptotically equivalent",
+  "words": [
+   "Asymptotically equivalent"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "doteq",
+  "command": "\\doteq",
+  "category": "relation",
+  "latex": "\\doteq",
+  "preview": "\\doteq",
+  "name": "点等号",
+  "nameEn": "Dotted equals",
+  "words": [
+   "Dotted equals"
+  ],
+  "priority": 71
+ },
+ {
+  "exact": true,
+  "id": "triangleq",
+  "command": "\\triangleq",
+  "category": "relation",
+  "latex": "\\triangleq",
+  "preview": "\\triangleq",
+  "name": "定义等号",
+  "nameEn": "Defined as",
+  "words": [
+   "Defined as"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "models",
+  "command": "\\models",
+  "category": "relation",
+  "latex": "\\models",
+  "preview": "\\models",
+  "name": "满足",
+  "nameEn": "Models",
+  "words": [
+   "Models"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "vdash",
+  "command": "\\vdash",
+  "category": "relation",
+  "latex": "\\vdash",
+  "preview": "\\vdash",
+  "name": "可推出",
+  "nameEn": "Proves",
+  "words": [
+   "Proves"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "dashv",
+  "command": "\\dashv",
+  "category": "relation",
+  "latex": "\\dashv",
+  "preview": "\\dashv",
+  "name": "反向推出",
+  "nameEn": "Reverse turnstile",
+  "words": [
+   "Reverse turnstile"
+  ],
+  "priority": 67
+ },
+ {
+  "exact": true,
+  "id": "bowtie",
+  "command": "\\bowtie",
+  "category": "relation",
+  "latex": "\\bowtie",
+  "preview": "\\bowtie",
+  "name": "蝴蝶结关系",
+  "nameEn": "Bowtie relation",
+  "words": [
+   "Bowtie relation"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "smile",
+  "command": "\\smile",
+  "category": "relation",
+  "latex": "\\smile",
+  "preview": "\\smile",
+  "name": "微笑关系",
+  "nameEn": "Smile relation",
+  "words": [
+   "Smile relation"
+  ],
+  "priority": 64
+ },
+ {
+  "exact": true,
+  "id": "frown",
+  "command": "\\frown",
+  "category": "relation",
+  "latex": "\\frown",
+  "preview": "\\frown",
+  "name": "皱眉关系",
+  "nameEn": "Frown relation",
+  "words": [
+   "Frown relation"
+  ],
+  "priority": 64
+ },
+ {
+  "exact": true,
+  "id": "subseteq",
+  "command": "\\subseteq",
+  "category": "set",
+  "latex": "\\subseteq",
+  "preview": "\\subseteq",
+  "name": "子集或相等",
+  "nameEn": "Subset or equal",
+  "words": [
+   "Subset or equal"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "supset",
+  "command": "\\supset",
+  "category": "set",
+  "latex": "\\supset",
+  "preview": "\\supset",
+  "name": "真超集",
+  "nameEn": "Superset",
+  "words": [
+   "Superset"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "supseteq",
+  "command": "\\supseteq",
+  "category": "set",
+  "latex": "\\supseteq",
+  "preview": "\\supseteq",
+  "name": "超集或相等",
+  "nameEn": "Superset or equal",
+  "words": [
+   "Superset or equal"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "emptyset",
+  "command": "\\emptyset",
+  "category": "set",
+  "latex": "\\emptyset",
+  "preview": "\\emptyset",
+  "name": "空集",
+  "nameEn": "Empty set",
+  "words": [
+   "Empty set"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "setminus",
+  "command": "\\setminus",
+  "category": "set",
+  "latex": "\\setminus",
+  "preview": "\\setminus",
+  "name": "差集",
+  "nameEn": "Set difference",
+  "words": [
+   "Set difference"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "land",
+  "command": "\\land",
+  "category": "set",
+  "latex": "\\land",
+  "preview": "\\land",
+  "name": "逻辑与",
+  "nameEn": "Logical and",
+  "words": [
+   "Logical and"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "lor",
+  "command": "\\lor",
+  "category": "set",
+  "latex": "\\lor",
+  "preview": "\\lor",
+  "name": "逻辑或",
+  "nameEn": "Logical or",
+  "words": [
+   "Logical or"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "neg",
+  "command": "\\neg",
+  "category": "set",
+  "latex": "\\neg",
+  "preview": "\\neg",
+  "name": "逻辑非",
+  "nameEn": "Logical not",
+  "words": [
+   "Logical not"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "Nset",
+  "command": "\\mathbb{N}",
+  "category": "set",
+  "latex": "\\mathbb{N}",
+  "preview": "\\mathbb{N}",
+  "name": "自然数集",
+  "nameEn": "Natural numbers",
+  "words": [
+   "Natural numbers"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "Zset",
+  "command": "\\mathbb{Z}",
+  "category": "set",
+  "latex": "\\mathbb{Z}",
+  "preview": "\\mathbb{Z}",
+  "name": "整数集",
+  "nameEn": "Integers",
+  "words": [
+   "Integers"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "Qset",
+  "command": "\\mathbb{Q}",
+  "category": "set",
+  "latex": "\\mathbb{Q}",
+  "preview": "\\mathbb{Q}",
+  "name": "有理数集",
+  "nameEn": "Rationals",
+  "words": [
+   "Rationals"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "Rset",
+  "command": "\\mathbb{R}",
+  "category": "set",
+  "latex": "\\mathbb{R}",
+  "preview": "\\mathbb{R}",
+  "name": "实数集",
+  "nameEn": "Real numbers",
+  "words": [
+   "Real numbers"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "Cset",
+  "command": "\\mathbb{C}",
+  "category": "set",
+  "latex": "\\mathbb{C}",
+  "preview": "\\mathbb{C}",
+  "name": "复数集",
+  "nameEn": "Complex numbers",
+  "words": [
+   "Complex numbers"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "uparrow",
+  "command": "\\uparrow",
+  "category": "arrow",
+  "latex": "\\uparrow",
+  "preview": "\\uparrow",
+  "name": "上箭头",
+  "nameEn": "Up arrow",
+  "words": [
+   "Up arrow"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "downarrow",
+  "command": "\\downarrow",
+  "category": "arrow",
+  "latex": "\\downarrow",
+  "preview": "\\downarrow",
+  "name": "下箭头",
+  "nameEn": "Down arrow",
+  "words": [
+   "Down arrow"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "updownarrow",
+  "command": "\\updownarrow",
+  "category": "arrow",
+  "latex": "\\updownarrow",
+  "preview": "\\updownarrow",
+  "name": "上下箭头",
+  "nameEn": "Up-down arrow",
+  "words": [
+   "Up-down arrow"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "Leftarrow",
+  "command": "\\Leftarrow",
+  "category": "arrow",
+  "latex": "\\Leftarrow",
+  "preview": "\\Leftarrow",
+  "name": "左双线箭头",
+  "nameEn": "Left double arrow",
+  "words": [
+   "Left double arrow"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "Leftrightarrow",
+  "command": "\\Leftrightarrow",
+  "category": "arrow",
+  "latex": "\\Leftrightarrow",
+  "preview": "\\Leftrightarrow",
+  "name": "等价箭头",
+  "nameEn": "If and only if",
+  "words": [
+   "If and only if"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "mapsto",
+  "command": "\\mapsto",
+  "category": "arrow",
+  "latex": "\\mapsto",
+  "preview": "\\mapsto",
+  "name": "映射到",
+  "nameEn": "Maps to",
+  "words": [
+   "Maps to"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "longrightarrow",
+  "command": "\\longrightarrow",
+  "category": "arrow",
+  "latex": "\\longrightarrow",
+  "preview": "\\longrightarrow",
+  "name": "长右箭头",
+  "nameEn": "Long right arrow",
+  "words": [
+   "Long right arrow"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "longleftarrow",
+  "command": "\\longleftarrow",
+  "category": "arrow",
+  "latex": "\\longleftarrow",
+  "preview": "\\longleftarrow",
+  "name": "长左箭头",
+  "nameEn": "Long left arrow",
+  "words": [
+   "Long left arrow"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "hookrightarrow",
+  "command": "\\hookrightarrow",
+  "category": "arrow",
+  "latex": "\\hookrightarrow",
+  "preview": "\\hookrightarrow",
+  "name": "右钩箭头",
+  "nameEn": "Right hook arrow",
+  "words": [
+   "Right hook arrow"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "rightharpoonup",
+  "command": "\\rightharpoonup",
+  "category": "arrow",
+  "latex": "\\rightharpoonup",
+  "preview": "\\rightharpoonup",
+  "name": "右鱼叉箭头",
+  "nameEn": "Right harpoon",
+  "words": [
+   "Right harpoon"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "leftharpoonup",
+  "command": "\\leftharpoonup",
+  "category": "arrow",
+  "latex": "\\leftharpoonup",
+  "preview": "\\leftharpoonup",
+  "name": "左鱼叉箭头",
+  "nameEn": "Left harpoon",
+  "words": [
+   "Left harpoon"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "rightleftarrows",
+  "command": "\\rightleftarrows",
+  "category": "arrow",
+  "latex": "\\rightleftarrows",
+  "preview": "\\rightleftarrows",
+  "name": "可逆反应箭头",
+  "nameEn": "Equilibrium arrows",
+  "words": [
+   "Equilibrium arrows"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "longleftrightarrow",
+  "command": "\\longleftrightarrow",
+  "category": "arrow",
+  "latex": "\\longleftrightarrow",
+  "preview": "\\longleftrightarrow",
+  "name": "长双向箭头",
+  "nameEn": "Long left-right arrow",
+  "words": [
+   "Long left-right arrow"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "Longrightarrow",
+  "command": "\\Longrightarrow",
+  "category": "arrow",
+  "latex": "\\Longrightarrow",
+  "preview": "\\Longrightarrow",
+  "name": "长右双线箭头",
+  "nameEn": "Long right double arrow",
+  "words": [
+   "Long right double arrow"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "Longleftarrow",
+  "command": "\\Longleftarrow",
+  "category": "arrow",
+  "latex": "\\Longleftarrow",
+  "preview": "\\Longleftarrow",
+  "name": "长左双线箭头",
+  "nameEn": "Long left double arrow",
+  "words": [
+   "Long left double arrow"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "Longleftrightarrow",
+  "command": "\\Longleftrightarrow",
+  "category": "arrow",
+  "latex": "\\Longleftrightarrow",
+  "preview": "\\Longleftrightarrow",
+  "name": "长等价箭头",
+  "nameEn": "Long equivalence arrow",
+  "words": [
+   "Long equivalence arrow"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "longmapsto",
+  "command": "\\longmapsto",
+  "category": "arrow",
+  "latex": "\\longmapsto",
+  "preview": "\\longmapsto",
+  "name": "长映射箭头",
+  "nameEn": "Long maps-to arrow",
+  "words": [
+   "Long maps-to arrow"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "hookleftarrow",
+  "command": "\\hookleftarrow",
+  "category": "arrow",
+  "latex": "\\hookleftarrow",
+  "preview": "\\hookleftarrow",
+  "name": "左钩箭头",
+  "nameEn": "Left hook arrow",
+  "words": [
+   "Left hook arrow"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "rightharpoondown",
+  "command": "\\rightharpoondown",
+  "category": "arrow",
+  "latex": "\\rightharpoondown",
+  "preview": "\\rightharpoondown",
+  "name": "右下鱼叉箭头",
+  "nameEn": "Right harpoon down",
+  "words": [
+   "Right harpoon down"
+  ],
+  "priority": 69
+ },
+ {
+  "exact": true,
+  "id": "leftharpoondown",
+  "command": "\\leftharpoondown",
+  "category": "arrow",
+  "latex": "\\leftharpoondown",
+  "preview": "\\leftharpoondown",
+  "name": "左下鱼叉箭头",
+  "nameEn": "Left harpoon down",
+  "words": [
+   "Left harpoon down"
+  ],
+  "priority": 69
+ },
+ {
+  "exact": true,
+  "id": "rightleftharpoons",
+  "command": "\\rightleftharpoons",
+  "category": "arrow",
+  "latex": "\\rightleftharpoons",
+  "preview": "\\rightleftharpoons",
+  "name": "右左鱼叉对",
+  "nameEn": "Right-left harpoons",
+  "words": [
+   "Right-left harpoons"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "leftrightharpoons",
+  "command": "\\leftrightharpoons",
+  "category": "arrow",
+  "latex": "\\leftrightharpoons",
+  "preview": "\\leftrightharpoons",
+  "name": "左右鱼叉对",
+  "nameEn": "Left-right harpoons",
+  "words": [
+   "Left-right harpoons"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "nearrow",
+  "command": "\\nearrow",
+  "category": "arrow",
+  "latex": "\\nearrow",
+  "preview": "\\nearrow",
+  "name": "右上箭头",
+  "nameEn": "North-east arrow",
+  "words": [
+   "North-east arrow"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "nwarrow",
+  "command": "\\nwarrow",
+  "category": "arrow",
+  "latex": "\\nwarrow",
+  "preview": "\\nwarrow",
+  "name": "左上箭头",
+  "nameEn": "North-west arrow",
+  "words": [
+   "North-west arrow"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "searrow",
+  "command": "\\searrow",
+  "category": "arrow",
+  "latex": "\\searrow",
+  "preview": "\\searrow",
+  "name": "右下箭头",
+  "nameEn": "South-east arrow",
+  "words": [
+   "South-east arrow"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "swarrow",
+  "command": "\\swarrow",
+  "category": "arrow",
+  "latex": "\\swarrow",
+  "preview": "\\swarrow",
+  "name": "左下箭头",
+  "nameEn": "South-west arrow",
+  "words": [
+   "South-west arrow"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "circlearrowright",
+  "command": "\\circlearrowright",
+  "category": "arrow",
+  "latex": "\\circlearrowright",
+  "preview": "\\circlearrowright",
+  "name": "顺时针循环箭头",
+  "nameEn": "Clockwise circular arrow",
+  "words": [
+   "Clockwise circular arrow"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "circlearrowleft",
+  "command": "\\circlearrowleft",
+  "category": "arrow",
+  "latex": "\\circlearrowleft",
+  "preview": "\\circlearrowleft",
+  "name": "逆时针循环箭头",
+  "nameEn": "Counterclockwise circular arrow",
+  "words": [
+   "Counterclockwise circular arrow"
+  ],
+  "priority": 66
+ },
+ {
+  "exact": true,
+  "id": "rightsquigarrow",
+  "command": "\\rightsquigarrow",
+  "category": "arrow",
+  "latex": "\\rightsquigarrow",
+  "preview": "\\rightsquigarrow",
+  "name": "波浪右箭头",
+  "nameEn": "Squiggly right arrow",
+  "words": [
+   "Squiggly right arrow"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "twoheadrightarrow",
+  "command": "\\twoheadrightarrow",
+  "category": "arrow",
+  "latex": "\\twoheadrightarrow",
+  "preview": "\\twoheadrightarrow",
+  "name": "双头右箭头",
+  "nameEn": "Two-headed right arrow",
+  "words": [
+   "Two-headed right arrow"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "twoheadleftarrow",
+  "command": "\\twoheadleftarrow",
+  "category": "arrow",
+  "latex": "\\twoheadleftarrow",
+  "preview": "\\twoheadleftarrow",
+  "name": "双头左箭头",
+  "nameEn": "Two-headed left arrow",
+  "words": [
+   "Two-headed left arrow"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": true,
+  "id": "planck",
+  "command": "h",
+  "category": "physics",
+  "latex": "h",
+  "preview": "h",
+  "name": "普朗克常数",
+  "nameEn": "Planck constant",
+  "words": [
+   "Planck constant"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "kb",
+  "command": "k_{\\mathrm{B}}",
+  "category": "physics",
+  "latex": "k_{\\mathrm{B}}",
+  "preview": "k_{\\mathrm{B}}",
+  "name": "玻尔兹曼常数",
+  "nameEn": "Boltzmann constant",
+  "words": [
+   "Boltzmann constant"
+  ],
+  "priority": 91
+ },
+ {
+  "exact": true,
+  "id": "epsilon0",
+  "command": "\\varepsilon_{0}",
+  "category": "physics",
+  "latex": "\\varepsilon_{0}",
+  "preview": "\\varepsilon_{0}",
+  "name": "真空介电常数",
+  "nameEn": "Vacuum permittivity",
+  "words": [
+   "Vacuum permittivity"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "mu0",
+  "command": "\\mu_{0}",
+  "category": "physics",
+  "latex": "\\mu_{0}",
+  "preview": "\\mu_{0}",
+  "name": "真空磁导率",
+  "nameEn": "Vacuum permeability",
+  "words": [
+   "Vacuum permeability"
+  ],
+  "priority": 89
+ },
+ {
+  "exact": true,
+  "id": "lightspeed",
+  "command": "c",
+  "category": "physics",
+  "latex": "c",
+  "preview": "c",
+  "name": "光速",
+  "nameEn": "Speed of light",
+  "words": [
+   "Speed of light"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "electroncharge",
+  "command": "e",
+  "category": "physics",
+  "latex": "e",
+  "preview": "e",
+  "name": "元电荷",
+  "nameEn": "Elementary charge",
+  "words": [
+   "Elementary charge"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "laplacian",
+  "command": "\\nabla^{2}",
+  "category": "physics",
+  "latex": "\\nabla^{2}",
+  "preview": "\\nabla^{2}",
+  "name": "拉普拉斯算子",
+  "nameEn": "Laplacian",
+  "words": [
+   "Laplacian"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "divergence",
+  "command": "\\nabla\\cdot",
+  "category": "physics",
+  "latex": "\\nabla\\cdot",
+  "preview": "\\nabla\\cdot",
+  "name": "散度",
+  "nameEn": "Divergence",
+  "words": [
+   "Divergence"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "curl",
+  "command": "\\nabla\\times",
+  "category": "physics",
+  "latex": "\\nabla\\times",
+  "preview": "\\nabla\\times",
+  "name": "旋度",
+  "nameEn": "Curl",
+  "words": [
+   "Curl"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "dagger",
+  "command": "\\dagger",
+  "category": "physics",
+  "latex": "\\dagger",
+  "preview": "\\dagger",
+  "name": "厄米共轭符号",
+  "nameEn": "Dagger",
+  "words": [
+   "Dagger"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "ddagger",
+  "command": "\\ddagger",
+  "category": "physics",
+  "latex": "\\ddagger",
+  "preview": "\\ddagger",
+  "name": "双剑号",
+  "nameEn": "Double dagger",
+  "words": [
+   "Double dagger"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "tensorproduct",
+  "command": "\\otimes",
+  "category": "physics",
+  "latex": "\\otimes",
+  "preview": "\\otimes",
+  "name": "张量积",
+  "nameEn": "Tensor product",
+  "words": [
+   "Tensor product"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "directsum",
+  "command": "\\oplus",
+  "category": "physics",
+  "latex": "\\oplus",
+  "preview": "\\oplus",
+  "name": "直和",
+  "nameEn": "Direct sum",
+  "words": [
+   "Direct sum"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "hamiltonian-operator",
+  "command": "\\hat{H}",
+  "category": "physics",
+  "latex": "\\hat{H}",
+  "preview": "\\hat{H}",
+  "name": "哈密顿算符",
+  "nameEn": "Hamiltonian operator",
+  "words": [
+   "Hamiltonian operator"
+  ],
+  "priority": 92
+ },
+ {
+  "exact": true,
+  "id": "momentum-operator",
+  "command": "\\hat{\\mathbf{p}}",
+  "category": "physics",
+  "latex": "\\hat{\\mathbf{p}}",
+  "preview": "\\hat{\\mathbf{p}}",
+  "name": "动量算符",
+  "nameEn": "Momentum operator",
+  "words": [
+   "Momentum operator"
+  ],
+  "priority": 90
+ },
+ {
+  "exact": true,
+  "id": "angular-momentum-operator",
+  "command": "\\hat{\\mathbf{L}}",
+  "category": "physics",
+  "latex": "\\hat{\\mathbf{L}}",
+  "preview": "\\hat{\\mathbf{L}}",
+  "name": "角动量算符",
+  "nameEn": "Angular momentum operator",
+  "words": [
+   "Angular momentum operator"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "spin-operator",
+  "command": "\\hat{\\mathbf{S}}",
+  "category": "physics",
+  "latex": "\\hat{\\mathbf{S}}",
+  "preview": "\\hat{\\mathbf{S}}",
+  "name": "自旋算符",
+  "nameEn": "Spin operator",
+  "words": [
+   "Spin operator"
+  ],
+  "priority": 87
+ },
+ {
+  "exact": true,
+  "id": "electric-field",
+  "command": "\\mathbf{E}",
+  "category": "physics",
+  "latex": "\\mathbf{E}",
+  "preview": "\\mathbf{E}",
+  "name": "电场矢量",
+  "nameEn": "Electric field",
+  "words": [
+   "Electric field"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "magnetic-field",
+  "command": "\\mathbf{B}",
+  "category": "physics",
+  "latex": "\\mathbf{B}",
+  "preview": "\\mathbf{B}",
+  "name": "磁感应强度",
+  "nameEn": "Magnetic field",
+  "words": [
+   "Magnetic field"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "electric-displacement",
+  "command": "\\mathbf{D}",
+  "category": "physics",
+  "latex": "\\mathbf{D}",
+  "preview": "\\mathbf{D}",
+  "name": "电位移矢量",
+  "nameEn": "Electric displacement",
+  "words": [
+   "Electric displacement"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "magnetic-intensity",
+  "command": "\\mathbf{H}",
+  "category": "physics",
+  "latex": "\\mathbf{H}",
+  "preview": "\\mathbf{H}",
+  "name": "磁场强度",
+  "nameEn": "Magnetic field intensity",
+  "words": [
+   "Magnetic field intensity"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "current-density",
+  "command": "\\mathbf{J}",
+  "category": "physics",
+  "latex": "\\mathbf{J}",
+  "preview": "\\mathbf{J}",
+  "name": "电流密度",
+  "nameEn": "Current density",
+  "words": [
+   "Current density"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "kronecker-delta",
+  "command": "\\delta_{ij}",
+  "category": "physics",
+  "latex": "\\delta_{ij}",
+  "preview": "\\delta_{ij}",
+  "name": "克罗内克符号",
+  "nameEn": "Kronecker delta",
+  "words": [
+   "Kronecker delta"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "levi-civita",
+  "command": "\\varepsilon_{ijk}",
+  "category": "physics",
+  "latex": "\\varepsilon_{ijk}",
+  "preview": "\\varepsilon_{ijk}",
+  "name": "列维-奇维塔符号",
+  "nameEn": "Levi-Civita symbol",
+  "words": [
+   "Levi-Civita symbol"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "four-gradient",
+  "command": "\\partial_{\\mu}",
+  "category": "physics",
+  "latex": "\\partial_{\\mu}",
+  "preview": "\\partial_{\\mu}",
+  "name": "四维偏导",
+  "nameEn": "Four-gradient",
+  "words": [
+   "Four-gradient"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "metric-tensor",
+  "command": "g_{\\mu\\nu}",
+  "category": "physics",
+  "latex": "g_{\\mu\\nu}",
+  "preview": "g_{\\mu\\nu}",
+  "name": "度规张量",
+  "nameEn": "Metric tensor",
+  "words": [
+   "Metric tensor"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "dalembertian",
+  "command": "\\Box",
+  "category": "physics",
+  "latex": "\\Box",
+  "preview": "\\Box",
+  "name": "达朗贝尔算符",
+  "nameEn": "D'Alembert operator",
+  "words": [
+   "D'Alembert operator"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "imaginary-unit",
+  "command": "\\mathrm{i}",
+  "category": "physics",
+  "latex": "\\mathrm{i}",
+  "preview": "\\mathrm{i}",
+  "name": "虚数单位",
+  "nameEn": "Imaginary unit",
+  "words": [
+   "Imaginary unit"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "euler-number",
+  "command": "\\mathrm{e}",
+  "category": "physics",
+  "latex": "\\mathrm{e}",
+  "preview": "\\mathrm{e}",
+  "name": "自然常数",
+  "nameEn": "Euler's number",
+  "words": [
+   "Euler's number"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "reduced-compton",
+  "command": "\\ell",
+  "category": "physics",
+  "latex": "\\ell",
+  "preview": "\\ell",
+  "name": "手写小写椭圆符号",
+  "nameEn": "Script ell",
+  "words": [
+   "Script ell"
+  ],
+  "priority": 68
+ },
+ {
+  "exact": true,
+  "id": "pauli-vector",
+  "command": "\\boldsymbol{\\sigma}",
+  "category": "physics",
+  "latex": "\\boldsymbol{\\sigma}",
+  "preview": "\\boldsymbol{\\sigma}",
+  "name": "泡利矩阵矢量",
+  "nameEn": "Pauli vector",
+  "words": [
+   "Pauli vector"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "physics-quantity",
+  "command": "\\quantity",
+  "category": "physics",
+  "latex": "\\quantity{\\placeholder{}}",
+  "preview": "\\quantity{x}",
+  "name": "自适应花括号",
+  "nameEn": "Physics braces",
+  "words": [
+   "Physics braces",
+   "quantity",
+   "physics",
+   "物理",
+   "quantity"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "physics-pqty",
+  "command": "\\pqty",
+  "category": "physics",
+  "latex": "\\pqty{\\placeholder{}}",
+  "preview": "\\pqty{x}",
+  "name": "物理圆括号",
+  "nameEn": "Physics parentheses",
+  "words": [
+   "Physics parentheses",
+   "pqty",
+   "physics",
+   "物理",
+   "pqty"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "physics-bqty",
+  "command": "\\bqty",
+  "category": "physics",
+  "latex": "\\bqty{\\placeholder{}}",
+  "preview": "\\bqty{x}",
+  "name": "物理方括号",
+  "nameEn": "Physics brackets",
+  "words": [
+   "Physics brackets",
+   "bqty",
+   "physics",
+   "物理",
+   "bqty"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": true,
+  "id": "physics-vqty",
+  "command": "\\vqty",
+  "category": "physics",
+  "latex": "\\vqty{\\placeholder{}}",
+  "preview": "\\vqty{x}",
+  "name": "物理绝对值",
+  "nameEn": "Physics absolute value",
+  "words": [
+   "Physics absolute value",
+   "vqty",
+   "physics",
+   "物理",
+   "vqty"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": true,
+  "id": "physics-pmqty",
+  "command": "\\pmqty",
+  "category": "physics",
+  "latex": "\\pmqty{\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}}",
+  "preview": "\\pmqty{a&b\\\\c&d}",
+  "name": "圆括号矩阵",
+  "nameEn": "Physics parenthesized matrix",
+  "words": [
+   "Physics parenthesized matrix",
+   "pmqty",
+   "physics",
+   "物理",
+   "pmqty"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": true,
+  "id": "physics-bmqty",
+  "command": "\\bmqty",
+  "category": "physics",
+  "latex": "\\bmqty{\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}}",
+  "preview": "\\bmqty{a&b\\\\c&d}",
+  "name": "方括号矩阵",
+  "nameEn": "Physics bracketed matrix",
+  "words": [
+   "Physics bracketed matrix",
+   "bmqty",
+   "physics",
+   "物理",
+   "bmqty"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "physics-vmqty",
+  "command": "\\vmqty",
+  "category": "physics",
+  "latex": "\\vmqty{\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}}",
+  "preview": "\\vmqty{a&b\\\\c&d}",
+  "name": "行列式矩阵",
+  "nameEn": "Physics determinant matrix",
+  "words": [
+   "Physics determinant matrix",
+   "vmqty",
+   "physics",
+   "物理",
+   "vmqty"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "physics-spmqty",
+  "command": "\\spmqty",
+  "category": "physics",
+  "latex": "\\spmqty{\\placeholder{}&\\placeholder{}}",
+  "preview": "\\spmqty{a&b}",
+  "name": "小圆括号矩阵",
+  "nameEn": "Small physics matrix",
+  "words": [
+   "Small physics matrix",
+   "spmqty",
+   "physics",
+   "物理",
+   "spmqty"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": true,
+  "id": "physics-sbmqty",
+  "command": "\\sbmqty",
+  "category": "physics",
+  "latex": "\\sbmqty{\\placeholder{}&\\placeholder{}}",
+  "preview": "\\sbmqty{a&b}",
+  "name": "小方括号矩阵",
+  "nameEn": "Small bracketed matrix",
+  "words": [
+   "Small bracketed matrix",
+   "sbmqty",
+   "physics",
+   "物理",
+   "sbmqty"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": true,
+  "id": "physics-order",
+  "command": "\\order",
+  "category": "physics",
+  "latex": "\\order{\\placeholder{}}",
+  "preview": "\\order{x}",
+  "name": "大 O 记号",
+  "nameEn": "Order notation",
+  "words": [
+   "Order notation",
+   "order",
+   "physics",
+   "物理",
+   "order"
+  ],
+  "priority": 85
+ },
+ {
+  "exact": true,
+  "id": "physics-eval",
+  "command": "\\eval",
+  "category": "physics",
+  "latex": "\\eval{\\placeholder{}}_{\\placeholder{}}",
+  "preview": "\\eval{x}_0",
+  "name": "代入求值",
+  "nameEn": "Evaluate at",
+  "words": [
+   "Evaluate at",
+   "eval",
+   "physics",
+   "物理",
+   "eval"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": true,
+  "id": "physics-dotproduct",
+  "command": "\\dotproduct",
+  "category": "physics",
+  "latex": "\\dotproduct",
+  "preview": "a\\dotproduct b",
+  "name": "向量点积",
+  "nameEn": "Vector dot product",
+  "words": [
+   "Vector dot product",
+   "dotproduct",
+   "physics",
+   "物理",
+   "dotproduct"
+  ],
+  "priority": 88
+ },
+ {
+  "exact": true,
+  "id": "physics-crossproduct",
+  "command": "\\crossproduct",
+  "category": "physics",
+  "latex": "\\crossproduct",
+  "preview": "a\\crossproduct b",
+  "name": "向量叉积",
+  "nameEn": "Vector cross product",
+  "words": [
+   "Vector cross product",
+   "crossproduct",
+   "physics",
+   "物理",
+   "crossproduct"
+  ],
+  "priority": 87
+ },
+ {
+  "exact": true,
+  "id": "physics-vnabla",
+  "command": "\\vnabla",
+  "category": "physics",
+  "latex": "\\vnabla",
+  "preview": "\\vnabla f",
+  "name": "粗体 Nabla",
+  "nameEn": "Bold nabla",
+  "words": [
+   "Bold nabla",
+   "vnabla",
+   "physics",
+   "物理",
+   "vnabla"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "physics-principalvalue",
+  "command": "\\principalvalue",
+  "category": "physics",
+  "latex": "\\principalvalue",
+  "preview": "\\principalvalue\\int",
+  "name": "柯西主值",
+  "nameEn": "Principal value",
+  "words": [
+   "Principal value",
+   "principalvalue",
+   "physics",
+   "物理",
+   "principalvalue"
+  ],
+  "priority": 77
+ },
+ {
+  "exact": true,
+  "id": "physics-Trace",
+  "command": "\\Trace",
+  "category": "physics",
+  "latex": "\\Trace",
+  "preview": "\\Trace",
+  "name": "大写迹",
+  "nameEn": "Capital trace",
+  "words": [
+   "Capital trace",
+   "Trace",
+   "physics",
+   "物理",
+   "Trace"
+  ],
+  "priority": 73
+ },
+ {
+  "exact": true,
+  "id": "physics-erf",
+  "command": "\\erf",
+  "category": "physics",
+  "latex": "\\erf",
+  "preview": "\\erf",
+  "name": "误差函数",
+  "nameEn": "Error function",
+  "words": [
+   "Error function",
+   "erf",
+   "physics",
+   "物理",
+   "erf"
+  ],
+  "priority": 72
+ },
+ {
+  "exact": true,
+  "id": "physics-Residue",
+  "command": "\\Residue",
+  "category": "physics",
+  "latex": "\\Residue",
+  "preview": "\\Residue",
+  "name": "留数算子",
+  "nameEn": "Residue operator",
+  "words": [
+   "Residue operator",
+   "Residue",
+   "physics",
+   "物理",
+   "Residue"
+  ],
+  "priority": 71
+ },
+ {
+  "exact": true,
+  "id": "physics-derivative",
+  "command": "\\derivative",
+  "category": "physics",
+  "latex": "\\derivative{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\derivative{f}{x}",
+  "name": "physics 导数",
+  "nameEn": "Physics derivative",
+  "words": [
+   "Physics derivative",
+   "derivative",
+   "physics",
+   "物理",
+   "derivative"
+  ],
+  "priority": 86
+ },
+ {
+  "exact": true,
+  "id": "physics-partialderivative",
+  "command": "\\partialderivative",
+  "category": "physics",
+  "latex": "\\partialderivative{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\partialderivative{f}{x}",
+  "name": "physics 偏导",
+  "nameEn": "Physics partial derivative",
+  "words": [
+   "Physics partial derivative",
+   "partialderivative",
+   "physics",
+   "物理",
+   "partialderivative"
+  ],
+  "priority": 85
+ },
+ {
+  "exact": true,
+  "id": "physics-functionalderivative",
+  "command": "\\functionalderivative",
+  "category": "physics",
+  "latex": "\\functionalderivative{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\functionalderivative{F}{f}",
+  "name": "泛函导数",
+  "nameEn": "Functional derivative",
+  "words": [
+   "Functional derivative",
+   "functionalderivative",
+   "physics",
+   "物理",
+   "functionalderivative"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": true,
+  "id": "physics-variation",
+  "command": "\\variation",
+  "category": "physics",
+  "latex": "\\variation",
+  "preview": "\\variation x",
+  "name": "变分符号",
+  "nameEn": "Variation",
+  "words": [
+   "Variation",
+   "variation",
+   "physics",
+   "物理",
+   "variation"
+  ],
+  "priority": 78
+ },
+ {
+  "exact": true,
+  "id": "physics-vev",
+  "command": "\\vev",
+  "category": "physics",
+  "latex": "\\vev{\\placeholder{}}",
+  "preview": "\\vev{A}",
+  "name": "真空期望值",
+  "nameEn": "Vacuum expectation",
+  "words": [
+   "Vacuum expectation",
+   "vev",
+   "physics",
+   "物理",
+   "vev"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": true,
+  "id": "physics-flatfrac",
+  "command": "\\flatfrac",
+  "category": "physics",
+  "latex": "\\flatfrac{\\placeholder{}}{\\placeholder{}}",
+  "preview": "\\flatfrac{a}{b}",
+  "name": "斜线分式",
+  "nameEn": "Physics flat fraction",
+  "words": [
+   "Physics flat fraction",
+   "flatfrac",
+   "physics",
+   "物理",
+   "flatfrac"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "physics-varE",
+  "command": "\\varE",
+  "category": "physics",
+  "latex": "\\varE",
+  "preview": "\\varE",
+  "name": "花体电场 E",
+  "nameEn": "Calligraphic E",
+  "words": [
+   "Calligraphic E",
+   "varE",
+   "physics",
+   "物理",
+   "varE"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": true,
+  "id": "physics-ordersymbol",
+  "command": "\\ordersymbol",
+  "category": "physics",
+  "latex": "\\ordersymbol",
+  "preview": "\\ordersymbol",
+  "name": "大 O 符号",
+  "nameEn": "Order symbol",
+  "words": [
+   "Order symbol",
+   "ordersymbol",
+   "physics",
+   "物理",
+   "ordersymbol"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "fint",
+  "command": "\\fint",
+  "category": "calculus",
+  "latex": "\\fint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\fint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "平均积分",
+  "nameEn": "Average integral",
+  "words": [
+   "Average integral",
+   "平均积分",
+   "Average integral"
+  ],
+  "priority": 84
+ },
+ {
+  "exact": false,
+  "id": "dashint",
+  "command": "\\dashint",
+  "category": "calculus",
+  "latex": "\\intbar_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\intbar_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "单划线平均积分",
+  "nameEn": "Dashed integral",
+  "words": [
+   "Dashed integral",
+   "单划线平均积分",
+   "Dashed integral"
+  ],
+  "priority": 83
+ },
+ {
+  "exact": false,
+  "id": "ddashint",
+  "command": "\\ddashint",
+  "category": "calculus",
+  "latex": "\\intBar_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\intBar_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "双划线平均积分",
+  "nameEn": "Double-dashed integral",
+  "words": [
+   "Double-dashed integral",
+   "双划线平均积分",
+   "Double-dashed integral"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": false,
+  "id": "oiint",
+  "command": "\\oiint",
+  "category": "calculus",
+  "latex": "\\oiint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\oiint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "闭合二重积分",
+  "nameEn": "Closed double integral",
+  "words": [
+   "Closed double integral",
+   "闭合二重积分",
+   "Closed double integral"
+  ],
+  "priority": 82
+ },
+ {
+  "exact": false,
+  "id": "oiiint",
+  "command": "\\oiiint",
+  "category": "calculus",
+  "latex": "\\oiiint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\oiiint_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "闭合三重积分",
+  "nameEn": "Closed triple integral",
+  "words": [
+   "Closed triple integral",
+   "闭合三重积分",
+   "Closed triple integral"
+  ],
+  "priority": 81
+ },
+ {
+  "exact": false,
+  "id": "ointctrclockwise",
+  "command": "\\ointctrclockwise",
+  "category": "calculus",
+  "latex": "\\ointctrclockwise_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\ointctrclockwise_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "逆时针闭合积分",
+  "nameEn": "Counterclockwise contour integral",
+  "words": [
+   "Counterclockwise contour integral",
+   "逆时针闭合积分",
+   "Counterclockwise contour integral"
+  ],
+  "priority": 80
+ },
+ {
+  "exact": false,
+  "id": "varointclockwise",
+  "command": "\\varointclockwise",
+  "category": "calculus",
+  "latex": "\\varointclockwise_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\varointclockwise_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "顺时针环路积分",
+  "nameEn": "Clockwise contour integral",
+  "words": [
+   "Clockwise contour integral",
+   "顺时针环路积分",
+   "Clockwise contour integral"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": false,
+  "id": "varointctrclockwise",
+  "command": "\\varointctrclockwise",
+  "category": "calculus",
+  "latex": "\\varointctrclockwise_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "preview": "\\varointctrclockwise_{\\placeholder{}}^{\\placeholder{}} \\placeholder{}",
+  "name": "逆时针环路积分",
+  "nameEn": "Counterclockwise variant contour integral",
+  "words": [
+   "Counterclockwise variant contour integral",
+   "逆时针环路积分",
+   "Counterclockwise variant contour integral"
+  ],
+  "priority": 79
+ },
+ {
+  "exact": false,
+  "id": "bigcap-limits",
+  "command": "\\bigcap",
+  "category": "calculus",
+  "latex": "\\bigcap_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigcap_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的大交",
+  "nameEn": "Big intersection with limits",
+  "words": [
+   "Big intersection with limits",
+   "带上下限的大交",
+   "Big intersection with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigcup-limits",
+  "command": "\\bigcup",
+  "category": "calculus",
+  "latex": "\\bigcup_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigcup_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的大并",
+  "nameEn": "Big union with limits",
+  "words": [
+   "Big union with limits",
+   "带上下限的大并",
+   "Big union with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigsqcup-limits",
+  "command": "\\bigsqcup",
+  "category": "calculus",
+  "latex": "\\bigsqcup_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigsqcup_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的不交并",
+  "nameEn": "Disjoint union with limits",
+  "words": [
+   "Disjoint union with limits",
+   "带上下限的不交并",
+   "Disjoint union with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigvee-limits",
+  "command": "\\bigvee",
+  "category": "calculus",
+  "latex": "\\bigvee_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigvee_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的大析取",
+  "nameEn": "Big logical OR with limits",
+  "words": [
+   "Big logical OR with limits",
+   "带上下限的大析取",
+   "Big logical OR with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigwedge-limits",
+  "command": "\\bigwedge",
+  "category": "calculus",
+  "latex": "\\bigwedge_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigwedge_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的大合取",
+  "nameEn": "Big logical AND with limits",
+  "words": [
+   "Big logical AND with limits",
+   "带上下限的大合取",
+   "Big logical AND with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigodot-limits",
+  "command": "\\bigodot",
+  "category": "calculus",
+  "latex": "\\bigodot_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigodot_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的大点积",
+  "nameEn": "Big odot with limits",
+  "words": [
+   "Big odot with limits",
+   "带上下限的大点积",
+   "Big odot with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigoplus-limits",
+  "command": "\\bigoplus",
+  "category": "calculus",
+  "latex": "\\bigoplus_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigoplus_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的直和",
+  "nameEn": "Direct sum with limits",
+  "words": [
+   "Direct sum with limits",
+   "带上下限的直和",
+   "Direct sum with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "bigotimes-limits",
+  "command": "\\bigotimes",
+  "category": "calculus",
+  "latex": "\\bigotimes_{i=1}^{n} \\placeholder{}",
+  "preview": "\\bigotimes_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的张量积",
+  "nameEn": "Tensor product with limits",
+  "words": [
+   "Tensor product with limits",
+   "带上下限的张量积",
+   "Tensor product with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "biguplus-limits",
+  "command": "\\biguplus",
+  "category": "calculus",
+  "latex": "\\biguplus_{i=1}^{n} \\placeholder{}",
+  "preview": "\\biguplus_{i=1}^{n} \\placeholder{}",
+  "name": "带上下限的多重并",
+  "nameEn": "Multiset union with limits",
+  "words": [
+   "Multiset union with limits",
+   "带上下限的多重并",
+   "Multiset union with limits"
+  ],
+  "priority": 70
+ },
+ {
+  "exact": false,
+  "id": "cases-three",
+  "command": "\\begin{cases}",
+  "category": "structure",
+  "latex": "\\begin{cases}\\placeholder{}\\\\\\placeholder{}\\\\\\placeholder{}\\end{cases}",
+  "preview": "\\begin{cases}\\placeholder{}\\\\\\placeholder{}\\\\\\placeholder{}\\end{cases}",
+  "name": "三行分段函数",
+  "nameEn": "Three-row cases",
+  "words": [
+   "Three-row cases",
+   "三行分段函数",
+   "Three-row cases"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": false,
+  "id": "matrix-dots",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{}&\\cdots&\\placeholder{}\\\\\\vdots&\\ddots&\\vdots\\\\\\placeholder{}&\\cdots&\\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}\\placeholder{}&\\cdots&\\placeholder{}\\\\\\vdots&\\ddots&\\vdots\\\\\\placeholder{}&\\cdots&\\placeholder{}\\end{bmatrix}",
+  "name": "省略号矩阵",
+  "nameEn": "Matrix with dots",
+  "words": [
+   "Matrix with dots",
+   "省略号矩阵",
+   "Matrix with dots"
+  ],
+  "priority": 75
+ },
+ {
+  "exact": false,
+  "id": "diagonal-matrix",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{}&0&\\cdots\\\\0&\\placeholder{}&\\ddots\\\\\\vdots&\\ddots&\\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}\\placeholder{}&0&\\cdots\\\\0&\\placeholder{}&\\ddots\\\\\\vdots&\\ddots&\\placeholder{}\\end{bmatrix}",
+  "name": "对角矩阵",
+  "nameEn": "Diagonal matrix",
+  "words": [
+   "Diagonal matrix",
+   "对角矩阵",
+   "Diagonal matrix"
+  ],
+  "priority": 76
+ },
+ {
+  "exact": false,
+  "id": "augmented-matrix",
+  "command": "\\begin{array}",
+  "category": "matrix",
+  "latex": "\\left[\\begin{array}{cc|c}\\placeholder{}&\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}&\\placeholder{}\\end{array}\\right]",
+  "preview": "\\left[\\begin{array}{cc|c}\\placeholder{}&\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}&\\placeholder{}\\end{array}\\right]",
+  "name": "增广矩阵",
+  "nameEn": "Augmented matrix",
+  "words": [
+   "Augmented matrix",
+   "增广矩阵",
+   "Augmented matrix"
+  ],
+  "priority": 74
+ },
+ {
+  "exact": false,
+  "id": "block-matrix",
+  "command": "\\begin{bmatrix}",
+  "category": "matrix",
+  "latex": "\\begin{bmatrix}\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}\\end{bmatrix}",
+  "preview": "\\begin{bmatrix}\\placeholder{}&\\placeholder{}\\\\\\placeholder{}&\\placeholder{}\\end{bmatrix}",
+  "name": "分块矩阵",
+  "nameEn": "Block matrix",
+  "words": [
+   "Block matrix",
+   "分块矩阵",
+   "Block matrix"
+  ],
+  "priority": 73
+ }
+]

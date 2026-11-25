@@ -1,0 +1,51 @@
+@layer components {
+  /* the size choice: a framed label with its list */
+  .size {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: var(--control-height);
+    padding: 1px 5px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-field);
+    color: var(--text-muted);
+    background: var(--surface);
+    font-size: var(--text-size-tiny);
+  }
+
+  .sizeSelect {
+    height: 26px;
+    padding: 2px 0 2px 5px;
+    border: 0;
+    border-radius: var(--radius-small);
+    color: var(--text);
+    background: var(--bg-elevated);
+    font-size: var(--text-size-tiny);
+  }
+
+  .divider {
+    width: 1px;
+    height: 20px;
+    margin: 0 2px;
+    background: var(--border);
+  }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 42px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
+    padding: 9px 13px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-field);
+    color: var(--text);
+    background: var(--surface);
+    box-shadow: var(--shadow-popover);
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>TexType.Word</AssemblyName>
+    <RootNamespace>TexType.Word</RootNamespace>
+    <ProductKeys>word_addin_progid word_addin_clsid</ProductKeys>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+    <!-- Word's types are embedded into the add-in (no interop assembly to ship; WPS has none installed). -->
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" ExcludeAssets="runtime" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <Target Name="EmbedWordInteropTypes" AfterTargets="ResolveLockFileReferences">
+    <ItemGroup>
+      <Reference Condition="'%(Reference.NuGetPackageId)' == 'Microsoft.Office.Interop.Word'">
+        <EmbedInteropTypes>true</EmbedInteropTypes>
+      </Reference>
+    </ItemGroup>
+  </Target>
+</Project>

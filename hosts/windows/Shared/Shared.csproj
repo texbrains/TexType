@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>TexType.Shared</AssemblyName>
+    <RootNamespace>TexType.Shared</RootNamespace>
+    <ProductKeys>pipe_name</ProductKeys>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="10.0.15" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+</Project>

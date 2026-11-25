@@ -1,0 +1,19 @@
+{
+  // The kernel is compiled with MathLive's class-field semantics (useDefineForClassFields: false); Vite reads this
+  // file for the kernel's sources. `npm run typecheck:ui` checks them strictly.
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "useDefineForClassFields": false,
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*.ts"]
+}

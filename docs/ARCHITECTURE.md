@@ -42,7 +42,7 @@ hosts/                What runs inside Office and WPS. Object-model calls only.
     wps-js                WPS add-in (TypeScript compiled to JavaScript)
 resources/            fonts; symbol and template catalogues (data)
 installer/            windows, macos
-testing/              corpus (reference results), fixtures (real documents), e2e kits
+testing/              corpus (reference results), fixtures (real documents), e2e runs across hosts
 tools/                check-structure.mjs and build tooling (Node)
 docs/
 ```
@@ -76,7 +76,8 @@ entry, Mac LaunchAgent, as VisualTeX does); an add-in that finds it not running 
 
 - The same engine draws the editor and the inserted picture, so what the user edits is what lands in the document.
 - MathJax converts LaTeX to MathML, which feeds `core/convert`. It draws nothing. A command our engine does not know
-  is shown as its text, as in VisualTeX.
+  is shown as its text in the editor; a picture for a document is refused with an error that names the command, as
+  in VisualTeX.
 - For the add-ins, the app runs the engine in a hidden web view (the render page), as VisualTeX does.
 - A MathType equation opened in our editor is shown in our own look while it is edited; in the document its picture
   is drawn by MathType's rules.
@@ -108,9 +109,10 @@ These rules keep a change in one place. `node tools/check-structure.mjs` checks 
 | S6 | One name. The product's technical identifiers are in `product.toml` only. The earlier products' names appear only in `docs/` and `legacy-import/`. | ✔ |
 | S7 | The old-format reader is removable. It is outside `core/`, depends only on core crates, and only `app/src/legacy.rs` uses it, behind the optional feature `legacy-import`. The app builds without it (`cargo build -p app --no-default-features`, part of `npm run check`). Removing it = deleting `legacy-import/`, `app/src/legacy.rs`, and its dependency and feature lines in `app/Cargo.toml`. | ✔ |
 | S8 | No compatibility layers. A stored record with an unsupported schema version is refused with a clear message; formats are not migrated silently. The one-click conversion of old formulas (B2) is started by the user and is not a migration in this sense. | review |
-| S9 | No file grows without limit: 1,000 lines per source file. A file that reaches the limit is split by responsibility. | ✔ |
+| S9 | A file holds one responsibility. A source file over 1,000 lines is split along a real seam, or named in the check with the reason it stays whole (code taken over from MathLive or mhchem keeps its shape). | ✔ |
 | S10 | No Python in the product. | ✔ |
 | S11 | Nothing is added for symmetry. A new part needs a feature that requires it. | review |
+| S12 | Window styles in layers. `ui/editor/src/styles/tokens.css` defines every custom property (`@layer tokens`); `styles/base.css` styles elements only (`@layer base`); every other stylesheet is a `*.module.css` beside the one component that imports it (`@layer components`). A component sets only its own `--local-*` properties inline. No `!important`, no `:global`. A change to one component's look is a change to its module only. | ✔ |
 
 ### Where does a change go?
 

@@ -1,0 +1,11 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "editor",
+  "description": "The formula editor window: it reads the formula it opens with and returns the user's result through the app's commands.",
+  "windows": [
+    "editor"
+  ],
+  "permissions": [
+    "core:default"
+  ]
+}

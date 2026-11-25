@@ -21,6 +21,22 @@ pub enum RequestBody {
     Hello(Hello),
     /// The user's settings (requirement A5: add-ins keep none of their own).
     GetSettings,
+    /// Opens the editor for one Word equation. Answered when the user inserts it (`equationEdited`) or closes the
+    /// editor (`cancelled`); the connection waits meanwhile.
+    EditEquation(EditEquation),
+}
+
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EditEquation {
+    /// The equation being edited as the host exports it (its range's WordOpenXML), or none for a new equation.
+    pub word_open_xml: Option<String>,
+    /// A display equation (its own paragraph) rather than inline.
+    pub display: bool,
+    /// The document's math font: the result names it on every mathematical run.
+    pub math_font: String,
+    /// The equation's size in points: the edited equation's, or the text's where a new one goes.
+    pub font_size_pt: f64,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -61,6 +77,15 @@ pub enum ResponseBody {
     Settings {
         settings: UserSettings,
     },
+    /// The edited equation: one m:oMath to import into the document.
+    #[serde(rename_all = "camelCase")]
+    EquationEdited {
+        omml: String,
+        /// The size the user chose in the editor, in points: the add-in gives the equation this size.
+        font_size_pt: f64,
+    },
+    /// The user closed the editor without inserting.
+    Cancelled,
     Error {
         code: ErrorCode,
         message: String,
@@ -74,6 +99,14 @@ pub enum ErrorCode {
     ProtocolMismatch,
     /// The request is not a message of this protocol.
     BadRequest,
+    /// Another formula is open in the editor; the app brings it to the front.
+    Busy,
+    /// The equation could not be read into the editor; the message says why.
+    UnreadableEquation,
+    /// The editor window could not be shown.
+    EditorFailed,
+    /// The settings file cannot be read (damaged, or written by a newer release).
+    SettingsUnreadable,
 }
 
 /// The answer to a `hello`: welcome, or a refusal when the versions differ.

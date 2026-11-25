@@ -1,0 +1,18 @@
+<Project>
+  <!-- Every Windows add-in project: .NET Framework 4.7.2 (what Office loads), built for x64 and x86.
+       Build output and restore files go to target/windows, outside the source tree. -->
+  <PropertyGroup>
+    <RepoRoot>$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)', '..', '..'))</RepoRoot>
+    <BaseOutputPath>$(RepoRoot)target\windows\bin\$(MSBuildProjectName)\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(RepoRoot)target\windows\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <Platform Condition="'$(Platform)' == '' Or '$(Platform)' == 'AnyCPU'">x64</Platform>
+    <Platforms>x64;x86</Platforms>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
