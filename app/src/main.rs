@@ -11,6 +11,13 @@
 
 mod automation;
 #[cfg(any(windows, target_os = "macos"))]
+#[cfg_attr(
+    target_os = "macos",
+    expect(
+        dead_code,
+        reason = "only the Windows pipe opens add-in formulas until the Mac channels exist"
+    )
+)]
 mod editor_window;
 mod install;
 #[cfg(feature = "legacy-import")]
@@ -20,6 +27,13 @@ mod recognition;
 #[cfg(any(windows, target_os = "macos"))]
 mod render;
 #[cfg(any(windows, target_os = "macos"))]
+#[cfg_attr(
+    target_os = "macos",
+    expect(
+        dead_code,
+        reason = "only the Windows pipe opens add-in formulas until the Mac channels exist"
+    )
+)]
 mod sessions;
 #[cfg(any(windows, target_os = "macos"))]
 mod shell;
