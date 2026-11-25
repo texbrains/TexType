@@ -1,0 +1,43 @@
+@layer components {
+  /* the formula rows: a card filling the pane, one row per formula line. The insets come from the component
+     (--local-inset-left/right, --local-row-inset) so the layout code and the page agree on them. */
+  .surface {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    align-items: stretch;
+    min-height: max(320px, 100%);
+    padding: 6px var(--local-inset-right) 26px var(--local-inset-left);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    background: var(--surface);
+  }
+
+  .surface:focus-within {
+    border-color: var(--border-strong);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--focus-ring) 14%, transparent);
+  }
+
+  /* while the LaTeX source has the focus the rows only show the formula */
+  .surface[data-preview],
+  .surface[data-read-only] {
+    cursor: default;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .row {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: var(--local-row-height, 69px);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 74%, transparent);
+  }
+}

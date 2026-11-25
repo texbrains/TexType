@@ -1,0 +1,142 @@
+/* The editor's design tokens: every colour, size and font the components use. Components read these and define
+   none of their own; the dark theme changes only the values below. The kernel's command candidates read them too
+   (ui/kernel/src/kernel/css/suggestion-popover.css). */
+@layer tokens {
+  :root {
+    color-scheme: light;
+    --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-code: SFMono-Regular, Menlo, Consolas, monospace;
+    --text-size: 13px;
+    --text-size-small: 11px;
+    --text-size-tiny: 10px;
+    --line-height: 1.45;
+
+    --bg: #f2f4f6;
+    --bg-elevated: #f7f8fa;
+    --surface: #ffffff;
+    --surface-hover: #e9edf1;
+    --border: #d5dae0;
+    --border-strong: #b9c1cb;
+    --text: #1d232b;
+    --text-muted: #4e5967;
+    --text-faint: #687483;
+    --accent: #1f638e;
+    --accent-soft: #e5f0f6;
+    --accent-border: #a8c8d9;
+    --on-accent: #ffffff;
+    --accent-hover: #174f73;
+    --danger: #b53643;
+    --focus-ring: #1473a9;
+    --shadow-control: 0 1px 2px rgba(24, 31, 40, 0.07);
+    --shadow-popover: 0 16px 40px rgba(24, 31, 40, 0.18), 0 2px 8px rgba(24, 31, 40, 0.08);
+    --shadow-menu: 0 7px 20px rgba(24, 31, 40, 0.13), 0 1px 3px rgba(24, 31, 40, 0.08);
+    --highlight-inset: rgba(255, 255, 255, 0.48);
+
+    /* the command candidates (the kernel's list): the band behind number and command, the drawing's cell */
+    --candidate-band: #e2edf5;
+    --candidate-band-current: #c9dfef;
+    --candidate-picture: #ffffff;
+    --candidate-picture-current: #eef4f8;
+
+    /* the formula fields' colours: the kernel's fields read these names (MathLive's) through their shadow DOM */
+    --caret-color: var(--accent);
+    --contains-highlight-color: var(--accent);
+    --contains-highlight-background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+    --text-highlight-background-color: color-mix(in srgb, var(--accent) 10%, transparent);
+    --selection-background-color: color-mix(in srgb, var(--accent) 22%, transparent);
+    --selection-color: currentColor;
+    --smart-fence-color: currentColor;
+    --latex-color: var(--syntax-command);
+    --placeholder-color: var(--text-faint);
+    --composition-background-color: color-mix(in srgb, var(--accent) 16%, transparent);
+    --composition-text-color: currentColor;
+    --formula-placeholder: #d9edf9;
+    --formula-placeholder-selected: #cfe8f7;
+
+    /* the toolbar's category colours, mixed into its tabs and template buttons */
+    --category-common: #d5c5b4;
+    --category-structure: #c6ddf8;
+    --category-calculus: #f6dba7;
+    --category-matrix: #c9e8d3;
+    --category-relation: #d9c9ef;
+    --category-greek: #f1c6d5;
+    --category-arrow: #c2e6e8;
+    --category-physics: #cad2ef;
+    --category-set: #c8e4d9;
+
+    /* LaTeX source colours */
+    --syntax-command: #175f8f;
+    --syntax-operator: #376f91;
+    --syntax-number: #9b3f70;
+    --syntax-bracket: #8a5b16;
+    --syntax-string: #8a4e2c;
+    --syntax-comment: #687483;
+    --syntax-variable: #1d232b;
+    --syntax-function: #285f7c;
+    --syntax-error: #b53643;
+    --source-editor-font-size: 12px;
+
+    --radius-small: 4px;
+    --radius-tab: 5px;
+    --radius-control: 6px;
+    --radius-button: 7px;
+    --radius-field: 8px;
+    --radius-popover: 9px;
+    --control-height: 30px;
+    --icon-button-size: 28px;
+    --header-height: 46px;
+    --source-bar-height: 36px;
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #16181b;
+    --bg-elevated: #1c1f23;
+    --surface: #202328;
+    --surface-hover: #2b3036;
+    --border: #353b43;
+    --border-strong: #4b535e;
+    --text: #f2f4f6;
+    --text-muted: #b8c0ca;
+    --text-faint: #929daa;
+    --accent: #72b7dd;
+    --accent-soft: #1d3440;
+    --accent-border: #3e6679;
+    --on-accent: #0f2733;
+    --accent-hover: #91cae7;
+    --danger: #f08089;
+    --focus-ring: #78c7ef;
+    --shadow-control: 0 1px 2px rgba(0, 0, 0, 0.18);
+    --shadow-popover: 0 18px 46px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.24);
+    --shadow-menu: 0 8px 24px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.22);
+    --highlight-inset: rgba(255, 255, 255, 0.48);
+
+    --formula-placeholder: #5f8fa8;
+    --formula-placeholder-selected: #77a9c1;
+
+    --candidate-band: #26394a;
+    --candidate-band-current: #2f5470;
+    --candidate-picture: #202328;
+    --candidate-picture-current: #363d47;
+
+    --category-common: #a98f79;
+    --category-structure: #78a9dc;
+    --category-calculus: #d4ab60;
+    --category-matrix: #79bd91;
+    --category-relation: #aa8bd2;
+    --category-greek: #d28da8;
+    --category-arrow: #72b8bd;
+    --category-physics: #8395d0;
+    --category-set: #75b39a;
+
+    --syntax-command: #a9ddf8;
+    --syntax-operator: #c8eaff;
+    --syntax-number: #f0b7d4;
+    --syntax-bracket: #f0cf85;
+    --syntax-string: #e7b08e;
+    --syntax-comment: #9ba8b5;
+    --syntax-variable: #f2f4f6;
+    --syntax-function: #b9e3f8;
+    --syntax-error: #ff9aa4;
+  }
+}

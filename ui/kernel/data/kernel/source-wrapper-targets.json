@@ -1,0 +1,15 @@
+{
+ "\\simbfit": "\\symbfit",
+ "\\bf": "\\mathbf",
+ "\\bfseries": "\\mathbf",
+ "\\it": "\\mathit",
+ "\\rm": "\\mathrm",
+ "\\sf": "\\mathsf",
+ "\\tt": "\\mathtt",
+ "\\cal": "\\mathcal",
+ "\\Bbb": "\\mathbb",
+ "\\frak": "\\mathfrak",
+ "\\bold": "\\bm",
+ "\\boldmath": "\\bm",
+ "\\pmb": "\\bm"
+}

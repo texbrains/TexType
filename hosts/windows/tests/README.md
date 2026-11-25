@@ -11,3 +11,6 @@
 - test documents live in testing/fixtures
 
 First version of this code: see `docs/SOURCES.md`.
+
+`Office`: the end-to-end runs in Word and WPS Writer. `ProtocolCorpus`: the stored protocol messages read and
+written back. `dev-register.ps1`: registers the built add-in for a development run.

@@ -175,8 +175,31 @@ for (const file of allFiles) {
 }
 
 // ---- Rule 6: no Python in the product. ---------------------------------------
-// ---- Rule 7: no file grows without limit. ------------------------------------
+// ---- Rule 7: a large file is a decision, not an accident. ---------------------
+// Over MAX_LINES a source file is split along a real seam, or named here with the reason it stays whole.
 const MAX_LINES = 1000;
+const LARGE_FILES = {
+  'ui/kernel/src/kernel/core/parser.ts': 'the LaTeX parser taken over from MathLive, kept in its shape',
+  'ui/kernel/src/kernel/latex-commands/mhchem.ts': "mhchem as MathJax and KaTeX wrote it (third-party code)",
+  'ui/kernel/src/kernel/latex-commands/styling.ts': 'MathLive\'s styling commands, kept in their shape',
+  'ui/kernel/src/kernel/formats/atom-to-math-ml.ts': 'MathLive\'s MathML conversion, kept in its shape',
+  'ui/kernel/src/kernel/public/mathfield-element.ts': 'MathLive\'s editor element; no editor tests yet',
+  'ui/kernel/src/kernel/editor-mathfield/mathfield-private.ts': 'MathLive\'s editor internals; no editor tests yet',
+  'ui/kernel/src/kernel/editor-mathfield/keyboard-input.ts': 'MathLive\'s keyboard input; no editor tests yet',
+  'ui/kernel/src/kernel/editor-model/delete.ts': 'MathLive\'s deletion; no editor tests yet',
+  'ui/kernel/src/kernel/editor-model/array.ts': 'MathLive\'s array editing; no editor tests yet',
+  // The Word equation converters are byte-exact ports of a C# converter, one file per C# class or reader, kept in
+  // that shape so a fix in the reference maps onto one place.
+  'core/convert/src/omml/write/proj/projection.rs': 'port of the MathML -> OMML projection class, kept in its shape',
+  'core/convert/src/omml/write/proj/converter.rs': 'port of the OMML passes after the projection, kept in its shape',
+  'core/convert/src/omml/write/prep/xlinq.rs': 'the System.Xml.Linq reader and writer the MathML passes rely on, kept in its shape',
+  'core/convert/src/omml/write/prep/prepasses.rs': 'port of the MathML passes before the projection, kept in their shape',
+  'core/convert/src/omml/read/omml_mathml/projection.rs': 'port of the OMML -> MathML projection class, kept in its shape',
+  'core/convert/src/omml/read/omml_mathml/transform.rs': 'port of the OMML -> MathML recovery passes, kept in their shape',
+  'core/convert/src/omml/read/mathml_latex/converter.rs': 'port of the MathML -> LaTeX converter class, kept in its shape',
+  'core/convert/src/omml/read/mathml_latex/unit_tests.rs': 'the C# converter\'s unit tests, ported one to one',
+  'core/convert/src/omml/dotnet/unicode_tables.rs': 'generated Unicode 15.0 data tables',
+};
 const PRODUCT_DIRS = ['core/', 'app/', 'ui/', 'hosts/', 'legacy-import/'];
 for (const file of allFiles) {
   const path = rel(file);
@@ -184,10 +207,16 @@ for (const file of allFiles) {
   if (path.endsWith('.py')) fail('language', `${path}: the product ships no Python`);
   if (SOURCE.test(path)) {
     const lines = read(file).split('\n').length;
-    if (lines > MAX_LINES) {
-      fail('size', `${path} has ${lines} lines (limit ${MAX_LINES}): split it by responsibility`);
+    if (lines > MAX_LINES && !(path in LARGE_FILES)) {
+      fail('size', `${path} has ${lines} lines: split it along a real seam, or name it in LARGE_FILES with a reason`);
+    }
+    if (lines <= MAX_LINES && path in LARGE_FILES) {
+      fail('size', `${path} has ${lines} lines: remove it from LARGE_FILES`);
     }
   }
+}
+for (const path of Object.keys(LARGE_FILES)) {
+  if (!existsSync(join(root, path))) fail('size', `LARGE_FILES names ${path}, which does not exist`);
 }
 
 // ---- Rule 8: every part says what it owns. -----------------------------------
@@ -216,6 +245,61 @@ for (const parent of ['ui', 'hosts/windows', 'hosts/macos', 'resources', 'instal
     if (!text.includes('**Owns**') || !text.includes('**Limits**')) {
       fail('ownership', `${parent}/${name}/README.md must state **Owns** and **Limits**`);
     }
+  }
+}
+
+// ---- Rule 9: the windows' CSS is layered and owned by one component each. ------
+// ui/editor/src/styles/tokens.css defines every custom property (@layer tokens); styles/base.css styles elements
+// only (@layer base); every other stylesheet is a *.module.css beside the one component that imports it, inside
+// @layer components. A component sets only its own --local-* properties inline. Nothing overrides by force.
+const STYLE_ROOTS = ['ui/editor/src/', 'ui/app-ui/src/'];
+const TOKENS = 'ui/editor/src/styles/tokens.css';
+const BASE = 'ui/editor/src/styles/base.css';
+const styleFiles = allFiles.map(rel).filter((path) => STYLE_ROOTS.some((r) => path.startsWith(r)));
+const cssImports = new Map();
+for (const path of styleFiles.filter((p) => /\.(ts|tsx)$/.test(p))) {
+  const text = read(join(root, path));
+  for (const [, spec] of text.matchAll(/import\s+(?:\w+\s+from\s+)?["']([^"']+\.css)["']/g)) {
+    const target = rel(join(root, path, '..', spec));
+    cssImports.set(target, [...(cssImports.get(target) ?? []), path]);
+  }
+  for (const [, name] of text.matchAll(/["'`](--[\w-]+)["'`]\s*[:,]/g)) {
+    if (!name.startsWith('--local-')) fail('styles', `${path} sets ${name}: a component sets only --local-* properties`);
+  }
+}
+const withoutComments = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '');
+for (const path of styleFiles.filter((p) => p.endsWith('.css'))) {
+  const css = withoutComments(read(join(root, path)));
+  if (css.includes('!important')) fail('styles', `${path} uses !important`);
+  if (css.includes(':global')) fail('styles', `${path} uses :global`);
+  if (path !== TOKENS) {
+    for (const [, name] of css.matchAll(/[{;\s](--[\w-]+)\s*:/g)) {
+      if (!name.startsWith('--local-')) fail('styles', `${path} defines ${name}: custom properties live in ${TOKENS}`);
+    }
+  }
+  if (path === TOKENS || path === BASE) {
+    const layer = path === TOKENS ? 'tokens' : 'base';
+    if (!new RegExp(`@layer ${layer}\\s*\\{`).test(css)) fail('styles', `${path} must be inside @layer ${layer}`);
+    if (path === BASE && /[.#][A-Za-z_]|\[/.test(css.replace(/@layer[^{;]*[{;]/g, '').replace(/\{[^{}]*\}/g, '{}'))) {
+      fail('styles', `${BASE} styles elements only (no class, id or attribute selectors)`);
+    }
+    continue;
+  }
+  if (!path.endsWith('.module.css')) {
+    fail('styles', `${path}: a component's stylesheet is a *.module.css beside it`);
+    continue;
+  }
+  if (!/^\s*@layer components\s*\{[\s\S]*\}\s*$/.test(css)) fail('styles', `${path} must hold one @layer components block`);
+  const importers = cssImports.get(path) ?? [];
+  if (importers.length !== 1) {
+    fail('styles', `${path} is imported by ${importers.length} files: a module belongs to exactly one component`);
+  } else if (importers[0].split('/').slice(0, -1).join('/') !== path.split('/').slice(0, -1).join('/')) {
+    fail('styles', `${path} is imported from ${importers[0]}: a module sits beside its component`);
+  }
+}
+for (const [target, importers] of cssImports) {
+  if ((target === TOKENS || target === BASE) && !importers.every((p) => p === 'ui/editor/src/index.ts')) {
+    fail('styles', `${target} is imported by ${importers.join(', ')}: only ui/editor/src/index.ts loads it`);
   }
 }
 

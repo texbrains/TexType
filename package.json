@@ -8,12 +8,17 @@
   ],
   "scripts": {
     "check:structure": "node tools/check-structure.mjs",
-    "check": "node tools/check-structure.mjs && cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace && cargo build -p app --no-default-features",
+    "check": "node tools/check-structure.mjs && npm run typecheck:ui && npm run test:ui && cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace && cargo build -p app --no-default-features",
+    "typecheck:ui": "tsc -p ui/kernel && tsc -p ui/editor && tsc -p ui/app-ui",
+    "test:ui": "node ui/kernel/test/kernel-node.mjs && node --test \"ui/kernel/test/*.test.mjs\" \"ui/kernel/test/*.test.ts\"",
     "build:ui": "npm run build -w @app/app-ui",
     "build:app": "npm run build:ui && cargo build -p app"
   },
   "devDependencies": {
     "vite": "^6.4.6",
+    "@vitejs/plugin-react": "^4.4.1",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
     "typescript": "^5.9.3",
     "@tauri-apps/cli": "^2.12.4"
   }

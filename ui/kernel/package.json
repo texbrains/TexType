@@ -3,5 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "dependencies": {}
+  "exports": {
+    ".": "./src/index.ts",
+    "./render-page": "./src/render/page.ts",
+    "./*": "./src/*"
+  },
+  "dependencies": {
+    "mathjax-full": "3.2.2"
+  }
 }

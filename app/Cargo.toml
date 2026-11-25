@@ -13,12 +13,19 @@ mathcraft = { path = "../core/mathcraft" }
 # cargo build -p app --no-default-features; to remove it, delete legacy-import/, this line and the feature.
 legacy-import = { path = "../legacy-import", optional = true }
 anyhow = "1"
+serde = { version = "1", features = ["derive"] }
 image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "webp", "gif", "tiff"] }
 
 # Windows and macOS get the windows (Tauri). Other systems build the command line only, which keeps the
 # modules testable on any machine.
 [target.'cfg(any(windows, target_os = "macos"))'.dependencies]
 tauri = { version = "2", features = ["custom-protocol"] }
+convert = { path = "../core/convert" }
+settings = { path = "../core/settings" }
+tokio = { version = "1", features = ["io-util", "macros", "net", "sync", "time"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_System_RemoteDesktop", "Win32_System_Threading"] }
 
 [build-dependencies]
 tauri-build = { version = "2", features = [] }

@@ -1,0 +1,73 @@
+@layer components {
+  /* row alignment, then the formatting buttons: for the selection, then for what is typed next */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 4px;
+    padding-left: 8px;
+    border-left: 1px solid var(--border);
+  }
+
+  .group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .divider {
+    width: 1px;
+    height: 20px;
+    margin: 0 4px;
+    background: var(--border);
+  }
+
+  .subdivider {
+    width: 1px;
+    height: 16px;
+    margin: 0 3px;
+    background: color-mix(in srgb, var(--border) 82%, transparent);
+  }
+
+  .cornerMark,
+  .dot,
+  .colorBar {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .cornerMark {
+    right: 3px;
+    bottom: 3px;
+    width: 5px;
+    height: 5px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    opacity: 0.72;
+  }
+
+  .dot {
+    top: 3px;
+    right: 3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.38;
+  }
+
+  [data-active] > .dot {
+    opacity: 1;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+
+  .colorBar {
+    left: 5px;
+    right: 5px;
+    bottom: 3px;
+    height: 2px;
+    border-radius: 999px;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--text) 18%, transparent);
+  }
+}

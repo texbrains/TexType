@@ -1,0 +1,69 @@
+@layer components {
+  /* one row's formula: the host scrolls a wide formula sideways and places it by the row alignment */
+  .host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0;
+    overflow: auto hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    cursor: text;
+  }
+
+  .host[data-alignment="center"] {
+    justify-content: safe center;
+  }
+
+  .host[data-alignment="right"] {
+    justify-content: safe flex-end;
+  }
+
+  /* alignment points (&) line the rows up from the left whatever the alignment */
+  .host[data-explicit-align] {
+    justify-content: flex-start;
+  }
+
+  /* the kernel's field element; its inside is styled by the kernel (shadow DOM) */
+  .field {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: none;
+    align-items: center;
+    width: max-content;
+    padding: var(--local-row-inset, 5px) 0;
+    border: 0;
+    outline: none;
+    color: var(--text);
+    background: transparent;
+    line-height: 1.08;
+    text-align: left;
+    cursor: text;
+  }
+
+  .host[data-read-only] .field {
+    pointer-events: none;
+  }
+
+  .field::part(placeholder) {
+    color: var(--text-faint);
+  }
+
+  .field::part(menu-toggle),
+  .field::part(virtual-keyboard-toggle) {
+    display: none;
+  }
+
+  .field::part(container) {
+    display: flex;
+    align-items: center;
+    min-height: 0;
+  }
+
+  .field::part(content) {
+    min-height: 0;
+  }
+}

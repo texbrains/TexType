@@ -1,0 +1,112 @@
+[
+ {
+  "file": "extra2/003-display.json",
+  "source": "\\cancel{x}+\\bcancel{y}+\\xcancel{z}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra2/003-text.json",
+  "source": "\\cancel{x}+\\bcancel{y}+\\xcancel{z}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra2/004-display.json",
+  "source": "\\cancelto{0}{x}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra2/004-text.json",
+  "source": "\\cancelto{0}{x}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra2/005-display.json",
+  "source": "\\colorbox{yellow}{$a+b$}",
+  "reason": "TeX's math list carries \\\\special colour commands this comparison does not read"
+ },
+ {
+  "file": "extra2/005-text.json",
+  "source": "\\colorbox{yellow}{$a+b$}",
+  "reason": "TeX's math list carries \\\\special colour commands this comparison does not read"
+ },
+ {
+  "file": "extra3/001-display.json",
+  "source": "\\fcolorbox{red}{yellow}{a}",
+  "reason": "TeX's math list carries \\\\special colour commands this comparison does not read"
+ },
+ {
+  "file": "extra3/001-text.json",
+  "source": "\\fcolorbox{red}{yellow}{a}",
+  "reason": "TeX's math list carries \\\\special colour commands this comparison does not read"
+ },
+ {
+  "file": "extra3/002-display.json",
+  "source": "x+\\colorbox{yellow}{ab}+y",
+  "reason": "TeX's math list carries \\\\special colour commands this comparison does not read"
+ },
+ {
+  "file": "extra3/002-text.json",
+  "source": "x+\\colorbox{yellow}{ab}+y",
+  "reason": "TeX's math list carries \\\\special colour commands this comparison does not read"
+ },
+ {
+  "file": "extra4/001-display.json",
+  "source": "\\cancel{\\frac{a}{b}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/001-text.json",
+  "source": "\\cancel{\\frac{a}{b}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/002-display.json",
+  "source": "x^{\\cancel{2}}+y_{\\bcancel{ij}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/002-text.json",
+  "source": "x^{\\cancel{2}}+y_{\\bcancel{ij}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/003-display.json",
+  "source": "\\cancel{abcdefghij}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/003-text.json",
+  "source": "\\cancel{abcdefghij}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/004-display.json",
+  "source": "\\bcancel{\\int_0^1 f\\,dx}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/004-text.json",
+  "source": "\\bcancel{\\int_0^1 f\\,dx}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/005-display.json",
+  "source": "\\xcancel{\\sqrt{x^2+1}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/005-text.json",
+  "source": "\\xcancel{\\sqrt{x^2+1}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/006-display.json",
+  "source": "\\cancel{\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ },
+ {
+  "file": "extra4/006-text.json",
+  "source": "\\cancel{\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}}",
+  "reason": "cancel.sty draws its strokes in picture mode, which this comparison does not replay"
+ }
+]

@@ -18,3 +18,6 @@
 //! - no MathType program or library is called or shipped, and an installed MathType is not used either
 //!
 //! Where the first version of this code comes from: docs/SOURCES.md.
+
+pub mod omml;
+pub mod pictures;

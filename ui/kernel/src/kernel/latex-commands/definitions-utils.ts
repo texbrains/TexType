@@ -1,0 +1,507 @@
+import { supportRegexPropertyEscape } from '../ui/utils/capabilities';
+
+import { Atom } from '../core/atom-class';
+
+import { _Mathfield } from '../editor-mathfield/mathfield-private';
+import type {
+  ArgumentType,
+  MacroDefinition,
+  MacroDictionary,
+  NormalizedMacroDictionary,
+  ParseMode,
+  Variant,
+  Environment,
+} from '../public/core-types';
+import { UNICODE_TO_LATEX } from '../core/unicode';
+import type {
+  AtomType,
+  CreateAtomOptions,
+  PrivateStyle,
+  ToLatexOptions,
+} from '../core/types';
+import type { Context } from '../core/context';
+import type {
+  Argument,
+  EnvironmentConstructor,
+  EnvironmentDefinition,
+  FunctionArgumentDefinition,
+  LatexCommandDefinition,
+  LatexSymbolDefinition,
+  TokenDefinition,
+} from './types';
+import type { Parser } from '../core/parser';
+import { DEFAULT_MACROS } from './macro-tables';
+export {
+  kernelCandidateIndexForDigit,
+  kernelCandidateNumberMarkup,
+  kernelCandidatePanelOpen,
+  kernelCompletionInfo,
+  suggest,
+} from './completion';
+
+export function argAtoms(arg: Argument | null | undefined): readonly Atom[] {
+  if (!arg) return [];
+  if (Array.isArray(arg)) return arg as Atom[];
+  if (typeof arg === 'object' && 'group' in arg) return arg.group;
+  return [];
+}
+
+export const MATH_SYMBOLS: Record<string, LatexSymbolDefinition> = {};
+
+// Map a character to some corresponding LaTeX.
+//
+// This is used for some characters such as ² SUPERSCRIPT TWO.
+// This is also an opportunity to specify the preferred form when
+// a unicode character is encountered that maps to multiple commands,
+// for example ≠ could map either to \ne or \neq.
+// The table will also be populated by any registered symbol from MATH_SYMBOLS,
+//  so an explicit entry is only needed in case of ambiguous mappings.
+//
+const REVERSE_MATH_SYMBOLS: Record<number, string> = { ...UNICODE_TO_LATEX };
+
+export const LATEX_COMMANDS: Record<string, LatexCommandDefinition> = {};
+
+export const ENVIRONMENTS: Record<string, EnvironmentDefinition> = {};
+
+const TEXT_SYMBOLS: Record<string, number> = {
+  ' ': 0x0020,
+  // want that in Text mode.
+  '\\!': 0x0021,
+  '\\#': 0x0023,
+  '\\$': 0x0024,
+  '\\%': 0x0025,
+  '\\&': 0x0026,
+  '\\_': 0x005f,
+  '-': 0x002d, // In Math mode, '-' is substituted to U+2212, but we don't
+  '\\textunderscore': 0x005f, // '_'
+  '\\euro': 0x20ac,
+  '\\maltese': 0x2720,
+  '\\{': 0x007b,
+  '\\}': 0x007d,
+  '\\textbraceleft': 0x007b,
+  '\\textbraceright': 0x007d,
+  '\\lbrace': 0x007b,
+  '\\rbrace': 0x007d,
+  '\\lbrack': 0x005b,
+  '\\rbrack': 0x005d,
+  '\\nobreakspace': 0x00a0,
+  '\\ldots': 0x2026,
+  '\\textellipsis': 0x2026,
+  '\\backslash': 0x005c,
+  '`': 0x2018,
+  "'": 0x2019,
+  '``': 0x201c,
+  "''": 0x201d,
+  '\\degree': 0x00b0,
+  '\\textasciicircum': 0x005e,
+  '\\textasciitilde': 0x007e,
+  '\\textasteriskcentered': 0x002a,
+  '\\textbackslash': 0x005c, // '\'
+  '\\textbullet': 0x2022,
+  '\\textdollar': 0x0024,
+  '\\textsterling': 0x00a3,
+  '\\textdagger': 0x2020,
+  '\\textdaggerdbl': 0x2021,
+
+  '–': 0x2013, // EN DASH
+  '—': 0x2014, // EM DASH
+  '‘': 0x2018, // LEFT SINGLE QUOTATION MARK
+  '’': 0x2019, // RIGHT SINGLE QUOTATION MARK
+  '“': 0x201c, // LEFT DOUBLE QUOTATION MARK
+  '”': 0x201d, // RIGHT DOUBLE QUOTATION MARK
+  '"': 0x201d, // DOUBLE PRIME
+  '\\ss': 0x00df, // LATIN SMALL LETTER SHARP S
+  '\\ae': 0x00e6, // LATIN SMALL LETTER AE
+  '\\oe': 0x0153, // LATIN SMALL LIGATURE OE
+  '\\AE': 0x00c6, // LATIN CAPITAL LETTER AE
+  '\\OE': 0x0152, // LATIN CAPITAL LIGATURE OE
+  '\\O': 0x00d8, // LATIN CAPITAL LETTER O WITH STROKE
+  '\\i': 0x0131, // LATIN SMALL LETTER DOTLESS I
+  '\\j': 0x0237, // LATIN SMALL LETTER DOTLESS J
+  '\\aa': 0x00e5, // LATIN SMALL LETTER A WITH RING ABOVE
+  '\\AA': 0x00c5, // LATIN CAPITAL LETTER A WITH RING ABOVE
+};
+
+export const COMMAND_MODE_CHARACTERS =
+  /[\w!@*()-=+{}\[\]\\';:?/.,~<>`|$%#&^" ]/;
+
+export let LETTER: RegExp;
+export let LETTER_AND_DIGITS: RegExp;
+
+if (supportRegexPropertyEscape()) {
+  LETTER = new RegExp('\\p{Letter}', 'u');
+  LETTER_AND_DIGITS = new RegExp('[0-9\\p{Letter}]', 'u');
+} else {
+  LETTER =
+    /[a-zA-ZаАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяĄąĆćĘęŁłŃńÓóŚśŹźŻżàâäôéèëêïîçùûüÿæœÀÂÄÔÉÈËÊÏÎŸÇÙÛÜÆŒößÖẞìíòúÌÍÒÚáñÁÑ]/;
+
+  LETTER_AND_DIGITS =
+    /[\da-zA-ZаАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхХцЦчЧшШщЩъЪыЫьЬэЭюЮяĄąĆćĘęŁłŃńÓóŚśŹźŻżàâäôéèëêïîçùûüÿæœÀÂÄÔÉÈËÊÏÎŸÇÙÛÜÆŒößÖẞìíòúÌÍÒÚáñÁÑ]/;
+}
+
+/**
+ * @param symbol    The LaTeX command for this symbol, for
+ * example `\alpha` or `+`
+ */
+function defineSymbol(
+  symbol: string,
+  codepoint: number | undefined,
+  type: AtomType = 'mord',
+  variant?: Variant
+): void {
+  if (codepoint === undefined) return;
+  MATH_SYMBOLS[symbol] = {
+    definitionType: 'symbol',
+    type,
+    variant,
+    codepoint,
+  };
+  if (!REVERSE_MATH_SYMBOLS[codepoint])
+    REVERSE_MATH_SYMBOLS[codepoint] = symbol;
+}
+
+/**
+ * Define a set of single-codepoint symbols
+ */
+export function defineSymbols(
+  value:
+    | string
+    | [symbol: string, codepoint: number, type?: AtomType, variant?: Variant][],
+  inType?: AtomType,
+  inVariant?: Variant
+): void {
+  if (typeof value === 'string') {
+    for (let i = 0; i < value.length; i++) {
+      const ch = value.charAt(i);
+      defineSymbol(ch, ch.codePointAt(0));
+    }
+    return;
+  }
+
+  for (const [symbol, val, type, variant] of value)
+    defineSymbol(symbol, val, type ?? inType, variant ?? inVariant);
+}
+
+/**
+ * Define a set of single-character symbols as a range of Unicode codepoints
+ * @param from First Unicode codepoint
+ * @param to Last Unicode codepoint
+ */
+export function defineSymbolRange(from: number, to: number): void {
+  for (let i = from; i <= to; i++) defineSymbol(String.fromCodePoint(i), i);
+}
+
+export function getEnvironmentDefinition(name: string): EnvironmentDefinition {
+  return ENVIRONMENTS[name] ?? null;
+}
+
+/** The user's completion settings and history, kept by the app on the editor element */
+function parseParameterTemplateArgument(argTemplate: string): ArgumentType {
+  let type: ArgumentType = 'auto';
+
+  // Parse the type (:type)
+  const r = argTemplate.match(/:([^=]+)/);
+  if (r) type = r[1].trim() as ArgumentType;
+
+  return type;
+}
+
+function parseParameterTemplate(
+  parameterTemplate: string
+): FunctionArgumentDefinition[] {
+  if (!parameterTemplate) return [];
+
+  const result: FunctionArgumentDefinition[] = [];
+  let parameters = parameterTemplate.split(']');
+  if (parameters[0].startsWith('[')) {
+    // We found at least one optional parameter.
+    result.push({
+      isOptional: true,
+      type: parseParameterTemplateArgument(parameters[0].slice(1)),
+    });
+    // Parse the rest
+    for (let i = 1; i <= parameters.length; i++)
+      result.push(...parseParameterTemplate(parameters[i]));
+  } else {
+    parameters = parameterTemplate.split('}');
+    if (parameters[0].startsWith('{')) {
+      // We found a required parameter
+      result.push({
+        isOptional: false,
+        type: parseParameterTemplateArgument(parameters[0].slice(1)),
+      });
+      // Parse the rest
+      for (let i = 1; i <= parameters.length; i++)
+        result.push(...parseParameterTemplate(parameters[i]));
+    }
+  }
+
+  return result;
+}
+
+/**
+ * If possible, i.e. if they are all simple atoms, return a string made up of
+ * their body
+ */
+export function parseArgAsString(atoms: readonly Atom[]): string {
+  if (!atoms) return '';
+  let result = '';
+  let success = true;
+  for (const atom of atoms) {
+    if (typeof atom.value === 'string') result += atom.value;
+    else success = false;
+  }
+  return success ? result : '';
+}
+
+/**
+ * Like defineEnvironment, but for a tabular environment, i.e.
+ * one whose content is in tabular mode, where '&' indicata a new column
+ * and '\\' indicate a new row.
+ */
+export function defineTabularEnvironment(
+  names: Environment | Environment[],
+  parameters: string,
+  createAtom: EnvironmentConstructor
+): void {
+  if (typeof names === 'string') names = [names];
+
+  // The parameters for this function, an array of
+  // {optional, type}
+  const parsedParameters = parseParameterTemplate(parameters);
+
+  const data: EnvironmentDefinition = {
+    tabular: true,
+    rootOnly: false,
+    params: parsedParameters,
+    createAtom,
+  };
+  for (const name of names) ENVIRONMENTS[name] = data;
+}
+
+export function defineRootEnvironment(
+  names: string | string[],
+  createAtom: EnvironmentConstructor,
+  options?: { tabular?: boolean; params?: string }
+): void {
+  if (typeof names === 'string') names = [names];
+
+  const def: EnvironmentDefinition = {
+    tabular: options?.tabular ?? false,
+    rootOnly: true,
+    // TexType: the parameters are read (alignat's {n})
+    params: parseParameterTemplate(options?.params ?? ''),
+    createAtom,
+  };
+  for (const name of names) ENVIRONMENTS[name] = def;
+}
+
+/**
+ * Define one of more functions.
+ *
+ * @param names
+ * @param parameters The number and type of required and optional parameters.
+ * For example: '{}' defines a single mandatory parameter
+ * '[string]{auto}' defines two params, one optional, one required
+ */
+export function defineFunction(
+  names: string | string[],
+  parameters: string,
+  options: {
+    ifMode?: ParseMode;
+    applyMode?: ParseMode;
+    infix?: boolean;
+    isFunction?: boolean;
+    // Hooks are methods: a command's hook takes its own atom and argument
+    // types (checked bivariantly)
+    parse?(parser: Parser): Argument[];
+    createAtom?(options: CreateAtomOptions): Atom;
+    applyStyle?(
+      style: PrivateStyle,
+      name: string,
+      args: (null | Argument)[],
+      context: Context
+    ): PrivateStyle;
+    command?: string;
+    serialize?(atom: Atom, options: ToLatexOptions): string;
+    applyStyleToArgument?(atoms: Atom[]): Atom[];
+  }
+): void {
+  if (!options) options = {};
+
+  // Set default values of functions
+  const data: LatexCommandDefinition = {
+    definitionType: 'function',
+    // The parameters for this function, an array of
+    // {optional, type}
+    params: parseParameterTemplate(parameters),
+
+    ifMode: options.ifMode,
+    isFunction: options.isFunction ?? false,
+    applyMode: options.applyMode,
+    infix: options.infix ?? false,
+    parse: options.parse,
+    createAtom: options.createAtom,
+    applyStyle: options.applyStyle,
+    applyStyleToArgument: options.applyStyleToArgument,
+    serialize: options.serialize,
+  };
+  if (typeof names === 'string') LATEX_COMMANDS['\\' + names] = data;
+  else for (const name of names) LATEX_COMMANDS['\\' + name] = data;
+}
+
+let _DEFAULT_MACROS: NormalizedMacroDictionary;
+
+export function getMacros(
+  otherMacros?: MacroDictionary | null
+): NormalizedMacroDictionary {
+  if (!_DEFAULT_MACROS)
+    _DEFAULT_MACROS = normalizeMacroDictionary(DEFAULT_MACROS);
+
+  if (!otherMacros) return _DEFAULT_MACROS;
+  return normalizeMacroDictionary({ ..._DEFAULT_MACROS, ...otherMacros });
+}
+
+function normalizeMacroDefinition(
+  def: string | Partial<MacroDefinition>,
+  options?: { expand?: boolean; captureSelection?: boolean }
+): MacroDefinition {
+  if (typeof def === 'string') {
+    // It's a shorthand definition, let's expand it
+    let argCount = 0;
+    const defString: string = def as string;
+    // Let's see if there are arguments in the definition.
+    if (/(^|[^\\])#1/.test(defString)) argCount = 1;
+    if (/(^|[^\\])#2/.test(defString)) argCount = 2;
+    if (/(^|[^\\])#3/.test(defString)) argCount = 3;
+    if (/(^|[^\\])#4/.test(defString)) argCount = 4;
+    if (/(^|[^\\])#5/.test(defString)) argCount = 5;
+    if (/(^|[^\\])#6/.test(defString)) argCount = 6;
+    if (/(^|[^\\])#7/.test(defString)) argCount = 7;
+    if (/(^|[^\\])#8/.test(defString)) argCount = 8;
+    if (/(^|[^\\])#9/.test(defString)) argCount = 9;
+    return {
+      expand: options?.expand ?? true,
+      captureSelection: options?.captureSelection ?? true,
+      args: argCount,
+      def: defString,
+    };
+  }
+  return {
+    expand: options?.expand ?? true,
+    captureSelection: options?.captureSelection ?? true,
+    args: 0,
+    ...(def as MacroDefinition),
+  };
+}
+
+export function normalizeMacroDictionary(
+  macros: MacroDictionary
+): NormalizedMacroDictionary {
+  if (!macros) return {};
+  const result: NormalizedMacroDictionary = {};
+  for (const macro of Object.keys(macros)) {
+    const macroDef = macros[macro];
+    if (macroDef === undefined || macroDef === null) delete result[macro];
+    else if (typeof macroDef === 'object' && 'package' in macroDef) {
+      for (const packageMacro of Object.keys(macroDef.package)) {
+        result[packageMacro] = normalizeMacroDefinition(
+          macroDef.package[packageMacro],
+          {
+            expand: !macroDef.primitive,
+            captureSelection: macroDef.captureSelection,
+          }
+        );
+      }
+    } else result[macro] = normalizeMacroDefinition(macroDef);
+  }
+  return result;
+}
+
+export function getDefinition(
+  token: string,
+  parseMode: ParseMode = 'math'
+): TokenDefinition | null {
+  if (!token || token.length === 0) return null;
+
+  let info: TokenDefinition | null = null;
+
+  if (token.startsWith('\\')) {
+    // This could be a function or a token
+    info = LATEX_COMMANDS[token];
+    if (info) {
+      if (!info.ifMode || info.ifMode === parseMode) return info;
+      return null;
+    }
+
+    // It wasn't a function, maybe it's a token?
+    if (parseMode === 'math') info = MATH_SYMBOLS[token];
+    else if (TEXT_SYMBOLS[token]) {
+      info = {
+        definitionType: 'symbol',
+        type: 'mord',
+        codepoint: TEXT_SYMBOLS[token],
+      };
+    }
+  } else if (parseMode === 'math') {
+    info = MATH_SYMBOLS[token];
+    if (!info && token.length === 1) {
+      //Check if this is a Unicode character that has a definition
+      const command = charToLatex('math', token.codePointAt(0));
+      if (command.startsWith('\\'))
+        return { ...getDefinition(command, 'math')!, command };
+      return null;
+    }
+  } else if (TEXT_SYMBOLS[token]) {
+    info = {
+      definitionType: 'symbol',
+      type: 'mord',
+      codepoint: TEXT_SYMBOLS[token],
+    };
+  } else if (parseMode === 'text') {
+    info = {
+      definitionType: 'symbol',
+      type: 'mord',
+      codepoint: token.codePointAt(0)!,
+    };
+  }
+
+  return info ?? null;
+}
+
+export function getMacroDefinition(
+  token: string,
+  macros: NormalizedMacroDictionary
+): MacroDefinition | null {
+  if (!token.startsWith('\\')) return null;
+  const command = token.slice(1);
+  return macros[command];
+}
+
+/**
+ * Given a codepoint, return a matching LaTeX expression.
+ * If there is a matching command (e.g. `\alpha`) it is returned.
+ */
+export function charToLatex(
+  parseMode: ParseMode,
+  codepoint: number | undefined
+): string {
+  if (codepoint === undefined) return '';
+  if (parseMode === 'math' && REVERSE_MATH_SYMBOLS[codepoint])
+    return REVERSE_MATH_SYMBOLS[codepoint];
+
+  if (parseMode === 'text') {
+    // TexType: brackets are themselves in text (\tag*{[A]}, \text{[a,b]})
+    if (codepoint === 0x005b || codepoint === 0x005d)
+      return String.fromCodePoint(codepoint);
+    const textSymbol = Object.keys(TEXT_SYMBOLS).find(
+      (x) => TEXT_SYMBOLS[x] === codepoint
+    );
+    if (textSymbol) return textSymbol;
+    return String.fromCodePoint(codepoint);
+  }
+
+  // const hex = codepoint.toString(16).toLowerCase();
+  // return '^'.repeat(hex.length) + hex;
+  return String.fromCodePoint(codepoint);
+}
