@@ -19,5 +19,6 @@
 //!
 //! Where the first version of this code comes from: docs/SOURCES.md.
 
+pub mod mathtype;
 pub mod omml;
 pub mod pictures;

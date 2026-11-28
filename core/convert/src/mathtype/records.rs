@@ -1,0 +1,121 @@
+//! MTEF v5 record kinds, option bits, typefaces (MathType's styles), template selectors and embellishments.
+
+pub const MTEF_VERSION5: u8 = 5;
+
+pub const RECORD_END: u8 = 0;
+pub const RECORD_LINE: u8 = 1;
+pub const RECORD_CHAR: u8 = 2;
+pub const RECORD_TEMPLATE: u8 = 3;
+pub const RECORD_PILE: u8 = 4;
+pub const RECORD_MATRIX: u8 = 5;
+pub const RECORD_EMBELLISHMENT: u8 = 6;
+pub const RECORD_RULER: u8 = 7;
+pub const RECORD_FONT_STYLE_DEF: u8 = 8;
+pub const RECORD_SIZE: u8 = 9;
+pub const RECORD_FULL: u8 = 10;
+pub const RECORD_SUB_SYM: u8 = 14;
+pub const RECORD_COLOR: u8 = 15;
+pub const RECORD_COLOR_DEF: u8 = 16;
+pub const RECORD_FONT_DEF: u8 = 17;
+pub const RECORD_EQN_PREFS: u8 = 18;
+pub const RECORD_ENCODING_DEF: u8 = 19;
+
+pub const LINE_NULL: u8 = 0x01;
+pub const CHAR_HAS_EMBELLISHMENT: u8 = 0x01;
+pub const CHAR_FUNCTION_START: u8 = 0x02;
+pub const CHAR_ENCODED8: u8 = 0x04;
+pub const CHAR_ENCODED16: u8 = 0x10;
+pub const CHAR_NO_MT_CODE: u8 = 0x20;
+
+pub const TYPEFACE_TEXT: u8 = 1;
+pub const TYPEFACE_FUNCTION: u8 = 2;
+pub const TYPEFACE_VARIABLE: u8 = 3;
+pub const TYPEFACE_LOWER_GREEK: u8 = 4;
+pub const TYPEFACE_UPPER_GREEK: u8 = 5;
+pub const TYPEFACE_SYMBOL: u8 = 6;
+pub const TYPEFACE_VECTOR: u8 = 7;
+pub const TYPEFACE_NUMBER: u8 = 8;
+pub const TYPEFACE_MT_EXTRA: u8 = 11;
+/// Far-east text; MathType also stores a few symbols (\ni, \bigcirc) here, told apart by MTCode.
+pub const TYPEFACE_FAR_EAST_TEXT: u8 = 12;
+/// MathType's fence style: brackets a fence template stretches, and braces over or under a limit's content
+pub const TYPEFACE_FENCE: u8 = 22;
+pub const TYPEFACE_MARKER: u8 = 23;
+pub const TYPEFACE_SPACE: u8 = 24;
+
+pub const MATHTYPE_ALIGNMENT_MARKER_MT_CODE: i32 = 0xEF00;
+
+pub const TEMPLATE_ANGLE: u8 = 0;
+pub const TEMPLATE_PAREN: u8 = 1;
+pub const TEMPLATE_BRACE: u8 = 2;
+pub const TEMPLATE_BRACKET: u8 = 3;
+pub const TEMPLATE_BAR: u8 = 4;
+pub const TEMPLATE_DOUBLE_BAR: u8 = 5;
+pub const TEMPLATE_FLOOR: u8 = 6;
+pub const TEMPLATE_CEILING: u8 = 7;
+pub const TEMPLATE_DOUBLE_BRACKET: u8 = 8;
+pub const TEMPLATE_INTERVAL: u8 = 9;
+pub const TEMPLATE_ROOT: u8 = 10;
+pub const TEMPLATE_FRACTION: u8 = 11;
+pub const TEMPLATE_UNDERBAR: u8 = 12;
+pub const TEMPLATE_OVERBAR: u8 = 13;
+pub const TEMPLATE_ARROW: u8 = 14;
+pub const TEMPLATE_INTEGRAL: u8 = 15;
+pub const TEMPLATE_SUM: u8 = 16;
+pub const TEMPLATE_PRODUCT: u8 = 17;
+pub const TEMPLATE_COPRODUCT: u8 = 18;
+pub const TEMPLATE_UNION: u8 = 19;
+pub const TEMPLATE_INTERSECTION: u8 = 20;
+pub const TEMPLATE_INTEGRAL_OPERATOR: u8 = 21;
+pub const TEMPLATE_SUM_OPERATOR: u8 = 22;
+pub const TEMPLATE_LIMIT: u8 = 23;
+pub const TEMPLATE_HORIZONTAL_BRACE: u8 = 24;
+pub const TEMPLATE_HORIZONTAL_BRACKET: u8 = 25;
+pub const TEMPLATE_SUB: u8 = 27;
+pub const TEMPLATE_SUP: u8 = 28;
+pub const TEMPLATE_SUB_SUP: u8 = 29;
+pub const TEMPLATE_DIRAC: u8 = 30;
+pub const TEMPLATE_VECTOR: u8 = 31;
+pub const TEMPLATE_TILDE: u8 = 32;
+pub const TEMPLATE_HAT: u8 = 33;
+pub const TEMPLATE_ARC: u8 = 34;
+pub const TEMPLATE_STRIKE: u8 = 36;
+pub const TEMPLATE_BOX: u8 = 37;
+
+pub const EMBELL_DOT: u8 = 2;
+pub const EMBELL_DOUBLE_DOT: u8 = 3;
+/// What MathType's TeX import stores for \dddot, \breve, \ddddot and \underline on one character.
+pub const EMBELL_TRIPLE_DOT: u8 = 4;
+pub const EMBELL_PRIME: u8 = 5;
+pub const EMBELL_DOUBLE_PRIME: u8 = 6;
+pub const EMBELL_BACK_PRIME: u8 = 7;
+pub const EMBELL_TILDE: u8 = 8;
+pub const EMBELL_HAT: u8 = 9;
+pub const EMBELL_NOT: u8 = 10;
+pub const EMBELL_RIGHT_ARROW: u8 = 11;
+pub const EMBELL_LEFT_ARROW: u8 = 12;
+pub const EMBELL_BOTH_ARROW: u8 = 13;
+pub const EMBELL_RIGHT_HARPOON: u8 = 14;
+pub const EMBELL_LEFT_HARPOON: u8 = 15;
+pub const EMBELL_MIDBAR: u8 = 16;
+pub const EMBELL_OVERBAR: u8 = 17;
+pub const EMBELL_TRIPLE_PRIME: u8 = 18;
+pub const EMBELL_FROWN: u8 = 19;
+pub const EMBELL_BREVE: u8 = 20;
+pub const EMBELL_CROSS_BARS: u8 = 21;
+pub const EMBELL_UP_BAR: u8 = 22;
+pub const EMBELL_DOWN_BAR: u8 = 23;
+pub const EMBELL_QUADRUPLE_DOT: u8 = 24;
+pub const EMBELL_UNDER_DOT: u8 = 25;
+pub const EMBELL_UNDER_DOUBLE_DOT: u8 = 26;
+pub const EMBELL_UNDER_TRIPLE_DOT: u8 = 27;
+pub const EMBELL_UNDER_QUADRUPLE_DOT: u8 = 28;
+pub const EMBELL_UNDERBAR: u8 = 29;
+pub const EMBELL_UNDER_TILDE: u8 = 30;
+pub const EMBELL_UNDER_FROWN: u8 = 31;
+pub const EMBELL_UNDER_SMILE: u8 = 32;
+pub const EMBELL_UNDER_RIGHT_ARROW: u8 = 33;
+pub const EMBELL_UNDER_LEFT_ARROW: u8 = 34;
+pub const EMBELL_UNDER_BOTH_ARROW: u8 = 35;
+pub const EMBELL_UNDER_RIGHT_HARPOON: u8 = 36;
+pub const EMBELL_UNDER_LEFT_HARPOON: u8 = 37;
