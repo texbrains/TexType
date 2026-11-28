@@ -24,11 +24,13 @@ relied on. A proposal becomes a decision only when the owner says yes; it then k
 | 2026-11-23 | MathType objects cannot be inserted on the Mac. TexType inserts MathType objects on Windows only. |
 | 2026-11-23 | One conversion interface for all formula formats. TexType's own OLE formula gets a complete, mature data format (`FORMULA-FORMAT.md`). |
 | 2026-11-24 | MathType's fonts (the 18 Design Science fonts, not the optional Tiger fonts) are bundled in the installer. There is no online download. |
-| 2026-11-24 | MathType's equation data and the engine that draws MathType pictures are both Rust, in `core/convert`. The equation data code is ported from VisualTeX's C# codec. |
+| 2026-11-24 | MathType's equation data and the engine that draws MathType pictures are both Rust, in `core/convert`. (Ported from VisualTeX's C# codec: replaced on 2026-11-25, below.) |
 | 2026-11-24 | On the Mac, MathType equations in a document are only displayed (with the bundled fonts). They are not read, edited or converted there. |
 | 2026-11-24 | Double-clicking a MathType equation works as in VisualTeX: TexType's editor opens. A setting lets MathType open it instead while MathType is installed; without MathType, TexType's editor always opens. |
 | 2026-11-24 | MathType 6 is tested as well as MathType 7 (test T4). |
 | 2026-11-24 | The app draws pictures for the add-ins by running the TeX engine in a hidden web view, as VisualTeX does. |
+| 2026-11-25 | The MathType equation data code is TexType's own, designed from the MTEF format, not a port. MathType itself is the reference: its own records for the same formula (from its MathML import), its own MathML export, and MathType 6 and 7 opening what TexType writes. VisualTeX's C# codec is read for facts only (glyph positions, code pages). Where MathType's import loses something, TexType writes what MathType's editor makes. |
+| 2026-11-25 | MathType tests run on MathType 6.9, which stays installed on the test PC: 6.9 and 7 behaved the same in every test (the same data, the same drawings for normal formulas, the same limits). MathType 7 is checked once at milestones: before step 6 is committed and before a release. |
 
 ## Earlier proposals, decided by the owner on 2026-11-24
 
