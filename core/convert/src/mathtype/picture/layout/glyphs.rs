@@ -156,8 +156,7 @@ impl Layout<'_> {
     }
 
     /// A space as an invisible box (see the module comment); the zero space a box without ends, which its
-    /// neighbours space through, moving what follows 4/64 em back (MathType's pictures: a EF01 b, b 24 units
-    /// before a's advance at 12 pt).
+    /// neighbours space through, what follows it touching the ink before it (`Block::append`).
     pub(super) fn space(&self, c: &Char) -> Option<Block> {
         let size = self.size;
         let face = self.text_face();
@@ -203,7 +202,7 @@ impl Layout<'_> {
             boxes: vec![(0, width, top, bottom)],
             // in a template's slot the line reaches the text font's em ascent, as a character's does
             space_top: Some(ascent),
-            shift: if ends { 0 } else { -Measure::scaled(4, size) },
+            zero_space: !ends,
             ..Block::default()
         })
     }

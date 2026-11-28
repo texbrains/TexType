@@ -368,8 +368,8 @@ struct Block {
     polygons: Vec<Shape>,
     /// curves, y up
     bows: Vec<Bow>,
-    /// a move left over for the next element (the zero space's)
-    shift: i32,
+    /// a zero space: what comes next touches the ink before it
+    zero_space: bool,
     /// the height its spaces keep above its baseline in a template's slot (the text font's em ascent)
     space_top: Option<i32>,
 }
@@ -474,11 +474,10 @@ impl Block {
     fn append(&mut self, element: Block, gaps: Gaps) {
         let full = gaps.full;
         let (Some(mut first), Some(mut last)) = (element.first, element.last) else {
-            // without ends (the zero space): its boxes where the line has got to, the next element spaced
-            // against what came before and moved by the space's shift
+            // without ends (the zero space): its boxes where the line has got to, the next element placed
+            // against what came before
             let at = self.last.map_or(0, |l| l.end);
-            // zero spaces in a row move back once
-            self.shift = element.shift;
+            self.zero_space = element.zero_space;
             self.take(element, at, 0);
             return;
         };
@@ -493,16 +492,13 @@ impl Block {
             first.class = Class::Unary;
             last.class = Class::Unary;
         }
-        // what a zero space after a character left: a move back (after a structure it does nothing)
-        let shift = std::mem::take(&mut self.shift);
-        let after_zero_space = shift != 0;
-        let shift = if self.last.is_some_and(|l| l.typeface.is_some()) {
-            shift
-        } else {
-            0
-        };
+        // after a zero space behind a character the inks touch: no plain gap, no class space, no joining by
+        // advance (∫ ⋯ ∫ of \idotsint, x\!y, a\!∫: probe-pc/zs-*); after a structure it does nothing
+        let after_zero_space = std::mem::take(&mut self.zero_space);
+        let touching = after_zero_space && self.last.is_some_and(|l| l.typeface.is_some());
         let dx = match self.last {
             None => 0,
+            Some(prev) if touching => prev.ink - first.ink,
             // by advance; a relation of the function style after a function name's letter also takes the
             // relation's space (ln|x|: the bar 13/64 em past the n's advance; other pairs of one typeface do not:
             // n→∞ under lim)
@@ -551,7 +547,7 @@ impl Block {
                 } else {
                     0
                 };
-                end + shift + Measure::scaled(classes, first.size) + letters
+                end + Measure::scaled(classes, first.size) + letters
             }
             // next to a space: the inks the space's width apart, nothing more; a big operator's operand joins it
             Some(prev) if prev.class == Class::Space || first.class == Class::Space => {
@@ -561,16 +557,14 @@ impl Block {
                 prev.ink - first.ink
             }
             Some(prev) => {
-                // after a zero space no class space, and its move back; below the full size any class space is
+                // below the full size any class space is
                 // 2/64 em
                 let between = if prev.joins == Joins::Empty || first.joins == Joins::Empty {
                     0
                 } else {
                     Class::between(prev.class, first.class)
                 };
-                let classes = if shift != 0 {
-                    0
-                } else if prev.size < full || first.size < full {
+                let classes = if prev.size < full || first.size < full {
                     between.min(2)
                 } else {
                     between
@@ -642,7 +636,7 @@ impl Block {
                 } else {
                     prev.ink - prev.past
                 };
-                ink + gaps.between(space, gap_size, class) - first.ink + shift
+                ink + gaps.between(space, gap_size, class) - first.ink
             }
         };
         if self.first.is_none() {
