@@ -9,7 +9,8 @@
 //! (Windows' SystemLink, mathtype/font_links.txt) that has it, scaled by the two fonts' text heights (SimSun's ∬
 //! from Yu Gothic UI at 384/510 of its size).
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
+use std::path::Path;
 use std::sync::{Arc, Mutex};
 
 use resvg::usvg::fontdb;
@@ -109,6 +110,13 @@ fn links(name: &str) -> Vec<(String, f64)> {
 /// The installed fonts and the measures taken so far.
 pub struct Fonts {
     db: fontdb::Database,
+    /// MathType's own fonts from the files bundled with the product, and their families (lower case): these
+    /// families are measured from them whatever else is installed
+    bundled: fontdb::Database,
+    bundled_families: HashSet<String>,
+    /// the bundled files added for this process to Windows' fonts, which measures by name (`gdi`)
+    #[cfg(windows)]
+    private: Vec<usize>,
     faces: Mutex<HashMap<Face, Option<Arc<Loaded>>>>,
     measures: Mutex<HashMap<(Face, Code), Option<Measure>>>,
     /// measures of glyphs stretched one way, by their pixels per em and font width
@@ -146,10 +154,47 @@ impl Fonts {
         db.load_system_fonts();
         Fonts {
             db,
+            bundled: fontdb::Database::new(),
+            bundled_families: HashSet::new(),
+            #[cfg(windows)]
+            private: Vec::new(),
             faces: Mutex::default(),
             measures: Mutex::default(),
             stretched: Mutex::default(),
         }
+    }
+
+    /// The fonts installed on this computer, MathType's own taking the place of any installed font of the same
+    /// family: the files of the set "mathtype" in `fonts_dir`'s index (the product's `resources/fonts/index.txt`).
+    /// Office installs a 1992 MT Extra that lacks most of MathType's glyphs, and a computer without MathType has
+    /// no Euclid fonts. On Windows the files are also added to the fonts this process sees (Windows measures by
+    /// name); which of two fonts of one name Windows then takes is not known yet (open test T5).
+    pub fn with_mathtype_fonts(fonts_dir: &Path) -> Result<Fonts, String> {
+        let index = std::fs::read_to_string(fonts_dir.join("index.txt"))
+            .map_err(|error| format!("the font index in {}: {error}", fonts_dir.display()))?;
+        let mut fonts = Fonts::system();
+        let entries = index
+            .lines()
+            .filter(|l| !l.starts_with('#') && !l.trim().is_empty());
+        for entry in entries {
+            let fields: Vec<&str> = entry.split('\t').collect();
+            let [set, file, family, ..] = fields[..] else {
+                return Err(format!(
+                    "a font index line without set, file and family: {entry}"
+                ));
+            };
+            if set != "mathtype" {
+                continue;
+            }
+            let path = fonts_dir.join(file);
+            let data = std::fs::read(&path)
+                .map_err(|error| format!("the bundled font {}: {error}", path.display()))?;
+            #[cfg(windows)]
+            fonts.private.push(gdi::add_private(&data)?);
+            fonts.bundled.load_font_data(data);
+            fonts.bundled_families.insert(family.to_lowercase());
+        }
+        Ok(fonts)
     }
 
     /// A symbol font's glyph as MathType measures it stretched only vertically: at `ppem` pixels per em with the font
@@ -297,7 +342,12 @@ impl Fonts {
     }
 
     fn load(&self, face: &Face) -> Option<Loaded> {
-        let id = self.db.query(&fontdb::Query {
+        let db = if self.bundled_families.contains(&face.name.to_lowercase()) {
+            &self.bundled
+        } else {
+            &self.db
+        };
+        let id = db.query(&fontdb::Query {
             families: &[fontdb::Family::Name(&face.name)],
             weight: if face.bold {
                 fontdb::Weight::BOLD
@@ -311,9 +361,8 @@ impl Fonts {
             },
             stretch: fontdb::Stretch::Normal,
         })?;
-        let (data, index) = self
-            .db
-            .with_face_data(id, |data, index| (Arc::new(data.to_vec()), index))?;
+        let (data, index) =
+            db.with_face_data(id, |data, index| (Arc::new(data.to_vec()), index))?;
         let font = FontRef::from_index(&data, index).ok()?;
         use skrifa::raw::TableProvider;
         let upem = f64::from(
@@ -336,8 +385,7 @@ impl Fonts {
             .os2()
             .map(|os2| f64::from(os2.x_avg_char_width()) / upem)
             .unwrap_or(0.5);
-        let upright = self
-            .db
+        let upright = db
             .face(id)
             .is_some_and(|f| f.style == fontdb::Style::Normal);
         let slant = font
@@ -377,4 +425,13 @@ fn outline_top(loaded: &Loaded, code: Code) -> Option<i32> {
         .glyph_metrics(Size::unscaled(), LocationRef::default())
         .bounds(glyph)?;
     Some((f64::from(bounds.y_max) * 4096.0 / upem).round() as i32)
+}
+
+#[cfg(windows)]
+impl Drop for Fonts {
+    fn drop(&mut self) {
+        for &handle in &self.private {
+            gdi::remove_private(handle);
+        }
+    }
 }

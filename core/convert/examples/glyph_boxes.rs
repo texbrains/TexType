@@ -17,7 +17,10 @@ fn main() {
         bold: bold == "1",
         italic: italic == "1",
     };
-    let fonts = Fonts::system();
+    let fonts = Fonts::with_mathtype_fonts(
+        &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../resources/fonts"),
+    )
+    .expect("bundled fonts");
     let (first, last) = (
         u32::from_str_radix(first, 16).unwrap(),
         u32::from_str_radix(last, 16).unwrap(),

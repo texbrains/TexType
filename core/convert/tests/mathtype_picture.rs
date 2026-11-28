@@ -6,8 +6,8 @@
 //! advances before them), the same lines, polygons and arcs, everything in MathType's colours. Characters grouped into texts otherwise than MathType
 //! groups them pass when each has its twin (owner's decision 2026-11-27: the grouping is not seen). Pictures MathType
 //! draws wrongly itself are left out
-//! (misdrawn.txt beside the corpus). Needs the fonts MathType's pictures name (Times New Roman, Symbol, MT Extra,
-//! the Euclid fonts ...).
+//! (misdrawn.txt beside the corpus). MathType's own fonts are the product's bundled ones (resources/fonts); the
+//! others its pictures name must be installed (Times New Roman, Symbol, Courier New, SimSun ...).
 
 use convert::mathtype::mtef;
 use convert::mathtype::picture::{self, Fonts, Picture};
@@ -18,7 +18,10 @@ const PIXEL: i64 = 24;
 fn pictures_match_mathtype_s_own() {
     let corpus = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("../../testing/corpus/mathtype/pictures.jsonl");
-    let fonts = Fonts::system();
+    let fonts = Fonts::with_mathtype_fonts(
+        &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../resources/fonts"),
+    )
+    .unwrap();
     // pictures MathType draws wrongly itself (testing/corpus/mathtype/misdrawn.txt)
     let misdrawn_list =
         std::fs::read_to_string(corpus.with_file_name("misdrawn.txt")).expect("misdrawn.txt");

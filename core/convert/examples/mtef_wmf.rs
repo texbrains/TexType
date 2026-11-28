@@ -19,7 +19,10 @@ fn main() {
     std::fs::create_dir_all(&out).unwrap();
     let corpus = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("../../testing/corpus/mathtype/pictures.jsonl");
-    let fonts = Fonts::system();
+    let fonts = Fonts::with_mathtype_fonts(
+        &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../resources/fonts"),
+    )
+    .expect("bundled fonts");
     let mut written = 0;
     for line in std::fs::read_to_string(corpus).unwrap().lines() {
         let row: serde_json::Value = serde_json::from_str(line).unwrap();

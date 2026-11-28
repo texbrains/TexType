@@ -7,12 +7,41 @@
 use std::sync::Arc;
 
 use windows_sys::Win32::Graphics::Gdi::{
-    CreateCompatibleDC, CreateFontW, DeleteDC, DeleteObject, GetGlyphIndicesW, GetGlyphOutlineW,
-    SelectObject, DEFAULT_CHARSET, FIXED, GDI_ERROR, GGI_MARK_NONEXISTING_GLYPHS, GGO_BITMAP,
-    GGO_GLYPH_INDEX, GLYPHMETRICS, MAT2, NONANTIALIASED_QUALITY, SYMBOL_CHARSET,
+    AddFontMemResourceEx, CreateCompatibleDC, CreateFontW, DeleteDC, DeleteObject,
+    GetGlyphIndicesW, GetGlyphOutlineW, RemoveFontMemResourceEx, SelectObject, DEFAULT_CHARSET,
+    FIXED, GDI_ERROR, GGI_MARK_NONEXISTING_GLYPHS, GGO_BITMAP, GGO_GLYPH_INDEX, GLYPHMETRICS, MAT2,
+    NONANTIALIASED_QUALITY, SYMBOL_CHARSET,
 };
 
 use super::{Code, Face, Loaded, Measure, PPEM};
+
+/// Adds a font file's faces to the fonts this process sees (none other does): its handle.
+pub(super) fn add_private(data: &[u8]) -> Result<usize, String> {
+    let mut count = 0u32;
+    let size = u32::try_from(data.len()).map_err(|_| "a font file over 4 GB".to_string())?;
+    // SAFETY: Windows copies the data it is given (pointer and length of one slice) before returning, and writes
+    // the number of faces through a pointer to a local (windows-sys declares it const)
+    let handle = unsafe {
+        AddFontMemResourceEx(
+            data.as_ptr().cast(),
+            size,
+            std::ptr::null(),
+            (&raw mut count).cast_const(),
+        )
+    };
+    if handle.is_null() || count == 0 {
+        return Err("Windows did not take a bundled MathType font".into());
+    }
+    Ok(handle as usize)
+}
+
+/// Removes faces `add_private` added.
+pub(super) fn remove_private(handle: usize) {
+    // SAFETY: the handle is one AddFontMemResourceEx returned, removed once.
+    unsafe {
+        RemoveFontMemResourceEx(handle as _);
+    }
+}
 
 /// A character's measure in an installed face; None when the face has no glyph for a Unicode character (its
 /// linked fonts may have one).

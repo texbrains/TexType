@@ -9,7 +9,10 @@ use convert::mathtype::picture::{Face, Fonts};
 fn main() {
     let corpus = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("../../testing/corpus/mathtype/pictures.jsonl");
-    let fonts = Fonts::system();
+    let fonts = Fonts::with_mathtype_fonts(
+        &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../resources/fonts"),
+    )
+    .expect("bundled fonts");
     let italic = |name: &str| Face {
         name: name.into(),
         bold: false,
