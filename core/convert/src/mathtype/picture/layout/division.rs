@@ -66,6 +66,7 @@ impl<'a> Layout<'a> {
             from: (0, bar),
             to: (end + overhang, bar),
             width: thickness,
+            colour: UNSET,
         });
         block.take(dividend, end - dr, 0);
         match placed {
@@ -95,6 +96,7 @@ impl<'a> Layout<'a> {
             start: (end.0 + 1, 2 * axis - end.1),
             end,
             width: thickness,
+            colour: UNSET,
         });
         let (left, right) = block.ink().map_or((0, 0), |i| (i.0, i.1));
         block.first = Some(Edge::structure(left, right, Class::Ordinary, size));

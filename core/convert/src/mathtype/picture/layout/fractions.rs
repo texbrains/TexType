@@ -49,6 +49,7 @@ impl<'a> Layout<'a> {
             from,
             to,
             width: pen,
+            colour: UNSET,
         };
         if template.variation & 4 != 0 {
             let top = self.slot_top(&num).max(self.slot_top(&den));
@@ -152,6 +153,7 @@ impl<'a> Layout<'a> {
             from: (0, axis),
             to: (length, axis),
             width: thickness,
+            colour: UNSET,
         });
         block.reserved = Some(axis + num_raise + num_top);
         block.take(num, (length - (nr - nl)) / 2 - nl, axis + num_raise);

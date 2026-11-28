@@ -290,6 +290,7 @@ impl<'a> Layout<'a> {
                         from: along(a),
                         to: along(b),
                         width: pen,
+                        colour: UNSET,
                     });
                 }
             };

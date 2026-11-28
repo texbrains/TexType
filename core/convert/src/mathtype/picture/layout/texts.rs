@@ -91,6 +91,7 @@ pub(super) fn picture(block: &Block) -> Picture {
             charset: g.charset,
             bytes,
             advances,
+            colour: g.colour,
         });
     }
     // a character of a national character set is a text of its own whose step reaches the next text of its font,
@@ -124,16 +125,19 @@ pub(super) fn picture(block: &Block) -> Picture {
             from: (l.from.0 + shift, baseline - l.from.1),
             to: (l.to.0 + shift, baseline - l.to.1),
             width: l.width,
+            colour: l.colour,
         })
         .collect();
     let polygons = block
         .polygons
         .iter()
-        .map(|points| {
-            points
+        .map(|shape| Shape {
+            points: shape
+                .points
                 .iter()
                 .map(|p| (p.0 + shift, baseline - p.1))
-                .collect()
+                .collect(),
+            colour: shape.colour,
         })
         .collect();
     let arcs = block
@@ -149,6 +153,7 @@ pub(super) fn picture(block: &Block) -> Picture {
             start: (b.start.0 + shift, baseline - b.start.1),
             end: (b.end.0 + shift, baseline - b.end.1),
             width: b.width,
+            colour: b.colour,
         })
         .collect();
     Picture {

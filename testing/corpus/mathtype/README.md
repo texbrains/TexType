@@ -16,7 +16,8 @@ reference, and equations MathType saved are the reader's. The C# MathType codec 
   - `codec/...`: the C# codec's own output (comparison only).
 - `pictures.jsonl`: `{source, mtef, picture}`, **the picture engine's reference**
   (`core/convert/tests/mathtype_picture.rs`): MathType 6.9b's own picture of each equation, read from its WMF as the
-  frame, the units per inch and the drawn items. `writer/...` and `edited/...` are formulas of the corpora above,
+  frame, the units per inch and the drawn items (an item drawn in a colour other than black has it as `color`,
+  `#rrggbb`; added to the rows on 2026-11-28 from the same pictures). `writer/...` and `edited/...` are formulas of the corpora above,
   `genuine/...` MathType's saved equations, `probe/...` and `probe-pc/...` equations that vary one thing at a time.
   Drawn from 2026-11-25 to 2026-11-27 by a clean MathType 6.9b install in Windows Sandbox (`probe-pc/...` by the test
   PC's install, which draws the same). `misdrawn.txt` lists the pictures MathType draws wrongly itself; the test

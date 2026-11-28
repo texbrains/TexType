@@ -4,10 +4,10 @@
 //! - transparent background, white background colour, text aligned on its baseline at the current position;
 //! - two comments: "MathType" with half the depth below the baseline, and the frame as seen from the first ink
 //!   and the highest line's top (a text's 49/64 em above its baseline, a line's or shape's top point);
-//! - lines with a solid black pen of their width (moves and line-tos, a polyline as one chain), arcs with such pens,
-//!   filled shapes with
-//!   a solid black brush and no pen, texts each a move to its origin, its font (created when it changes, the old
-//!   one deleted) and one EXTTEXTOUT with each character's advance;
+//! - lines with a solid pen of their width and colour (moves and line-tos, a polyline as one chain), arcs with such
+//!   pens, filled shapes with a solid brush of their colour and no pen, texts each a move to its origin, its font
+//!   (created when it changes, the old one deleted) and one EXTTEXTOUT with each character's advance, the text
+//!   colour set where it changes; colours palette-relative, as MathType names them;
 //! - the equation's MTEF in Design Science's "AppsMFCC" comment (MathType makes a pasted picture editable from
 //!   it), the closing comment, and the end record.
 
@@ -31,8 +31,10 @@ const META_EXTTEXTOUT: u16 = 0x0A32;
 const MFCOMMENT: u16 = 15;
 /// TA_BASELINE | TA_UPDATECP
 const TEXT_ALIGN: u16 = 0x19;
-/// black, as MathType names it (palette-relative)
-const BLACK: u32 = 0x0200_0000;
+/// a colour as MathType names it: palette-relative (black 0x02000000)
+fn palette(colour: u32) -> u32 {
+    0x0200_0000 | (colour & 0x00FF_FFFF)
+}
 const PS_NULL: u16 = 5;
 /// Design Science's comments carry at most this much data each
 const CHUNK: usize = 8000;
@@ -51,7 +53,7 @@ pub fn wmf(picture: &Picture, mtef: Option<&[u8]>) -> Vec<u8> {
     let tops = picture.texts.iter().map(|t| t.y - t.height * 49 / 64);
     let tops = tops.chain(picture.lines.iter().map(|l| l.from.1.min(l.to.1)));
     let top = tops
-        .chain(picture.polygons.iter().flatten().map(|p| p.1))
+        .chain(picture.polygons.iter().flat_map(|s| &s.points).map(|p| p.1))
         .min()
         .unwrap_or(0);
     let mut frame = vec![0xFF, 0xFF, 0xFF, 0xFF, 0, 0];
@@ -59,16 +61,16 @@ pub fn wmf(picture: &Picture, mtef: Option<&[u8]>) -> Vec<u8> {
         frame.extend(value.to_le_bytes());
     }
     w.comment(&frame);
-    // lines: one pen per width, chains of touching lines drawn on
+    // lines: one pen per width and colour, chains of touching lines drawn on
     let mut at = None;
     for rule in &picture.lines {
-        if w.pen != Some(rule.width) {
+        if w.pen != Some((rule.width, rule.colour)) {
             let pen = w.create(
                 META_CREATEPENINDIRECT,
-                &[&[0, word(rule.width), 0][..], &dword(BLACK)].concat(),
+                &[&[0, word(rule.width), 0][..], &dword(palette(rule.colour))].concat(),
             );
             w.select(pen);
-            w.pen = Some(rule.width);
+            w.pen = Some((rule.width, rule.colour));
             at = None;
         }
         if at != Some(rule.from) {
@@ -79,38 +81,46 @@ pub fn wmf(picture: &Picture, mtef: Option<&[u8]>) -> Vec<u8> {
     }
     // arcs with the same pens (parameters in GDI's reverse order)
     for arc in &picture.arcs {
-        if w.pen != Some(arc.width) {
+        if w.pen != Some((arc.width, arc.colour)) {
             let pen = w.create(
                 META_CREATEPENINDIRECT,
-                &[&[0, word(arc.width), 0][..], &dword(BLACK)].concat(),
+                &[&[0, word(arc.width), 0][..], &dword(palette(arc.colour))].concat(),
             );
             w.select(pen);
-            w.pen = Some(arc.width);
+            w.pen = Some((arc.width, arc.colour));
         }
         let (l, t, r, b) = arc.rect;
         let values = [arc.end.1, arc.end.0, arc.start.1, arc.start.0, b, r, t, l];
         w.record(META_ARC, &values.map(word));
     }
     if !picture.polygons.is_empty() {
-        let brush = w.create(
-            META_CREATEBRUSHINDIRECT,
-            &[&[0][..], &dword(BLACK), &[0]].concat(),
-        );
-        w.select(brush);
-        let pen = w.create(META_CREATEPENINDIRECT, &[PS_NULL, 1, 0, 0, 0]);
-        w.select(pen);
-        w.pen = None;
-        for points in &picture.polygons {
-            let mut words = vec![word(points.len() as i32)];
-            words.extend(points.iter().flat_map(|p| [word(p.0), word(p.1)]));
+        let mut brush = None;
+        for shape in &picture.polygons {
+            if brush != Some(shape.colour) {
+                let created = w.create(
+                    META_CREATEBRUSHINDIRECT,
+                    &[&[0][..], &dword(palette(shape.colour)), &[0]].concat(),
+                );
+                w.select(created);
+                if brush.is_none() {
+                    let pen = w.create(META_CREATEPENINDIRECT, &[PS_NULL, 1, 0, 0, 0]);
+                    w.select(pen);
+                    w.pen = None;
+                }
+                brush = Some(shape.colour);
+            }
+            let mut words = vec![word(shape.points.len() as i32)];
+            words.extend(shape.points.iter().flat_map(|p| [word(p.0), word(p.1)]));
             w.record(META_POLYGON, &words);
         }
     }
-    if !picture.texts.is_empty() {
-        w.record(META_SETTEXTCOLOR, &dword(BLACK));
-    }
     let mut font: Option<(Vec<u16>, u16)> = None;
+    let mut colour = None;
     for text in &picture.texts {
+        if colour != Some(text.colour) {
+            w.record(META_SETTEXTCOLOR, &dword(palette(text.colour)));
+            colour = Some(text.colour);
+        }
         w.record(META_MOVETO, &[word(text.y), word(text.x)]);
         let record = font_record(text);
         if font.as_ref().map(|f| &f.0) != Some(&record) {
@@ -191,7 +201,8 @@ struct Records {
     words: Vec<u16>,
     largest: u32,
     slots: Vec<bool>,
-    pen: Option<i32>,
+    /// the selected pen's width and colour
+    pen: Option<(i32, u32)>,
 }
 
 impl Records {

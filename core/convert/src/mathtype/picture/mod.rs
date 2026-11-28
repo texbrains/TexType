@@ -29,7 +29,7 @@ pub struct Picture {
     pub texts: Vec<Text>,
     pub lines: Vec<Rule>,
     /// filled shapes (a root's thick stroke)
-    pub polygons: Vec<Vec<(i32, i32)>>,
+    pub polygons: Vec<Shape>,
     /// curves (a long division's)
     pub arcs: Vec<Arc>,
 }
@@ -42,6 +42,8 @@ pub struct Arc {
     pub start: (i32, i32),
     pub end: (i32, i32),
     pub width: i32,
+    /// its colour (`Text::colour`)
+    pub colour: u32,
 }
 
 /// A straight line drawn with a pen of a width (fraction bars ...).
@@ -50,6 +52,15 @@ pub struct Rule {
     pub from: (i32, i32),
     pub to: (i32, i32),
     pub width: i32,
+    /// its colour (`Text::colour`)
+    pub colour: u32,
+}
+
+/// A filled shape (a root's thick stroke): its corners and colour (`Text::colour`).
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct Shape {
+    pub points: Vec<(i32, i32)>,
+    pub colour: u32,
 }
 
 /// A run of characters in one font on one baseline: its origin, the font, the bytes drawn and each one's advance.
@@ -66,6 +77,9 @@ pub struct Text {
     pub charset: u8,
     pub bytes: Vec<u8>,
     pub advances: Vec<i32>,
+    /// its colour as GDI's COLORREF (0x00bbggrr, 0 black): an MTEF colour's components (0-1000) times 255/1000,
+    /// rounded down (667 green: 0xaa, 666: 0xa9)
+    pub colour: u32,
 }
 
 /// The equation's picture; an error names what it holds that the engine does not draw yet, or a font that is not

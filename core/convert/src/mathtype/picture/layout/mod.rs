@@ -73,7 +73,7 @@
 //!   under (the template's overbar from its line's top, the others from the ink).
 
 use super::fonts::{Code, Face, Fonts, Measure, PPEM};
-use super::{Arc, Picture, Rule, Text};
+use super::{Arc, Picture, Rule, Shape, Text};
 use crate::mathtype::mtef::{Char, EqnPrefs, Matrix, Mtef, Pile, Record, Size, Template};
 use crate::mathtype::records::*;
 
@@ -87,6 +87,7 @@ mod fractions;
 mod gaps;
 mod glyphs;
 mod grid;
+mod operators;
 mod radical;
 mod scripts;
 mod settings;
@@ -115,6 +116,25 @@ const PLAIN_GAP: i32 = 5;
 fn plain_gap(size: i32) -> i32 {
     size * 8 / 100
 }
+/// The colour of a line, shape or curve until the line it is drawn in gives it the colour in force where its
+/// structure starts (`Layout::line`).
+const UNSET: u32 = u32::MAX;
+
+/// A COLOR_DEF's colour (`Text::colour`): RGB, or CMYK (option 0x01) taken as RGB times the black's remainder.
+fn colour_ref(colour: &crate::mathtype::mtef::ColorDef) -> u32 {
+    let byte = |c: u16| u32::from(c.min(1000)) * 255 / 1000;
+    let c = &colour.components;
+    let (r, g, b) = if colour.options & 0x01 != 0 && c.len() >= 4 {
+        let k = 1000 - u32::from(c[3].min(1000));
+        let part = |v: u16| ((1000 - u32::from(v.min(1000))) * k / 1000) as u16;
+        (byte(part(c[0])), byte(part(c[1])), byte(part(c[2])))
+    } else {
+        let at = |i: usize| byte(c.get(i).copied().unwrap_or(0));
+        (at(0), at(1), at(2))
+    };
+    r | (g << 8) | (b << 16)
+}
+
 /// The frame's margin around the ink.
 const MARGIN: i32 = 2 * POINT;
 /// The room wide accents and arrows over content leave and a slash fraction's gap, in 384ths of an em (no spacing
@@ -132,6 +152,7 @@ pub(super) fn draw(mtef: &Mtef, fonts: &Fonts) -> Result<Picture, String> {
         in_fraction: 0,
         runs: 0,
         colour: 0,
+        colours: Vec::new(),
     };
     let block = layout.line(&mtef.records)?;
     Ok(texts::picture(&block))
@@ -295,6 +316,7 @@ struct Bow {
     start: (i32, i32),
     end: (i32, i32),
     width: i32,
+    colour: u32,
 }
 
 impl Bow {
@@ -343,7 +365,7 @@ struct Block {
     /// boxes that count as ink without drawing anything (spaces): left, right, top, bottom
     boxes: Vec<(i32, i32, i32, i32)>,
     /// filled shapes, y up
-    polygons: Vec<Vec<(i32, i32)>>,
+    polygons: Vec<Shape>,
     /// curves, y up
     bows: Vec<Bow>,
     /// a move left over for the next element (the zero space's)
@@ -380,9 +402,9 @@ impl Block {
             .map(Glyph::ink)
             .chain(self.lines.iter().map(rule_ink))
             .chain(self.bows.iter().map(Bow::ink))
-            .chain(self.polygons.iter().filter_map(|points| {
-                let xs = points.iter().map(|p| p.0);
-                let ys = points.iter().map(|p| p.1);
+            .chain(self.polygons.iter().filter_map(|shape| {
+                let xs = shape.points.iter().map(|p| p.0);
+                let ys = shape.points.iter().map(|p| p.1);
                 Some((xs.clone().min()?, xs.max()?, ys.clone().max()?, ys.min()?))
             }))
             .reduce(|a, b| (a.0.min(b.0), a.1.max(b.1), a.2.max(b.2), a.3.min(b.3)))
@@ -424,12 +446,10 @@ impl Block {
                 .iter()
                 .map(|b| (b.0 + dx, b.1 + dx, b.2 + dy, b.3 + dy)),
         );
-        self.polygons.extend(
-            other
-                .polygons
-                .iter()
-                .map(|points| points.iter().map(|p| (p.0 + dx, p.1 + dy)).collect()),
-        );
+        self.polygons.extend(other.polygons.iter().map(|s| Shape {
+            points: s.points.iter().map(|p| (p.0 + dx, p.1 + dy)).collect(),
+            colour: s.colour,
+        }));
         self.bows.extend(other.bows.iter().map(|b| Bow {
             centre: (b.centre.0 + dx, b.centre.1 + dy),
             start: (b.start.0 + dx, b.start.1 + dy),
@@ -439,7 +459,7 @@ impl Block {
         self.lines.extend(other.lines.iter().map(|l| Rule {
             from: (l.from.0 + dx, l.from.1 + dy),
             to: (l.to.0 + dx, l.to.1 + dy),
-            width: l.width,
+            ..*l
         }));
         self.glyphs.extend(other.glyphs.into_iter().map(|mut g| {
             g.x += dx;
@@ -661,8 +681,11 @@ struct Layout<'a> {
     in_fraction: usize,
     /// text runs handed out (struck-through contents)
     runs: u32,
-    /// the colour the characters being laid out have (a COLOR record's index; 0 the default)
+    /// the colour in force (`Text::colour`): of the characters being laid out, and of a structure's lines and
+    /// shapes where the structure starts
     colour: u32,
+    /// the COLOR_DEF records read so far, as colours: a COLOR record names one by its place, from 1 (0: black)
+    colours: Vec<u32>,
 }
 
 impl<'a> Layout<'a> {
@@ -696,6 +719,12 @@ impl<'a> Layout<'a> {
                     continue;
                 }
             }
+            let (lines, shapes, bows, colour) = (
+                block.lines.len(),
+                block.polygons.len(),
+                block.bows.len(),
+                self.colour,
+            );
             match record {
                 Record::Char(c) => {
                     if let Some(glyph) = self.char(c)? {
@@ -731,6 +760,22 @@ impl<'a> Layout<'a> {
                 Record::Matrix(matrix) => self.matrix(matrix, &mut block)?,
                 other => self.state(other),
             }
+            // what the element drew of its own (a fraction's bar, a root's sign, an overbar) has the colour in force
+            // where it starts; what its slots drew has theirs
+            let unset = |c: &mut u32| {
+                if *c == UNSET {
+                    *c = colour;
+                }
+            };
+            block.lines[lines..]
+                .iter_mut()
+                .for_each(|l| unset(&mut l.colour));
+            block.polygons[shapes..]
+                .iter_mut()
+                .for_each(|s| unset(&mut s.colour));
+            block.bows[bows..]
+                .iter_mut()
+                .for_each(|b| unset(&mut b.colour));
         }
         if let Some(scripts) = prescripts {
             self.prescripts(scripts, Block::default(), &mut block);
@@ -773,7 +818,8 @@ impl<'a> Layout<'a> {
             Record::EqnPrefs(prefs) => self.prefs = Some(prefs),
             Record::TypeSize(kind) => self.size = self.type_size(*kind),
             Record::Size(size) => self.size = self.explicit_size(*size),
-            Record::Color(index) => self.colour = u32::from(index.value),
+            Record::ColorDef(colour) => self.colours.push(colour_ref(colour)),
+            Record::Color(index) => self.colour = self.colour_of(index.value),
             _ => {}
         }
     }
@@ -859,6 +905,15 @@ impl<'a> Layout<'a> {
         let em = em.or_else(|| block.glyphs.iter().map(|g| g.y + g.height * 3 / 4).max());
         let ink = block.ink().map(|i| i.2);
         em.max(ink).unwrap_or(0)
+    }
+
+    /// The colour a COLOR record names: the COLOR_DEF read at that place (from 1), black for 0 or none.
+    fn colour_of(&self, index: u16) -> u32 {
+        usize::from(index)
+            .checked_sub(1)
+            .and_then(|i| self.colours.get(i))
+            .copied()
+            .unwrap_or(0)
     }
 
     /// The font and character style (bold 1, italic 2) a typeface draws with: a built-in style's binding in the

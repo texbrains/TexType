@@ -125,7 +125,7 @@ impl Layout<'_> {
             // a colour among them holds for the embellishments after it and what follows the character
             let Record::Embellishment(e) = record else {
                 if let Record::Color(index) = record {
-                    self.colour = u32::from(index.value);
+                    self.colour = self.colour_of(index.value);
                 }
                 continue;
             };
@@ -220,12 +220,14 @@ impl Layout<'_> {
                         from,
                         to,
                         width: pen,
+                        colour: UNSET,
                     });
                     if bar == Bar::Cross {
                         block.lines.push(Rule {
                             from: (to.0, from.1),
                             to: (from.0, to.1),
                             width: pen,
+                            colour: UNSET,
                         });
                     }
                 }

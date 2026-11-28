@@ -3,7 +3,7 @@
 //! its MT Extra registration was repaired on 2026-11-26): a picture passes when it has the same size and the same
 //! texts in the same fonts and sizes (a stretched glyph's font width within one unit: owner's decision 2026-11-26),
 //! every character within a pixel at 100 % (24 units) of MathType's (a text's characters at its position plus the
-//! advances before them), the same lines, polygons and arcs. Characters grouped into texts otherwise than MathType
+//! advances before them), the same lines, polygons and arcs, everything in MathType's colours. Characters grouped into texts otherwise than MathType
 //! groups them pass when each has its twin (owner's decision 2026-11-27: the grouping is not seen). Pictures MathType
 //! draws wrongly itself are left out
 //! (misdrawn.txt beside the corpus). Needs the fonts MathType's pictures name (Times New Roman, Symbol, MT Extra,
@@ -160,10 +160,12 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
     // polygons: the same points, each within a pixel
     let mut polygons: Vec<&serde_json::Value> =
         items.iter().filter(|i| i["kind"] == "polygon").collect();
-    for ours_points in &ours.polygons {
+    for shape in &ours.polygons {
+        let ours_points = &shape.points;
         let same = |p: &&serde_json::Value| {
             let theirs = p["points"].as_array().unwrap();
-            theirs.len() == ours_points.len()
+            colour(p) == shape.colour
+                && theirs.len() == ours_points.len()
                 && theirs.iter().zip(ours_points).all(|(t, o)| {
                     (t[0].as_i64().unwrap() - i64::from(o.0)).abs() <= PIXEL
                         && (t[1].as_i64().unwrap() - i64::from(o.1)).abs() <= PIXEL
@@ -173,11 +175,18 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
             Some(at) => {
                 polygons.remove(at);
             }
-            None => problems.push(format!("our polygon {ours_points:?} not in theirs")),
+            None => problems.push(format!(
+                "our polygon {ours_points:?}{} not in theirs",
+                shown(shape.colour)
+            )),
         }
     }
     for p in polygons {
-        problems.push(format!("their polygon {} not in ours", p["points"]));
+        problems.push(format!(
+            "their polygon {}{} not in ours",
+            p["points"],
+            shown(colour(p))
+        ));
     }
     // lines: the same pen width, both ends within a pixel
     let mut lines: Vec<&serde_json::Value> = items.iter().filter(|i| i["kind"] == "line").collect();
@@ -196,6 +205,7 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
                 (v("end", 0), v("end", 1)),
             );
             a["width"].as_i64() == Some(i64::from(arc.width))
+                && colour(a) == arc.colour
                 && mine.iter().zip(&theirs).all(|(m, t)| near(*m, *t))
         };
         match arcs.iter().position(same) {
@@ -218,6 +228,7 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
         );
         let same = |l: &&serde_json::Value| {
             l["width"].as_i64() == Some(i64::from(rule.width))
+                && colour(l) == rule.colour
                 && ((near(point(&l["from"]), from) && near(point(&l["to"]), to))
                     || (near(point(&l["from"]), to) && near(point(&l["to"]), from)))
         };
@@ -226,15 +237,19 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
                 lines.remove(at);
             }
             None => problems.push(format!(
-                "our line {from:?}-{to:?} w{} not in theirs",
-                rule.width
+                "our line {from:?}-{to:?} w{}{} not in theirs",
+                rule.width,
+                shown(rule.colour)
             )),
         }
     }
     for l in lines {
         problems.push(format!(
-            "their line {}-{} w{} not in ours",
-            l["from"], l["to"], l["width"]
+            "their line {}-{} w{}{} not in ours",
+            l["from"],
+            l["to"],
+            l["width"],
+            shown(colour(l))
         ));
     }
     let mut texts: Vec<&serde_json::Value> = items.iter().filter(|i| i["kind"] == "text").collect();
@@ -259,6 +274,7 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
                 && same_width(t["width"].as_i64().unwrap_or(0), i64::from(text.width))
                 && t["charset"].as_i64() == Some(i64::from(text.charset))
                 && t["bytes"].as_str() == Some(&bytes)
+                && colour(t) == text.colour
         };
         // among equal texts the nearest
         let distance = |t: &&serde_json::Value| {
@@ -316,8 +332,13 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
     if !regrouped(&unmatched, &texts) {
         for (text, name, bytes) in &unmatched {
             problems.push(format!(
-                "ours {name} h{} w{} cs{} [{bytes}] at {},{} not in theirs",
-                text.height, text.width, text.charset, text.x, text.y
+                "ours {name} h{} w{} cs{} [{bytes}]{} at {},{} not in theirs",
+                text.height,
+                text.width,
+                text.charset,
+                shown(text.colour),
+                text.x,
+                text.y
             ));
         }
     } else {
@@ -325,11 +346,12 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
     }
     for t in texts {
         problems.push(format!(
-            "theirs {} h{} cs{} [{}] at {},{} not in ours",
+            "theirs {} h{} cs{} [{}]{} at {},{} not in ours",
             t["font"],
             t["height"],
             t["charset"],
             t["bytes"].as_str().unwrap(),
+            shown(colour(t)),
             t["x"],
             t["y"]
         ));
@@ -487,7 +509,9 @@ fn read_wmf(data: &[u8]) -> Picture {
         arcs: vec![],
     };
     let mut objects: Vec<Option<(u16, Vec<u8>)>> = vec![];
-    let (mut pen, mut font, mut at) = (0, Vec::new(), (0, 0));
+    let (mut pen, mut font, mut at) = ((0, 0), Vec::new(), (0, 0));
+    let (mut brush, mut text_colour) = (0, 0);
+    let colour_at = |b: &[u8], i: usize| u32::from_le_bytes([b[i], b[i + 1], b[i + 2], 0]);
     let mut p = 22 + 18;
     loop {
         let size = u32::from_le_bytes(data[p..p + 4].try_into().unwrap()) as usize;
@@ -508,17 +532,25 @@ fn read_wmf(data: &[u8]) -> Picture {
                 objects[slot] = Some((function, params.to_vec()));
             }
             0x012D => match &objects[w(0) as usize] {
-                Some((0x02FA, logpen)) => pen = i16::from_le_bytes([logpen[2], logpen[3]]) as i32,
+                Some((0x02FA, logpen)) => {
+                    pen = (
+                        i16::from_le_bytes([logpen[2], logpen[3]]) as i32,
+                        colour_at(logpen, 6),
+                    )
+                }
+                Some((0x02FC, logbrush)) => brush = colour_at(logbrush, 2),
                 Some((0x02FB, logfont)) => font = logfont.clone(),
                 _ => {}
             },
             0x01F0 => objects[w(0) as usize] = None,
+            0x0209 => text_colour = colour_at(params, 0),
             0x0214 => at = (w(1), w(0)),
             0x0213 => {
                 picture.lines.push(picture::Rule {
                     from: at,
                     to: (w(1), w(0)),
-                    width: pen,
+                    width: pen.0,
+                    colour: pen.1,
                 });
                 at = (w(1), w(0));
             }
@@ -526,13 +558,15 @@ fn read_wmf(data: &[u8]) -> Picture {
                 rect: (w(7), w(6), w(5), w(4)),
                 start: (w(3), w(2)),
                 end: (w(1), w(0)),
-                width: pen,
+                width: pen.0,
+                colour: pen.1,
             }),
-            0x0324 => picture.polygons.push(
-                (0..w(0) as usize)
+            0x0324 => picture.polygons.push(picture::Shape {
+                points: (0..w(0) as usize)
                     .map(|i| (w(1 + 2 * i), w(2 + 2 * i)))
                     .collect(),
-            ),
+                colour: brush,
+            }),
             0x0A32 => {
                 let count = w(2) as usize;
                 let bytes = params[8..8 + count].to_vec();
@@ -561,6 +595,7 @@ fn read_wmf(data: &[u8]) -> Picture {
                     charset: font[13],
                     bytes,
                     advances,
+                    colour: text_colour,
                 });
             }
             _ => {}
@@ -572,8 +607,8 @@ fn read_wmf(data: &[u8]) -> Picture {
 
 /// Whether two font widths pass: equal, or both a stretched glyph's (not 0) within one unit (owner's decision
 /// 2026-11-26: the difference is invisible).
-/// One drawn character: font, bold, italic, height, width, character set, byte, x, y.
-struct Glyph(String, bool, bool, i64, i64, i64, u8, i64, i64);
+/// One drawn character: font, bold, italic, height, width, character set, byte, x, y, colour.
+struct Glyph(String, bool, bool, i64, i64, i64, u8, i64, i64, u32);
 
 /// Whether our texts and theirs hold the same characters, each within a pixel of its twin, however grouped.
 fn regrouped(ours: &[(&picture::Text, String, String)], theirs: &[&serde_json::Value]) -> bool {
@@ -593,6 +628,7 @@ fn regrouped(ours: &[(&picture::Text, String, String)], theirs: &[&serde_json::V
                 byte,
                 x,
                 text.y.into(),
+                text.colour,
             ));
             x += i64::from(advance);
         }
@@ -612,6 +648,7 @@ fn regrouped(ours: &[(&picture::Text, String, String)], theirs: &[&serde_json::V
                 u8::from_str_radix(byte, 16).unwrap(),
                 x,
                 t["y"].as_i64().unwrap(),
+                colour(t),
             ));
             x += advance.as_i64().unwrap();
         }
@@ -619,13 +656,31 @@ fn regrouped(ours: &[(&picture::Text, String, String)], theirs: &[&serde_json::V
     mine.len() == others.len()
         && mine.iter().all(|m| {
             let twin = others.iter().position(|o| {
-                (&o.0, o.1, o.2, o.3, o.5, o.6) == (&m.0, m.1, m.2, m.3, m.5, m.6)
+                (&o.0, o.1, o.2, o.3, o.5, o.6, o.9) == (&m.0, m.1, m.2, m.3, m.5, m.6, m.9)
                     && same_width(o.4, m.4)
                     && (o.7 - m.7).abs() <= PIXEL
                     && (o.8 - m.8).abs() <= PIXEL
             });
             twin.map(|at| others.remove(at)).is_some()
         })
+}
+
+/// A corpus item's colour as GDI's COLORREF (`picture::Text::colour`): its "#rrggbb", black without one.
+fn colour(item: &serde_json::Value) -> u32 {
+    item["color"].as_str().map_or(0, |c| {
+        let v = u32::from_str_radix(c.trim_start_matches('#'), 16).unwrap_or(0);
+        ((v >> 16) & 0xFF) | (v & 0xFF00) | ((v & 0xFF) << 16)
+    })
+}
+
+/// A colour for a message: " #rrggbb", nothing for black.
+fn shown(colour: u32) -> String {
+    if colour == 0 {
+        String::new()
+    } else {
+        let (r, g, b) = (colour & 0xFF, (colour >> 8) & 0xFF, colour >> 16);
+        format!(" #{r:02x}{g:02x}{b:02x}")
+    }
 }
 
 fn same_width(theirs: i64, ours: i64) -> bool {
