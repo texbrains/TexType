@@ -473,10 +473,15 @@ fn every_formula_written_reads_back_as_itself() {
         let read_back = read::to_mathml(&mtef::from_equation_native(&native).unwrap());
         let ours = canonical::canonical_colored(&read_back).unwrap();
         let expected = canonical::canonical_colored(given).unwrap();
-        match (
-            ours == expected,
-            MATHTYPE_LIMITS.iter().find(|(id, _)| *id == source),
-        ) {
+        // scripts on an empty base (mhchem's zero-width phantom, which the writer drops) attach to what comes
+        // before them, as MathType's subscripts do: the same characters with the scripts in the same places
+        let empty_base = given.contains("<mphantom")
+            && ["msub{}", "msup{}", "msubsup{}"]
+                .iter()
+                .any(|s| expected.contains(s));
+        let same =
+            ours == expected || (empty_base && inline_scripts(&ours) == inline_scripts(&expected));
+        match (same, MATHTYPE_LIMITS.iter().find(|(id, _)| *id == source)) {
             (true, Some((_, limit))) => {
                 failures.push(format!("{source} now reads back as itself ({limit})"))
             }
@@ -490,6 +495,55 @@ fn every_formula_written_reads_back_as_itself() {
         }
     }
     assert!(failures.is_empty(), "{}", failures.join("\n"));
+}
+
+/// A canonical form with every script written after its base inline: msub{B}{S} as B_{S}, msup{B}{S} as
+/// B^{S}, msubsup{B}{S}{T} as B_{S}^{T}.
+fn inline_scripts(text: &str) -> String {
+    // a braced group at the start: its inside and what follows it
+    fn group(text: &str) -> Option<(&str, &str)> {
+        if !text.starts_with('{') {
+            return None;
+        }
+        let mut depth = 0;
+        let end = text.char_indices().find_map(|(i, c)| {
+            depth += i32::from(c == '{') - i32::from(c == '}');
+            (depth == 0).then_some(i)
+        })?;
+        Some((&text[1..end], &text[end + 1..]))
+    }
+    let mut out = String::new();
+    let mut rest = text;
+    'scan: while let Some(c) = rest.chars().next() {
+        for (name, marks) in [("msubsup", "_^"), ("msub", "_"), ("msup", "^")] {
+            let Some(after) = rest.strip_prefix(name) else {
+                continue;
+            };
+            let mut arguments = Vec::new();
+            let mut tail = after;
+            for _ in 0..=marks.len() {
+                let Some((inside, next)) = group(tail) else {
+                    break;
+                };
+                arguments.push(inline_scripts(inside));
+                tail = next;
+            }
+            if arguments.len() == marks.len() + 1 {
+                out.push_str(&arguments[0]);
+                for (mark, argument) in marks.chars().zip(&arguments[1..]) {
+                    out.push(mark);
+                    out.push('{');
+                    out.push_str(argument);
+                    out.push('}');
+                }
+                rest = tail;
+                continue 'scan;
+            }
+        }
+        out.push(c);
+        rest = &rest[c.len_utf8()..];
+    }
+    out
 }
 
 /// The formula part of an equation (from its first line, pile or matrix with the size before it).

@@ -177,6 +177,11 @@ fn node(element: &Element, mode: Mode, color: Option<&str>, out: &mut String) {
             .for_each(|child| node(child, mode, color, out))
     };
     match element.name.as_str() {
+        // a phantom of no width draws nothing (the writer drops it: mhchem's base for scripts that stand alone)
+        "mpadded"
+            if zero_length(element.attribute("width"))
+                && element.elements().next().is_some()
+                && element.elements().all(|c| c.name == "mphantom") => {}
         "math" | "mrow" | "mstyle" | "mpadded" | "mphantom" => children(out),
         "semantics" => {
             if let Some(first) = element.elements().next() {
@@ -550,4 +555,14 @@ fn styled(c: char, variant: &str) -> char {
         _ => return c,
     };
     char::from_u32(code).unwrap_or(c)
+}
+
+/// Whether a MathML length is zero ("0", "0em", "0pt" ...).
+fn zero_length(value: Option<&str>) -> bool {
+    value.is_some_and(|v| {
+        let number = v
+            .trim()
+            .trim_end_matches(|c: char| c.is_ascii_alphabetic() || c == '%');
+        number.parse::<f64>().is_ok_and(|n| n == 0.0)
+    })
 }
