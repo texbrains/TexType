@@ -89,6 +89,7 @@ mod glyphs;
 mod grid;
 mod radical;
 mod scripts;
+mod settings;
 mod structures;
 mod texts;
 mod wide;
@@ -96,6 +97,7 @@ mod wide;
 use characters::*;
 use edges::Edge;
 use gaps::Gaps;
+use settings::*;
 
 /// Picture units per point.
 const POINT: i32 = 32;
@@ -115,70 +117,6 @@ fn plain_gap(size: i32) -> i32 {
 }
 /// The frame's margin around the ink.
 const MARGIN: i32 = 2 * POINT;
-/// The spacing settings (EQN_PREFS spaces) by index.
-const SUPERSCRIPT_HEIGHT: usize = 3;
-const SUBSCRIPT_DEPTH: usize = 4;
-const SCRIPT_GAP: usize = 5;
-const NUMERATOR_HEIGHT: usize = 9;
-const DENOMINATOR_DEPTH: usize = 10;
-const BAR_OVERHANG: usize = 11;
-const BAR_THICKNESS: usize = 12;
-const INNER_BAR_THICKNESS: usize = 13;
-
-const LIMIT_HEIGHT: usize = 6;
-const EMBELLISHMENT_GAP: usize = 23;
-const OVER_EXTENSION: usize = 15;
-const PRIME_HEIGHT: usize = 24;
-const ENCLOSURE_PADDING: usize = 20;
-const OPERATOR_SPACING: usize = 16;
-const NON_OPERATOR_SPACING: usize = 18;
-const MINIMUM_GAP: usize = 19;
-/// MathType's default spacing settings (unit 2 points, 4 percent of the size), for equations without their own.
-const DEFAULT_SPACING: [(u8, f64); 30] = [
-    (4, 150.0),
-    (4, 150.0),
-    (4, 100.0),
-    (4, 45.0),
-    (4, 25.0),
-    (4, 8.0),
-    (4, 25.0),
-    (4, 100.0),
-    (4, 100.0),
-    (4, 35.0),
-    (4, 100.0),
-    (2, 1.0),
-    (2, 0.5),
-    (2, 0.25),
-    (4, 8.0),
-    (2, 1.0),
-    (4, 100.0),
-    (4, 100.0),
-    (4, 0.0),
-    (4, 8.0),
-    (4, 17.0),
-    (4, 8.0),
-    (4, 100.0),
-    (2, 1.5),
-    (4, 45.0),
-    (4, 5.0),
-    (4, 5.0),
-    (4, 5.0),
-    (4, 5.0),
-    (4, 10.0),
-];
-const BOX_THICKNESS: usize = 25;
-const STRIKE_THICKNESS: usize = 26;
-const LIMIT_DEPTH: usize = 7;
-const MATRIX_LINE_THICKNESS: usize = 27;
-/// The gap between a radical's top corner and the radicand's ink, and the radical's thickness.
-const RADICAL_GAP: usize = 21;
-const RADICAL_THICKNESS: usize = 28;
-const RADICAL_WIDTH: usize = 22;
-/// How far an arrow reaches past its label on each side; it also scales the fence gap.
-const ARROW_ROOM: usize = 17;
-/// The gap between a fence's inner ink edge and its content's ink, as a share of the arrow room (every bracket
-/// kind, stretched glyph or pieces, and the double bar).
-const FENCE_SPACE: usize = 29;
 /// The room wide accents and arrows over content leave and a slash fraction's gap, in 384ths of an em (no spacing
 /// setting moves them; the fence gap's default)
 const FENCE_GAP: i32 = 38;
@@ -624,6 +562,8 @@ impl Block {
                     let greek = matches!(e.typeface, Some(t) if t == i32::from(TYPEFACE_LOWER_GREEK)
                         || t == i32::from(TYPEFACE_UPPER_GREEK));
                     matches!(e.joins, Joins::Differential | Joins::Named | Joins::Slanted)
+                        // (a far-east text character after a letter: probe-pc/cj-x-*)
+                        || e.joins == Joins::FarEast
                         || (greek && e.joins == Joins::Letters)
                         || (greek && e.joins == Joins::None && e.class == Class::Ordinary)
                 };
@@ -643,7 +583,7 @@ impl Block {
                     (0, false)
                         if !matches!(first.class, Class::Close | Class::Open)
                             && (first.class != Class::Placeholder || after_zero_space)
-                            && first.joins != Joins::Next =>
+                            && !matches!(first.joins, Joins::Next | Joins::FarEast) =>
                     {
                         0
                     }
@@ -663,7 +603,11 @@ impl Block {
                             && matches!(e.class, Class::Open | Class::Close))
                         || e.class == Class::Placeholder
                 };
-                let gap_size = if text(&prev) || text(&first) {
+                // (and between a letter and a digit: a_{m1}, a_{1n}, x_{n2} at 7 pt, probe-pc/sd-*)
+                let digit = |e: &Edge| e.typeface == Some(i32::from(TYPEFACE_NUMBER));
+                let letter_digit = (digit(&prev) && first.joins == Joins::Letters)
+                    || (prev.joins == Joins::Letters && digit(&first));
+                let gap_size = if text(&prev) || text(&first) || letter_digit {
                     full
                 } else {
                     first.size
@@ -883,11 +827,13 @@ impl<'a> Layout<'a> {
             .unwrap_or(size * 3 / 4)
     }
 
-    /// How far a slot's line reaches down: its ink, at least its glyphs' em descent below their baselines.
-    fn slot_bottom(&self, block: &Block) -> i32 {
+    /// How far a matrix's or pile's line reaches down: its ink, at least the em descent of its glyphs at the grid's
+    /// size below their baselines (a subscript's em box does not deepen a row: probe-pc/mx-sub*).
+    fn row_bottom(&self, block: &Block, size: i32) -> i32 {
         let em = block
             .glyphs
             .iter()
+            .filter(|g| g.height == size)
             .filter_map(|g| {
                 g.em_ascent(self.fonts, g.height)
                     .map(|e| g.y - (g.height - e))
@@ -913,66 +859,6 @@ impl<'a> Layout<'a> {
         let em = em.or_else(|| block.glyphs.iter().map(|g| g.y + g.height * 3 / 4).max());
         let ink = block.ink().map(|i| i.2);
         em.max(ink).unwrap_or(0)
-    }
-
-    /// A spacing setting in picture units at a size: a percentage of the size, or points; rounded down.
-    fn spacing(&self, index: usize, size: i32) -> i32 {
-        self.spacing_exact(index, size) as i32
-    }
-
-    /// A spacing setting in picture units at a size, unrounded (MathType's defaults where the equation has none).
-    fn spacing_exact(&self, index: usize, size: i32) -> f64 {
-        let dims = self.prefs.map(|p| dims(&p.spaces)).unwrap_or_default();
-        let value = dims
-            .get(index)
-            .copied()
-            .or_else(|| DEFAULT_SPACING.get(index).copied());
-        match value {
-            Some((2, points)) => points * f64::from(POINT),
-            Some((4, percent)) => f64::from(size) * percent / 100.0,
-            _ => 0.0,
-        }
-    }
-
-    /// The minimum gap (setting 19) at a size: its share of the em rounded up to a whole 3/8 point, at least that
-    /// much (MathType's room after scripts and before a prime: steps of 12 units at every size).
-    fn minimum_gap(&self, size: i32) -> i32 {
-        let step = 3 * POINT / 8;
-        let steps = (self.spacing_exact(MINIMUM_GAP, size) / f64::from(step)).ceil();
-        step * (steps as i32).max(1)
-    }
-
-    /// The size a TypeSize record names: from the equation's size settings (in points, or a percentage of the full
-    /// size), MathType's defaults without them.
-    fn type_size(&self, kind: u8) -> i32 {
-        let index = usize::from(kind - RECORD_FULL);
-        let defaults = [12.0, 7.0, 5.0, 18.0, 12.0];
-        let dims = self.prefs.map(|p| dims(&p.sizes)).unwrap_or_default();
-        let full = match dims.first() {
-            Some((2, points)) => points * f64::from(POINT),
-            _ => defaults[0] * f64::from(POINT),
-        };
-        let value = match dims.get(index) {
-            Some((2, points)) => points * f64::from(POINT),
-            // a percentage rounded down (58 % of 12 pt: 222 units)
-            Some((4, percent)) => (full * percent / 100.0).floor(),
-            _ => defaults[index] * f64::from(POINT),
-        };
-        value.round() as i32
-    }
-
-    /// A SIZE record: a size in 32nds of a point (form 101), or a type size and a delta in picture units (form 100
-    /// a signed 16-bit delta, otherwise a byte offset by 128), as MathType's pictures show.
-    fn explicit_size(&self, size: Size) -> i32 {
-        match size {
-            Size::Explicit { points } => i32::from(points),
-            Size::Points { lsize, points } => {
-                self.type_size(RECORD_FULL + lsize) + i32::from(points as i16)
-            }
-            Size::Relative { lsize, dsize } => {
-                self.type_size(RECORD_FULL + lsize) + i32::from(dsize) - 128
-            }
-        }
     }
 
     /// The font and character style (bold 1, italic 2) a typeface draws with: a built-in style's binding in the

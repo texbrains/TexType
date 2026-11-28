@@ -193,6 +193,9 @@ pub(super) enum Joins {
     /// a slanted symbol of a font named outright (Euclid's lunate epsilon, italic): a letter after it by the inks and
     /// the plain gap (probe-pc/eu-eps-*)
     Slanted,
+    /// a far-east text character (CJK, full-width forms): a letter or another one after it at its advance, a digit
+    /// or punctuation by the inks (probe-pc/cj-*)
+    FarEast,
     /// an empty line object: no class space beside it (a function name's letter before it keeps none: MathType's own
     /// chemistry, upright H, an empty line, the subscript 3; edited/mathtype7~oleObject30~before)
     Empty,
@@ -201,7 +204,12 @@ pub(super) enum Joins {
 /// A character's `Joins` from its typeface, the character and its class.
 pub(super) fn joins(typeface: i32, c: Option<char>, class: Class) -> Joins {
     if typeface == i32::from(TYPEFACE_FAR_EAST_TEXT) {
-        return Joins::Next;
+        // CJK and full-width forms; the few symbols MathType keeps in the style (\mid) stay `Next`
+        return if c.is_some_and(|c| c >= '\u{2E80}') {
+            Joins::FarEast
+        } else {
+            Joins::Next
+        };
     }
     // an ordinary character of the symbol style or of a font named outright (∞ ∅, Euclid's ℝ ℒ) is
     // followed by a letter as ∂ is (probe-pc/fl-infty-x, fl-empty-x, fl-reals-x, fl-script-l-x)
@@ -224,7 +232,8 @@ pub(super) fn joins(typeface: i32, c: Option<char>, class: Class) -> Joins {
 /// classes' space), both at one size:
 /// - never into a function name whose classes ask for space before it (`kJ/mol`: space before `mol`);
 /// - characters of one typeface, but not two operators of which one is a binary or unary sign (`−−`, `= −`, `∼ +`
-///   keep their space, while `≠≠`, `min{` and `J/` in `kJ/mol` follow by advance);
+///   keep their space, while `≠≠`, `min{` and `J/` in `kJ/mol` follow by advance), nor a relation of the symbol
+///   style and a character of another class (`= ∞`);
 /// - a prime and any neighbour the classes ask no space from, and so what follows a far-east text character or a
 ///   space character (`=` after Chinese text keeps its space); a unary sign and the number after it (−1; −x
 ///   keeps the plain gap);
@@ -243,6 +252,11 @@ pub(super) fn by_advance(prev: &Edge, next: &Edge) -> bool {
         return false;
     }
     let one_font = prev.font.is_some() && prev.font == next.font;
+    // a far-east text character is followed at its advance by a letter or another one; a digit or punctuation after
+    // it keeps the inks' spacing (full-width 0 then a comma or 1: probe-pc/cj-*, writer/omml-0151)
+    let next_joins = prev.joins == Joins::Next
+        || (prev.joins == Joins::FarEast
+            && matches!(next.joins, Joins::Letters | Joins::Next | Joins::FarEast));
     // in the symbol style a binary or unary sign keeps its space beside any character (∞ +, ∅ +:
     // probe-pc/fl-*-plus), elsewhere beside another operator only (kJ/mol)
     let sign = |c: Class| matches!(c, Class::Binary | Class::Unary);
@@ -254,9 +268,16 @@ pub(super) fn by_advance(prev: &Edge, next: &Edge) -> bool {
                 .all(|&c| sign(c) || c == Class::Relation));
     // ellipses keep their class space by ink even in one typeface (⋮⋱, ⋯⋯, ……: probe-pc/fo-*-dots)
     let ellipses = [prev, next].iter().any(|e| e.class == Class::Inner);
-    (prev.typeface == next.typeface && !operators && !ellipses)
+    // in the symbol style a relation keeps its space beside a character of another class (x = ∞, ∂ →, ≤ ∂:
+    // probe-pc/sr-*, genuine/equation3), two relations follow by advance (≠≠)
+    let relation = symbol
+        && next.typeface == prev.typeface
+        && (prev.class == Class::Relation) != (next.class == Class::Relation);
+    (prev.typeface == next.typeface && !operators && !ellipses && !relation)
         || (prev.class == Class::Unary && next.typeface == Some(i32::from(TYPEFACE_NUMBER)))
-        || ((prev.joins == Joins::Any || next.joins == Joins::Any || prev.joins == Joins::Next)
+        || ((prev.joins == Joins::Any
+            || next.joins == Joins::Any
+            || next_joins)
             && Class::between(prev.class, next.class) == 0)
         || (one_font && (prev.joins == Joins::All || next.joins == Joins::All))
         || (one_font && prev.joins == Joins::Letters && next.joins == Joins::Letters)
@@ -366,29 +387,4 @@ pub(super) fn code_page_byte(ch: char) -> Option<(u8, u8)> {
         }
     }
     None
-}
-
-/// An EQN_PREFS dimension array: per dimension its unit (0 in, 1 cm, 2 pt, 3 pc, 4 %) and value.
-pub(super) fn dims(bytes: &[u8]) -> Vec<(u8, f64)> {
-    let Some((&count, rest)) = bytes.split_first() else {
-        return Vec::new();
-    };
-    let nibbles: Vec<u8> = rest.iter().flat_map(|b| [b >> 4, b & 0x0F]).collect();
-    let (mut out, mut at) = (Vec::new(), 0);
-    while out.len() < usize::from(count) && at < nibbles.len() {
-        let unit = nibbles[at];
-        at += 1;
-        let mut text = String::new();
-        while at < nibbles.len() && nibbles[at] != 0x0F {
-            text.push(match nibbles[at] {
-                0x0A => '.',
-                0x0B => '-',
-                d => char::from(b'0' + d),
-            });
-            at += 1;
-        }
-        at += 1;
-        out.push((unit, text.parse().unwrap_or(0.0)));
-    }
-    out
 }

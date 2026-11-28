@@ -71,9 +71,17 @@ impl<'a> Layout<'a> {
         let cells = self.cells(&pile.content, 0)?;
         self.size = size;
         let pitch = self.spacing(0, size);
+        // the room its first line keeps above its ink (an upper limit's em top) as a line alone keeps it
+        // (genuine/integrals; probe-pc/pl-*: a sum, an integral with limits, a fraction, a superscript)
+        let above = cells.first().and_then(|c| {
+            let top = c.reserved.max(c.place)?;
+            Some(top - c.drawn()?.2)
+        });
         let mut block = self.grid(cells, 1, pitch, None, align, &Partitions::NONE);
-        // a pile reaches as far as its ink (a matrix keeps its rows' em boxes)
-        block.reserved = None;
+        // otherwise a pile reaches as far as its ink (a matrix keeps its rows' em boxes)
+        block.reserved = above
+            .filter(|&a| a > 0)
+            .and_then(|a| Some(block.drawn()?.2 + a));
         block.reserved_bottom = None;
         line.append(block, self.gaps());
         Ok(())
@@ -137,7 +145,16 @@ impl<'a> Layout<'a> {
                     size,
                 )
                 .unwrap_or(size * 3 / 4);
-        let ink = |b: &Block| b.ink().unwrap_or((0, 0, 0, 0));
+        // a cell's ink; one ending in scripts reaches the room after them (the minimum gap: a column of a₁₁ a₂₁
+        // is that much wider, probe-pc/mx-sub*)
+        let ink = |b: &Block| {
+            let i = b.ink().unwrap_or((0, 0, 0, 0));
+            let right = b
+                .last
+                .filter(|e| e.joins == Joins::Scripts)
+                .map_or(i.1, |e| e.ink.max(i.1));
+            (i.0, right, i.2, i.3)
+        };
         let widths: Vec<i32> = (0..columns)
             .map(|c| {
                 (0..rows)
@@ -152,7 +169,14 @@ impl<'a> Layout<'a> {
         let heights: Vec<i32> = (0..rows)
             .map(|r| {
                 (0..columns)
-                    .map(|c| self.slot_top(&cells[r * columns + c]))
+                    .map(|c| {
+                        // its fonts' em top no higher than the em ascent the rows' depth takes (Cambria's
+                        // typographic ascender does not raise a row: probe-pc/mx-*-cambria), its ink as high as
+                        // it reaches
+                        let cell = &cells[r * columns + c];
+                        let ink_top = cell.ink().map_or(i32::MIN, |i| i.2);
+                        self.slot_top(cell).min(size - descent).max(ink_top)
+                    })
                     .max()
                     .unwrap_or(0)
             })
@@ -160,7 +184,7 @@ impl<'a> Layout<'a> {
         let depths: Vec<i32> = (0..rows)
             .map(|r| {
                 (0..columns)
-                    .map(|c| -self.slot_bottom(&cells[r * columns + c]))
+                    .map(|c| -self.row_bottom(&cells[r * columns + c], size))
                     .max()
                     .unwrap_or(0)
                     .max(descent)
@@ -294,6 +318,8 @@ impl<'a> Layout<'a> {
         block.reserved_bottom = Some(bottom + shift);
         block.first_row = Some(shift);
         let (left, right) = block.ink().map_or((0, 0), |i| (i.0, i.1));
+        // as far as its last column reaches (the room after scripts)
+        let right = column_boxes.last().map_or(right, |b| b.1.max(right));
         let edge = |ink| Edge::structure(ink, right, Class::Ordinary, size);
         block.first = Some(edge(left));
         block.last = Some(edge(right));

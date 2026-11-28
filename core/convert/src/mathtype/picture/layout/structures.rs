@@ -120,7 +120,12 @@ impl<'a> Layout<'a> {
             part(self.fence_part(4, true, half, axis, size)?, Class::Inner),
             gaps,
         );
-        if let Some(content) = ket {
+        if let Some(mut content) = ket {
+            // the bar keeps its space before the slot as a whole: a space the slot starts with (MathType 7's
+            // \middle| stores a thin one) comes after it (probe-pc/dk-*: 12/64 em more with any space's width)
+            if let Some(first) = content.first.as_mut().filter(|f| f.class == Class::Space) {
+                first.class = Class::Ordinary;
+            }
             block.append(content, gaps);
             block.append(
                 part(self.fence_part(0, false, half, axis, size)?, Class::Close),
@@ -648,17 +653,32 @@ impl<'a> Layout<'a> {
         let sign_slot = slots.next().flatten();
         let composite = sign_slot.is_none() && chars.len() > 1;
         let mut sign = sign_slot.unwrap_or_else(|| composite_sign(chars));
-        // a composite sign's operand 2/64 em further (fitted: exact at 10 and 12 pt for two and three integrals,
-        // edited/mathtype7~oleObject7~after, probe-pc/op-*; at 24 pt MathType adds 10 units, op-*-size-24)
+        // a composite sign's operand 2/64 em further in the other templates (the old integral template's operand gap
+        // is its own, below)
         let composite_room = if composite {
             Measure::scaled(2, size)
         } else {
             0
         };
         let mut centred = Block::default();
-        // the old templates (15-20) take the sign by its drawn ink, centred on the math axis or on their operand's
-        // ink where that is taller; the others by MathType's box for it, on the axis
+        // the old templates (15-20) take the sign by its drawn ink, the others by MathType's box for it; both centred
+        // on the math axis, however tall the operand (genuine/integrals: integrals around integrals with limits)
         let old = (15..=20).contains(&template.selector);
+        // MathType's placeholder as the sign: from its ink bottom up to a text font's em ascent, as it keeps a text
+        // font's em box beside other characters (probe-pc/pb-sum-*, pb-int-scripts; edited/layout-wide-0345~after)
+        for g in &mut sign.glyphs {
+            if is_placeholder(g) {
+                let (l, r, _, b) = g.ink();
+                let text = Face {
+                    name: "Times New Roman".into(),
+                    bold: false,
+                    italic: false,
+                };
+                if let Some(top) = self.fonts.em_ascent(&text, g.height) {
+                    g.assumed = Some((l - g.x, r - g.x, top, b - g.y));
+                }
+            }
+        }
         if !old {
             for g in &mut sign.glyphs {
                 g.assumed = g.assumed.or(mathtype_box(
@@ -670,16 +690,7 @@ impl<'a> Layout<'a> {
                 ));
             }
         }
-        let centre = operand
-            .as_ref()
-            .filter(|_| old)
-            .and_then(Block::drawn)
-            .filter(|&(_, _, top, bottom)| {
-                sign.ink().is_some_and(|(_, _, t, b)| top - bottom > t - b)
-            })
-            .map_or(axis(size), |(_, _, top, bottom)| {
-                (top + bottom).div_euclid(2)
-            });
+        let centre = axis(size);
         // centred by ink; a sign its font lacks (drawn from a linked font: SimSun's ∬) by the em box of the font
         // the picture names (MathType finds no glyph there), its scripts still at the drawn glyph's ink
         let linked_box = sign.glyphs.iter().find(|g| g.measure.linked).and_then(|g| {
@@ -718,7 +729,7 @@ impl<'a> Layout<'a> {
             }
             block
         } else {
-            self.sign_scripts(centred, lower, upper, size)
+            self.sign_scripts(centred, lower, upper, size, template.selector == 15)
         };
         // what follows joins the operator
         for edge in [&mut block.first, &mut block.last].into_iter().flatten() {
@@ -729,8 +740,16 @@ impl<'a> Layout<'a> {
         // an operand in the template's slot (MathType's own equations) the gap of 5/64 em and the operand space
         // (setting 19) after the operator; one written after the template joins it
         if let Some(operand) = operand.filter(|o| !o.glyphs.is_empty()) {
-            // (the minimum gap's setting, unrounded here: rounding it breaks MathType's own equations)
-            let width = plain_gap(size) + self.spacing(MINIMUM_GAP, size) + composite_room;
+            // the old integral template's: 10/64 em at setting 17 (100 %) and 3/8 pt, in whole 3/8 pt (genuine and
+            // probe-pc/op-* at 10, 12, 18 and 24 pt; setting 17 doubled adds 10/64 em, probe-pc/gi-vary-17); the
+            // others' the minimum gap's setting unrounded (rounding it breaks MathType's own equations)
+            let width = if template.selector == 15 {
+                let step = 3 * POINT / 8;
+                let room = self.spacing_exact(ARROW_ROOM, size) * 10.0 / 64.0;
+                step * (1 + (room / f64::from(step)).floor() as i32)
+            } else {
+                plain_gap(size) + self.spacing(MINIMUM_GAP, size) + composite_room
+            };
             let edge = |ink| Edge::structure(ink, width, Class::Space, size);
             line.append(
                 Block {
@@ -742,9 +761,14 @@ impl<'a> Layout<'a> {
             );
             line.append(operand, gaps);
             // what follows spaces against the operand's ink as after an enclosure: a letter with no plain gap, a
-            // digit or a sign with it (edited/mathtype7~oleObject7~after; probe-pc/op-*)
+            // digit or a sign with it (edited/mathtype7~oleObject7~after; probe-pc/op-*); a binary sign or a relation
+            // that ends the operand asks no space after it (genuine/integrals: ∫a+ then ∬b, 9/64 em closer;
+            // probe-pc/tb-*: − × =, a ringed sign)
             if let Some(edge) = &mut line.last {
-                let class = edge.class;
+                let class = match edge.class {
+                    Class::Binary | Class::Relation => Class::Unary,
+                    class => class,
+                };
                 *edge = Edge {
                     class,
                     ..Edge::enclosure(edge.ink, edge.size)
@@ -763,6 +787,7 @@ impl<'a> Layout<'a> {
         lower: Option<Block>,
         upper: Option<Block>,
         size: i32,
+        old_integral: bool,
     ) -> Block {
         let (_, right, top, bottom) = sign.ink().unwrap_or((0, 0, 0, 0));
         // the scripts follow a composite sign's core, not MT Extra's ring around it
@@ -799,6 +824,20 @@ impl<'a> Layout<'a> {
         } else {
             self.spacing(SCRIPT_GAP, sign_size)
         };
+        // the old integral template's lower script: its ink at its last integral's advance, no script gap; with MT
+        // Extra's ring, at the ring's ink less a 64 ppem pixel (genuine/integrals: ∫ ∬ ∭ and five rings; the
+        // other old templates keep the gap, probe/bigop-cup-*)
+        let ring_right = sign
+            .glyphs
+            .iter()
+            .filter(|g| g.face.name == "MT Extra")
+            .map(|g| g.ink().1)
+            .max();
+        let lower_at = old_integral.then(|| {
+            ring_right.map_or(advance_end.unwrap_or(right), |r| {
+                r - Measure::scaled(1, sign_size)
+            })
+        });
         let mut block = Block::default();
         block.take(sign, 0, 0);
         for (script, superscript) in [(lower, false), (upper, true)] {
@@ -807,6 +846,10 @@ impl<'a> Layout<'a> {
             if superscript {
                 block.reserved = Some(dy + self.slot_top(&script));
             }
+            let (right, gap) = match lower_at {
+                Some(at) if !superscript => (at, 0),
+                _ => (right, gap),
+            };
             let dx = right + gap - script.ink().map_or(0, |i| i.0);
             block.take(script, dx, dy);
         }
@@ -902,7 +945,8 @@ impl<'a> Layout<'a> {
 }
 
 /// A big operator's sign from its characters: one alone as it is; several (a composite sign) one advance after
-/// another, MT Extra's (a ring) centred on the others by ink.
+/// another, MT Extra's (a ring) by its advance centred on the others' ink (genuine/integrals: the rings of ∮ ∯
+/// ∰ and the arrowed ones, whose ink lies off their advance's middle).
 fn composite_sign(chars: Vec<Block>) -> Block {
     let (rings, others): (Vec<Block>, Vec<Block>) = chars
         .into_iter()
@@ -926,8 +970,8 @@ fn composite_sign(chars: Vec<Block>) -> Block {
     }
     let (left, right) = row.ink().map_or((0, 0), |i| (i.0, i.1));
     for ring in rings {
-        let (l, r) = ring.ink().map_or((0, 0), |i| (i.0, i.1));
-        row.take(ring, (left + right - l - r) / 2, 0);
+        let advance = ring.last.map_or(0, |l| l.end);
+        row.take(ring, (left + right - advance) / 2, 0);
     }
     finish_row(row)
 }

@@ -284,12 +284,19 @@ impl Layout<'_> {
 
 /// Where accents centre over a glyph: the middle of its advance; over an italic glyph the middle of its ink moved
 /// right by an eighth of its ink's height at Times New Roman italic's angle, in proportion to the font's italic
-/// angle otherwise (fitted to MathType's dots over x, y and A).
+/// angle otherwise (fitted to MathType's dots over x, y and A; holds for j f g y p ı: probe-pc/ac-*); over a
+/// synthetic italic the middle of its ink moved right by its height at 20°.
 fn accent_centre(glyph: &Glyph, fonts: &Fonts) -> i32 {
     if !glyph.face.italic {
         return advance_middle(glyph);
     }
     let (left, right, top, _) = glyph.ink();
+    // Windows' slanted upright face (Euclid Math One's ȷ ϱ ϵ ϰ): the ink's height over the baseline at 20°
+    // further (probe-pc/ac-* at 12, 18 and 24 pt; writer/layout-wide-0417)
+    if fonts.synthetic_italic(&glyph.face) {
+        let rise = f64::from(top - glyph.y) * 20f64.to_radians().tan();
+        return (left + right) / 2 + rise.round() as i32;
+    }
     let slant = fonts.slant(&glyph.face) / 16.333f64.to_radians().tan();
     (left + right) / 2 + (f64::from(top - glyph.y) * slant / 8.0).round() as i32
 }
