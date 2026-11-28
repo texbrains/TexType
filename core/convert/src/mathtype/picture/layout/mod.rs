@@ -622,7 +622,7 @@ impl Block {
                 let symbolic = |e: &Edge| {
                     let greek = matches!(e.typeface, Some(t) if t == i32::from(TYPEFACE_LOWER_GREEK)
                         || t == i32::from(TYPEFACE_UPPER_GREEK));
-                    e.joins == Joins::Differential
+                    matches!(e.joins, Joins::Differential | Joins::Named | Joins::Slanted)
                         || (greek && e.joins == Joins::Letters)
                         || (greek && e.joins == Joins::None && e.class == Class::Ordinary)
                 };

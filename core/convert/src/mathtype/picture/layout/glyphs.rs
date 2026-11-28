@@ -45,11 +45,15 @@ impl Layout<'_> {
         let advance = Measure::scaled(glyph.measure.advance, size);
         let (left, right, _, _) = glyph.ink();
         let font_number = self.font_defs.iter().position(|f| std::ptr::eq(f, font));
-        let joins = joins(
+        let joins = match joins(
             typeface,
             c.mt_code.and_then(|m| char::from_u32(u32::from(m))),
             class,
-        );
+        ) {
+            Joins::Differential if typeface < 0 && face.italic => Joins::Slanted,
+            Joins::Differential if typeface < 0 => Joins::Named,
+            other => other,
+        };
         let edge = |ink| Edge {
             ink,
             end: advance,

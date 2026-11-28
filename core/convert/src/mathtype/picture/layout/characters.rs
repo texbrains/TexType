@@ -187,6 +187,12 @@ pub(super) enum Joins {
     /// a character of the text style that is no letter nor operator sign: a letter of its font after it at its
     /// advance (#x, 1x, (x; not after + - * / \ ^ &: probe-pc/fo-text-*, fo2-*)
     Text,
+    /// an upright symbol of a font named outright (Euclid's script F): a letter after it at its advance, however far
+    /// its ink reaches (probe-pc/eu-calf-*)
+    Named,
+    /// a slanted symbol of a font named outright (Euclid's lunate epsilon, italic): a letter after it by the inks and
+    /// the plain gap (probe-pc/eu-eps-*)
+    Slanted,
     /// an empty line object: no class space beside it (a function name's letter before it keeps none: MathType's own
     /// chemistry, upright H, an empty line, the subscript 3; edited/mathtype7~oleObject30~before)
     Empty,
@@ -256,6 +262,18 @@ pub(super) fn by_advance(prev: &Edge, next: &Edge) -> bool {
         || (one_font && prev.joins == Joins::Letters && next.joins == Joins::Letters)
         || (one_font && prev.joins == Joins::Text && next.joins == Joins::Letters)
         || (prev.joins == Joins::Differential && next.joins == Joins::Letters)
+        // symbols of one font whatever their styles (Greek-style infinity then the symbol style's partial sign:
+        // probe-pc/sy-*, writer/layout-wide-0463)
+        || (prev.joins == Joins::Named && next.joins == Joins::Letters)
+        || (one_font && symbolic(prev) && symbolic(next))
+}
+
+/// A symbol (no letter, no operator) of the symbol style, of a font named outright or of a Greek style.
+fn symbolic(e: &Edge) -> bool {
+    let greek = matches!(e.typeface, Some(t) if t == i32::from(TYPEFACE_LOWER_GREEK)
+        || t == i32::from(TYPEFACE_UPPER_GREEK));
+    matches!(e.joins, Joins::Differential | Joins::Named | Joins::Slanted)
+        || (greek && e.joins == Joins::None && e.class == Class::Ordinary)
 }
 
 /// A FONT_DEF's name: ASCII as it is, SimSun's GBK name as "SimSun".
