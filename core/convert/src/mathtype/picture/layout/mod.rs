@@ -537,6 +537,7 @@ impl Block {
         }
         // what a zero space after a character left: a move back (after a structure it does nothing)
         let shift = std::mem::take(&mut self.shift);
+        let after_zero_space = shift != 0;
         let shift = if self.last.is_some_and(|l| l.typeface.is_some()) {
             shift
         } else {
@@ -637,8 +638,11 @@ impl Block {
                     {
                         3
                     }
+                    // (nor before MathType's placeholder unless a zero space comes between: probe-pc/ph3-sub-4-q,
+                    // edited/mhchem-0620~after)
                     (0, false)
                         if !matches!(first.class, Class::Close | Class::Open)
+                            && (first.class != Class::Placeholder || after_zero_space)
                             && first.joins != Joins::Next =>
                     {
                         0
@@ -652,10 +656,12 @@ impl Block {
                 };
                 // the gap beside a text-style character or a bracket of the function style keeps the full size's
                 // (M(I), ν(I) in scripts: 30 units at 7 pt as at 12 pt; a comma there scales: C_{i,j})
+                // (and beside MathType's placeholder: probe-pc/ph3-sub-q4, ph3-sub-qx)
                 let text = |e: &Edge| {
                     e.typeface == Some(i32::from(TYPEFACE_TEXT))
                         || (e.typeface == Some(i32::from(TYPEFACE_FUNCTION))
                             && matches!(e.class, Class::Open | Class::Close))
+                        || e.class == Class::Placeholder
                 };
                 let gap_size = if text(&prev) || text(&first) {
                     full
