@@ -14,5 +14,12 @@ reference, and equations MathType saved are the reader's. The C# MathType codec 
   - `mathtype69/...`, `mathtype7/...`: equations opened in Word by MathType 6.9b and 7.9.1, changed and changed back,
     and saved by MathType with its own data;
   - `codec/...`: the C# codec's own output (comparison only).
+- `pictures.jsonl`: `{source, mtef, picture}`, **the picture engine's reference**
+  (`core/convert/tests/mathtype_picture.rs`): MathType 6.9b's own picture of each equation, read from its WMF as the
+  frame, the units per inch and the drawn items. `writer/...` and `edited/...` are formulas of the corpora above,
+  `genuine/...` MathType's saved equations, `probe/...` and `probe-pc/...` equations that vary one thing at a time.
+  Drawn from 2026-11-25 to 2026-11-27 by a clean MathType 6.9b install in Windows Sandbox (`probe-pc/...` by the test
+  PC's install, which draws the same). `misdrawn.txt` lists the pictures MathType draws wrongly itself; the test
+  leaves them out.
 
 Made with a test kit outside the repository on 2026-11-25 (MathType 6.9b and 7.9.1 on Windows, Word 16).

@@ -38,6 +38,8 @@ pub const TYPEFACE_NUMBER: u8 = 8;
 pub const TYPEFACE_MT_EXTRA: u8 = 11;
 /// Far-east text; MathType also stores a few symbols (\ni, \bigcirc) here, told apart by MTCode.
 pub const TYPEFACE_FAR_EAST_TEXT: u8 = 12;
+/// MathType's fence style: brackets a fence template stretches, and braces over or under a limit's content
+pub const TYPEFACE_FENCE: u8 = 22;
 pub const TYPEFACE_MARKER: u8 = 23;
 pub const TYPEFACE_SPACE: u8 = 24;
 
@@ -105,6 +107,8 @@ pub const EMBELL_UP_BAR: u8 = 22;
 pub const EMBELL_DOWN_BAR: u8 = 23;
 pub const EMBELL_QUADRUPLE_DOT: u8 = 24;
 pub const EMBELL_UNDER_DOT: u8 = 25;
+pub const EMBELL_UNDER_DOUBLE_DOT: u8 = 26;
+pub const EMBELL_UNDER_TRIPLE_DOT: u8 = 27;
 pub const EMBELL_UNDER_QUADRUPLE_DOT: u8 = 28;
 pub const EMBELL_UNDERBAR: u8 = 29;
 pub const EMBELL_UNDER_TILDE: u8 = 30;

@@ -1,0 +1,16 @@
+# Corpus pictures MathType 6.9 draws wrongly itself; the picture test leaves them out (one source per line, then
+# the reason after "#").
+writer/omml-0123 # frame of negative size (-31200 x 24352), every item at negative coordinates
+writer/omml-0124 # the same equation: negative frame
+probe/limit-wide-then-arc-2322 # wide accent given a limit slot: the accent drawn at script size at the far left, 1300 units below the content's top
+probe/limit-wide-then-both-20e1 # as above (arrow over)
+probe/limit-wide-then-harpoon-20d1 # as above (harpoon over)
+probe/limit-wide-then-hat-0302 # as above (wide hat)
+probe/limit-wide-then-left-20d6 # as above (arrow over)
+probe/limit-wide-then-right-20d7 # as above (arrow over)
+probe/limit-wide-then-tilde-0303 # as above (wide tilde)
+probe/limit-wide-then-under-20d7 # as above (arrow under)
+writer/omml-0165 # frame of 13440 x 8992 with items at -25500 (bar lines, texts): MathType places part of the equation far left
+writer/omml-0166 # the same equation
+writer/omml-0169 # frame of negative width (-32224), the box and its content shifted
+writer/omml-0170 # the same equation
