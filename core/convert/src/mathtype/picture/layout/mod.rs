@@ -604,7 +604,11 @@ impl Block {
             Some(prev) => {
                 // after a zero space no class space, and its move back; below the full size any class space is
                 // 2/64 em
-                let between = Class::between(prev.class, first.class);
+                let between = if prev.joins == Joins::Empty || first.joins == Joins::Empty {
+                    0
+                } else {
+                    Class::between(prev.class, first.class)
+                };
                 let classes = if shift != 0 {
                     0
                 } else if prev.size < full || first.size < full {

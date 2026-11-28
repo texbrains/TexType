@@ -187,6 +187,9 @@ pub(super) enum Joins {
     /// a character of the text style that is no letter nor operator sign: a letter of its font after it at its
     /// advance (#x, 1x, (x; not after + - * / \ ^ &: probe-pc/fo-text-*, fo2-*)
     Text,
+    /// an empty line object: no class space beside it (a function name's letter before it keeps none: MathType's own
+    /// chemistry, upright H, an empty line, the subscript 3; edited/mathtype7~oleObject30~before)
+    Empty,
 }
 
 /// A character's `Joins` from its typeface, the character and its class.

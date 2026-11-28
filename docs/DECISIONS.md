@@ -34,6 +34,7 @@ relied on. A proposal becomes a decision only when the owner says yes; it then k
 | 2026-11-25 | TexType draws a MathType equation's picture itself, as MathType does: glyph measures from the font files, layout from the MTEF and its preferences, a placeable WMF. MathType 6.9's own pictures are the reference, drawn by a clean install in Windows Sandbox (the test PC's MathType cannot measure its MT Extra and Euclid fonts; owner's choice, 2026-11-25). A picture passes when it has the same texts in the same fonts and sizes, every position within a pixel at 100 % (24 units), and the same size. Windows first; the Mac's Word picture format is checked before the Mac is built. |
 | 2026-11-26 | A stretched glyph's font width (a wide tilde, hat or arc MathType stretches sideways) may differ from MathType's by one unit and still pass: the difference is invisible even at 1200 dpi. Unstretched texts keep exact font widths. |
 | 2026-11-26 | On Windows the MathType picture engine measures glyphs with Windows' own rasterizer (GDI GetGlyphOutline at 64 ppem, through `windows-sys`), as MathType does: Windows hints some glyphs a pixel apart from other TrueType interpreters. Other systems keep TexType's own hinting and raster. |
+| 2026-11-27 | A MathType picture also passes when its characters are grouped into texts differently from MathType's, as long as every character has the same font, size and position as MathType's (within a pixel): the grouping is not visible. |
 
 ## Earlier proposals, decided by the owner on 2026-11-24
 

@@ -228,7 +228,10 @@ impl Layout<'_> {
         let size = self.size;
         let ascent = self.text_em_ascent(size);
         let width = ascent / 2;
-        let edge = |ink| Edge::structure(ink, width, Class::Ordinary, size);
+        let edge = |ink| Edge {
+            joins: Joins::Empty,
+            ..Edge::structure(ink, width, Class::Ordinary, size)
+        };
         Block {
             first: Some(edge(0)),
             last: Some(edge(width)),

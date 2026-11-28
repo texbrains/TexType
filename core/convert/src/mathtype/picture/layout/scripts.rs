@@ -51,9 +51,15 @@ impl<'a> Layout<'a> {
                     .chain(lines)
                     .map(|i| (i.2, i.3))
                     .reduce(|a, b| (a.0.max(b.0), a.1.min(b.1)))
+                    // an empty line object (MathType's own chemistry: CH, an empty line, the subscript 3) by its box:
+                    // the text font's em ascent over the baseline (edited/mathtype7~oleObject27~after, probe-pc/eb-*)
+                    .or(Some((self.text_em_ascent(base_size), 0)))
             }
             _ => None,
         };
+        let empty_base = base.is_some()
+            && line.glyphs.len() == base_from
+            && line.lines.len() == line.last_lines_from;
         let (slots, _) = self.slots(template)?;
         let gap = self.spacing(SCRIPT_GAP, base_size);
         let mut right = None::<i32>;
@@ -106,7 +112,9 @@ impl<'a> Layout<'a> {
             // a function name keeps its space after its scripts, and so does an inner element (a fence:
             // probe-pc/fl-fence-sup-*, fl-frac-sup-*)
             let class = base.map_or(Class::Ordinary, |b| {
-                if matches!(b.class, Class::Function | Class::Inner) {
+                if empty_base {
+                    Class::Placeholder
+                } else if matches!(b.class, Class::Function | Class::Inner) {
                     b.class
                 } else {
                     Class::Ordinary
@@ -114,7 +122,7 @@ impl<'a> Layout<'a> {
             });
             // the script gap after them stands in for the plain gap (with no base, the plain gap stays)
             line.last = Some(Edge {
-                gap: base.is_none() || placeholder.is_some(),
+                gap: base.is_none() || placeholder.is_some() || empty_base,
                 joins: Joins::Scripts,
                 ..Edge::structure(right + self.script_room(base_size), end, class, base_size)
             });

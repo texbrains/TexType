@@ -3,7 +3,9 @@
 //! its MT Extra registration was repaired on 2026-11-26): a picture passes when it has the same size and the same
 //! texts in the same fonts and sizes (a stretched glyph's font width within one unit: owner's decision 2026-11-26),
 //! every character within a pixel at 100 % (24 units) of MathType's (a text's characters at its position plus the
-//! advances before them), the same lines, polygons and arcs. Pictures MathType draws wrongly itself are left out
+//! advances before them), the same lines, polygons and arcs. Characters grouped into texts otherwise than MathType
+//! groups them pass when each has its twin (owner's decision 2026-11-27: the grouping is not seen). Pictures MathType
+//! draws wrongly itself are left out
 //! (misdrawn.txt beside the corpus). Needs the fonts MathType's pictures name (Times New Roman, Symbol, MT Extra,
 //! the Euclid fonts ...).
 
@@ -236,6 +238,7 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
         ));
     }
     let mut texts: Vec<&serde_json::Value> = items.iter().filter(|i| i["kind"] == "text").collect();
+    let mut unmatched = Vec::new();
     for text in &ours.texts {
         let name = if text.face.name == "SimSun" {
             "\u{cb}\u{ce}\u{cc}\u{e5}".to_string()
@@ -269,10 +272,7 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
             .min_by_key(|(_, t)| distance(t))
             .map(|(i, _)| i)
         else {
-            problems.push(format!(
-                "ours {name} h{} w{} cs{} [{bytes}] at {},{} not in theirs",
-                text.height, text.width, text.charset, text.x, text.y
-            ));
+            unmatched.push((text, name.clone(), bytes.clone()));
             continue;
         };
         let t = texts.remove(at);
@@ -311,6 +311,17 @@ fn difference(ours: &Picture, theirs: &serde_json::Value) -> Option<String> {
                 text.y, t["y"]
             ));
         }
+    }
+    // the texts left over: the same characters grouped otherwise pass (each its twin within a pixel)
+    if !regrouped(&unmatched, &texts) {
+        for (text, name, bytes) in &unmatched {
+            problems.push(format!(
+                "ours {name} h{} w{} cs{} [{bytes}] at {},{} not in theirs",
+                text.height, text.width, text.charset, text.x, text.y
+            ));
+        }
+    } else {
+        texts.clear();
     }
     for t in texts {
         problems.push(format!(
@@ -561,6 +572,62 @@ fn read_wmf(data: &[u8]) -> Picture {
 
 /// Whether two font widths pass: equal, or both a stretched glyph's (not 0) within one unit (owner's decision
 /// 2026-11-26: the difference is invisible).
+/// One drawn character: font, bold, italic, height, width, character set, byte, x, y.
+struct Glyph(String, bool, bool, i64, i64, i64, u8, i64, i64);
+
+/// Whether our texts and theirs hold the same characters, each within a pixel of its twin, however grouped.
+fn regrouped(ours: &[(&picture::Text, String, String)], theirs: &[&serde_json::Value]) -> bool {
+    let mut mine = Vec::new();
+    for (text, name, _) in ours {
+        let mut x = i64::from(text.x);
+        for (&byte, &advance) in text.bytes.iter().zip(&text.advances) {
+            let (f, h, w, cs) = (text.face.bold, text.height, text.width, text.charset);
+            let i = text.face.italic;
+            mine.push(Glyph(
+                name.clone(),
+                f,
+                i,
+                h.into(),
+                w.into(),
+                cs.into(),
+                byte,
+                x,
+                text.y.into(),
+            ));
+            x += i64::from(advance);
+        }
+    }
+    let mut others = Vec::new();
+    for t in theirs {
+        let mut x = t["x"].as_i64().unwrap();
+        let bytes = t["bytes"].as_str().unwrap().split_whitespace();
+        for (byte, advance) in bytes.zip(t["dx"].as_array().unwrap()) {
+            others.push(Glyph(
+                t["font"].as_str().unwrap().to_string(),
+                t["weight"].as_i64().unwrap() >= 700,
+                t["italic"].as_i64().unwrap() != 0,
+                t["height"].as_i64().unwrap(),
+                t["width"].as_i64().unwrap_or(0),
+                t["charset"].as_i64().unwrap(),
+                u8::from_str_radix(byte, 16).unwrap(),
+                x,
+                t["y"].as_i64().unwrap(),
+            ));
+            x += advance.as_i64().unwrap();
+        }
+    }
+    mine.len() == others.len()
+        && mine.iter().all(|m| {
+            let twin = others.iter().position(|o| {
+                (&o.0, o.1, o.2, o.3, o.5, o.6) == (&m.0, m.1, m.2, m.3, m.5, m.6)
+                    && same_width(o.4, m.4)
+                    && (o.7 - m.7).abs() <= PIXEL
+                    && (o.8 - m.8).abs() <= PIXEL
+            });
+            twin.map(|at| others.remove(at)).is_some()
+        })
+}
+
 fn same_width(theirs: i64, ours: i64) -> bool {
     theirs == ours || (theirs != 0 && ours != 0 && (theirs - ours).abs() <= 1)
 }

@@ -623,7 +623,9 @@ impl<'a> Layout<'a> {
         let main = slots.next().flatten().unwrap_or_default();
         let (lower, upper) = (slots.next().flatten(), slots.next().flatten());
         let top = self.slot_top(&main);
-        let block = self.limits(main, lower, upper, top, size);
+        let mut block = self.limits(main, lower, upper, top, size, true);
+        // the frame keeps the main part's baseline (= under a label: probe-pc/lo-eq-*, writer/layout-wide-0427)
+        block.reserved_bottom = Some(block.reserved_bottom.map_or(0, |r| r.min(0)));
         line.append(block, self.gaps());
         Ok(())
     }
@@ -643,10 +645,16 @@ impl<'a> Layout<'a> {
         let (lower, upper) = (slots.next().flatten(), slots.next().flatten());
         // the sign: its slot, or the template's characters; a composite sign (∯: a ring and two integrals) has the
         // others one advance after another and MT Extra's ring centred on them
-        let mut sign = slots
-            .next()
-            .flatten()
-            .unwrap_or_else(|| composite_sign(chars));
+        let sign_slot = slots.next().flatten();
+        let composite = sign_slot.is_none() && chars.len() > 1;
+        let mut sign = sign_slot.unwrap_or_else(|| composite_sign(chars));
+        // a composite sign's operand 2/64 em further (fitted: exact at 10 and 12 pt for two and three integrals,
+        // edited/mathtype7~oleObject7~after, probe-pc/op-*; at 24 pt MathType adds 10 units, op-*-size-24)
+        let composite_room = if composite {
+            Measure::scaled(2, size)
+        } else {
+            0
+        };
         let mut centred = Block::default();
         // the old templates (15-20) take the sign by its drawn ink, centred on the math axis or on their operand's
         // ink where that is taller; the others by MathType's box for it, on the axis
@@ -703,7 +711,7 @@ impl<'a> Layout<'a> {
                 .map_or(0, |d| d.2)
                 .max(outline_top.unwrap_or(i32::MIN));
             let no_upper = upper.is_none();
-            let mut block = self.limits(centred, lower, upper, top, size);
+            let mut block = self.limits(centred, lower, upper, top, size, false);
             // without an upper limit a sign keeps no height beyond its ink
             if no_upper {
                 block.reserved = None;
@@ -722,7 +730,7 @@ impl<'a> Layout<'a> {
         // (setting 19) after the operator; one written after the template joins it
         if let Some(operand) = operand.filter(|o| !o.glyphs.is_empty()) {
             // (the minimum gap's setting, unrounded here: rounding it breaks MathType's own equations)
-            let width = plain_gap(size) + self.spacing(MINIMUM_GAP, size);
+            let width = plain_gap(size) + self.spacing(MINIMUM_GAP, size) + composite_room;
             let edge = |ink| Edge::structure(ink, width, Class::Space, size);
             line.append(
                 Block {
@@ -733,6 +741,15 @@ impl<'a> Layout<'a> {
                 gaps,
             );
             line.append(operand, gaps);
+            // what follows spaces against the operand's ink as after an enclosure: a letter with no plain gap, a
+            // digit or a sign with it (edited/mathtype7~oleObject7~after; probe-pc/op-*)
+            if let Some(edge) = &mut line.last {
+                let class = edge.class;
+                *edge = Edge {
+                    class,
+                    ..Edge::enclosure(edge.ink, edge.size)
+                };
+            }
         }
         Ok(())
     }
@@ -808,9 +825,21 @@ impl<'a> Layout<'a> {
         upper: Option<Block>,
         main_top: i32,
         size: i32,
+        limit_template: bool,
     ) -> Block {
         let (ml, mr, _, mb) = main.ink().unwrap_or((0, 0, 0, 0));
-        let width = |b: &Block| b.ink().map_or(0, |i| i.1 - i.0);
+        // a limit template's main part reaches its baseline at least (= under a limit: probe-pc/lo-eq-under-*), and
+        // a part ending in scripts is as wide as their room after them (H with subscript 2 over =: lo-eq-over-hsub)
+        let mb = if limit_template { mb.min(0) } else { mb };
+        let width = |b: &Block| {
+            b.ink().map_or(0, |i| {
+                let right = b
+                    .last
+                    .filter(|_| limit_template)
+                    .map_or(i.1, |l| l.ink.max(i.1));
+                right - i.0
+            })
+        };
         let widest = [Some(&main), lower.as_ref(), upper.as_ref()]
             .into_iter()
             .flatten()
@@ -819,6 +848,16 @@ impl<'a> Layout<'a> {
             .unwrap_or(0);
         let mut block = Block::default();
         let centred = |b: &Block| (widest - width(b)) / 2 - b.ink().map_or(0, |i| i.0);
+        // (and the frame keeps that room: lo-eq-over-hsub)
+        let keep_room = |mut b: Block| {
+            if let (true, Some(last), Some(ink)) = (limit_template, b.last, b.ink()) {
+                if last.ink > ink.1 {
+                    b.boxes.push((last.ink, last.ink, 0, 0));
+                }
+            }
+            b
+        };
+        let (lower, upper) = (lower.map(keep_room), upper.map(keep_room));
         block.reserved = Some(main_top);
         block.take(main, centred_main(widest, ml, mr), 0);
         if let Some(lower) = lower {
@@ -842,7 +881,13 @@ impl<'a> Layout<'a> {
             // its em box at least the minimum gap over the main part's top, its ink the plain gap
             let gap = self.minimum_gap(upper_size);
             let ink_gap = plain_gap(upper_size);
-            let dy = main_top + descent.max(gap).max(-ub + ink_gap);
+            // (a limit template's: a quarter of the limit's size at least (the limit height), its ink the minimum gap
+            // over the main part's em top: probe-pc/lo-*, writer/mhchem-0625, layout-wide-0431)
+            let dy = if limit_template {
+                main_top + self.spacing(LIMIT_HEIGHT, upper_size).max(-ub + gap)
+            } else {
+                main_top + descent.max(gap).max(-ub + ink_gap)
+            };
             let dx = centred(&upper);
             let top = dy + self.slot_top(&upper);
             block.reserved = Some(top);
